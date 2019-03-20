@@ -1,9 +1,25 @@
+var menu_ativo = false;
 $(".click_trigger").click(function(){
-    $(".sub_menu").slideToggle(200);
+
+    if(menu_ativo){
+
+        $(".sub_menu").slideUp(200, function(){
+            $(".redes_socias").fadeIn(5);
+        });
+        
+        menu_ativo = false;
+    }
+    else{
+
+        $(".redes_socias").fadeOut(5, function(){
+            $(".sub_menu").slideDown(200);
+        });
+
+        menu_ativo = true;
+    }   
 });
 
 var chat_ativo = false;
-
 $("#btn_chat").click(function(){
 
     if (chat_ativo){
