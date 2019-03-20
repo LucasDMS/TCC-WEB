@@ -19,12 +19,12 @@ body {
 
 @font-face {
 	font-family: Divinne;
-	src: url(../_fonts/Postface.otf);
+	src: url(../fonts/Postface.otf);
 }
 
 @font-face {
 	font-family: Divinne;
-	src: url(../_fonts/Postface.ttf);
+	src: url(../fonts/Postface.ttf);
 }
 
 /* == HEADER == */
