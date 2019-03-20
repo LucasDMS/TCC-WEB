@@ -1,0 +1,10 @@
+.section_resumos{
+    min-height: 200px;
+    margin: auto;
+    padding: 16px;
+    background: #40e079;
+}
+
+.section_resumos h2{
+    color: #fff;
+}
