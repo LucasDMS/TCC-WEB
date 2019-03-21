@@ -1,0 +1,90 @@
+/*
+
+CSS PÁGINA PRODUTOS
+
+*/
+
+.section_produtos{
+    min-height: 500px;
+    background: linear-gradient( -45deg, #1fa686, #35cd7d);
+	background-color: #f0f8ff;
+	margin: auto;
+}
+
+.produtos_container{
+    margin: auto;
+}
+
+.produto_conteudo{
+    min-height: 10px;
+    width: 1300px;
+    margin: auto;
+    padding: 15px 0;
+}
+
+.produto_esquerda{
+    background-color: #f0f8ff;
+}
+
+.produto{
+    min-height: 100px;
+    width: 100%;
+}
+
+.produto h3{
+    text-align: center;
+    padding: 16px;
+    font-size: 42px;
+}
+
+.produto_info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.produto_desc{
+    width: 60%;
+}
+
+.produto_info p{
+    width: 650px;
+    margin: auto;
+    text-align: justify;
+    padding-bottom: 25px;
+}
+
+.tabela_nutricional{
+    /*height: 150px;
+    width: 170px;
+    text-align: center;*/
+
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 650px;
+    text-align: center;
+    margin: auto;
+}
+
+.tabela_nutricional td, .tabela_nutricional th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+td{
+    background-color: #f0f8ff;
+}
+
+.tabela_nutricional tr:nth-child(even){background-color: #c0c0c0;}
+.tabela_nutricional tr:hover {background-color: rgb(158, 156, 156);}
+
+.tabela_nutricional th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #1fa686;
+    color: white;
+}
+
+.produto_info img{
+
+}

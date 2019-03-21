@@ -1,0 +1,138 @@
+
+.section_destaque {
+	min-height: 500px;
+	width: 1300PX;
+    margin: auto;
+    padding: 35px 0;
+    text-align: justify;
+}
+
+.form_pesquisa {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.form_pesquisa_input {
+	height: 45px;
+	width: 350px;
+	border-radius: 10px;
+	border: 2px solid #feba00;
+	padding-left: 15px;
+	outline: none;
+	box-shadow: 0px 0px 5px 0px #feba00;
+}
+
+.form_pesquisa_submit {
+	height: 45px;
+	width: 45px;
+	background-color: #2d2f30;
+	margin-left: 10px;
+	box-shadow: 0px 0px 5px 0px #6d6d6d;
+	border-radius: 10px;
+	transition: .2s;
+	text-align: center;
+}
+
+.form_pesquisa_submit i {
+	line-height: 45px;
+	font-size: 25px;
+	color: #feba00;
+	transition: .2s;
+}
+
+.form_pesquisa_submit i:hover {
+	cursor: pointer;
+	transform: scale(1.15);
+}
+
+.destaques_container {
+	padding: 35px;
+	min-height: 400px;
+	width: 100%;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.destaques_img {
+	min-height: 100px;
+	width: 400px;
+}
+
+.destaques_texto {
+	min-height: 100px;
+	width: 400px;
+	padding: 16px;
+	font-size: 18px;
+}
+
+.destaques_texto h3 {
+	text-align: center;
+	padding: 16px;
+	font-size: 28px;
+}
+
+.sub_menu_lateral {
+	height: 100%;
+	width: 350px;
+	padding: 16px 0;
+}
+
+.enquete {
+	min-height: 200px;
+	width: 100%;
+	padding: 16px;
+	background-color: #2d2f30;
+	color: #fff;
+	border-top-left-radius: 15px;
+	margin-bottom: 16px;
+}
+
+.news_letter {
+	min-height: 100px;
+	width: 100%;
+	background-color: #feba00;
+	padding: 16px;
+}
+
+.section_resumos{
+    min-height: 200px;
+    margin: auto;
+    padding: 35px;
+    background-color: #feba00;
+}
+
+.section_resumos h2{
+    color: #fff;
+}
+
+
+.resumos_container{
+    min-height: 10px;
+    width: 1300px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.resumo{
+    min-height: 100px;
+    width: 390px;
+    margin: 20px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    padding: 45px 30px;
+    text-align: justify;
+}
+
+.section_sustentabilidade{
+    padding: 35px;
+}
+
+.section_sustentabilidade{
+    width: 1000px;
+    margin: auto;
+}

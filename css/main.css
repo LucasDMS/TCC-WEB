@@ -1,0 +1,295 @@
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, p {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+@font-face {
+	font-family: Divinne;
+	src: url(../fonts/Postface.otf);
+}
+
+@font-face {
+	font-family: Divinne;
+	src: url(../fonts/Postface.ttf);
+}
+
+/* == HEADER == */
+
+.header {
+	height: 120px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+}
+
+.navegacao {
+	height: 80px;
+	background-color: #2d2f31;
+	padding: 0 32px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	box-shadow: 0px 0px 5px 0px #6d6d6d;
+}
+
+/* == NAV - BARRA DE CIMA == */
+
+.navegacao i {
+	color: #feba00;
+	font-size: 34px;
+	line-height: 80px;
+	transition: .2s;
+}
+
+.navegacao i:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.logo {
+	display: block;
+	height: 29px;
+	width: 109px;
+	padding-top: 20px; 
+}
+
+/* == REDES SOCIAIS == */
+
+.redes_socias {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 16px;
+}
+
+.redes_socias a {
+	background-color: #2d2f31;
+	height: 40px;
+	width: 50px;
+	text-align: center;
+	padding: 10px;
+	margin-left: 10px;
+	border-bottom-left-radius: 10px;
+	transition: .2s;
+}
+
+.redes_socias a:hover {
+	padding-top: 15px;
+	height: 45px;
+}
+
+.redes_socias i {
+	font-size: 22px;
+	color: #feba00;
+}
+
+.espacador{
+	height: 80px;
+	width: 100%;
+}
+
+/* == SUB MENU == */
+
+.menu_lateral{
+	height: 100%;
+	width: 50px;
+	position: fixed;
+	background-color: red;
+}
+
+.menu_esquerda{
+	float: left;
+}
+
+.menu_direita{
+	float: right;
+}
+
+.sub_menu {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 350px;
+	background-color: #464747;
+}
+
+.sub_menu_container{
+	height: 100%;
+	width: 1100px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.sub_menu_item{
+
+}
+
+/* ==  == */
+
+.section_principal {
+	min-height: 900px;
+	width: 100%;
+	background: #40e079 url(../img/hm.jpg);
+	margin: auto;
+}
+
+.section_principal h2{
+	display: none;
+}
+
+section h2 {
+	text-align: center;
+	font-size: 42px;
+	padding-bottom: 35px;
+	font-family: Divinne;
+}
+
+.section_header{
+	padding: 35px;
+}
+
+.section_header h2{
+	padding-top: 0px;
+}
+
+.section_header p{
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+/* == CHAT - BOT == */
+
+.btn_chat_bot {
+	height: 48px;
+	width: 48px;
+	background-color: #2d2f30;
+	position: fixed;
+	right: 16px;
+	bottom: 16px;
+	box-shadow: 0px 0px 5px 0px #6d6d6d;
+	border-radius: 15px;
+	border-top-right-radius: 0px;
+	text-align: center;
+	transition: .3s;
+}
+
+.btn_chat_bot i {
+	line-height: 45px;
+	font-size: 28px;
+	color: #feba00;
+	transition: .2s;
+}
+
+.btn_chat_bot i:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.chat_container {
+	background-color: #ececec;
+	height: 85%;
+	width: 90%;
+	margin: auto;
+	display: none;
+	border-radius: 15px;
+}
+
+.chat_messages {
+	height: 90%;
+}
+
+.chat_input {
+	height: 10%;
+}
+
+/* == FOOTER == */
+
+footer {
+	min-height: 50px;
+	width: 100%;
+	background-color: #2d2f31;
+}
+
+/* == FOOTER - PRINCIPAL == */
+
+.footer_principal {
+	height: 80%;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+}
+
+.footer_container {
+	width: 1000px;
+	height: 100%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+.footer_container div {
+	height: 150px;
+	width: 230px;
+}
+
+.footer_container h4 {
+	padding-bottom: 18px;
+}
+
+.footer_container li {
+	margin-bottom: 2px;
+}
+
+/* == FOOTER - SECUNDÁRIO == */
+
+.footer_secundario {
+	height: 20%;
+	width: 100%;
+	background-color: #1c1c1d;
+}
+
+.footer_secundario p {
+	font-size: 16px;
+	display: block;
+	padding: 10px;
+	height: 100%;
+	width: 100%;
+	color: #666;
+	text-align: center;
+}
+
+.ic_coracao {
+	padding: 0 3px;
+	font-size: 15px;
+	color: #ff004c;
+}
+
+.footer_secundario a {
+	padding: 0 3px;
+	color: #888;
+}
+
+.footer_secundario span {
+	font-weight: bold;
+}
