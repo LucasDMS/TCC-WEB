@@ -1,19 +1,54 @@
-var menu_esquerda = false;
-var menu_direita  = false;
+var menu_esquerda_ativo = false;
+var menu_direita_ativo  = false;
 
+/**
+ * 
+ * Parametro vem como *.menu_esquerda* ou *.menu_direita* 
+ */
 function abrirMenu(menu){
 
-    if(menu == "esquerda"){
+    if(menu == ".menu_esquerda"){
 
-        $(".menu_esquerda");
+        if(menu_esquerda_ativo){
+
+            $(menu).animate({width:0});
+            menu_esquerda_ativo = false;
+        }
+        else{
+
+            $(menu).animate({width:350});
+            menu_esquerda_ativo = true;
+        }
     }
-    else if(menu === "direita"){
-        
-        $(".menu_direita");
+    else if(menu === ".menu_direita"){
+
+        if(menu_direita_ativo){
+
+            $(menu).animate({width:0});
+            menu_direita_ativo = false;
+        }
+        else{
+
+            $(menu).animate({width:350});
+            menu_direita_ativo = true;
+        }
     }
 }
 
+function abrirLogin(){
 
+    setTimeout(function(){
+
+        $.ajax({
+            url: "login.html"
+        })
+        .done(function(html){
+
+            $(".menu_direita_container").html(html);
+        })
+
+    }, 500);
+}
 
 var menu_ativo = false;
 $(".click_trigger").click(toggleMenu);
@@ -28,7 +63,6 @@ function toggleMenu(){
     else{
 
         $(".sub_menu").toggle("slide");
-
         menu_ativo = true;
     }   
 }

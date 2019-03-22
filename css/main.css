@@ -4,16 +4,12 @@ body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer,
 	padding: 0;
 }
 
-html{
-	scroll-behavior: smooth;
-}
-
-ul, ol {
+ul, ol, li{
 	list-style: none;
 }
 
 a {
-	color: #fff;
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -34,32 +30,26 @@ body {
 /* == HEADER == */
 
 .header {
-	height: 120px;
+	height: 80px;
 	width: 100%;
 	position: fixed;
-	top: 0;
-}
-
-.navegacao {
-	height: 80px;
-	background-color: #2d2f31;
-	padding: 0 32px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	box-shadow: 0px 0px 5px 0px #6d6d6d;
+	top: 0;
+	z-index: 999;
 }
 
-/* == NAV - BARRA DE CIMA == */
-
-.navegacao i {
-	color: #feba00;
-	font-size: 34px;
+.header i {
+	height: 80px;
+	width: 80px;
 	line-height: 80px;
+	text-align: center;
+	font-size: 34px;
 	transition: .2s;
 }
 
-.navegacao i:hover{
+.header i:hover{
 	cursor: pointer;
 	transform: scale(1.1);
 }
@@ -74,6 +64,9 @@ body {
 /* == REDES SOCIAIS == */
 
 .redes_socias {
+	width: 100%;
+	position: fixed;
+	top: 80px;
 	display: flex;
 	justify-content: flex-end;
 	padding: 0 16px;
@@ -97,7 +90,6 @@ body {
 
 .redes_socias i {
 	font-size: 22px;
-	color: #feba00;
 }
 
 .espacador{
@@ -109,37 +101,50 @@ body {
 
 .menu_lateral{
 	height: 100%;
-	width: 50px;
+	width: 0;
 	position: fixed;
-	background-color: red;
+	background-color: rgba(68, 70, 71, 0.95);
+	margin-top: 80px;
 }
 
 .menu_esquerda{
-	float: left;
+	left: 0;
 }
 
 .menu_direita{
-	float: right;
+	right: 0;
 }
 
-.sub_menu {
-	display: none;
-	position: fixed;
-	height: 100%;
-	width: 350px;
-	background-color: #464747;
+.menu_esquerda_container{
+	overflow: hidden;
 }
 
-.sub_menu_container{
-	height: 100%;
-	width: 1100px;
-	margin: auto;
+.menu_esquerda_container li{
+	padding: 5px;
+	background-color: rgba(46, 46, 65, 0.205);
+	margin-bottom: 10px;
+}
+
+.menu_esquerda_container li:hover{
+	padding: 5px;
+	background-color: rgba(0, 0, 206, 0.822);
+	margin-bottom: 10px;
+}
+
+.menu_direita_container{
+	margin-top: 150px;
+	overflow: hidden;
+}
+
+.menu_direita_container .icon{
+	
+	color: #feba00;
+	font-size: 34px;
+	line-height: 80px;
+	transition: .2s;
 	display: flex;
-	justify-content: space-between;
-}
-
-.sub_menu_item{
-
+	justify-content: center;
+	align-items: center;
 }
 
 /* ==  == */
@@ -181,13 +186,12 @@ section h2 {
 .btn_chat_bot {
 	height: 48px;
 	width: 48px;
-	background-color: #2d2f30;
+	background-color: #2d2f31;
 	position: fixed;
 	right: 16px;
 	bottom: 16px;
 	box-shadow: 0px 0px 5px 0px #6d6d6d;
-	border-radius: 15px;
-	border-top-right-radius: 0px;
+	border-radius: 10px 0 10px 10px;
 	text-align: center;
 	transition: .3s;
 }
@@ -239,7 +243,7 @@ footer {
 }
 
 .footer_container {
-	width: 1000px;
+	max-width: 1000px;
 	height: 100%;
 	margin: auto;
 	display: flex;
@@ -292,4 +296,40 @@ footer {
 
 .footer_secundario span {
 	font-weight: bold;
+}
+
+/* == PADRÃO FORMULÁRIOS */
+
+.a{
+
+}
+
+.a:hover{
+	color: #feba00;
+	text-decoration: underline;
+}
+
+.text{
+	display: block;
+	margin-bottom: 15px;
+	height: 45px;
+	width: 100%;
+	border: 2px solid #feba00;
+	border-radius: 15px 2px 15px 15px;
+    box-sizing: border-box;
+}
+
+.submit{
+	height: 45px;
+	width: 80%;
+	margin: auto;
+	border: none;
+	border-radius: 15px 2px 15px 15px;
+	font-size: 20px;
+	background-color: #feba00;
+}
+
+.submit:hover{
+	cursor: pointer;
+	background-color: #dba81b;
 }
