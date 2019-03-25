@@ -56,9 +56,12 @@ body {
 
 .logo {
 	display: block;
-	height: 29px;
-	width: 109px;
-	padding-top: 20px; 
+	height: 100%;
+	width: 115px;
+	text-align: center;
+	font-size: 45px;
+	line-height: 85px;
+	font-family: Divinne;
 }
 
 /* == REDES SOCIAIS == */
@@ -121,14 +124,12 @@ body {
 
 .menu_esquerda_container li{
 	padding: 5px;
-	background-color: rgba(46, 46, 65, 0.205);
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .menu_esquerda_container li:hover{
-	padding: 5px;
+	cursor: pointer;
 	background-color: rgba(0, 0, 206, 0.822);
-	margin-bottom: 10px;
 }
 
 .menu_direita_container{
@@ -148,6 +149,10 @@ body {
 }
 
 /* ==  == */
+
+main{
+	height: auto;
+}
 
 .section_principal {
 	min-height: 900px;

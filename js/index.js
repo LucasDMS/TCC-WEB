@@ -40,7 +40,7 @@ function abrirLogin(){
     setTimeout(function(){
 
         $.ajax({
-            url: "login.html"
+            url: "pages/login.html"
         })
         .done(function(html){
 
@@ -130,9 +130,10 @@ function mostrarChat(ativo){
     }
 }
 
-function request(element){
+function request(event, element){
+    event.preventDefault();
 
-    var url = element.dataset.url;
+    var url = element.href;
 
     $.ajax({
         type: "GET",

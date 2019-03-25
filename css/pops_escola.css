@@ -1,0 +1,138 @@
+
+
+/* centralizar */
+.center_div{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* controla todo o conteudo */
+.tabela_principal{
+    width: 1300px;
+    height: 2150px;
+}
+
+
+.tbl_escola_fundo{
+    width: 1300px;
+    height: 1850px;
+    margin-top: 80px;
+    float: left;
+    background-color: white;
+}
+
+h2 {
+	text-align: center;
+	font-size: 40px;
+	font-family: Divinne;
+}
+
+/*PESQUISA*/
+.form_pesquisa {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.form_pesquisa_input {
+	height: 50px;
+	width: 350px;
+	border-radius: 10px;
+	border: 2px solid #ffc700;
+	padding-left: 15px;
+	outline: none;
+	box-shadow: 0px 0px 5px 0px #ffc700;
+}
+
+.form_pesquisa_submit {
+	height: 50px;
+	width: 50px;
+	background-color: #2d2f30;
+	margin-left: 10px;
+	box-shadow: 0px 0px 5px 0px #6d6d6d;
+	border-radius: 10px;
+	transition: .2s;
+	text-align: center;
+}
+
+.form_pesquisa_submit i {
+	line-height: 50px;
+	font-size: 25px;
+	color: #ffc700;
+	transition: .2s;
+}
+
+.form_pesquisa_submit i:hover {
+	cursor: pointer;
+	transform: scale(1.15);
+}
+
+/*escola*/
+.tbl_fundo_escola{
+    width: 1300px;
+    height: 1400px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around; 
+}   
+
+.imagem_escola{
+    width: 300px;
+    height: 400px;
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-top: 150px;
+    float: left;
+    box-shadow: 0px 0px 10px 10px #ffc700;
+	border-radius: 10px;
+    
+}
+
+.conteudo_escola{
+    width: 352px;
+    height: 401px;
+    background-color: white;
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -405px;
+    z-index: 999;
+    box-shadow: 0px 0px 10px 10px #ffc700;
+	border-radius: 10px;
+}
+
+.titulo_conteudo{
+    width: 300px;
+    height: 20px;
+    background-color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 22px;
+    font-family: Divinne;
+}
+
+.descricao_conteudo{
+    width: 270px;
+    height: 160px;
+    background-color: white;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+#img_1, #img_2, #img_3, #img_4, #img_5, #img_6, #img_7, #img_8, #img_9{
+    display: none;
+}
+
+.nome_escola{
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    margin-top: 30px;
+    font-family: Divinne;
+}
