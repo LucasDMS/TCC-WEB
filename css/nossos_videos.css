@@ -1,0 +1,94 @@
+/* centralizar */
+.center_div{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tabela_principal{
+    width: 1300px;
+    height: 2210px;
+    background-color: white;
+}
+
+.tbl_video_fundo{
+    width: 1300px;
+    height: 2130px;
+    margin-top: 80px;
+    float: left;
+    background-color: white; 
+}
+
+.titulo_video{
+    width: 1300px;
+    height: 50px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 50px;
+    font-family: Divinne;
+}
+
+.descricao_video_cima{
+    width: 1300px;
+    height: 250px;
+    background-color: white;
+    font-size: 30px;
+    font-family: Divinne;
+}
+
+.video_fundo{
+    width: 1300px;
+    height: 600px;
+    background-color: white;
+}
+
+.descricao_video_baixo{
+    width: 1300px;
+    height: 250px;
+    background-color: white;
+    font-size: 30px;
+    font-family: Divinne;
+}
+
+.titulo_mais{
+    width: 1300px;
+    height: 80px;
+    background-color: white;
+    text-align: center;
+    padding-top:20px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.tbl_principal_video{
+    width: 1300px;
+    height: 850px;
+    background-color: white;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mais_videos_fundo{
+    width: 300px;
+    height: 300px;
+    margin-left: 100px;
+    margin-top: 50px;
+    float: left;
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+.titulo_empresa{
+    width: 300px;
+    height: 30px;
+    background-color: white;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 20px;
+}

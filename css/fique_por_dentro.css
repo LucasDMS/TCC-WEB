@@ -1,0 +1,139 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.centerdiv{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+.linha{
+    width: 100%;
+    height: 420px;
+    padding-top: 30px;
+    background-color: #ffc700;
+}
+
+
+
+.linha_um{
+    width: 100%;
+    height: 820px;
+    background-color: #f9f9f9;
+}
+
+.coluna_noticias{
+    width: 1200px;
+    min-height: 370px;
+    height: auto;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.img_noticias{
+    width: 360px;
+    height: 360px;
+    background-image: url(../img/refrigerante_coca_cola_350ml.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    border-radius: 10px;
+}
+
+.titulo_descricao_noticia{
+    width: 825px;
+    min-height: 360px;
+    height: auto;
+    float: left;
+}
+
+.titulo_descricao{
+    width: 825px;
+    min-height: 50px;
+    height: auto;
+    font-size: 40px;
+    text-align: center;
+    font-family: verdana;
+}
+
+.descricao_noticias{
+    width: 820px;
+    height: 305px;
+    margin-top: 5px;
+    margin-left: 4px;
+    font-size: 20px;
+    overflow: auto;
+    font-family: verdana;
+}
+
+/*/////////////////*/
+
+.linha_noticias2{
+    width: 1300px;
+    min-height: 650px;
+    height: auto;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.coluna_noticias2{
+    width: 410px;
+    min-height: 750px;
+    height: auto;
+    float: left;
+    margin-left: 13px;
+    margin-right: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.img_noticias2{
+    width: 300px;
+    height: 300px;
+    background-image: url(../img/refrigerante_coca_cola_350ml.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.titulo_descricao2{
+    width: 400px;
+    min-height: 60px;
+    height: auto;
+    margin-top: 10px;
+    font-size: 40px;
+    text-align: center;
+    font-family: verdana;
+}
+
+.descricao_noticias2{
+    width: 400px;
+    min-height: 350px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 4px;
+    font-size: 18px;
+    font-family: verdana;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

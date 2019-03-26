@@ -15,28 +15,28 @@
 	<link media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="fonts/font_awesome/css/all.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 	<style>
 		/* PALHETA DE CORES DO SITE */
 		/* COR DE BACKGROUND */
-		.cor_fundo_1{background-color: #1c1c1d;}
-		.cor_fundo_2{background-color: #feba00;}
-		.cor_fundo_3{background-color: #ffffff;}
-		.cor_fundo_4{background-color: #2d2f31;}
+		.cor_fundo_1{background-color: #09a552;}
+		.cor_fundo_2{background-color: #ffdd00;}
+		.cor_fundo_3{background-color: #e70c2c;}
+		.cor_fundo_4{background-color: #ffffff;}
 		.cor_fundo_5{background-color: red;}
 		/* COR DE LETRA */
-		.cor_letra_1{color: #1c1c1d;}
-		.cor_letra_2{color: #feba00;}
-		.cor_letra_3{color: #ffffff;}
-		.cor_letra_4{color: #2d2f31;}
+		.cor_letra_1{color: #09a552;}
+		.cor_letra_2{color: #ffdd00;}
+		.cor_letra_3{color: #e70c2c;}
+		.cor_letra_4{color: #ffffff;}
 		.cor_letra_5{color: red;}
 	</style>
 </head>
 
 <body>
 	<!-- CABEÇALHO -->
-	<header class="header cor_fundo_1 cor_letra_2">
+	<header class="header cor_fundo_1 cor_letra_4">
 		<i class="fas fa-bars" onclick="abrirMenu('.menu_esquerda')"></i>
 
 		<a class="logo" href="pages/home.html" onclick="request(event, this)">
@@ -67,11 +67,12 @@
 
 			<nav class="cor_letra_3">
 				<ul id="menu_navegacao">
+					<li><a href="pages/home.html"		  	  onclick="request(event, this)">Página Inicial</a></li>
 					<li><a href="pages/produtos.html"		  onclick="request(event, this)">Produtos</a></li>
 					<li><a href="pages/promocoes.html"		  onclick="request(event, this)">Promoções</a></li>
 					<li><a href="pages/fique_por_dentro.html" onclick="request(event, this)">Fique por dentro</a></li>
-					<li><a href="pages/nossa_historia.html"	  onclick="request(event, this)">Hisória da empresa</a></li>
-					<li><a href="pages/missao_valores.html"	  onclick="request(event, this)">Missão, visão e valores</a></li>
+					<li><a href="pages/nossa_historia.html"	  onclick="request(event, this)">Nossa história</a></li>
+					<li><a href="pages/missao_visao_valores.html"	  onclick="request(event, this)">Missão, visão e valores</a></li>
 					<li><a href="pages/pops_escola.html"	  onclick="request(event, this)">POP's na escola com você</a></li>
 					<li><a href="pages/nossos_videos.html"	  onclick="request(event, this)">Nossos vídeos</a></li>
 					<li><a href="pages/eventos.html"		  onclick="request(event, this)">Próximos eventos</a></li>

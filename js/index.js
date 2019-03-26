@@ -137,7 +137,11 @@ function request(event, element){
 
     $.ajax({
         type: "GET",
-        url: url
+        url: url,
+        beforeSend: function(){
+            console.log('colocar loader aq');
+            
+        }
     })
     .done(function(dados){
 

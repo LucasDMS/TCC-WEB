@@ -1,0 +1,113 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.centerdiv{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.cor_da_linha_um{
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+    background-color: black;
+    overflow: hidden;
+    color: white;
+}
+
+
+.linha_missao_valor_visao{
+    width: 1300px;
+    min-height: 500px;
+    height: auto;
+    background-color: black;
+    overflow: hidden;
+}
+
+.missao_valor_visao{
+    width: 413px;
+    min-height: 500px;
+    height: auto;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+
+}
+
+.img_missao_visao_valor{
+    width: 300px;
+    height: 300px;
+    margin-top: 100px;
+    background-color: #ffc700;
+    border: 1px solid black;
+    border-radius: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img_missao_visao_valor:hover{
+    width: 320px;
+    height: 320px;
+}
+                
+.cor_da_linha_dois{
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+    background-color: #ffc700;
+    overflow: hidden;
+}
+
+.linha2_missao_valor_missao{
+    width: 1300px;
+    min-height: 500px;
+    height: auto;
+    overflow: hidden;
+}
+
+       
+.titulo{
+    width: 1300px;
+    min-height: 100px;
+    height: auto;
+    font-size: 60px;
+    font-family: verdana;
+    text-align: center;
+    overflow: hidden;
+}
+            
+.descricao{
+    width: 1300px;
+    min-height: 350px;
+    height: auto;
+    margin-top: 30px;
+    font-family: verdana;
+    font-size: 30px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+
+.img_missao{
+    background-image: url(../img/iconfinder_Target_icon_2315605.png);
+    background-size: cover;
+}
+
+.img_visao{
+    background-image: url(../img/iconfinder_view-show_3671905.png);
+    background-size: 200px;
+}
+
+.img_valor{
+    background-image: url(../img/iconfinder_money_172506.png);
+    background-size: auto;
+}
+
+
+

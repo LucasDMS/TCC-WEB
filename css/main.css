@@ -106,7 +106,7 @@ body {
 	height: 100%;
 	width: 0;
 	position: fixed;
-	background-color: rgba(68, 70, 71, 0.95);
+	background-color: rgb(0, 0, 0,.9);
 	margin-top: 80px;
 }
 
@@ -123,13 +123,16 @@ body {
 }
 
 .menu_esquerda_container li{
+	font-family: sans-serif;
+	font-size: 22px;
+	color: #feba00;
 	padding: 5px;
 	margin-bottom: 5px;
 }
 
 .menu_esquerda_container li:hover{
 	cursor: pointer;
-	background-color: rgba(0, 0, 206, 0.822);
+	opacity: .5;
 }
 
 .menu_direita_container{
@@ -138,7 +141,6 @@ body {
 }
 
 .menu_direita_container .icon{
-	
 	color: #feba00;
 	font-size: 34px;
 	line-height: 80px;
@@ -146,6 +148,16 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+#menu_navegacao{
+	padding-top: 15px;
+}
+
+#menu_navegacao a{
+	display: block;
+	height: 100%;
+	width: 100%;
 }
 
 /* ==  == */
