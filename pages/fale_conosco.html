@@ -1,19 +1,49 @@
-<link rel="stylesheet" href="css/promocoes.css">
+<link rel="stylesheet" href="css/fale_conosco.css">
 
-<div class="promocoes_container">
-    <form action="" method="post">
+<section class="section fale_conosco">
 
-        <label for="">Login</label>
-        <input type="text" class="text">
+    <h2 class="section_titulo">Fale Conosco</h2>
 
-        <label for="">Senha</label>
-        <input type="password" class="text" name="" id="">
-    
-        <a href="" class="a">Esqueceu a senha?</a>
-    
-        <input type="submit" value="submit" class="submit">
-    
-        <a href="" class="a">Não tem cadastro? clique aqui!</a>
+    <div class="section_conteudo_center">
 
-    </form>
-</div>
+        <p class="section_desc">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
+            distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
+            dignissimos
+            facilis natus?
+        </p>
+
+        <form name="frm_fale_conosco" action="" method="POST">
+            <label for="txt_nome">Nome:</label>
+            <input type="text" name="txt_nome" placeholder="Nome">
+
+            <label for="txt_email">E-mail:</label>
+            <input type="text" name="txt_email" placeholder="E-mail" class="">
+
+            <label for="txt_telefone">Telefone:</label>
+            <input type="text" name="txt_telefone" placeholder="Telefone" class="">
+
+
+            <label for="txt_celular">Celular:</label>
+            <input type="text" name="txt_celular" placeholder="Celular" class="">
+
+            <label for="cbm_estado">Estado: </label>
+            <select name="cbm_estado" class="">
+                <option value="0">Selecione seu estado</option>
+            </select>
+
+            <label for="cmb_cidade">Cidade:</label>
+            <select name="cmb_cidade" class="">
+                <option value="0">Selecione sua cidade</option>
+            </select>
+
+            <label for="txt_comentario">Comentário:</label>
+            <textarea name="txt_comentario" placeholder="Comentário" class=""></textarea>
+
+            <input type="reset" name='btn_limpar' class="" value="Limpar">
+
+            <input type="submit" name='btn_salvar' class="" value="Salvar">
+        </form>
+
+    </div>
+</section>
