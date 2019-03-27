@@ -131,21 +131,21 @@ function mostrarChat(ativo){
 }
 
 function request(event, element){
-    event.preventDefault();
+    // event.preventDefault();
 
-    var url = element.href;
+    // var url = element.href;
 
-    $.ajax({
-        type: "GET",
-        url: url,
-        beforeSend: function(){
-            console.log('colocar loader aq');
+    // $.ajax({
+    //     type: "GET",
+    //     url: url,
+    //     beforeSend: function(){
+    //         console.log('colocar loader aq');
             
-        }
-    })
-    .done(function(dados){
+    //     }
+    // })
+    // .done(function(dados){
 
-        toggleMenu();
-        $("#app").html(dados);
-    });
+    //     toggleMenu();
+    //     $("#app").html(dados);
+    // });
 }

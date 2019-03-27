@@ -369,7 +369,7 @@ footer {
 .footer_secundario p {
 	font-size: 16px;
 	display: block;
-	padding: 10px;
+	padding: 10px 0;
 	height: 100%;
 	width: 100%;
 	color: #666;
@@ -392,8 +392,6 @@ footer {
 }
 
 /* == PADRÃO FORMULÁRIOS */
-
-.a {}
 
 .a:hover {
 	color: #feba00;
