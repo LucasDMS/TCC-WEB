@@ -1,137 +1,40 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, p {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+.form_infos_comerciais{
+	max-width: 600px;
+    margin: auto;
 }
-.section_principal_estabelecimento {
-	height: 100px;
-    width: 100%;
-    margin: 80px auto 0 auto;
-}
-.busca_estabelecimento{
-    height: 100px;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.busca_estabelecimento h4{
-    font-size: 30px;
-    margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 10px;
-}
-#txt_pesquisa_estab{
-    height: 40px;
-    width: 450px;
-}
-#btn_pesquisa_estab{
-    height: 38px;
-    width: 40px;
-    background-color: #fec51e; /* Green */
-    border: none;
-	color: black;
-	border:1px solid black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-/* ==  == */
 
-.section_infestab {
-	min-height: 500px;
-	width: 1300PX;
+.form_infos_comerciais label{
+	padding: 15px 0 5px 0;
+    width: 95%;
+    margin: auto;
+}
+
+.estabelecimentos_lista{
+	display: block;
+	padding: 15px;
+	max-width: 500px;
+}
+
+.estabelecimento_mais_detalhes{
+	padding: 15px;
+	display: block;
+	max-width: 900px;
+}
+
+.estabelecimentos_container{
+	max-width: 1300px;
 	margin: auto;
-}
-
-section h2 {
-	text-align: center;
-	font-size: 42px;
-	padding: 35px;
-	font-family: Divinne;
-}
-
-.infestab_container {
-	padding: 35px;
-	min-height: 400px;
-	width: 100%;
-	margin: auto;
-    display: flex;
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
-    flex-wrap: wrap;
-	border-bottom: 1px solid black;
-	margin-bottom: 10px;
+	padding: 35px;
 }
 
-.infestab_img {
-    min-height: 100px;
-	width: 400px;
-	margin-left: 50px;
+.lista_estabelecimentos li{
+	padding: 15px;
+	margin: 5px
 }
 
-.infestab_img img{
-    height: 400px;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+.lista_estabelecimentos li:hover{
+	color: #fff;
 }
-.infestab_texto {
-
-	min-height: 100px;
-	width: 600px;
-	padding: 16px;
-	font-size: 18px;
-}
-
-.infestab_texto h3 {
-	text-align: center;
-	padding: 16px;
-	font-size: 28px;
-}
-
-
-/* == CHAT - BOT == */
-
-.btn_chat_bot {
-	height: 48px;
-	width: 48px;
-	background-color: #2d2f30;
-	position: fixed;
-	right: 16px;
-	bottom: 16px;
-	box-shadow: 0px 0px 5px 0px #6d6d6d;
-	border-radius: 15px;
-	border-top-right-radius: 0px;
-	text-align: center;
-	transition: .3s;
-}
-
-.btn_chat_bot i {
-	line-height: 45px;
-	font-size: 28px;
-	color: #40e079;
-	transition: .2s;
-}
-
-.btn_chat_bot i:hover {
-	cursor: pointer;
-	transform: scale(1.1);
-}
-
-.chat_container {
-	background-color: rgb(236, 236, 236);
-	height: 85%;
-	width: 90%;
-	margin: auto;
-	display: none;
-	border-radius: 15px;
-}
-
-.chat_messages {
-	height: 90%;
-}
-
-.chat_input {
-	height: 10%;
-}
-

@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="css/eventos.css">
+
+
+<section class="section fale_conosco">
+
+    <h2 class="section_titulo">Fale Conosco</h2>
+
+    <div class="section_conteudo_center">
+
+        <p class="section_desc">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
+            distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
+            dignissimos
+            facilis natus?
+        </p>
+
+        <form class="form_fale_conosco" name="frm_fale_conosco" action="../index.php" method="POST">
+            <label for="txt_nome">Nome:</label>
+            <input type="text" name="txt_nome" id="txt_nome" placeholder="Nome">
+
+            <label for="txt_email">E-mail:</label>
+            <input type="email" name="txt_email" id="txt_email" placeholder="E-mail">
+
+            <label for="txt_telefone">Telefone:</label>
+            <input type="text" name="txt_telefone" id="txt_telefone" placeholder="Telefone" maxlength="13">
+
+
+            <label for="txt_celular">Celular:</label>
+            <input type="text" name="txt_celular" id="txt_celular" placeholder="Celular" maxlength="14">
+
+            <label for="cbm_estado">Estado: </label>
+            <select name="cbm_estado" id="cbm_estado" class="">
+                <option value="0">Selecione seu estado</option>
+            </select>
+
+            <label for="cmb_cidade">Cidade:</label>
+            <select name="cmb_cidade" id="cmb_cidade" class="">
+                <option value="0">Selecione sua cidade</option>
+            </select>
+
+            <label for="txt_comentario">Comentário:</label>
+            <textarea name="txt_comentario" id="txt_comentario" placeholder="Comentário" class=""></textarea>
+
+            <div class="flex_center">
+
+                <input type="reset" name='btn_limpar' class="btn cor_fundo_2 cor_letra_5" value="Limpar">
+                <input type="submit" name='btn_salvar' class="btn cor_fundo_1 cor_letra_4" value="Salvar">
+
+            </div>
+        </form>
+
+    </div>
+</section>
