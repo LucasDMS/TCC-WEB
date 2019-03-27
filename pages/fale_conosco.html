@@ -13,36 +13,40 @@
             facilis natus?
         </p>
 
-        <form name="frm_fale_conosco" action="" method="POST">
+        <form class="form_fale_conosco" name="frm_fale_conosco" action="../index.php" method="POST">
             <label for="txt_nome">Nome:</label>
-            <input type="text" name="txt_nome" placeholder="Nome">
+            <input type="text" name="txt_nome" id="txt_nome" placeholder="Nome">
 
             <label for="txt_email">E-mail:</label>
-            <input type="text" name="txt_email" placeholder="E-mail" class="">
+            <input type="email" name="txt_email" id="txt_email" placeholder="E-mail">
 
             <label for="txt_telefone">Telefone:</label>
-            <input type="text" name="txt_telefone" placeholder="Telefone" class="">
+            <input type="text" name="txt_telefone" id="txt_telefone" placeholder="Telefone" maxlength="13">
 
 
             <label for="txt_celular">Celular:</label>
-            <input type="text" name="txt_celular" placeholder="Celular" class="">
+            <input type="text" name="txt_celular" id="txt_celular" placeholder="Celular" maxlength="14">
 
             <label for="cbm_estado">Estado: </label>
-            <select name="cbm_estado" class="">
+            <select name="cbm_estado" id="cbm_estado" class="">
                 <option value="0">Selecione seu estado</option>
             </select>
 
             <label for="cmb_cidade">Cidade:</label>
-            <select name="cmb_cidade" class="">
+            <select name="cmb_cidade" id="cmb_cidade" class="">
                 <option value="0">Selecione sua cidade</option>
             </select>
 
             <label for="txt_comentario">Comentário:</label>
-            <textarea name="txt_comentario" placeholder="Comentário" class=""></textarea>
+            <textarea name="txt_comentario" id="txt_comentario" placeholder="Comentário" class=""></textarea>
 
-            <input type="reset" name='btn_limpar' class="" value="Limpar">
+            <div class="flex_center">
 
-            <input type="submit" name='btn_salvar' class="" value="Salvar">
+                <input type="reset" name='btn_limpar' class="btn cor_fundo_2 cor_letra_5" value="Limpar">
+
+                <input type="submit" name='btn_salvar' class="btn cor_fundo_1 cor_letra_4" value="Salvar">
+
+            </div>
         </form>
 
     </div>

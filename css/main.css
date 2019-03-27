@@ -1,9 +1,11 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, 
-header, main, footer, input, textarea, select, option, p 
-label{
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, textarea, select, option, p label {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+label{
+	display: block;
 }
 
 ul, ol, li {
@@ -187,7 +189,7 @@ main {
 
 .section_titulo {
 	text-align: center;
-	font-size: 42px;
+	font-size: 35px;
 	padding-bottom: 35px;
 	font-family: Divinne;
 }
@@ -197,23 +199,65 @@ main {
 	margin: auto;
 }
 
+.section_desc{
+	max-width: 600px;
+	padding: 0 15px;
+	margin: 5px auto;
+	font-size: 20px;
+}
+
 /* == FORMULÁRIO BASE == */
 
-input[type=text] {
-	width: 100%;
+input[type=text], input[type=email], textarea, select {
+	font-size: 18px;
+	padding-left: 10px;
+	margin: auto;
+	display: block;
+	border-radius: 5px;
+	color: #222;
+	border: 1px solid #999;
+}
+
+input[type=text], input[type=email] {
+	width: 95%;
 	height: 50px;
-	border: 2px solid lightgray;
 }
 
 textarea {
-	width: 100%;
+	width: 95%;
 	height: 75px;
 	resize: none;
+	padding-top: 5px;
+	overflow: auto;
+	font-family: inherit;
 }
 
 select {
-	width: 100%;
+	width: 95%;
 	height: 50px;
+	font-family: sans-serif;
+}
+
+.flex_center {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.btn{
+	height: 50px;
+	padding: 0 25px;
+	margin: 0 10px;
+	border-radius: 5px;
+	border: none;
+	font-size: 18px;
+	transition: .2s;
+	box-shadow: 0 0 5px #000000;
+}
+
+.btn:hover{
+	cursor: pointer;
+	box-shadow: 0 0 2px #000000;
 }
 
 .section_header {
