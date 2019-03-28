@@ -1,0 +1,14 @@
+.section_noticias{
+    max-width: 1300px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+main i{
+    color: #fff;
+    background-color: #0ba552;
+    padding: 30px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-bottom: -10px;
+}

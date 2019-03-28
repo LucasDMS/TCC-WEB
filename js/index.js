@@ -1,23 +1,71 @@
+var menu_esquerda_ativo = false;
+var menu_direita_ativo  = false;
+
+/**
+ * 
+ * Parametro vem como *.menu_esquerda* ou *.menu_direita* 
+ */
+function abrirMenu(menu){
+
+    if(menu == ".menu_esquerda"){
+
+        if(menu_esquerda_ativo){
+
+            $(menu).animate({width:0});
+            menu_esquerda_ativo = false;
+        }
+        else{
+
+            $(menu).animate({width:350});
+            menu_esquerda_ativo = true;
+        }
+    }
+    else if(menu === ".menu_direita"){
+
+        if(menu_direita_ativo){
+
+            $(menu).animate({width:0});
+            menu_direita_ativo = false;
+        }
+        else{
+
+            $(menu).animate({width:350});
+            menu_direita_ativo = true;
+        }
+    }
+}
+
+function abrirLogin(){
+
+    setTimeout(function(){
+
+        $.ajax({
+            url: "components/login.php"
+        })
+        .done(function(html){
+
+            $(".menu_direita_container").html(html);
+        })
+
+    }, 500);
+}
+
 var menu_ativo = false;
-$(".click_trigger").click(function(){
+$(".click_trigger").click(toggleMenu);
+
+function toggleMenu(){
 
     if(menu_ativo){
 
-        $(".sub_menu").slideUp(200, function(){
-            $(".redes_socias").fadeIn(5);
-        });
-        
+        $(".sub_menu").toggle("slide");
         menu_ativo = false;
     }
     else{
 
-        $(".redes_socias").fadeOut(5, function(){
-            $(".sub_menu").slideDown(200);
-        });
-
+        $(".sub_menu").toggle("slide");
         menu_ativo = true;
     }   
-});
+}
 
 var chat_ativo = false;
 $("#btn_chat").click(function(){
@@ -80,4 +128,24 @@ function mostrarChat(ativo){
     else{
         $(".chat_container").fadeIn(200)
     }
+}
+
+function request(event, element){
+    event.preventDefault();
+
+    var url = element.href;
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: function(){
+            console.log('colocar loader aq');
+            
+        }
+    })
+    .done(function(dados){
+
+        toggleMenu();
+        $("#app").html(dados);
+    });
 }

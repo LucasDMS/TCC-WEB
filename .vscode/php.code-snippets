@@ -29,5 +29,12 @@
 			"}"
 		],
 		"description": "classe legal",
+	},
+
+	"php":{
+		"scope": "html",
+		"prefix": "php",
+		"body": ["<?php $1 ?>"],
+		"description": "tag php",
 	}
 }

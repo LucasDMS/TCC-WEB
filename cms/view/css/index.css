@@ -1,0 +1,84 @@
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, p {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol, li{
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+@font-face {
+	font-family: Divinne;
+	src: url(../fonts/Postface.otf);
+}
+
+@font-face {
+	font-family: Divinne;
+	src: url(../fonts/Postface.ttf);
+}
+
+/* PALHETA DE CORES DO SITE */
+/* COR DE BACKGROUND */
+.cor_fundo_1{background-color: #1c1c1d;}
+.cor_fundo_2{background-color: #feba00;}
+.cor_fundo_3{background-color: #ffffff;}
+.cor_fundo_4{background-color: #2d2f31;}
+.cor_fundo_5{background-color: red;}
+/* COR DE LETRA */
+.cor_letra_1{color: #1c1c1d;}
+.cor_letra_2{color: #feba00;}
+.cor_letra_3{color: #ffffff;}
+.cor_letra_4{color: #2d2f31;}
+.cor_letra_5{color: red;}
+/* == HEADER == */
+
+.header {
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background-color: #1c1c1d;
+	top: 0;
+	z-index: 999;
+}
+
+.header i {
+	height: 80px;
+	width: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 34px;
+	transition: .2s;
+	color: #feba00;
+}
+
+.header i:hover{
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.nav{
+	height: 100%;
+	width: 0;
+	background-color: #feba00;
+	position: fixed;
+}
+
+#app{
+	margin-top: 60px;
+	height: 700px;
+	width: 700px;
+	background-color: rgb(0, 0, 0);
+}

@@ -1,0 +1,42 @@
+.section_missao{
+    max-width: 1300px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+.missao_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px;
+    margin-top: 20px;
+    background-color: #deffed;
+    border-radius: 5px;
+}
+
+.missao_container div{
+    max-width: 350px;
+    text-align: center;
+}
+
+.missao_container i{
+    color: #fff;
+    background-color: #0ba552;
+    padding: 30px;
+    font-size: 25px;
+    border-radius: 5px;
+    margin-bottom: -10px;
+}
+
+.missao_container h2{
+    padding: 20px 0 5px 0;
+    margin-bottom: -35px;
+    background-color: #fff;
+}
+
+.missao_container p{
+    background-color: #fff;
+    padding: 25px;
+    text-align: left;
+    border-radius: 5px;
+}
