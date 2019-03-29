@@ -43,7 +43,7 @@
 	<div class="espacador"></div>
 
 	<main>
-		<section class="base_paginas fale_conosco">
+		<section class="patrocinio">
 
 			<h2 class="section_titulo">Patrocinados</h2>
 
@@ -54,78 +54,62 @@
 				facilis natus?
 			</p>
 
-			<div class="grid 3x3">
-
-				<!-- patrocinado -->
-				<div>
-					<i></i>
-					<img src="" alt="">
-					<h3>nome patrocinado</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-						Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-						Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-					</p>
+			<div class="patrocinio_bg">
+				<div class="patrocinio_container">
+					<!-- patrocinado -->
+					<ul class="lista_patrocinio">
+						<li>
+							<img src="img/patrocinio.jpg" alt="">
+							<div>
+								<h3>nome patrocinado</h3>
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
+									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
+									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
+								</p>
+							</div>
+						</li>
+						<li>
+							<img src="img/patrocinio.jpg" alt="">
+							<div>
+								<h3>nome patrocinado</h3>
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
+									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
+									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
+								</p>
+							</div>
+						</li>
+						<li>
+							<img src="img/patrocinio.jpg" alt="">
+							<div>
+								<h3>nome patrocinado</h3>
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
+									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
+									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
+								</p>
+							</div>
+						</li>
+						<li>
+							<img src="img/patrocinio.jpg" alt="">
+							<div>
+								<h3>nome patrocinado</h3>
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
+									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
+									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
+								</p>
+							</div>
+						</li>
+					</ul>
 				</div>
-				
-				<!-- patrocinado -->
-				<div>
-					<i></i>
-					<img src="" alt="">
-					<h3>nome patrocinado</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-						Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-						Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-					</p>
-				</div>
-
-				<!-- patrocinado -->
-				<div>
-					<i></i>
-					<img src="" alt="">
-					<h3>nome patrocinado</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-						Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-						Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-					</p>
-				</div>
-
-				<!-- patrocinado -->
-				<div>
-					<i></i>
-					<img src="" alt="">
-					<h3>nome patrocinado</h3>	
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-						Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-						Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-					</p>
-				</div>
-
-				
 			</div>
 		</section>
 
 	</main>
 
-
-	<!-- CHATBOT -->
-	<div class="btn_chat_bot">
-		<i class="fas fa-comment" id="btn_chat"></i>
-
-		<div class="chat_container">
-			<div class="chat_messages"></div>
-
-			<div class="chat_input">
-				<form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
-					<input id="txt_chat" type="text" name="txt_chat">
-					<input type="submit" value="">
-				</form>
-			</div>
-		</div>
-	</div>
+	<?php require_once("components/chat_bot.php") ?>
 
 	<!-- FOOTER -->
 	<?php require_once("components/footer.php"); ?>

@@ -45,7 +45,7 @@
 
 	<main>
 
-		<section class="base_paginas fale_conosco">
+		<section class="eventos_pagina">
 
 			<h2 class="section_titulo">Próximos eventos</h2>
 
@@ -56,53 +56,69 @@
 				facilis natus?
 			</p>
 
-			<div class="">
-	<!-- lista de eventos -->
-				<ul>
+			<div class="eventos_bg">
+				<!-- lista de eventos -->
+				<ul class="eventos_container">
 					<li>
-						<i></i>
-						<h3>
-							nome do evento
-						</h3>
-						<p>
-							descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
-							elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-							ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
-							lore! Molestiae incidunt nisi praesentium dicta?
-						</p>
-						<span>data</span>
-						<span>hora</span>
-						<span>local</span>
+						<i class="fas fa-calendar-alt"></i>
+						<div class="evento_bg">
+							<h3>
+								nome do evento
+							</h3>
+							<p>
+								descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
+								elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
+								ehenderit acc Voluptatibus totam, blanditiis unde deleniti provident eos, repr
+								ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
+								lore! Molestiusantium molestias iste veritatis dicta rerum quo dolor do
+								lore! Molestiae incidunt nisi praesentium dicta?
+							</p>
+							<div class="container_extra">
+								<span class="info_extra">21/11/1995</span>
+								<span class="info_extra">17:00</span>
+							</div>
+							<span class="info_extra">Centro - SP</span>
+						</div>
+						
 					</li>
 					<li>
-						<i></i>
-						<h3>
-							nome do evento
-						</h3>
-						<p>
-							descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
-							elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-							ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
-							lore! Molestiae incidunt nisi praesentium dicta?
-						</p>
-						<span>data</span>
-						<span>hora</span>
-						<span>local</span>
+						<i class="fas fa-calendar-alt"></i>
+						<div class="evento_bg">
+							<h3>
+								nome do evento
+							</h3>
+							<p>
+								descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
+								elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
+								ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
+								lore! Molestiae incidunt nisi praesentium dicta?
+							</p>
+							<div class="container_extra">
+								<span class="info_extra">21/11/1995</span>
+								<span class="info_extra">17:00</span>
+							</div>
+							<span class="info_extra">Centro - SP</span>
+						</div>
 					</li>
 					<li>
-						<i></i>
-						<h3>
-							nome do evento
-						</h3>
-						<p>
-							descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
-							elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-							ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
-							lore! Molestiae incidunt nisi praesentium dicta?
-						</p>
-						<span>data</span>
-						<span>hora</span>
-						<span>local</span>
+						<i class="fas fa-calendar-alt"></i>
+						<div class="evento_bg">
+							<h3>
+								nome do evento
+							</h3>
+							<p>
+								descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
+								elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
+								ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
+								lore! Molestiae incidunt nisi praesentium dicta?
+							</p>
+							<div class="container_extra">
+								<span class="info_extra">21/11/1995</span>
+								<span class="info_extra">17:00</span>
+							</div>
+							<span class="info_extra">Centro - SP</span>
+						</div>
+						
 					</li>
 				</ul>
 
