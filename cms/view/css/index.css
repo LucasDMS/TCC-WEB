@@ -27,29 +27,15 @@ body {
 	src: url(../fonts/Postface.ttf);
 }
 
-/* PALHETA DE CORES DO SITE */
-/* COR DE BACKGROUND */
-.cor_fundo_1{background-color: #1c1c1d;}
-.cor_fundo_2{background-color: #feba00;}
-.cor_fundo_3{background-color: #ffffff;}
-.cor_fundo_4{background-color: #2d2f31;}
-.cor_fundo_5{background-color: red;}
-/* COR DE LETRA */
-.cor_letra_1{color: #1c1c1d;}
-.cor_letra_2{color: #feba00;}
-.cor_letra_3{color: #ffffff;}
-.cor_letra_4{color: #2d2f31;}
-.cor_letra_5{color: red;}
-/* == HEADER == */
-
 .header {
-	height: 60px;
+	height: 80px;
 	width: 100%;
 	position: fixed;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: #1c1c1d;
+	background-color: #202020;
+	color: #fff;
 	top: 0;
 	z-index: 999;
 }
@@ -59,9 +45,8 @@ body {
 	width: 80px;
 	line-height: 80px;
 	text-align: center;
-	font-size: 34px;
+	font-size: 28px;
 	transition: .2s;
-	color: #feba00;
 }
 
 .header i:hover{
@@ -70,15 +55,71 @@ body {
 }
 
 .nav{
+	display: none;
 	height: 100%;
-	width: 0;
-	background-color: #feba00;
+	width: 250px;
+	background-color: #0f0f0f;
 	position: fixed;
+	color: #fff;
+}
+
+.nav li{
+	background-color: rgba(255, 255, 255, 0.25);
+	padding: 15px;
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+	transition: .2s;
+}
+
+.nav li:hover{
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav li:hover > div, .seta{
+	transform: scale(1.05);
+}
+
+.nav li:hover > .seta{
+	transform: rotate(90deg);
+}
+
+#itens_barra_lateral{
+	display: none;
+}
+
+.seta{
+	transition: .2s;
+}
+
+#app_bg{
+	margin-top: 80px;
+	height: 700px;
+	width: 100%;
+	background-color: #d2e4e7;
 }
 
 #app{
-	margin-top: 60px;
-	height: 700px;
-	width: 700px;
-	background-color: rgb(0, 0, 0);
+	min-height: 500px;
+	max-width: 1200px;
+	background-color: rgb(255, 255, 255);
+	margin: auto;
+}
+
+
+
+.tabela_padrao{
+	min-height: 100px;
+	width: 500px;
+	background-color: red;
+}
+
+.tabela_padrao tr{
+	height: 45px;
+}
+
+.tabela_padrao td{
+	background-color: #fff;
+	padding: 5px;
 }

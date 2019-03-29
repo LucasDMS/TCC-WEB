@@ -68,6 +68,11 @@
 						necessitatibus nam ad itaque, earum, mollitia natus quisquam eaque sint quidem pariatur obcaecati
 						excepturi voluptate. Incidunt, atque.
 					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, quia. Animi voluptatem perferendis,
+						necessitatibus nam ad itaque, earum, mollitia natus quisquam eaque sint quidem pariatur obcaecati
+						excepturi voluptate. Incidunt, atque.
+					</p>
 				</div>
 				<div>
 					<i class="fas fa-glasses"></i>
