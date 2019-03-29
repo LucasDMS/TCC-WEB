@@ -86,7 +86,7 @@
 
 				<div class="flex_center">
 
-					<input type="reset" name='btn_limpar' class="btn cor_fundo_2 cor_letra_5" value="Limpar">
+					<input type="reset" name='btn_limpar' class="btn cor_fundo_4 cor_letra_5" value="Limpar">
 					<input type="submit" name='btn_salvar' class="btn cor_fundo_1 cor_letra_4" value="Salvar">
 
 				</div>

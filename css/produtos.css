@@ -6,9 +6,8 @@ CSS PÁGINA PRODUTOS
 
 .section_produtos{
     min-height: 500px;
-    background: linear-gradient( -45deg, #1fa686, #35cd7d);
-	background-color: #f0f8ff;
-	margin: auto;
+    margin: auto;
+    padding: 55px 0;
 }
 
 .produtos_container{

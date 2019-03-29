@@ -45,7 +45,7 @@
 
 	<main>
 
-		<section>
+		<section class="base_paginas pops_escola">
 			<h2 class="section_titulo">POP's na escola</h2>
 
 			<p class="section_desc">
@@ -56,10 +56,9 @@
 
 			</p>
 
-			<form action="">
-				<label for="">Pesquise blabla:</label>
+			<form class="form_pesquisa" action="">
 				<input type="text" placeholder="Veja se sua escola está na lista da POP's">
-				<button type="submit">
+				<button class="btn" type="submit">
 					<i class="fas fa-search">
 
 					</i>
@@ -67,11 +66,13 @@
 			</form>
 
 			
-			<div>
+			<div class="lista_escolas_bg">
+				<h2 class="section_titulo">Escolas Participantes</h2>
 				<!-- lista escolas -->
-				<ul>
+				<ul class="lista_escolas">
+					
 					<li>
-						<img src="" alt="">
+						<img src="img/esc_1.jpg" alt="">
 						<h3>nome escola</h3>
 						<p>
 							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -81,7 +82,7 @@
 					</li>
 
 					<li>
-						<img src="" alt="">
+						<img src="img/esc_2.jpg" alt="">
 						<h3>nome escola</h3>
 						<p>
 							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -91,7 +92,7 @@
 					</li>
 
 					<li>
-						<img src="" alt="">
+						<img src="img/esc_3.jpg" alt="">
 						<h3>nome escola</h3>
 						<p>
 							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -101,7 +102,7 @@
 					</li>
 
 					<li>
-						<img src="" alt="">
+						<img src="img/esc_4.jpg" alt="">
 						<h3>nome escola</h3>
 						<p>
 							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
@@ -115,23 +116,7 @@
 
 	</main>
 
-
-
-	<!-- CHATBOT -->
-	<div class="btn_chat_bot">
-		<i class="fas fa-comment" id="btn_chat"></i>
-
-		<div class="chat_container">
-			<div class="chat_messages"></div>
-
-			<div class="chat_input">
-				<form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
-					<input id="txt_chat" type="text" name="txt_chat">
-					<input type="submit" value="">
-				</form>
-			</div>
-		</div>
-	</div>
+	<?php require_once("components/chat_bot.php"); ?>
 
 	<!-- FOOTER -->
 	<?php require_once("components/footer.php"); ?>

@@ -41,176 +41,167 @@
 		</div>        
 	</div>
 
-	<div class="espacador"></div>
+    <div class="espacador"></div>
+    
+    <main>
 
-    <section class="section_produtos">
+        <section class="section_produtos">
 
-        <div class="section_header">
-            <h2>Nossos produtos</h2>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui tempore error iure libero quas, totam,
-                dicta commodi quae sunt quia cum numquam. Aspernatur quia in quasi cum error dicta minus!
-            </p>
-        </div>
+            <div class="section_header">
+                <h2 class="section_titulo">Nossos produtos</h2>
+                <p class="section_desc">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui tempore error iure libero quas, totam,
+                    dicta commodi quae sunt quia cum numquam. Aspernatur quia in quasi cum error dicta minus!
+                </p>
+            </div>
 
-        <div class="produtos_container">
+            <div class="produtos_container">
 
-            <!-- PRODUTO -->
-            <div class="produto produto_esquerda">
+                <!-- PRODUTO -->
+                <div class="produto produto_esquerda">
 
-                <div class="produto_conteudo">
+                    <div class="produto_conteudo">
 
-                    <h3>Protudo nome</h3>
-                    <div class="produto_info">
-                        <img src="img/coca_cola.png" alt="">
-                        <div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-                                non,
-                                exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-                                dolorem qui autem deleniti numquam?
-                            </p>
-                            <table class="tabela_nutricional">
+                        <h3>Protudo nome</h3>
+                        <div class="produto_info">
+                            <img src="img/coca_cola.png" alt="">
+                            <div>
+                                <p>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
+                                    non,
+                                    exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
+                                    dolorem qui autem deleniti numquam?
+                                </p>
+                                <table class="tabela_nutricional">
 
-                                <!-- tabela titulo -->
-                                <tr>
-                                    <th colspan="3">INFORMAÇÃO NUTRICIONAL</th>
-                                </tr>
+                                    <!-- tabela titulo -->
+                                    <tr>
+                                        <th colspan="3">INFORMAÇÃO NUTRICIONAL</th>
+                                    </tr>
 
-                                <!-- sub titulo -->
-                                <tr>
-                                    <th></th>
-                                    <th>Quantidade por porção</th>
-                                    <th>%VD(*)</th>
-                                </tr>
+                                    <!-- sub titulo -->
+                                    <tr>
+                                        <th></th>
+                                        <th>Quantidade por porção</th>
+                                        <th>%VD(*)</th>
+                                    </tr>
 
-                                <!-- Loop info -->
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
+                                    <!-- Loop info -->
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
 
-                                <tr>
-                                    <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
-                                </tr>
-                            </table>
+                                    <tr>
+                                        <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
+                                    </tr>
+                                </table>
 
+                            </div>
                         </div>
+
+                    </div>
+                </div>
+
+                <!-- PRODUTO -->
+
+                <div class="produto produto_direita">
+
+                    <div class="produto_conteudo">
+
+                        <h3>Protudo nome</h3>
+                        <div class="produto_info">
+
+                            <div class="produto_desc">
+                                <p>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
+                                    non,
+                                    exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
+                                    dolorem qui autem deleniti numquam?
+                                </p>
+                                <table class="tabela_nutricional">
+
+                                    <!-- tabela titulo -->
+                                    <tr>
+                                        <th colspan="3">INFORMAÇÃO NUTRICIONAL</th>
+                                    </tr>
+
+                                    <!-- sub titulo -->
+                                    <tr>
+                                        <th></th>
+                                        <th>Quantidade por porção</th>
+                                        <th>%VD(*)</th>
+                                    </tr>
+
+                                    <!-- Loop info -->
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Carboidratos</td>
+                                        <td>23g</td>
+                                        <td>3</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                            <img src="img/coca_cola.png" alt="">
+                        </div>
+
                     </div>
 
                 </div>
-            </div>
-
-            <!-- PRODUTO -->
-
-            <div class="produto produto_direita">
-
-                <div class="produto_conteudo">
-
-                    <h3>Protudo nome</h3>
-                    <div class="produto_info">
-
-                        <div class="produto_desc">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-                                non,
-                                exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-                                dolorem qui autem deleniti numquam?
-                            </p>
-                            <table class="tabela_nutricional">
-
-                                <!-- tabela titulo -->
-                                <tr>
-                                    <th colspan="3">INFORMAÇÃO NUTRICIONAL</th>
-                                </tr>
-
-                                <!-- sub titulo -->
-                                <tr>
-                                    <th></th>
-                                    <th>Quantidade por porção</th>
-                                    <th>%VD(*)</th>
-                                </tr>
-
-                                <!-- Loop info -->
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>Carboidratos</td>
-                                    <td>23g</td>
-                                    <td>3</td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
-                                </tr>
-                            </table>
-
-                        </div>
-
-                        <img src="img/coca_cola.png" alt="">
-                    </div>
-
-                </div>
 
             </div>
+        </section>
 
-        </div>
-    </section>
 
-	<!-- CHATBOT -->
-	<div class="btn_chat_bot">
-		<i class="fas fa-comment" id="btn_chat"></i>
-
-		<div class="chat_container">
-			<div class="chat_messages"></div>
-
-			<div class="chat_input">
-				<form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
-					<input id="txt_chat" type="text" name="txt_chat">
-					<input type="submit" value="">
-				</form>
-			</div>
-		</div>
-	</div>
+    </main>
+    
+    <?php require_once("components/chat_bot.php"); ?>
 
 	<!-- FOOTER -->
 	<?php require_once("components/footer.php"); ?>

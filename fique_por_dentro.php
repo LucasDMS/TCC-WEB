@@ -46,9 +46,9 @@
 
 	<main>
 
-        <section class="section_noticias">
+        <section class="base_paginas fique_por_dentro">
 
-            <h2 class="section_titulo">Fique por dentro das notíficas</h2>
+            <h2 class="section_titulo">Fique por dentro das notícias</h2>
 
             <p class="section_desc">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur?
@@ -58,50 +58,55 @@
 				facilis natus?
             </p>
             
-            <i class="fas fa-newspaper"></i>
+            <i class="fas fa-newspaper principal_img"></i>
 
-            <div>
+            <div class="noticia_main">
                 <h2>noticia mais nova</h2>
                 <p>
+                    texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
+                    unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?
+                    texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
+                    unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?
                     texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
                     unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?
                 </p>
             </div>
 
             <!-- varias noticias -->
-            <div>
-                <div>
-                    <h3>noticia titulo</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                        recusandae vero ipsum, reiciendis autem voluptatum. Incidunt praesentium laborum voluptas illo.
-                    </p>
+            <div class="noticias_3_3">
+                <div class="noticias_3_3_container">
+                    <div class="noticia">
+                        <h3>noticia titulo</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
+                            recusandae vero ipsum, reiciendis autem voluptatum. Incid
+                            texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
+                            unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?unt praesentium laborum voluptas illo.
+                        </p>
 
-                </div>
-                <div>
-                    <h3>noticia titulo</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                        recusandae vero ipsum, reiciendis autem voluptatum. Incidunt praesentium laborum voluptas illo.
-                    </p>
+                    </div>
 
-                </div>
-                <div>
-                    <h3>noticia titulo</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                        recusandae vero ipsum, reiciendis autem voluptatum. Incidunt praesentium laborum voluptas illo.
-                    </p>
+                    <div class="noticia">
+                        <h3>noticia titulo</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
+                            recusandae vero ipsum, reiciendis autem texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
+                            unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?voluptatum. Incidunt praesentium laborum voluptas illo.
+                        </p>
 
-                </div>
-                <div>
-                    <h3>noticia titulo</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                        recusandae vero ipsum, reiciendis autem voluptatum. Incidunt praesentium laborum voluptas illo.
-                    </p>
+                    </div>
 
+                    <div class="noticia">
+                        <h3>noticia titulo</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectettexto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
+                            unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?ur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
+                            recusandae vero ipsum, reiciendis autem voluptatum. Incidunt praesentium laborum voluptas illo.
+                        </p>
+
+                    </div>
                 </div>
+                
             </div>
 
         </section>

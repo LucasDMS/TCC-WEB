@@ -8,7 +8,9 @@
         <div class="chat_input">
             <form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
                 <input id="txt_chat" type="text" name="txt_chat">
-                <input type="submit" value="">
+                <button class="btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
             </form>
         </div>
     </div>

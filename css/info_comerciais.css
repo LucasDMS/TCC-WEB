@@ -15,10 +15,25 @@
     margin: auto;
 }
 
+.form_infos_comerciais button{
+	background-color: #78d649;
+}
+
+.bg_color_parceiros{
+	background-color:#78d649;
+}
+
 .estabelecimentos_lista{
 	display: block;
 	padding: 15px;
 	max-width: 500px;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.estabelecimentos_lista h3{
+	font-size: 22px;
 }
 
 .estabelecimento_mais_detalhes{
@@ -32,7 +47,7 @@
 .estabelecimento_mais_detalhes img{
 	display: block;
 	margin: 15px auto;
-	width: 100%;
+	width: 65%;
 	height: auto;
 }
 

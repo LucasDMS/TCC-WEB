@@ -1,94 +1,70 @@
-/* centralizar */
-.center_div{
-    margin-left: auto;
-    margin-right: auto;
+.nossos_videos{
+    padding: 55px 0;
 }
 
-.tabela_principal{
-    width: 1300px;
-    height: 2210px;
-    background-color: white;
+.video_novo{
+    background-color: #212529;
+    padding: 50px;
+    color: #fff;
+    margin: 45px auto;
 }
 
-.tbl_video_fundo{
-    width: 1300px;
-    height: 2130px;
-    margin-top: 80px;
-    float: left;
-    background-color: white; 
+.video_novo iframe{
+    display: block;
+    margin: 15px auto;
+    max-width:640px;
+    min-height: 380px;
+    height: auto;
 }
 
-.titulo_video{
-    width: 1300px;
-    height: 50px;
-    background-color: white;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-top: 50px;
-    font-size: 50px;
-    font-family: Divinne;
+.video_novo h3{
+    font-size: 30px;
+    margin: 30px 0;
 }
 
-.descricao_video_cima{
-    width: 1300px;
+.video_info{
+    max-width: 640px;
+    margin: auto
+}
+
+
+.mais_videos h3{
+    padding: 25px;
+}
+
+.mais_videos_container{
+    max-width: 1200px;
+    margin: auto;
+    overflow: scroll hidden;
+}
+
+.videos_lista{
+    width: 2200px;
+}
+
+.videos_lista li{
+    display: inline-block;
+    min-height: 350px;
+    width: 400px;
+    background-color: #78d649;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.videos_lista li:hover{
+    cursor: pointer;
+}
+
+.videos_lista img{
+    display: block;
+    margin: 15px auto;
     height: 250px;
-    background-color: white;
-    font-size: 30px;
-    font-family: Divinne;
+    width: 350px;
+    border-radius: 5px;
 }
 
-.video_fundo{
-    width: 1300px;
-    height: 600px;
-    background-color: white;
-}
-
-.descricao_video_baixo{
-    width: 1300px;
-    height: 250px;
-    background-color: white;
-    font-size: 30px;
-    font-family: Divinne;
-}
-
-.titulo_mais{
-    width: 1300px;
-    height: 80px;
-    background-color: white;
+.videos_lista h4{
     text-align: center;
-    padding-top:20px;
     font-size: 30px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
-
-.tbl_principal_video{
-    width: 1300px;
-    height: 850px;
-    background-color: white;
-    float: left;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.mais_videos_fundo{
-    width: 300px;
-    height: 300px;
-    margin-left: 100px;
-    margin-top: 50px;
-    float: left;
-    background-color: white;
-    margin-bottom: 50px;
-}
-
-.titulo_empresa{
-    width: 300px;
-    height: 30px;
-    background-color: white;
-    margin-top: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-family: sans-serif;
-    font-size: 20px;
 }

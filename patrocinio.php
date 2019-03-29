@@ -43,7 +43,7 @@
 	<div class="espacador"></div>
 
 	<main>
-		<section class="fale_conosco">
+		<section class="base_paginas fale_conosco">
 
 			<h2 class="section_titulo">Patrocinados</h2>
 

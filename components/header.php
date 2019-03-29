@@ -1,7 +1,7 @@
-<header class="header cor_fundo_1 cor_letra_4">
+<header id="header" class="header cor_fundo_1 cor_letra_4">
     <i class="fas fa-bars" onclick="abrirMenu('.menu_esquerda')"></i>
 
-    <a class="logo" href="index.php" style="align-self: center" onclick="request(event, this)">
+    <a class="logo" href="index.php">
         POP's
     </a>
 

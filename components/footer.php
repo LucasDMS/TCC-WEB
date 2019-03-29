@@ -9,7 +9,7 @@
                     <li><a href="">Produtos</a></li>
                     <li><a href="">Promoções</a></li>
                     <li><a href="">Fique por dentro</a></li>
-                    <li><a href="">Hisória da empresa</a></li>
+                    <li><a href="">História da empresa</a></li>
                     <li><a href="">Missão, visão e valores</a></li>
 
                 </ul>
@@ -17,7 +17,7 @@
             <div>
                 <h4>POP's +</h4>
                 <ul>
-                    <li><a href="">POP's na escola com você</a></li>
+                    <li><a href="">POP's na escola</a></li>
                     <li><a href="">Nossos vídeos</a></li>
                     <li><a href="">Próximos eventos</a></li>
                     <li><a href="">POP's patrocina</a></li>
@@ -29,14 +29,6 @@
                     <li><a href="">Informações comerciais</a></li>
                     <li><a href="">Fale conosco</a></li>
                 </ul>
-            </div>
-            <div>
-                <h4>Busque por algum produto</h4>
-                <form action="">
-                    <label for="txt_presquisa">Produto :</label>
-                    <input type="text" name="txt_pesquisa" id="txt_pesquisa" placeholder="Produto">
-                    <input type="submit" value="aa">
-                </form>
             </div>
 
         </div>

@@ -189,7 +189,11 @@ main {
 .section_principal {
 	min-height: 900px;
 	width: 100%;
-	background: #40e079 url(../img/hm.jpg);
+	background: #15a650 url(../img/hm.jpg);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 50%;
 	margin: auto;
 }
 
@@ -218,7 +222,7 @@ main {
 .btn_chat_bot {
 	height: 48px;
 	width: 48px;
-	background-color: #2d2f31;
+	background-color: #fff;
 	position: fixed;
 	right: 16px;
 	bottom: 16px;
@@ -226,22 +230,23 @@ main {
 	border-radius: 10px 0 10px 10px;
 	text-align: center;
 	transition: .3s;
+	color: #fff;
 }
 
-.btn_chat_bot i {
+.btn_chat_bot #btn_chat {
 	line-height: 45px;
 	font-size: 28px;
-	color: #feba00;
+	color: #15a64f;
 	transition: .2s;
 }
 
-.btn_chat_bot i:hover {
+.btn_chat_bot #btn_chat:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 }
 
 .chat_container {
-	background-color: #ececec;
+	background-color: #202529;
 	height: 85%;
 	width: 90%;
 	margin: auto;
@@ -250,11 +255,28 @@ main {
 }
 
 .chat_messages {
-	height: 90%;
+	height: 85%;
 }
 
 .chat_input {
 	height: 10%;
+	padding: 5px;
+}
+
+#form_chat_bot{
+	display: flex;
+	margin-bottom: 10px;
+
+}
+
+#form_chat_bot input{
+	height: 40px;
+	max-width: 50%;
+}
+
+#form_chat_bot button{
+	background-color: #fff;
+	color: #09a552;
 }
 
 /* == FOOTER == */
@@ -380,10 +402,16 @@ select {
 	border: none;
 	font-size: 18px;
 	transition: .2s;
-	box-shadow: 0 0 5px #000000;
+	border: 1px solid #999;
 }
 
 .btn:hover{
 	cursor: pointer;
-	box-shadow: 0 0 2px #000000;
+	transform: scale(1.05);
+}
+
+.base_paginas{
+	max-width: 1300px;
+    margin: auto;
+    padding: 55px 0;
 }

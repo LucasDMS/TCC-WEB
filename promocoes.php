@@ -43,23 +43,16 @@
 
 	<div class="espacador"></div>
 
-    <main class="">
+    <main>
 
-		<section>
-			<h2 class="section_titulo">Promoções</h2>
-
-			<p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur?
-				Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
-			</p>
-
+		<section class="base_paginas">
 
 			<div class="section_conteudo_center">
-
-				<h3>Promo titulo</h3>
+				<div class="titulo_promo">
+					<i class="fas fa-award"></i>
+					<h3>Promo titulo</h3>
+					<i class="fas fa-award"></i>
+				</div>
 				
 				<img src="img/1.jpg" alt="">
 
@@ -81,8 +74,9 @@
 					libero ad. Minima unde deserunt, assumenda, id, temporibus asperiores molestiae odit quam illum animi tenetur?
 				</p>
 
-				<button>
+				<button class="btn" type="submit">
 					Quero participar!
+					<i class="fas fa-award"></i>
 				</button>
 
 			</div>
@@ -92,20 +86,7 @@
 	</main>
 
 	<!-- CHATBOT -->
-	<div class="btn_chat_bot">
-		<i class="fas fa-comment" id="btn_chat"></i>
-
-		<div class="chat_container">
-			<div class="chat_messages"></div>
-
-			<div class="chat_input">
-				<form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
-					<input id="txt_chat" type="text" name="txt_chat">
-					<input type="submit" value="">
-				</form>
-			</div>
-		</div>
-	</div>
+	<?php require_once("components/chat_bot.php"); ?>
 
 	<!-- FOOTER -->
 	<?php require_once("components/footer.php"); ?>

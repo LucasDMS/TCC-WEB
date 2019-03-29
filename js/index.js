@@ -35,6 +35,24 @@ function abrirMenu(menu){
     }
 }
 
+$(document).ready(function(){
+    $("#header").css("box-shadow", "none")
+})
+
+$(window).scroll(function(event){
+    
+    var pos = $(window).scrollTop()
+
+    if(pos <= 900){
+        $("#header").css("box-shadow", "none")
+    }
+    else{
+        $("#header").css("box-shadow", " 0 0 5px 1px #363a3e")
+    }
+})
+
+
+
 function abrirLogin(){
 
     setTimeout(function(){

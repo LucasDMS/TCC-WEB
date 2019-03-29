@@ -45,71 +45,82 @@
 
 	<main>
 
+		<section class="nossos_videos">
+
+			<h2 class="section_titulo">Nossos vídeos</h2>
+			
+			<p class="section_desc">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
+				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
+				dignissimos
+				facilis natus?
+			</p>
+
+			<div class="video_novo">
+				<iframe 
+					width="1490" 
+					height="614" 
+					src="https://www.youtube.com/embed/F2OQozbkTm8" 
+					frameborder="0" 
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+					allowfullscreen>
+				</iframe>
+
+				<div class="video_info">
+
+					<h3>video titulo</h3>
+
+					<p>
+						video desc - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+						Pariatur labore id ab ut officia harum, unde reiciendis nulla doloribus omnis, 
+						fugit impedit sint dolore distinctio dolorem alias, nam iste porro.
+					</p>
+
+				</div>
+
+			</div>
+
+			
+
+			<div class="mais_videos">
+
+				<h3 class="section_titulo">veja mais videos</h3>
+
+				<div class="mais_videos_container">
+
+					<ul class="videos_lista">
+						<li>
+							<img src="img/video_1.jpg" alt="">
+							<h4>titulo</h4>
+						</li>
+						<li>
+							<img src="img/video_2.jpg" alt="">
+							<h4>titulo</h4>
+						</li>
+						<li>
+							<img src="img/video_3.jpg" alt="">
+							<h4>titulo</h4>
+						</li>
+						<li>
+							<img src="img/video_1.jpg" alt="">
+							<h4>titulo</h4>
+						</li>
+						<li>
+							<img src="img/video_2.jpg" alt="">
+							<h4>titulo</h4>
+						</li>
+					</ul>
+
+				</div>
+
+				
+
+			</div>
+		</section>
 
 	</main>
 
-	<section class="fale_conosco">
-
-		<h2 class="section_titulo">Fale Conosco</h2>
-		
-		<p class="section_desc">
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
-			distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-			dignissimos
-			facilis natus?
-		</p>
-
-		<div>
-			<iframe src="https://www.youtube.com/watch?v=aq95kcb-M8A" width="640" height="360" frameborder="0"></iframe>
-				<!-- https://developers.google.com/youtube/player_parameters?hl=pt-br para arrumar isso aq -->
-
-			<h3>video titulo</h3>
-
-			<p>
-				video desc - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-				Pariatur labore id ab ut officia harum, unde reiciendis nulla doloribus omnis, 
-				fugit impedit sint dolore distinctio dolorem alias, nam iste porro.
-			</p>
-
-		</div>
-
-		<h3>veja mais videos</h3>
-
-        <div class="">
-
-			<img src="" alt="">
-			<h4>titulo</h4>
-
-			<img src="" alt="">
-			<h4>titulo</h4>
-
-			<img src="" alt="">
-			<h4>titulo</h4>
-
-			<img src="" alt="">
-			<h4>titulo</h4>
-
-			<img src="" alt="">
-			<h4>titulo</h4>
-
-        </div>
-    </section>
-
-	<!-- CHATBOT -->
-	<div class="btn_chat_bot">
-		<i class="fas fa-comment" id="btn_chat"></i>
-
-		<div class="chat_container">
-			<div class="chat_messages"></div>
-
-			<div class="chat_input">
-				<form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
-					<input id="txt_chat" type="text" name="txt_chat">
-					<input type="submit" value="">
-				</form>
-			</div>
-		</div>
-	</div>
+	<?php require_once("components/chat_bot.php"); ?>
 
 	<!-- FOOTER -->
 	<?php require_once("components/footer.php"); ?>

@@ -48,42 +48,42 @@
 
         <section class="section_est_parceiros">
 
-        <h2 class="section_titulo">Estabelecimentos Parceiros</h2>
+            <h2 class="section_titulo">Estabelecimentos Parceiros</h2>
 
-        <div class="section_conteudo_center">
+            <div class="section_conteudo_center">
 
-            <p class="section_desc">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
-                distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-                dignissimos
-                facilis natus?
-            </p>
+                <p class="section_desc">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
+                    distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
+                    dignissimos
+                    facilis natus?
+                </p>
 
-            <form class="form_infos_comerciais" action="">
+                <form class="form_infos_comerciais" action="">
 
-                <label for="txt_pesquisa_estabelecimento">Pesquise por um estabelecimento:</label>
+                    <label for="txt_pesquisa_estabelecimento">Pesquise por um estabelecimento:</label>
 
-                <div style="display: flex; width: 95%; margin:auto">
-                    <input type="text" name="txt_pesquisa_estabelecimento" id="txt_pesquisa_estabelecimento"
-                        placeholder="Estabelecimento">
+                    <div style="display: flex; width: 95%; margin:auto">
+                        <input type="text" name="txt_pesquisa_estabelecimento" id="txt_pesquisa_estabelecimento"
+                            placeholder="Estabelecimento">
 
-                    <button type="submit" class="btn" style="background-color:#0ba552; color:#fff">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
+                        <button type="submit" class="btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
 
-            </form>
+                </form>
 
-        </div>
+            </div>
 
         </section>
 
-        <div class="cor_fundo_1">
+        <div class="bg_color_parceiros" >
 
         <div class="estabelecimentos_container">
             <div class="estabelecimentos_lista">
 
-                <h3 class="cor_letra_4">Lista de Estabelecimentos</h3>
+                <h3>Lista de Estabelecimentos</h3>
 
                 <ul class="lista_estabelecimentos">
                     <li>Estabelecimento 1</li>
@@ -124,19 +124,6 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
                         ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
                         tempora vel odit dolore.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-                        ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-                        tempora vel odit dolore.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-                        ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-                        tempora vel odit dolore.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-                        ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-                        tempora vel odit dolore.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-                        ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-                        tempora vel odit dolore.
-
                     </p>
                 </div>
 
