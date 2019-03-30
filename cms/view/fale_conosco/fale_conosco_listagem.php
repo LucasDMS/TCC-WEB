@@ -1,5 +1,5 @@
 <button type="menu" onclick="buscarForm('fale_conosco')">
-aaaa
+NOVO
 </button>
 
 <table class="tabela_padrao">

@@ -44,7 +44,7 @@ function buscarForm(pagina){
 
 function formatarLink(pagina, tipo){
 
-    return "view/" + pagina + "/" + pagina + "_" + tipo + ".html";
+    return "view/" + pagina + "/" + pagina + "_" + tipo + ".php";
 }
 
 
