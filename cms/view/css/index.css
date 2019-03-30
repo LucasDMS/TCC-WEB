@@ -1,10 +1,10 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, p {
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, p, table, th, tr, td {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
-ul, ol, li{
+ul, ol, li {
 	list-style: none;
 }
 
@@ -25,6 +25,26 @@ body {
 @font-face {
 	font-family: Divinne;
 	src: url(../fonts/Postface.ttf);
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 
 .header {
@@ -49,12 +69,12 @@ body {
 	transition: .2s;
 }
 
-.header i:hover{
+.header i:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 }
 
-.nav{
+.nav {
 	display: none;
 	height: 100%;
 	width: 250px;
@@ -63,7 +83,7 @@ body {
 	color: #fff;
 }
 
-.nav li{
+.nav li {
 	background-color: rgba(255, 255, 255, 0.25);
 	padding: 15px;
 	margin: 15px 0;
@@ -72,54 +92,74 @@ body {
 	transition: .2s;
 }
 
-.nav li:hover{
+.nav li:hover {
 	cursor: pointer;
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
-.nav li:hover > div, .seta{
+.nav li:hover>div, .seta {
 	transform: scale(1.05);
 }
 
-.nav li:hover > .seta{
+.nav li:hover>.seta {
 	transform: rotate(90deg);
 }
 
-#itens_barra_lateral{
+#itens_barra_lateral {
 	display: none;
 }
 
-.seta{
+.seta {
 	transition: .2s;
 }
 
-#app_bg{
+#app_bg {
 	margin-top: 80px;
 	height: 700px;
 	width: 100%;
 	background-color: #d2e4e7;
 }
 
-#app{
+#app {
 	min-height: 500px;
 	max-width: 1200px;
 	background-color: rgb(255, 255, 255);
 	margin: auto;
 }
 
-
-
-.tabela_padrao{
-	min-height: 100px;
-	width: 500px;
-	background-color: red;
+.tabela_padrao {
+	width: 1000px;
+	margin: 15px auto;
+	text-align: center;
+	border-collapse: collapse;
+	box-shadow: 0 0 5px 2px #dadada;
 }
 
-.tabela_padrao tr{
-	height: 45px;
+.tabela_padrao thead{
 }
 
-.tabela_padrao td{
-	background-color: #fff;
+.tabela_padrao tbody {
+}
+
+
+.tabela_titlo {
+	background: linear-gradient(45deg, #43c1f7, #3148a6);
+	color: #fff;
+}
+
+.tabela_header {
+	background: #ebf9ff;
+}
+
+.tabela_padrao tr {
+	height: 50px;
+	border-bottom: 1px solid #999;
+}
+
+.tabela_padrao tr:hover {
+	background-color: #eef1ff;
+}
+
+.tabela_padrao td, .tabela_padrao th {
 	padding: 5px;
 }

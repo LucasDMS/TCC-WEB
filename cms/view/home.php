@@ -19,7 +19,7 @@
 
     <main id="app_bg">
         <div id="app">
-            <?php require_once('view/fale_conosco/fale_conosco_lista.php'); ?>
+            <?php require_once('view/fale_conosco/fale_conosco_listagem.html'); ?>
         </div>
     </main>
 
