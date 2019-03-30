@@ -12,21 +12,22 @@
 </head>
 <body>
     
-    <?php 
-        require_once("view/components/modal.php");
-        require_once("view/components/header.php");
-        require_once('view/components/nav.php'); 
-    ?>
+    <?php require_once("view/components/modal.php"); ?>
 
-    <main id="app_bg">
-        <div id="app">
-            <?php require_once('view/fique_por_dentro/fique_por_dentro_form.html'); ?>
-        </div>
-    </main>
+    <div class="wrapper">
+        <?php require_once('view/components/nav.php'); ?>
 
-    <?php 
-        require_once("view/components/footer.php");
-    ?>
+        <main id="app">
+            <?php require_once("view/components/header.php"); ?>
+
+            <div id="app_content">
+                <?php //require_once('view/fique_por_dentro/fique_por_dentro_form.html'); ?>
+            </div>
+
+            <?php require_once("view/components/footer.php"); ?>
+        </main>
+
+    </div>
 
     <script src="view/js/jquery_min.js"></script>
     <script src="view/js/index.js"></script>

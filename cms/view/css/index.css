@@ -48,38 +48,22 @@ body {
 	background: #555;
 }
 
-.header {
-	height: 80px;
+/* TELA TODA */
+.wrapper{
+	height: 100%;
 	width: 100%;
+	position: fixed;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	background-color: #202020;
-	color: #fff;
-	top: 0;
-	z-index: 500;
 }
 
-.header i {
-	height: 80px;
-	width: 80px;
-	line-height: 80px;
-	text-align: center;
-	font-size: 28px;
-	transition: .2s;
-}
 
-.header i:hover {
-	cursor: pointer;
-	transform: scale(1.1);
-}
+/* MENU LATERAL */
 
 .nav {
 	display: none;
 	height: 100%;
 	width: 250px;
 	background-color: #0f0f0f;
-	position: fixed;
 	color: #fff;
 }
 
@@ -115,19 +99,65 @@ body {
 	transition: .2s;
 }
 
-#app_bg {
-	padding-top: 80px;
-	height: 700px;
+/* RESTO DA TELA */
+#app {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	width: 100%;
-	background-color: #d2e4e7;
 }
 
-#app {
-	min-height: 500px;
-	max-width: 1200px;
-	background-color: rgb(255, 255, 255);
-	margin: auto;
+/* HEADER */
+.header {
+	height: 80px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background-color: #202020;
+	color: #fff;
 }
+
+.header i {
+	height: 80px;
+	width: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 28px;
+	transition: .2s;
+}
+
+.header i:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+/* CONTAINER QUE VAI RECEBER OS DADOS */
+#app_content{
+	height: 100%;
+	width: 100%;
+	background-color: #f8f9fc;
+}
+
+/* FOOTER */
+footer{
+	height: 50px;
+	width: 100%;
+	background-color: rgb(43, 43, 43);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .tabela_padrao {
 	width: 1000px;
@@ -211,11 +241,11 @@ body {
 	height: 100%;
 
 	width: 100%;
-	background-color: rgba(255, 0, 0, 0.089);
+	background-color: transparent;
 }
 
 .modal_container{
 	height: 900px;
 	width: 1000px;
-	background-color: #ffffffc0;
+	background-color: #ffffff;
 }

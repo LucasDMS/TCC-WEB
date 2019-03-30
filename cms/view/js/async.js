@@ -1,5 +1,10 @@
 
-function callView(pagina, output, callback){
+$(".modal_saida").on("click", function(){
+    modalToggle(false);
+});
+
+
+function callView(pagina){
    
     var url = formatarLink(pagina, 'listagem');
 
@@ -13,19 +18,9 @@ function callView(pagina, output, callback){
     })
     .done(function(dados){
 
-        $("#app").html(dados);
+        $("#app_content").html(dados);
     });
-
-    if(callback !== undefined){
-        callback()
-    }
 }
-
-function funlegal(){
-    console.log('vim do callback');
-    
-}
-
 
 function buscarForm(pagina){
 
@@ -62,7 +57,3 @@ function modalToggle(abrir){
         $(".modal_bg").fadeOut();
     }
 }
-
-$(".modal_saida").on("click", function(){
-    modalToggle(false);
-});
