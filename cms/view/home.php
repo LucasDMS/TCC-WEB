@@ -13,13 +13,14 @@
 <body>
     
     <?php 
+        require_once("view/components/modal.php");
         require_once("view/components/header.php");
         require_once('view/components/nav.php'); 
     ?>
 
     <main id="app_bg">
         <div id="app">
-            <?php require_once('view/fale_conosco/fale_conosco_listagem.html'); ?>
+            <?php require_once('view/fique_por_dentro/fique_por_dentro_form.html'); ?>
         </div>
     </main>
 
