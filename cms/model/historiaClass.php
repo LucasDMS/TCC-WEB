@@ -11,8 +11,9 @@
 */
 class Historia{
     private $id;
-    private $imagem;
     private $texto;
+    private $status;
+    private $ordem;
  
     //ID
     public function getId(){
@@ -22,18 +23,25 @@ class Historia{
         $this->id = $id;
     }
     //Nome
-    public function getImagem(){
-        return $this->nome;
-    }
-    public function setImagem($imagem){
-        $this->imagem = $imagem;
-    }
-    //Telefone
     public function getTexto(){
         return $this->texto;
     }
     public function setTexto($texto){
         $this->texto = $texto;
+    }
+    //Nome
+    public function getStatus(){
+        return $this->status;
+    }
+    public function setStatus($status){
+        $this->status = $status;
+    }
+    //Nome
+    public function getOrdem(){
+        return $this->ordem;
+    }
+    public function setOrdem($ordem){
+        $this->ordem = $ordem;
     }
 }
 ?>

@@ -4,11 +4,13 @@ class controllerHistoria{
     
     private $historiaDAO;
     public function __construct(){
-        require_once("model/historiaClass.php");
+
+        require_once("../../model/historiaClass.php");
         //import da classe historiaDAO, para inserir no BD
-        require_once('model/DAO/historiaDAO.php');
+        require_once('../../model/DAO/historiaDAO.php');
         $this->historiaDAO = new historiaDAO();
     }
+
     public function inserirHistoria(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -22,6 +24,7 @@ class controllerHistoria{
             $this->historiaDAO->insert($historiaClass);
         }
     }
+
     public function atualizarHistoria(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $id= $_GET['id'];
@@ -37,15 +40,20 @@ class controllerHistoria{
             $this->historiaDAO->update($historiaClass);
         }
     }
+
     public function excluirHistoria(){
         $id = $_GET['id'];
         $this->historiaDAO ->delete($id);
     }
     
-    
-    public function buscarHistoria(){
+    public function buscarHistoriaPorId(){
         $id = $_GET['id'];
         return $this->historiaDAO->selectById($id);
+    }
+
+    public function buscarHistoras(){
+
+        return $this->historiaDAO->selectAll();
     }
 }
 ?>

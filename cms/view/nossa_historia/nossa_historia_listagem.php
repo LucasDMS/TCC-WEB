@@ -1,129 +1,48 @@
+<?php 
+
+require_once("../../controller/controllerHistoria.php");
+
+$controller = new controllerHistoria();
+$rs = $controller->buscarHistoras();
+
+var_dump($rs);
+?>
+
 <button type="menu" onclick="buscarForm('fale_conosco')">
-        NOVO
-        </button>
-        
-        <table class="tabela_padrao">
-            <thead>
-        
-                <tr class="tabela_titlo">
-                    <th colspan="7">
-                        TABELA TITULO
-                    </th>
-                </tr>
-                <tr class="tabela_header">
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Estado</th>
-                    <th>Data de envio</th>
-                    <th>Status</th>
-                    <th colspan="3">Ações</th>
-                </tr>
-        
-            </thead>
-        
-            <tbody>
-        
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-        
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-        
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>CARLIHOS CARLOS</td>
-                    <td>Nome@gmail.com</td>
-                    <td>SP</td>
-                    <td>21/11/1999</td>
-                    <td>Não lido</td>
-        
-                    <td><i class="fas fa-search"></i></td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-            </tbody>
-        </table>
+    NOVO
+</button>
+
+<table class="tabela_padrao">
+    <thead>
+
+        <tr class="tabela_titlo">
+            <th colspan="7">
+                TABELA TITULO
+            </th>
+        </tr>
+        <tr class="tabela_header">
+            <th>id</th>
+            <th>texto</th>
+            <th>status</th>
+            <th>ordem</th>
+            <th>Status</th>
+            <th colspan="3">Ações</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        <?php foreach ($rs as $result) { ?>
+            <tr>
+                <td><?php echo $result->getId(); ?></td>
+                <td><?php echo $result->getTexto(); ?></td>
+                <td><?php echo $result->getStatus(); ?></td>
+                <td><?php echo $result->getOrdem(); ?></td>
+                <td>Não lido</td>
+
+                <td><i class="fas fa-search"></i></td>
+                <td><i class="fas fa-trash"></i></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
