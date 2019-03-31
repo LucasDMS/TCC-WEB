@@ -90,10 +90,6 @@ function asyncCall(event, pagina, operacao){
     });
 }
 
-$(document).ready(function(){
-    
-});
-
 function asyncSubmit(event, element){
     event.preventDefault()
 

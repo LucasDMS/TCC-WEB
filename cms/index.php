@@ -1,6 +1,14 @@
 <?php
 
+    session_start();
 
-    require_once("view/home.php");
+    if( isset($_SESSION['logado'])){
+
+        require_once("view/home.php");
+    }
+    else{
+        header("location:../index.php");
+    }
+    
     
 ?>

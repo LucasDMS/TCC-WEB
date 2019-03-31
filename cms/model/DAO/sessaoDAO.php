@@ -8,19 +8,28 @@ class sessaoDAO {
         $this->conex = new conexaoMysql();
     }
     
-    public function select(){
-        $PDO_conex = $this->conex ->connectDatabase();
-        $sql = "select * from tbl_historia where id=".$id;
-        $select = $PDO_conex -> query($sql);
-        if($rsHistoria=$select->fetch(PDO::FETCH_ASSOC)){
-            $listHistoria = new Historia();
-            $listHistoria->setId($rsHistoria['id']);
-            $listHistoria->setImagem($rsHistoria['imagem']);
-            $listHistoria->setTexto($rsHistoria['texto']);
-          
-        }
+    public function select(Sessao $sessao){
+        $conn = $this->conex ->connectDatabase();
+        $sql = "select * from tbl_usuario where usuario=? and senha=?";
+
+        $stm = $conn->prepare($sql);
+
+        $stm->bindValue(1, $sessao->getLogin());
+        $stm->bindValue(2, $sessao->getSenha());
+
+        $success = $stm->execute();
+
         $this->conex -> closeDataBase();
-        return $listHistoria;
+
+        if($success){
+            
+            session_start();
+            $_SESSION['logado'] = true;
+
+        }
+        else{
+            echo 'opa';
+        }
     }
 }
 

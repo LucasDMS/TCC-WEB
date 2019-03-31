@@ -4,10 +4,10 @@
     <form onsubmit="asyncSubmit(event, this)" action="cms/router.php?controller=sessao&modo=logar" name="frm_login" id="frm_login" method="post">
 
         <label for="">Login:</label>
-        <input name="txt_email" type="text" class="text">
+        <input name="txt_login" type="text" class="text">
 
         <label for="">Senha:</label>
-        <input name="senha" type="password" class="text" name="" id="">
+        <input name="txt_senha" type="password" class="text" name="" id="">
     
         <a href="" class="a">Esqueceu a senha?</a>
     
@@ -36,8 +36,8 @@ function asyncSubmit(event, element){
         processData: false,
     })
     .done(function(html){
-        console.log(html);
         
+        window.location.href = 'cms/index.php';
     });
     
 }

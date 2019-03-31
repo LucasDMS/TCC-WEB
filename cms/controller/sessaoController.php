@@ -15,14 +15,14 @@ class controllerSessao{
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
             $login = $_POST['txt_login'];
-            $senha = $_POST['txt_semha'];
+            $senha = $_POST['txt_senha'];
 
-            $sessaoClass = new sessaoClass();
+            $sessaoClass = new Sessao();
             
             $sessaoClass->setLogin($login);
             $sessaoClass->setSenha($senha);
 
-            $this->sessaoDao->select();
+            $this->sessaoDAO->select($sessaoClass);
         }
     }
 }
