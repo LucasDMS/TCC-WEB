@@ -7,7 +7,7 @@ $rs = $controller->buscarHistoras();
 
 ?>
 
-<button type="menu" onclick="buscarForm('historia')">
+<button type="menu" onclick="callView('historia', 'form')">
     NOVO
 </button>
 
@@ -40,6 +40,7 @@ $rs = $controller->buscarHistoras();
                 <td>
                     <a  onclick="asyncRequest(this)"
                         href="#"
+                        data-pagina="historia"
                         data-url="router.php?controller=historia&modo=editar"
                         data-id="<?php echo $result->getId(); ?>">
 
@@ -49,9 +50,10 @@ $rs = $controller->buscarHistoras();
                 <td>
                     <a  onclick="asyncRequest(this)" 
                         href="#"
+                        data-pagina="historia"
                         data-url="router.php?controller=historia&modo=excluir" 
                         data-id="<?php echo $result->getId(); ?>">
-                        
+
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>

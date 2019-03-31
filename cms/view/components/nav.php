@@ -1,20 +1,18 @@
 <nav id="barra_lateral" class="nav">
     <ul id="itens_barra_lateral">
 
-        <li onclick="callView('noticias')">
+        <li onclick="callView('noticias', 'listagem')">
             <div>
                 <i class="fas fa-wrench"></i>
-                Fique por Dentro
+                Noticias
             </div>
-            <i class="seta fas fa-caret-right"></i>
         </li>
 
-        <li onclick="callView('historia')">
+        <li onclick="callView('historia', 'listagem')">
             <div>
                 <i class="fas fa-wrench"></i>
                 Nossa História
             </div>
-            <i class="seta fas fa-caret-right"></i>
         </li>
 
     </ul>

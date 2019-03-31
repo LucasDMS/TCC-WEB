@@ -1,6 +1,6 @@
 
 
-<button type="menu" onclick="buscarForm('fale_conosco')">
+<button type="menu" onclick="callView('noticias','form')">
     NOVO
 </button>
 

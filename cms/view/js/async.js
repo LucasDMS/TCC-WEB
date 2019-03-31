@@ -1,94 +1,30 @@
-
 $(".modal_saida").on("click", function(){
     modalToggle(false);
 });
 
-function callView(pagina){
+function callView(pagina, tipo){
    
-    var url = formatarLink(pagina, 'listagem');
-
-
-    $.ajax({
-        type: "GET",
-        url: url,
-        beforeSend: function(){
-            console.log('colocar loader aq');
-            
-        }
-    })
-    .done(function(dados){
-
-        $("#app_content").html(dados);
-    });
-}
-
-function buscarForm(pagina){
-
-    var url = formatarLink(pagina, "form");
+    var url = formatarLink(pagina, tipo);
 
     $.ajax({
         type: "GET",
         url: url,
         beforeSend: function(){
             console.log('colocar loader aq');
-            
         }
     })
     .done(function(dados){
 
-        $("#modal").html(dados);
+        if(tipo === "listagem"){
 
-        modalToggle(true);
-    });    
-}
+            $("#app_content").html(dados);
+        }
+        else{
 
-function formatarLink(pagina, tipo){
+            $("#modal").html(dados);
 
-    return "view/" + pagina + "/" + pagina + "_" + tipo + ".php";
-}
-
-
-function modalToggle(abrir){
-
-    if(abrir){
-        $(".modal_bg")
-            .css("display", "flex")
-            .hide()
-            .fadeIn()
-    }
-    else{
-        $(".modal_bg").fadeOut();
-    }
-}
-
-function asyncCall(event, pagina, operacao){
-    event.preventDefault();
-
-    if(operacao == "buscar_tudo"){
-
-        url = formatarLink(pagina, "listagem");
-    }
-    else{
-        
-        var url = "router.php?controller=" + pagina + "&modo=" + operacao;
-    }
-
-    console.log(url);
-        
-    var formdata = new FormData(this);
-
-    console.log(formdata);
-    
-
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: formdata,
-        processData: false,
-        contentType: false
-    })
-    .done(function(html){
-        $("#app_content").html(html);
+            modalToggle(true);
+        }
     });
 }
 
@@ -108,18 +44,13 @@ function asyncSubmit(event, element){
     .done(function(html){
         
     });
-    
 }
-
 
 function asyncRequest(element){
 
     var url = element.getAttribute("data-url");
     var id  = element.getAttribute("data-id");
-    var pagina = url.split("=");
-
-    console.log(pagina[1]);
-    
+    var pagina = element.getAttribute("data-pagina");
 
     var formData = new FormData();
     formData.append("id_historia", id);
@@ -133,7 +64,44 @@ function asyncRequest(element){
         processData: false,
     })
     .done(function(data){
-        console.log(data);
         
+        reloadList(pagina);
     })
+}
+
+function reloadList(pagina){
+
+    var url = formatarLink(pagina, "listagem");
+
+    $.ajax({
+        type: "POST",
+        url: url
+    })
+    .done(function(data){
+        
+        $("#app_content").html(data);
+    })
+}
+
+
+
+/**
+ * UTILS
+ */
+function formatarLink(pagina, tipo){
+
+    return "view/" + pagina + "/" + pagina + "_" + tipo + ".php";
+}
+
+function modalToggle(abrir){
+
+    if(abrir){
+        $(".modal_bg")
+            .css("display", "flex")
+            .hide()
+            .fadeIn()
+    }
+    else{
+        $(".modal_bg").fadeOut();
+    }
 }
