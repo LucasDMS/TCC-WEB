@@ -51,8 +51,6 @@ class ControllerHistoria{
 
     public function excluirHistoria() {
 
-        var_dump($_POST);
-
         $id = $_POST['id_historia'];
 
         $this->HistoriaDAO->delete($id);

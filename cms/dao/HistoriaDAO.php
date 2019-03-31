@@ -7,8 +7,6 @@ class HistoriaDAO {
 
     public function __construct() {
 
-        echo $_SERVER['DOCUMENT_ROOT'];
-
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
@@ -27,7 +25,7 @@ class HistoriaDAO {
 
         $success = $stm->execute();
 
-        $this->conex -> closeDataBase();
+        $this->conex->closeDataBase();
 
         if ($success) {
             echo $success;
@@ -39,6 +37,7 @@ class HistoriaDAO {
     }
 
     public function update(Historia $historia) {
+
         $sql = "update tbl_historia set imagem= '".$historia->getImagem()."', texto = '".$historia ->getTexto()."'";
         $PDO_conex = $this->conex ->connectDatabase();
         if ($PDO_conex -> query($sql)) {
@@ -50,21 +49,31 @@ class HistoriaDAO {
         $this->conex -> closeDataBase();
     }
 
-    public function delete($id)
-    {
-        $sql = "delete from tbl_historia where id=".$id;
-        $PDO_conex = $this->conex->connectDatabase();
-        if ($PDO_conex -> query($sql)) {
-            header('location:index.php');
+    public function delete($id) {
+
+        $conn = $this->conex->connectDatabase();
+
+        $sql = "delete from tbl_historia where id_historia=?;";
+
+        $stm = $conn->prepare($sql);
+
+        $stm->bindValue(1, $id);
+
+        $success = $stm->execute();
+
+        $this->conex->closeDataBase();
+
+        if ($success) {
+            echo $success;
+            return "Sucesso";
         } else {
-            echo('Erro no script de excluir');
-            echo $sql;
+            echo $success;
+            return "Erro";
         }
-        $this->conex -> closeDataBase();
     }
     
-    public function selectById($id)
-    {
+    public function selectById($id) {
+
         $PDO_conex = $this->conex ->connectDatabase();
         $sql = "select * from tbl_historia where id=".$id;
         $select = $PDO_conex -> query($sql);
@@ -78,8 +87,8 @@ class HistoriaDAO {
         return $listHistoria;
     }
 
-    public function selectAll()
-    {
+    public function selectAll() {
+
         $conn = $this->conex->connectDatabase();
 
         $sql = "select * from tbl_historia";

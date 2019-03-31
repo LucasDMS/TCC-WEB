@@ -117,10 +117,13 @@ function asyncRequest(element){
     var url = element.getAttribute("data-url");
     var id  = element.getAttribute("data-id");
 
+    var formData = new FormData();
+    formData.append("id_historia", id);
+
     $.ajax({
         type: "POST",
         url: url,
-        data: { id_historia : id },
+        data: formData,
         cache: false,
         contentType: false,
         processData: false,

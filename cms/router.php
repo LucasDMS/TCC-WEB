@@ -25,24 +25,24 @@
 
             case 'HISTORIA':
                 //Import da classe de controller
-                require_once('controller/controllerHistoria.php');
+                require_once('controller/ControllerHistoria.php');
                 //Instancia da controller de historia
-                $controllerHistoria = new controllerHistoria();
+                $ControllerHistoria = new ControllerHistoria();
 
                 switch($modo){
                     case 'INSERIR':
                         //Chamando o metodo de inserir uma nova historia
-                        $controllerHistoria->inserirHistoria();
+                        $ControllerHistoria->inserirHistoria();
                         break;
                     case 'ATUALIZAR':
-                        $controllerHistoria ->atualizarHistoria();
+                        $ControllerHistoria ->atualizarHistoria();
                         break;
                     case 'EXCLUIR':
                         //Chamando o metodo de excluir uma historia
-                        $controllerHistoria->excluirHistoria();
+                        $ControllerHistoria->excluirHistoria();
                         break;
                     case 'BUSCAR':   
-                        $historia = $controllerHistoria->buscarHistoriaPorId();
+                        $historia = $ControllerHistoria->buscarHistoriaPorId();
                         require_once('index.php');
                         break;
                 }
