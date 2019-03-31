@@ -3,7 +3,6 @@ $(".modal_saida").on("click", function(){
     modalToggle(false);
 });
 
-
 function callView(pagina){
    
     var url = formatarLink(pagina, 'listagem');
@@ -52,7 +51,10 @@ function formatarLink(pagina, tipo){
 function modalToggle(abrir){
 
     if(abrir){
-        $(".modal_bg").fadeIn();
+        $(".modal_bg")
+            .css("display", "flex")
+            .hide()
+            .fadeIn()
     }
     else{
         $(".modal_bg").fadeOut();

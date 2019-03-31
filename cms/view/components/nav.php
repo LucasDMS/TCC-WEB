@@ -17,12 +17,5 @@
             <i class="seta fas fa-caret-right"></i>
         </li>
 
-        <li onclick="callView('fale_conosco')">
-            <div>
-                <i class="fas fa-wrench"></i>
-                Fale conosco
-            </div>
-            <i class="seta fas fa-caret-right"></i>
-        </li>
     </ul>
 </nav>

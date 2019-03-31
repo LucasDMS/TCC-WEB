@@ -10,5 +10,4 @@
         header("location:../index.php");
     }
     
-    
 ?>
