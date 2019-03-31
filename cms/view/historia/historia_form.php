@@ -10,12 +10,13 @@ $action = "router.php?controller=historia&modo=inserir";
         autocomplete="off" 
         id="frm_historia" 
         enctype='multipart/form-data' 
-        name="frm_historia" 
+        name="frm_historia"
+        data-pagina="historia" 
         class="form_padrao">
 
-    <input type="text" name="txt_texto" id="txt_texto" required>
-    
-    <button type="submit" class="btn">
+    <textarea name="txt_texto" id="txt_texto" required></textarea>
+
+    <button class="btn">
         Enviar
     </button>
 </form>

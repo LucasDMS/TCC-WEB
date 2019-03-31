@@ -32,7 +32,7 @@ function asyncSubmit(event, element){
     event.preventDefault()
 
     var url = element.getAttribute("action");
-    
+    var pagina = element.getAttribute("data-pagina");
     var formdata = new FormData(element);
     
     $.ajax({
@@ -44,7 +44,9 @@ function asyncSubmit(event, element){
         processData: false,
     })
     .done(function(html){
-        
+
+        reloadList(pagina);
+        modalToggle(false);
     });
 }
 
