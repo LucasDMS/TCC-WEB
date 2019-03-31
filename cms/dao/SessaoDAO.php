@@ -19,18 +19,20 @@ class sessaoDAO {
         $stm->bindValue(1, $sessao->getLogin());
         $stm->bindValue(2, $sessao->getSenha());
 
-        $success = $stm->execute();
+        $stm->execute();
+
+        $linhas = $stm->fetchColumn() || 0;
 
         $this->conex -> closeDataBase();
 
-        if($success){
+        if($linhas == 1){
             
+            echo '1';
             session_start();
             $_SESSION['logado'] = true;
-
         }
         else{
-            echo 'opa';
+            echo '0';
         }
     }
 }
