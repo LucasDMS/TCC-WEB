@@ -5,8 +5,8 @@ class sessaoDAO {
     private $conex;
     public function __construct(){
         
-        require_once('conexaoMysql.php');
-        $this->conex = new conexaoMysql();
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . '/db/conexaoMysql.php');
+        $this->conex = new ConexaoMysql();
     }
     
     public function select(Sessao $sessao){

@@ -12,8 +12,9 @@ class Historia{
 
     private $id;
     private $texto;
-    private $status;
     private $ordem;
+    private $ativo;
+    private $apagado;
  
     public function getId(){
         return $this->id;
@@ -31,20 +32,28 @@ class Historia{
         $this->texto = $texto;
     }
 
-    public function getStatus(){
-        return $this->status;
-    }
-
-    public function setStatus($status){
-        $this->status = $status;
-    }
-
     public function getOrdem(){
         return $this->ordem;
     }
 
     public function setOrdem($ordem){
         $this->ordem = $ordem;
+    }
+
+    public function getAtivo(){
+        return $this->ativo;
+    }
+
+    public function setAtivo($ativo){
+        $this->ativo = $ativo;
+    }
+
+    public function getApagado(){
+        return $this->apagado;
+    }
+
+    public function setApagado($apagado){
+        $this->apagado = $apagado;
     }
 }
 ?>

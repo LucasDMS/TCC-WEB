@@ -93,7 +93,7 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "select * from tbl_historia where status != 0";
+        $sql = "select * from tbl_historia where apagado = 0";
 
         $stm = $conn->prepare($sql);
         $success = $stm->execute();

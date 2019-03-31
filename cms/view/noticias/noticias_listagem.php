@@ -1,4 +1,6 @@
+<?php 
 
+?>
 
 <button type="menu" onclick="callView('noticias','form')">
     NOVO
@@ -29,8 +31,26 @@
             <td>21/11/1999</td>
             <td>Não lido</td>
 
-            <td><i class="fas fa-search"></i></td>
-            <td><i class="fas fa-trash"></i></td>
+            <td>
+                <a  onclick="asyncRequest(this)"
+                    href="#"
+                    data-pagina="noticias"
+                    data-url="router.php?controller=noticias&modo=editar"
+                    data-id="<?php echo $result->getId(); ?>">
+
+                    <i class="fas fa-pen"></i>
+                </a>
+            </td>
+            <td>
+                <a  onclick="asyncRequest(this)" 
+                    href="#"
+                    data-pagina="noticias"
+                    data-url="router.php?controller=noticias&modo=excluir" 
+                    data-id="<?php echo $result->getId(); ?>">
+
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>
