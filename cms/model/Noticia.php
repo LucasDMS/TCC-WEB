@@ -1,4 +1,3 @@
-
 <?php
 /*
     Projeto: TCC
@@ -9,39 +8,43 @@
     Autor da Modificação:
     Objetivo da classe: Classe de contatos
 */
-class Historia{
+class Noticia{
+
     private $id;
-    private $texto;
+    private $titulo;
+    private $conteudo;
     private $status;
-    private $ordem;
  
-    //ID
     public function getId(){
         return $this->id;
     }
+
     public function setId($id){
         $this->id = $id;
     }
-    //Nome
-    public function getTexto(){
-        return $this->texto;
+
+    public function getTitulo(){
+        return $this->titulo;
     }
-    public function setTexto($texto){
-        $this->texto = $texto;
+
+    public function setTitulo($titulo){
+        $this->titulo = $titulo;
     }
-    //Nome
+
+    public function getConteudo(){
+        return $this->conteudo;
+    }
+
+    public function setConteudo($conteudo){
+        $this->conteudo = $conteudo;
+    }
+
     public function getStatus(){
         return $this->status;
     }
+    
     public function setStatus($status){
         $this->status = $status;
-    }
-    //Nome
-    public function getOrdem(){
-        return $this->ordem;
-    }
-    public function setOrdem($ordem){
-        $this->ordem = $ordem;
     }
 }
 ?>

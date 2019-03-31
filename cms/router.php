@@ -47,6 +47,31 @@
                         break;
                 }
                 break;
+                
+            case 'FIQUEPORDENTRO':
+
+                require_once('controller/controllerFiquePorDentro.php');
+
+                $controllerFiquePorDentro = new controllerFiquePorDentro();
+                switch($modo){
+                    case 'INSERIR':
+                        //Chamando o metodo de inserir uma nova FiquePorDentro
+                        $controllerFiquePorDentro->inserirFiquePorDentro();
+                        break;
+                    case 'ATUALIZAR':
+                        $controllerFiquePorDentro ->atualizarFiquePorDentro();
+                        break;
+                    case 'EXCLUIR':
+                        //Chamando o metodo de excluir uma FiquePorDentro
+                        $controllerFiquePorDentro->excluirFiquePorDentro();
+                        break;
+                    case 'BUSCAR':   
+                        $FiquePorDentro = $controllerFiquePorDentro->buscarFiquePorDentro();
+                        require_once('index.php');
+                        break;
+                }
+                break;
+
         }
     }
 ?>

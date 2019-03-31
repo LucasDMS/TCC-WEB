@@ -4,11 +4,13 @@ class sessaoDAO {
 
     private $conex;
     public function __construct(){
+        
         require_once('conexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
     
     public function select(Sessao $sessao){
+        
         $conn = $this->conex ->connectDatabase();
         $sql = "select * from tbl_usuario where usuario=? and senha=?";
 

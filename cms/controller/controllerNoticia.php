@@ -2,13 +2,14 @@
 <?php 
 class controllerHistoria{
     
-    private $historiaDAO;
+    private $NoticiaDAO;
+
     public function __construct(){
 
-        require_once("../../model/historiaClass.php");
-        //import da classe historiaDAO, para inserir no BD
-        require_once('../../model/DAO/historiaDAO.php');
-        $this->historiaDAO = new historiaDAO();
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Noticia.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/NoticiaDAO.php');
+
+        $this->NoticiaDAO = new NoticiaDAO();
     }
 
     public function inserirHistoria(){

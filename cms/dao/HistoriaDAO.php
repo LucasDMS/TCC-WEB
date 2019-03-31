@@ -1,11 +1,20 @@
 <?php
-class historiaDAO{
+
+class HistoriaDAO {
+
     private $conex;
-    public function __construct(){
-        require_once('conexaoMysql.php');
+    private $historia;
+
+    public function __construct() {
+
+        echo $_SERVER['DOCUMENT_ROOT'];
+
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
-    public function insert(Historia $historia){
+
+    public function insert(Historia $historia) {
+
         $conn = $this->conex->connectDatabase();
 
         $sql = "insert into tbl_historia(texto,status,ordem) values(?,?,?);";
@@ -20,54 +29,57 @@ class historiaDAO{
 
         $this->conex -> closeDataBase();
 
-        if($success){
+        if ($success) {
             echo $success;
             return "Sucesso";
-        }
-        else{
+        } else {
             echo $success;
             return "Erro";
         }
     }
-    public function update(Historia $historia){
+
+    public function update(Historia $historia) {
         $sql = "update tbl_historia set imagem= '".$historia->getImagem()."', texto = '".$historia ->getTexto()."'";
         $PDO_conex = $this->conex ->connectDatabase();
-        if($PDO_conex -> query($sql)){
+        if ($PDO_conex -> query($sql)) {
             header('location:index.php');
-        }else{
+        } else {
             echo('Erro no script de ');
             echo $sql;
         }
         $this->conex -> closeDataBase();
     }
-    public function delete($id){
+
+    public function delete($id)
+    {
         $sql = "delete from tbl_historia where id=".$id;
         $PDO_conex = $this->conex->connectDatabase();
-        if($PDO_conex -> query($sql)){
+        if ($PDO_conex -> query($sql)) {
             header('location:index.php');
-        }else{
+        } else {
             echo('Erro no script de excluir');
             echo $sql;
         }
         $this->conex -> closeDataBase();
     }
     
-    public function selectById($id){
+    public function selectById($id)
+    {
         $PDO_conex = $this->conex ->connectDatabase();
         $sql = "select * from tbl_historia where id=".$id;
         $select = $PDO_conex -> query($sql);
-        if($rsHistoria=$select->fetch(PDO::FETCH_ASSOC)){
+        if ($rsHistoria=$select->fetch(PDO::FETCH_ASSOC)) {
             $listHistoria = new Historia();
             $listHistoria->setId($rsHistoria['id']);
             $listHistoria->setImagem($rsHistoria['imagem']);
             $listHistoria->setTexto($rsHistoria['texto']);
-          
         }
         $this->conex -> closeDataBase();
         return $listHistoria;
     }
 
-    public function selectAll(){
+    public function selectAll()
+    {
         $conn = $this->conex->connectDatabase();
 
         $sql = "select * from tbl_historia";
@@ -75,11 +87,9 @@ class historiaDAO{
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
 
-        if($success){
-
+        if ($success) {
             $listHistoria = [];
-            foreach($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
-                
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $historia = new Historia();
                 $historia->setId($result['id_historia']);
                 $historia->setTexto($result['texto']);
@@ -92,10 +102,8 @@ class historiaDAO{
             $this->conex -> closeDataBase();
 
             return $listHistoria;
-        }
-        else{
+        } else {
             return "Erro";
         }
     }
 }
-?>
