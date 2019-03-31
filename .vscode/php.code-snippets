@@ -29,5 +29,19 @@
 			"}"
 		],
 		"description": "classe legal",
+	},
+
+	"Require once":{
+		"scope": "php",
+		"prefix": "ro",
+		"body": ["require_once('$1');"],
+		"description": "classe legal",
+	},
+
+	"php":{
+		"scope": "html",
+		"prefix": "php",
+		"body": ["<?php $1 ?>"],
+		"description": "tag php",
 	}
 }

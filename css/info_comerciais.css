@@ -1,0 +1,92 @@
+.section_est_parceiros{
+	max-width: 1300px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+.form_infos_comerciais{
+	max-width: 600px;
+    margin: auto;
+}
+
+.form_infos_comerciais label{
+	padding: 15px 0 5px 0;
+    width: 95%;
+    margin: auto;
+}
+
+.form_infos_comerciais button{
+	background-color: #78d649;
+}
+
+.bg_color_parceiros{
+	background-color:#78d649;
+}
+
+.estabelecimentos_lista{
+	display: block;
+	padding: 15px;
+	max-width: 500px;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.estabelecimentos_lista h3{
+	font-size: 22px;
+}
+
+.estabelecimento_mais_detalhes{
+	padding: 30px;
+	display: block;
+	max-width: 900px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.estabelecimento_mais_detalhes img{
+	display: block;
+	margin: 15px auto;
+	width: 65%;
+	height: auto;
+}
+
+.estabelecimento_mais_detalhes h3{
+	font-family: Divinne;
+	font-size: 30px;
+	font-weight: normal;
+	text-align: center;
+	padding: 15px
+}
+
+.estabelecimento_mais_detalhes p{
+	padding: 15px;
+}
+.estabelecimentos_container{
+	max-width: 1300px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 35px;
+}
+
+
+
+.lista_estabelecimentos li{
+	text-align: center;
+	padding: 15px;
+	margin: 5px;
+	border: 2px solid transparent;
+	border-radius: 5px;
+}
+
+.lista_estabelecimentos li:hover{
+	border-color: rgb(224, 224, 224);
+	box-shadow: 0 0 5px rgb(134, 134, 134);
+	cursor: pointer;
+}
+
+.est_cor{
+	background-color: #fff;
+}

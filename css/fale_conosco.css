@@ -1,0 +1,24 @@
+.section_fale_conosco{
+    max-width: 1300px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+.form_fale_conosco{
+    max-width: 600px;
+    margin: auto;
+}
+
+.form_fale_conosco label{
+    padding: 15px 0 5px 0;
+    width: 95%;
+    margin: auto;
+}
+
+.form_fale_conosco .flex_center{
+    margin-top: 15px;
+}
+
+.form_fale_conosco .flex_center .btn{
+    margin: 5px;
+}

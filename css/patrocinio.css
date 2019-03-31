@@ -1,0 +1,41 @@
+.patrocinio{
+    padding: 55px 0 0 0;
+}
+
+.patrocinio_bg{
+    margin-top: 55px;
+    background-color: #212529;
+}
+
+.patrocinio_container{
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+}
+
+.lista_patrocinio{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.lista_patrocinio li{
+    height: auto;
+    width: 95%;
+    margin: 15px;
+    padding: 25px;
+    background-color: #fff;
+    color: #666;
+    border-radius: 5px;
+    display: flex;
+}
+
+.lista_patrocinio img{
+    height: 250px;
+    width: 45%;
+}
+
+.lista_patrocinio div{
+    padding: 15px;
+    
+}

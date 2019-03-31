@@ -1,0 +1,61 @@
+.pops_escola{
+    max-width: 100%;
+    padding: 50px 0 0 0;
+}
+
+.form_pesquisa {
+	max-width: 500px;
+	margin: 50px auto;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.form_pesquisa button {
+	background-color: #0ba552;
+	color: #fff;
+}
+
+.form_pesquisa_submit i:hover {
+	cursor: pointer;
+	transform: scale(1.15);
+}
+
+
+
+.lista_escolas_bg{
+    background-color: #0ba552;
+    padding: 25px;
+    margin: 50px 0 0 0;
+}
+
+.lista_escolas_bg h2{
+    color: #fff;
+    margin-top: 30px;
+}
+
+.lista_escolas{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lista_escolas li{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 15px auto;
+    max-width: 500px;
+}
+
+.lista_escolas img{
+    display: block;
+    height: auto;
+    max-width: 250px;
+    margin: auto auto 25px auto;
+    border-radius: 5px;
+}
+
+.lista_escolas h3{
+    text-align: center;
+}

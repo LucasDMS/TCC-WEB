@@ -1,0 +1,221 @@
+
+.section_destaque {
+	min-height: 500px;
+	max-width: 1300PX;
+    margin: auto;
+    padding: 35px 0 0 0;
+    text-align: justify;
+}
+
+.form_pesquisa {
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.form_pesquisa button {
+	background-color: #0ba552;
+	color: #fff;
+}
+
+.destaques_container {
+	padding: 35px;
+	height: auto;
+	max-width: 1200px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.img_destaque{
+	display: block;
+	width: 300px;
+	margin: auto;
+}
+
+.destaques_texto {
+	height: auto;
+	width: 800px;
+	margin: 0 auto;
+	padding: 16px;
+	font-size: 18px;
+}
+
+.destaques_texto h3 {
+	text-align: center;
+	padding: 16px;
+	font-size: 28px;
+}
+
+.sub_menu_lateral {
+	height: 100%;
+	width: 350px;
+	padding: 16px 0;
+}
+
+/* enquete */
+
+.enquete {
+	height: auto;
+	width: 100%;
+	padding: 25px;
+	background-color: #212529;
+	color: #fff;
+}
+
+.enquete_container{
+	max-width: 500px;
+	margin: auto;
+}
+
+.enquete_container h3{
+	text-align: center;
+	font-size: 27px;
+}
+
+.enquete_container ul{
+	max-width: 275px;
+	margin: auto;
+}
+
+.enquete_container label{
+	display: inline;
+}
+
+.enquete_container button{
+	font-size: 14px;
+	background-color: #0ba552;
+	color: #fff;
+	display: block;
+	margin: 15px auto 0 auto;
+}
+
+/* news_letter */
+
+.news_letter {
+	min-height: 100px;
+	width: 100%;
+	background-color: #fff;
+	padding: 25px;
+}
+
+.news_letter_container{
+	max-width: 600px;
+	margin: auto;
+}
+
+.news_letter_container p{
+	text-align: center;
+	font-size: 20px;
+	margin: 0 0 20px 0;
+}
+
+.news_letter_container form{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.news_letter_container input{
+	max-width: 85%;
+}
+
+.news_letter_container button{
+	background-color: #fff;
+	color: #0ba552;
+}
+
+/* news_letter */
+
+.section_resumos{
+    min-height: 200px;
+    margin: auto;
+    padding: 35px;
+    background-color: #78d649;
+}
+
+.section_resumos h2{
+    color: #fff;
+}
+
+.resumos_container{
+    min-height: 10px;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.resumo{
+    min-height: 100px;
+    max-width: 95%;
+    margin: 10px auto;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    padding: 45px 30px;
+    text-align: justify;
+}
+
+.section_sustentabilidade{
+    padding: 35px;
+}
+
+.section_sustentabilidade{
+    max-width: 1000px;
+	margin: auto;
+}
+
+.comentarios{
+	height: auto;
+	background-color: #0ba552;
+	padding: 35px;
+}
+
+.comentarios h2{
+	color: #fff;
+}
+
+.lista_comentarios{
+	max-width: 1000px;
+	margin: auto;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.lista_comentarios li{
+	margin: 15px;
+	padding: 15px;
+	background-color: #fff;
+	max-width: 450px;
+	border-radius: 5px;
+}
+
+
+.lista_comentarios img{
+	display: block;
+	margin: auto;
+	height: 75px;
+}
+
+.lista_comentarios h3{
+	margin: 10px;
+	text-align: center;
+	color: #666;
+}
+
+.lista_comentarios p{
+	color: #888;
+}
+
+.lista_comentarios span{
+	display: block;
+	width: 100%;
+	text-align: right;
+	color: #666;
+}
+

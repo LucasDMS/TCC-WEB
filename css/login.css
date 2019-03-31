@@ -1,0 +1,9 @@
+
+.login_container{
+	width: 100%;
+	padding: 16px;
+}
+
+.login_container a{
+	display: block;
+}
