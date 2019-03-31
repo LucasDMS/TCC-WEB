@@ -93,21 +93,24 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "select * from tbl_historia where apagado = 0";
+        $sql = "select * from tbl_historia where apagado = 0 order by ativo desc";
 
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
 
         if ($success) {
+
             $listHistoria = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $historia = new Historia();
-                $historia->setId($result['id_historia']);
-                $historia->setTexto($result['texto']);
-                $historia->setStatus($result['status']);
-                $historia->setOrdem($result['ordem']);
 
-                array_push($listHistoria, $historia);
+                $Historia = new Historia();
+                $Historia->setId($result['id_historia']);
+                $Historia->setTexto($result['texto']);
+                $Historia->setOrdem($result['ordem']);
+                $Historia->setAtivo($result['ativo']);
+                $Historia->setApagado($result['apagado']);
+
+                array_push($listHistoria, $Historia);
             };
 
             $this->conex -> closeDataBase();

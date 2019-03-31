@@ -21,9 +21,7 @@ $rs = $controller->buscarHistoras();
             </th>
         </tr>
         <tr class="tabela_header">
-            <th>id</th>
             <th>texto</th>
-            <th>status</th>
             <th>ordem</th>
             <th colspan="3">Ações</th>
         </tr>
@@ -33,9 +31,7 @@ $rs = $controller->buscarHistoras();
     <tbody>
         <?php foreach ($rs as $result) { ?>
             <tr>
-                <td><?php echo $result->getId(); ?></td>
                 <td><?php echo $result->getTexto(); ?></td>
-                <td><?php echo $result->getStatus(); ?></td>
                 <td><?php echo $result->getOrdem(); ?></td>
 
                 <td>
@@ -52,10 +48,11 @@ $rs = $controller->buscarHistoras();
                     <a  onclick="asyncRequest(this)" 
                         href="#"
                         data-pagina="historia"
-                        data-url="router.php?controller=historia&modo=excluir" 
-                        data-id="<?php echo $result->getId(); ?>">
+                        data-url="router.php?controller=historia&modo=ativar" 
+                        data-id="<?php echo $result->getId(); ?>"
+                        data-ativo="<?php echo $result->getAtivo(); ?>">
 
-                        <?php $ativo = ($result->getStatus()==1) ? "-check" : "" ; ?>
+                        <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
                         <i class="far fa<?php echo $ativo ?>-square"></i>
                     </a>
                 </td>
