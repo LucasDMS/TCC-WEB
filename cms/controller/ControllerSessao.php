@@ -1,13 +1,15 @@
 <?php 
 
-class controllerSessao{
+class ControllerSessao{
     
-    private $sessaoDAO;
+    private $SessaoDAO;
+
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/sessaoClass.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/DAO/sessaoDAO.php");
-        $this->sessaoDAO = new sessaoDAO();
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Sessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/dao/SessaoDAO.php");
+
+        $this->SessaoDAO = new SessaoDAO();
     }
 
     public function logar(){
@@ -17,12 +19,12 @@ class controllerSessao{
             $login = $_POST['txt_login'];
             $senha = $_POST['txt_senha'];
 
-            $sessaoClass = new Sessao();
+            $Sessao = new Sessao();
             
-            $sessaoClass->setLogin($login);
-            $sessaoClass->setSenha($senha);
+            $Sessao->setLogin($login);
+            $Sessao->setSenha($senha);
 
-            $this->sessaoDAO->select($sessaoClass);
+            $this->SessaoDAO->select($Sessao);
         }
     }
 }

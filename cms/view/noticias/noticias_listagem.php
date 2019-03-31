@@ -8,7 +8,7 @@
     <thead>
         <tr class="tabela_titlo">
             <th colspan="7">
-                TABELA TITULO
+                NOTÍCIAS
             </th>
         </tr>
         <tr class="tabela_header">

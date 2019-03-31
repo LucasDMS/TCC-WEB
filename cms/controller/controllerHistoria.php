@@ -51,14 +51,16 @@ class ControllerHistoria{
 
     public function excluirHistoria() {
 
-        $id = $_GET['id_historia'];
+        var_dump($_POST);
+
+        $id = $_POST['id_historia'];
 
         $this->HistoriaDAO->delete($id);
     }
     
     public function buscarHistoriaPorId() {
 
-        $id = $_GET['id_historia'];
+        $id = $_POST['id_historia'];
 
         return $this->HistoriaDAO->selectById($id);
     }

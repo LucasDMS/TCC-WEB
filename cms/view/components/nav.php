@@ -1,7 +1,7 @@
 <nav id="barra_lateral" class="nav">
     <ul id="itens_barra_lateral">
 
-        <li onclick="callView('fique_por_dentro')">
+        <li onclick="callView('noticias')">
             <div>
                 <i class="fas fa-wrench"></i>
                 Fique por Dentro

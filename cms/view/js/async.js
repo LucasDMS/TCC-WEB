@@ -110,3 +110,23 @@ function asyncSubmit(event, element){
     });
     
 }
+
+
+function asyncRequest(element){
+
+    var url = element.getAttribute("data-url");
+    var id  = element.getAttribute("data-id");
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: { id_historia : id },
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function(data){
+        console.log(data);
+        
+    })
+}

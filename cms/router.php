@@ -48,7 +48,9 @@
                 }
                 break;
                 
-            case 'FIQUEPORDENTRO':
+            case 'NOTICIAS':
+
+            //TODO - ARRUMAR TUDO ISSO AQ
 
                 require_once('controller/controllerFiquePorDentro.php');
 

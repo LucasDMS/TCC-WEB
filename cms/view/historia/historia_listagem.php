@@ -16,7 +16,7 @@ $rs = $controller->buscarHistoras();
 
         <tr class="tabela_titlo">
             <th colspan="7">
-                TABELA TITULO
+                HISTORIA
             </th>
         </tr>
         <tr class="tabela_header">
@@ -37,8 +37,16 @@ $rs = $controller->buscarHistoras();
                 <td><?php echo $result->getStatus(); ?></td>
                 <td><?php echo $result->getOrdem(); ?></td>
 
-                <td><i class="fas fa-search"></i></td>
-                <td><i class="fas fa-trash"></i></td>
+                <td>
+                    <a onclick="asyncRequest(this)" href="#" data-url="router.php?controller=historia&modo=editar" data-id="<?php echo $result->getId(); ?>">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </td>
+                <td>
+                    <a onclick="asyncRequest(this)" href="#" data-url="router.php?controller=historia&modo=excluir" data-id="<?php echo $result->getId(); ?>">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
             </tr>
         <?php } ?>
     </tbody>
