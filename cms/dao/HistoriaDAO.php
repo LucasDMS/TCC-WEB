@@ -15,25 +15,18 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "insert into tbl_historia(texto,status,ordem) values(?,?,?);";
+        $sql = "insert into tbl_historia(texto,ordem,ativo,apagado) values(?,?,?,?);";
 
         $stm = $conn->prepare($sql);
 
-        $stm->bindValue(1, $historia->getTexto());
-        $stm->bindValue(2, $historia->getStatus());
-        $stm->bindValue(3, $historia->getOrdem());
+        $stm->bindValue(1, $historia->getTexto());        
+        $stm->bindValue(2, $historia->getOrdem());
+        $stm->bindValue(3, $historia->getAtivo());
+        $stm->bindValue(4, $historia->getApagado());
 
-        $success = $stm->execute();
+        $stm->execute();
 
         $this->conex->closeDataBase();
-
-        if ($success) {
-            echo $success;
-            return "Sucesso";
-        } else {
-            echo $success;
-            return "Erro";
-        }
     }
 
     public function update(Historia $historia) {

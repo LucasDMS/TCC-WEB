@@ -16,14 +16,16 @@ class ControllerHistoria{
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
             
-            $texto  = $_POST['txt_texto'];
-            $status = 1;
-            $ordem  = 1;
+            $texto   = $_POST['txt_texto'];
+            $ordem   = 1;
+            $ativo   = 1;
+            $apagado = 0;
 
             $Historia = new Historia(); 
             $Historia->setTexto($texto);
-            $Historia->setStatus($status);
             $Historia->setOrdem($ordem);
+            $Historia->setAtivo($ativo);
+            $Historia->setApagado($apagado);
 
             $this->HistoriaDAO->insert($Historia);
         }

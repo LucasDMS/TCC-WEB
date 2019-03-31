@@ -32,11 +32,13 @@ function asyncSubmit(event, element){
     event.preventDefault()
 
     var url = element.getAttribute("action");
-        
+    
+    var formdata = new FormData(element);
+    
     $.ajax({
         type: "POST",
         url: url,
-        data: new FormData($("#frm_historia")[0]),
+        data: formdata,
         cache: false,
         contentType: false,
         processData: false,
