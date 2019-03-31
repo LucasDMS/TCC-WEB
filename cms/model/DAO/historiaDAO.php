@@ -6,16 +6,28 @@ class historiaDAO{
         $this->conex = new conexaoMysql();
     }
     public function insert(Historia $historia){
-        $sql = "insert into tbl_nossa_historia(imagem, texto) values ('".$historia ->getImagem()."', '".$historia ->getTexto()."')";
-        $PDO_conex = $this->conex ->connectDatabase();
-        if($PDO_conex -> query($sql)){
-            header('location:index.php');
-        }else{
-            echo('Erro no script de insert');
-            echo $sql;
-        }
-        
+        $conn = $this->conex->connectDatabase();
+
+        $sql = "insert into tbl_historia(texto,status,ordem) values(?,?,?);";
+
+        $stm = $conn->prepare($sql);
+
+        $stm->bindValue(1, $historia->getTexto());
+        $stm->bindValue(2, $historia->getStatus());
+        $stm->bindValue(3, $historia->getOrdem());
+
+        $success = $stm->execute();
+
         $this->conex -> closeDataBase();
+
+        if($success){
+            echo $success;
+            return "Sucesso";
+        }
+        else{
+            echo $success;
+            return "Erro";
+        }
     }
     public function update(Historia $historia){
         $sql = "update tbl_historia set imagem= '".$historia->getImagem()."', texto = '".$historia ->getTexto()."'";

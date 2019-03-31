@@ -9,7 +9,7 @@
             <i class="seta fas fa-caret-right"></i>
         </li>
 
-        <li onclick="callView('nossa_historia')">
+        <li onclick="callView('historia')">
             <div>
                 <i class="fas fa-wrench"></i>
                 Nossa História

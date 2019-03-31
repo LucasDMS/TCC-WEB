@@ -21,7 +21,7 @@
             <?php require_once("view/components/header.php"); ?>
 
             <div id="app_content">
-                <?php require_once('view/fique_por_dentro/fique_por_dentro_form.php'); ?>
+                <?php require_once('boas_vindas.php'); ?>
             </div>
 
             <?php require_once("view/components/footer.php"); ?>

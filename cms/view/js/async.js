@@ -8,6 +8,7 @@ function callView(pagina){
    
     var url = formatarLink(pagina, 'listagem');
 
+
     $.ajax({
         type: "GET",
         url: url,
@@ -56,4 +57,58 @@ function modalToggle(abrir){
     else{
         $(".modal_bg").fadeOut();
     }
+}
+
+function asyncCall(event, pagina, operacao){
+    event.preventDefault();
+
+    if(operacao == "buscar_tudo"){
+
+        url = formatarLink(pagina, "listagem");
+    }
+    else{
+        
+        var url = "router.php?controller=" + pagina + "&modo=" + operacao;
+    }
+
+    console.log(url);
+        
+    var formdata = new FormData(this);
+
+    console.log(formdata);
+    
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formdata,
+        processData: false,
+        contentType: false
+    })
+    .done(function(html){
+        $("#app_content").html(html);
+    });
+}
+
+$(document).ready(function(){
+    
+});
+
+function asyncSubmit(event, element){
+    event.preventDefault()
+
+    var url = element.getAttribute("action");
+        
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: new FormData($("#frm_historia")[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function(html){
+        
+    });
+    
 }

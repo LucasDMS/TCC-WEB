@@ -1,4 +1,3 @@
-
 <?php 
 
     $controller = null;
@@ -10,6 +9,19 @@
         $modo = strtoupper($_GET['modo']);
 
         switch($controller){
+            case 'SESSAO':
+
+                require_once('controller/sessaoController.php');
+
+                $controllerSessao = new controllerSessao();
+
+                switch($modo){
+                    case 'LOGAR':
+                        $controllerSessao->logar();
+                        break;
+                }
+
+                break;
 
             case 'HISTORIA':
                 //Import da classe de controller
@@ -30,11 +42,11 @@
                         $controllerHistoria->excluirHistoria();
                         break;
                     case 'BUSCAR':   
-                        $historia = $controllerHistoria->buscarHistoria();
+                        $historia = $controllerHistoria->buscarHistoriaPorId();
                         require_once('index.php');
                         break;
                 }
-            break;
+                break;
         }
     }
 ?>

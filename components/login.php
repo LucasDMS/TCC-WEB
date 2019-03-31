@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="css/login.css">
 
 <div class="login_container">
-    <form action="" method="post">
+    <form onsubmit="asyncSubmit(event, this)" action="cms/router.php?controller=sessao&modo=logar" name="frm_login" id="frm_login" method="post">
 
         <label for="">Login:</label>
-        <input type="text" class="text">
+        <input name="txt_email" type="text" class="text">
 
         <label for="">Senha:</label>
-        <input type="password" class="text" name="" id="">
+        <input name="senha" type="password" class="text" name="" id="">
     
         <a href="" class="a">Esqueceu a senha?</a>
     
@@ -16,4 +16,31 @@
         <a href="" class="a">Não tem cadastro? clique aqui!</a>
 
     </form>
+
+
 </div>
+
+<script>
+
+function asyncSubmit(event, element){
+    event.preventDefault()
+
+    var url = element.getAttribute("action");
+        
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: new FormData($("#frm_login")[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function(html){
+        console.log(html);
+        
+    });
+    
+}
+
+
+</script>

@@ -1,14 +1,13 @@
 <?php 
 
-require_once("../../controller/controllerHistoria.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerHistoria.php");
 
 $controller = new controllerHistoria();
 $rs = $controller->buscarHistoras();
 
-var_dump($rs);
 ?>
 
-<button type="menu" onclick="buscarForm('fale_conosco')">
+<button type="menu" onclick="buscarForm('historia')">
     NOVO
 </button>
 
@@ -25,7 +24,6 @@ var_dump($rs);
             <th>texto</th>
             <th>status</th>
             <th>ordem</th>
-            <th>Status</th>
             <th colspan="3">Ações</th>
         </tr>
 
@@ -38,7 +36,6 @@ var_dump($rs);
                 <td><?php echo $result->getTexto(); ?></td>
                 <td><?php echo $result->getStatus(); ?></td>
                 <td><?php echo $result->getOrdem(); ?></td>
-                <td>Não lido</td>
 
                 <td><i class="fas fa-search"></i></td>
                 <td><i class="fas fa-trash"></i></td>
