@@ -38,12 +38,20 @@ $rs = $controller->buscarHistoras();
                 <td><?php echo $result->getOrdem(); ?></td>
 
                 <td>
-                    <a onclick="asyncRequest(this)" href="#" data-url="router.php?controller=historia&modo=editar" data-id="<?php echo $result->getId(); ?>">
+                    <a  onclick="asyncRequest(this)"
+                        href="#"
+                        data-url="router.php?controller=historia&modo=editar"
+                        data-id="<?php echo $result->getId(); ?>">
+
                         <i class="fas fa-search"></i>
                     </a>
                 </td>
                 <td>
-                    <a onclick="asyncRequest(this)" href="#" data-url="router.php?controller=historia&modo=excluir" data-id="<?php echo $result->getId(); ?>">
+                    <a  onclick="asyncRequest(this)" 
+                        href="#"
+                        data-url="router.php?controller=historia&modo=excluir" 
+                        data-id="<?php echo $result->getId(); ?>">
+                        
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>

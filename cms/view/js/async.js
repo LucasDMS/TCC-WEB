@@ -116,6 +116,10 @@ function asyncRequest(element){
 
     var url = element.getAttribute("data-url");
     var id  = element.getAttribute("data-id");
+    var pagina = url.split("=");
+
+    console.log(pagina[1]);
+    
 
     var formData = new FormData();
     formData.append("id_historia", id);

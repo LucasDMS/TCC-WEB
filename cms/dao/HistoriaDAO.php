@@ -53,13 +53,15 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "delete from tbl_historia where id_historia=?;";
+        $sql = "UPDATE tbl_historia SET status=0 WHERE id_historia=?;";
 
         $stm = $conn->prepare($sql);
 
         $stm->bindValue(1, $id);
 
         $success = $stm->execute();
+
+        echo $success;
 
         $this->conex->closeDataBase();
 
@@ -91,7 +93,7 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "select * from tbl_historia";
+        $sql = "select * from tbl_historia where status != 0";
 
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
