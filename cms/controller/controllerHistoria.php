@@ -36,16 +36,11 @@ class ControllerHistoria{
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
             $id     = $_POST['id'];
-            $texto  = $_POST['txt_texto'];
-            $status = $_POST['txt_status'];
-            $ordem  = $_POST['txt_ordem'];
-            
+            $texto  = $_POST['txt_texto'];            
             $Historia = new Historia(); 
 
             $Historia->setId($id);
             $Historia->setTexto($texto);
-            $Historia->setStatus($status);
-            $Historia->setOrdem($ordem);
             
             $this->HistoriaDAO->update($Historia);
         }
