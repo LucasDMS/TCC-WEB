@@ -76,7 +76,7 @@ class ControllerHistoria{
     
     public function buscarHistoriaPorId() {
 
-        $id = $_POST['id_historia'];
+        $id = $_GET['id'];
 
         return $this->HistoriaDAO->selectById($id);
     }
