@@ -33,7 +33,11 @@ function asyncSubmit(event, element){
 
     var url = element.getAttribute("action");
     var pagina = element.getAttribute("data-pagina");
+    var modo = element.getAttribute("data-modo");
+    var id = element.getAttribute("data-id");
+
     var formdata = new FormData(element);
+    formdata.append("id", id);
     
     $.ajax({
         type: "POST",

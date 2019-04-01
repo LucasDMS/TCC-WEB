@@ -4,6 +4,7 @@ $texto = null;
 
 $action = "router.php?controller=historia&modo=inserir";
 $modo = "inserir";
+$id = "";
 
 if(isset($_GET['id'])){
     
@@ -17,6 +18,7 @@ if(isset($_GET['id'])){
     $action = "router.php?controller=historia&modo=atualizar";
     $modo = "atualizar";
     $texto = $Historia->getTexto();
+    $id = $Historia->getId();
 }
 
 ?>
@@ -26,6 +28,7 @@ if(isset($_GET['id'])){
         method="post" 
         autocomplete="off" 
         id="frm_historia" 
+        data-id="<?php echo $id ?>"
         enctype='multipart/form-data' 
         name="frm_historia"
         data-pagina="historia"

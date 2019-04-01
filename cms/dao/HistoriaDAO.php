@@ -31,16 +31,18 @@ class HistoriaDAO {
 
     public function update(Historia $historia) {
 
-        $sql = "update tbl_historia set texto=?,ordem=?,ativo=?,apagado=? where id_historia=?";
+        $conn = $this->conex->connectDatabase();
 
-        $PDO_conex = $this->conex ->connectDatabase();
-        if ($PDO_conex -> query($sql)) {
-            header('location:index.php');
-        } else {
-            echo('Erro no script de ');
-            echo $sql;
-        }
-        $this->conex -> closeDataBase();
+        $sql = "update tbl_historia set texto=? where id_historia=?";
+
+        $stm = $conn->prepare($sql);
+
+        $stm->bindValue(1, $historia->getTexto());
+        $stm->bindValue(2, $historia->getId());
+
+        $stm->execute();
+
+        $this->conex->closeDataBase();
     }
 
     public function updateAtivo(Historia $historia) {
