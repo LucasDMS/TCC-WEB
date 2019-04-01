@@ -2,6 +2,18 @@
 
 $action = "router.php?controller=historia&modo=inserir";
 
+if(isset($_GET['id'])){
+    
+    $id = $_GET['id'];
+
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerHistoria.php");
+
+    $Controller = new ControllerHistoria();
+    $Historia = $Controller->buscarHistoriaPorId($id);
+
+    var_dump($Historia);
+}
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)" 

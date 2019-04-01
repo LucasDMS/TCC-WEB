@@ -44,7 +44,7 @@ if(isset($_GET['controller'])){
                     break;
                 case 'BUSCAR':
 
-                    $historia = $ControllerHistoria->buscarHistoriaPorId();
+                    $Historia = $ControllerHistoria->buscarHistoriaPorId();
                     break;
             }
             break;

@@ -69,17 +69,31 @@ class HistoriaDAO {
     
     public function selectById($id) {
 
-        $PDO_conex = $this->conex ->connectDatabase();
-        $sql = "select * from tbl_historia where id=".$id;
-        $select = $PDO_conex -> query($sql);
-        if ($rsHistoria=$select->fetch(PDO::FETCH_ASSOC)) {
-            $listHistoria = new Historia();
-            $listHistoria->setId($rsHistoria['id']);
-            $listHistoria->setImagem($rsHistoria['imagem']);
-            $listHistoria->setTexto($rsHistoria['texto']);
+        $conn = $this->conex->connectDatabase();
+
+        $sql = "select * from tbl_historia where id_historia=?;";
+
+        $stm = $conn->prepare($sql);
+
+        $stm->bindValue(1, $id);        
+
+        $success = $stm->execute();
+
+        $this->conex->closeDataBase();
+
+        if ($success) {
+            
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            
+            $Historia = new Historia();
+            $Historia->setId($result['id_historia']);
+            $Historia->setTexto($result['texto']);
+            $Historia->setOrdem($result['ordem']);
+            $Historia->setAtivo($result['ativo']);
+            $Historia->setApagado($result['apagado']);
+
+            return $Historia;
         }
-        $this->conex -> closeDataBase();
-        return $listHistoria;
     }
 
     public function selectAll() {

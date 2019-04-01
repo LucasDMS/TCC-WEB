@@ -55,6 +55,7 @@ function asyncRequest(element){
     var url = element.getAttribute("data-url");
     var id  = element.getAttribute("data-id");
     var pagina = element.getAttribute("data-pagina");
+   
 
     var formData = new FormData();
     formData.append("id_historia", id);
@@ -67,9 +68,11 @@ function asyncRequest(element){
         contentType: false,
         processData: false,
     })
-    .done(function(data){
+    .done(function(dados){
         
-        reloadList(pagina);
+        $("#modal").html(dados);
+        // reloadList(pagina);
+        modalToggle(true);
     })
 }
 

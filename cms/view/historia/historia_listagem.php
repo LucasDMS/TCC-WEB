@@ -38,7 +38,7 @@ $rs = $controller->buscarHistoras();
                     <a  onclick="asyncRequest(this)"
                         href="#"
                         data-pagina="historia"
-                        data-url="router.php?controller=historia&modo=editar"
+                        data-url="view/historia/historia_form.php?id=<?php echo $result->getId(); ?>"
                         data-id="<?php echo $result->getId(); ?>">
 
                         <i class="fas fa-pen"></i>
