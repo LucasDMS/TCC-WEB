@@ -31,7 +31,8 @@ class HistoriaDAO {
 
     public function update(Historia $historia) {
 
-        $sql = "update tbl_historia set imagem= '".$historia->getImagem()."', texto = '".$historia ->getTexto()."'";
+        $sql = "update tbl_historia set texto=?,ordem=?,ativo=?,apagado=? where id_historia=?";
+
         $PDO_conex = $this->conex ->connectDatabase();
         if ($PDO_conex -> query($sql)) {
             header('location:index.php');
@@ -46,7 +47,7 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "UPDATE tbl_historia SET status=0 WHERE id_historia=?;";
+        $sql = "UPDATE tbl_historia SET apagado=1 WHERE id_historia=?;";
 
         $stm = $conn->prepare($sql);
 

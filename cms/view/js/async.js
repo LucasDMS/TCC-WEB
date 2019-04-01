@@ -55,11 +55,20 @@ function asyncRequest(element){
     var url = element.getAttribute("data-url");
     var id  = element.getAttribute("data-id");
     var pagina = element.getAttribute("data-pagina");
+
+    var modo = element.getAttribute("data-modo");
    
-
     var formData = new FormData();
-    formData.append("id_historia", id);
 
+    if(modo == 'inserir'){
+
+        formData.append("id_historia", id);
+    }
+    else if(modo == 'atualizar'){
+
+        formData.append("id_historia", id);
+    }
+    
     $.ajax({
         type: "POST",
         url: url,
@@ -75,6 +84,66 @@ function asyncRequest(element){
         modalToggle(true);
     })
 }
+
+function asyncAtivate(element){
+
+    var url = element.getAttribute("data-url");
+    var id  = element.getAttribute("data-id");
+    var pagina = element.getAttribute("data-pagina");
+
+    var modo = element.getAttribute("data-modo");
+   
+    var formData = new FormData();
+
+    if(modo == 'inserir'){
+
+        formData.append("id_historia", id);
+    }
+    else if(modo == 'atualizar'){
+
+        formData.append("id_historia", id);
+    }
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function(dados){
+        
+        $("#modal").html(dados);
+        // reloadList(pagina);
+        modalToggle(true);
+    })
+}
+
+function asyncDelete(element){
+
+    var url = element.getAttribute("data-url");
+    var id  = element.getAttribute("data-id");
+    var pagina = element.getAttribute("data-pagina");
+   
+    var formData = new FormData();
+
+    formData.append("id", id);
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function(dados){
+        
+        reloadList(pagina);
+    })
+}
+
 
 function reloadList(pagina){
 

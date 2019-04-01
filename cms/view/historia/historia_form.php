@@ -1,6 +1,9 @@
 <?php 
 
+$texto = null;
+
 $action = "router.php?controller=historia&modo=inserir";
+$modo = "inserir";
 
 if(isset($_GET['id'])){
     
@@ -11,7 +14,9 @@ if(isset($_GET['id'])){
     $Controller = new ControllerHistoria();
     $Historia = $Controller->buscarHistoriaPorId($id);
 
-    var_dump($Historia);
+    $action = "router.php?controller=historia&modo=atualizar";
+    $modo = "atualizar";
+    $texto = $Historia->getTexto();
 }
 
 ?>
@@ -23,10 +28,11 @@ if(isset($_GET['id'])){
         id="frm_historia" 
         enctype='multipart/form-data' 
         name="frm_historia"
-        data-pagina="historia" 
+        data-pagina="historia"
+        data-modo="<?php echo $modo?>"
         class="form_padrao">
 
-    <textarea name="txt_texto" id="txt_texto" required></textarea>
+    <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?></textarea>
 
     <button class="btn">
         Enviar

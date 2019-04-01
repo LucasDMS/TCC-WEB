@@ -53,7 +53,7 @@ class ControllerHistoria{
 
     public function excluirHistoria() {
 
-        $id = $_POST['id_historia'];
+        $id = $_POST['id'];
 
         $this->HistoriaDAO->delete($id);
     }

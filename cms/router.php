@@ -74,7 +74,6 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
-
     }
 }
 

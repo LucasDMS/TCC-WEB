@@ -45,7 +45,7 @@ $rs = $controller->buscarHistoras();
                     </a>
                 </td>
                 <td>
-                    <a  onclick="asyncRequest(this)" 
+                    <a  onclick="asyncAtivate(this)" 
                         href="#"
                         data-pagina="historia"
                         data-url="router.php?controller=historia&modo=ativar" 
@@ -57,7 +57,7 @@ $rs = $controller->buscarHistoras();
                     </a>
                 </td>
                 <td>
-                    <a  onclick="asyncRequest(this)" 
+                    <a  onclick="asyncDelete(this)" 
                         href="#"
                         data-pagina="historia"
                         data-url="router.php?controller=historia&modo=excluir" 
