@@ -90,19 +90,12 @@ function asyncAtivate(element){
     var url = element.getAttribute("data-url");
     var id  = element.getAttribute("data-id");
     var pagina = element.getAttribute("data-pagina");
-
-    var modo = element.getAttribute("data-modo");
+    var ativo = element.getAttribute("data-ativo");
    
     var formData = new FormData();
 
-    if(modo == 'inserir'){
-
-        formData.append("id_historia", id);
-    }
-    else if(modo == 'atualizar'){
-
-        formData.append("id_historia", id);
-    }
+    formData.append("id", id);
+    formData.append("ativo", ativo);
     
     $.ajax({
         type: "POST",
@@ -114,9 +107,7 @@ function asyncAtivate(element){
     })
     .done(function(dados){
         
-        $("#modal").html(dados);
-        // reloadList(pagina);
-        modalToggle(true);
+        reloadList(pagina);
     })
 }
 

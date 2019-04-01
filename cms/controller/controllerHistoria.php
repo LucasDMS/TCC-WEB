@@ -35,7 +35,7 @@ class ControllerHistoria{
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            $id     = $_GET['id_historia'];
+            $id     = $_POST['id'];
             $texto  = $_POST['txt_texto'];
             $status = $_POST['txt_status'];
             $ordem  = $_POST['txt_ordem'];
@@ -48,6 +48,22 @@ class ControllerHistoria{
             $Historia->setOrdem($ordem);
             
             $this->HistoriaDAO->update($Historia);
+        }
+    }
+
+    public function ativarHistoria() {
+
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+
+            $id     = $_POST['id'];
+            $ativo  = $_POST['ativo'];
+            
+            $Historia = new Historia(); 
+
+            $Historia->setId($id);
+            $Historia->setAtivo($ativo);
+            
+            $this->HistoriaDAO->updateAtivo($Historia);
         }
     }
 

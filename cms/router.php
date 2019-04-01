@@ -46,6 +46,10 @@ if(isset($_GET['controller'])){
 
                     $Historia = $ControllerHistoria->buscarHistoriaPorId();
                     break;
+                case 'ATIVAR':
+
+                    $ControllerHistoria->ativarHistoria();
+                    break;
             }
             break;
             

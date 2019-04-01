@@ -43,6 +43,30 @@ class HistoriaDAO {
         $this->conex -> closeDataBase();
     }
 
+    public function updateAtivo(Historia $historia) {
+
+        $conn = $this->conex->connectDatabase();
+
+        if($historia->getAtivo()=="0"){
+            $historia->setAtivo("1");
+        }
+        else {
+            $historia->setAtivo("0");
+        }
+
+        $sql = "update tbl_historia set ativo=? where id_historia=?";
+
+        $stm = $conn->prepare($sql);
+
+        $stm->bindValue(1, $historia->getAtivo());
+        $stm->bindValue(2, $historia->getId());
+
+        $stm->execute();
+
+        $this->conex->closeDataBase();
+    }
+
+
     public function delete($id) {
 
         $conn = $this->conex->connectDatabase();
@@ -101,7 +125,7 @@ class HistoriaDAO {
 
         $conn = $this->conex->connectDatabase();
 
-        $sql = "select * from tbl_historia where apagado = 0 order by ativo desc";
+        $sql = "select * from tbl_historia where apagado = 0";
 
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
