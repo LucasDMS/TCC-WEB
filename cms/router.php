@@ -52,29 +52,29 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
-            
-        case 'NOTICIAS':
+        
 
-        //TODO - ARRUMAR TUDO ISSO AQ
-
-            require_once('controller/controllerFiquePorDentro.php');
-
-            $controllerFiquePorDentro = new controllerFiquePorDentro();
+            case 'NOTICIAS':
+            require_once('controller/controllerNoticia.php');
+            $ControllerNoticia = new ControllerNoticia();
             switch($modo){
                 case 'INSERIR':
-                    //Chamando o metodo de inserir uma nova FiquePorDentro
-                    $controllerFiquePorDentro->inserirFiquePorDentro();
+                    //Chamando o metodo de inserir uma nova Noticia
+                    $ControllerNoticia->inserirNoticia();
                     break;
                 case 'ATUALIZAR':
-                    $controllerFiquePorDentro ->atualizarFiquePorDentro();
+                    $ControllerNoticia ->atualizarNoticia();
                     break;
                 case 'EXCLUIR':
-                    //Chamando o metodo de excluir uma FiquePorDentro
-                    $controllerFiquePorDentro->excluirFiquePorDentro();
+                    //Chamando o metodo de excluir uma Noticia
+                    $ControllerNoticia->excluirNoticia();
                     break;
                 case 'BUSCAR':   
-                    $FiquePorDentro = $controllerFiquePorDentro->buscarFiquePorDentro();
-                    require_once('index.php');
+                     $Noticia =$ControllerNoticia->buscarNoticiaPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerNoticia->ativarNoticia();
                     break;
             }
             break;

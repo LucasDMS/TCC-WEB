@@ -36,8 +36,7 @@ class ControllerHistoria{
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
             $id     = $_POST['id'];
-            $texto  = $_POST['txt_texto'];   
-
+            $texto  = $_POST['txt_texto'];            
             $Historia = new Historia(); 
 
             $Historia->setId($id);

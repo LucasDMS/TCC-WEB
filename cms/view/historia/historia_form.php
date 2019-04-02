@@ -1,26 +1,19 @@
 <?php 
-
 $texto = null;
-
 $action = "router.php?controller=historia&modo=inserir";
 $modo = "inserir";
 $id = "";
-
 if(isset($_GET['id'])){
     
     $id = $_GET['id'];
-
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerHistoria.php");
-
     $Controller = new ControllerHistoria();
     $Historia = $Controller->buscarHistoriaPorId($id);
-
     $action = "router.php?controller=historia&modo=atualizar";
     $modo = "atualizar";
     $texto = $Historia->getTexto();
     $id = $Historia->getId();
 }
-
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)" 

@@ -1,5 +1,7 @@
 <?php 
-
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerNoticia.php");
+    $controller = new ControllerNoticia();
+    $rs = $controller->buscarNoticias();
 ?>
 
 <button type="menu" onclick="callView('noticias','form')">
@@ -14,43 +16,52 @@
             </th>
         </tr>
         <tr class="tabela_header">
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Estado</th>
-            <th>Data de envio</th>
-            <th>Status</th>
+            <th>Titulo</th>
+            <th>texto</th>
+            
             <th colspan="3">Ações</th>
         </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>CARLIHOS CARLOS</td>
-            <td>Nome@gmail.com</td>
-            <td>SP</td>
-            <td>21/11/1999</td>
-            <td>Não lido</td>
+    <?php foreach ($rs as $result) { ?>
+            <tr>
+                <td><?php echo $result->getTitulo(); ?></td>
+                <td><?php echo $result->getConteudo(); ?></td>
 
-            <td>
-                <a  onclick="asyncRequest(this)"
-                    href="#"
-                    data-pagina="noticias"
-                    data-url="router.php?controller=noticias&modo=editar"
-                    data-id="<?php echo $result->getId(); ?>">
+                <td>
+                    <a  onclick="asyncRequest(this)"
+                        href="#"
+                        data-pagina="noticias"
+                        data-url="view/noticias/noticias_form.php?id=<?php echo $result->getId(); ?>"
+                        data-id="<?php echo $result->getId(); ?>">
 
-                    <i class="fas fa-pen"></i>
-                </a>
-            </td>
-            <td>
-                <a  onclick="asyncRequest(this)" 
-                    href="#"
-                    data-pagina="noticias"
-                    data-url="router.php?controller=noticias&modo=excluir" 
-                    data-id="<?php echo $result->getId(); ?>">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                </td>
+                <td>
+                    <a  onclick="asyncAtivate(this)" 
+                        href="#"
+                        data-pagina="noticias"
+                        data-url="router.php?controller=noticias&modo=ativar" 
+                        data-id="<?php echo $result->getId(); ?>"
+                        data-ativo="<?php echo $result->getAtivo(); ?>">
 
-                    <i class="fas fa-trash"></i>
-                </a>
-            </td>
+                        <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
+                        <i class="far fa<?php echo $ativo ?>-square"></i>
+                    </a>
+                </td>
+                <td>
+                    <a  onclick="asyncDelete(this)" 
+                        href="#"
+                        data-pagina="noticias"
+                        data-url="router.php?controller=noticias&modo=excluir" 
+                        data-id="<?php echo $result->getId(); ?>">
+
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
         </tr>
+        <?php } ?>
     </tbody>
 </table>

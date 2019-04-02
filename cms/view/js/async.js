@@ -1,44 +1,61 @@
-$(".modal_saida").on("click", function(){
+$(".modal_saida").on("click", function () {
     modalToggle(false);
 });
 
-function callView(pagina, tipo){
-   
-    var url = formatarLink(pagina, tipo);
+/**
+ * 
+ * @param {*} pagina 
+ */
+function chamarViewModal(pagina) {
+
+    var url = formatarLink(pagina, "form");
 
     $.ajax({
         type: "GET",
         url: url,
-        beforeSend: function(){
-            console.log('colocar loader aq');
-        }
+        beforeSend: loader
     })
-    .done(function(dados){
+    .done(function (dados) {
 
-        if(tipo === "listagem"){
-
-            $("#app_content").html(dados);
-        }
-        else{
-
-            $("#modal").html(dados);
-
-            modalToggle(true);
-        }
+        $("#modal").html(dados);
+        modalToggle(true);
     });
 }
 
-function asyncSubmit(event, element){
+/**
+ * 
+ * @param {*} pagina 
+ */
+function chamarViewApp(pagina) {
+
+    var url = formatarLink(pagina, "listagem");
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: loader
+    })
+    .done(function (dados) {
+
+        $("#app_content").html(dados);
+    });
+}
+
+/**
+ * 
+ * @param {*} event 
+ * @param {*} element 
+ */
+function asyncSubmit(event, element) {
     event.preventDefault()
 
     var url = element.getAttribute("action");
     var pagina = element.getAttribute("data-pagina");
+    var formdata = new FormData(element);
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
-
-    var formdata = new FormData(element);
     formdata.append("id", id);
-    
+
     $.ajax({
         type: "POST",
         url: url,
@@ -47,32 +64,53 @@ function asyncSubmit(event, element){
         contentType: false,
         processData: false,
     })
-    .done(function(html){
+        .done(function (html) {
 
-        reloadList(pagina);
-        modalToggle(false);
-    });
+            reloadList(pagina);
+            modalToggle(false);
+        });
 }
 
-function asyncRequest(element){
+/**
+ * 
+ * @param {*} element 
+ */
+function asyncRequest(element) {
 
     var url = element.getAttribute("data-url");
-    var id  = element.getAttribute("data-id");
+    var id = element.getAttribute("data-id");
     var pagina = element.getAttribute("data-pagina");
 
     var modo = element.getAttribute("data-modo");
-   
+
+
     var formData = new FormData();
+    if (pagina === "historia") {
 
-    if(modo == 'inserir'){
+        if (modo == 'inserir') {
 
-        formData.append("id_historia", id);
+            formData.append("id_historia", id);
+        }
+        else if (modo == 'atualizar') {
+
+            formData.append("id_historia", id);
+        }
+
+    } else if (pagina === "noticias") {
+
+        console.log("modo = " + modo);
+
+        if (modo == 'inserir') {
+            formData.append("id_noticias_fique_por_dentro", id);
+
+        }
+        else if (modo == 'atualizar') {
+
+            formData.append("id_noticias_fique_por_dentro", id);
+
+            console.log(id);
+        }
     }
-    else if(modo == 'atualizar'){
-
-        formData.append("id_historia", id);
-    }
-    
     $.ajax({
         type: "POST",
         url: url,
@@ -81,26 +119,30 @@ function asyncRequest(element){
         contentType: false,
         processData: false,
     })
-    .done(function(dados){
-        
+    .done(function (dados) {
+        console.log(pagina);
         $("#modal").html(dados);
         // reloadList(pagina);
         modalToggle(true);
     })
 }
 
-function asyncAtivate(element){
+/**
+ * 
+ * @param {HTMLElement} elementoHTML Imagem de check-box
+ */
+function asyncAtivar(elementoHTML) {
 
-    var url = element.getAttribute("data-url");
-    var id  = element.getAttribute("data-id");
-    var pagina = element.getAttribute("data-pagina");
-    var ativo = element.getAttribute("data-ativo");
-   
+    var url = elementoHTML.getAttribute("data-url");
+    var id = elementoHTML.getAttribute("data-id");
+    var pagina = elementoHTML.getAttribute("data-pagina");
+    var ativo = elementoHTML.getAttribute("data-ativo");
+
     var formData = new FormData();
 
     formData.append("id", id);
     formData.append("ativo", ativo);
-    
+
     $.ajax({
         type: "POST",
         url: url,
@@ -109,22 +151,26 @@ function asyncAtivate(element){
         contentType: false,
         processData: false,
     })
-    .done(function(dados){
-        
+    .done(function (dados) {
+
         reloadList(pagina);
     })
 }
 
-function asyncDelete(element){
+/**
+ * 
+ * @param {HTMLElement} elementoHTML Imagem de lixeira
+ */
+function asyncApagar(elementoHTML) {
 
-    var url = element.getAttribute("data-url");
-    var id  = element.getAttribute("data-id");
-    var pagina = element.getAttribute("data-pagina");
-   
+    var url = elementoHTML.getAttribute("data-url");
+    var id = elementoHTML.getAttribute("data-id");
+    var pagina = elementoHTML.getAttribute("data-pagina");
+
     var formData = new FormData();
 
     formData.append("id", id);
-    
+
     $.ajax({
         type: "POST",
         url: url,
@@ -133,14 +179,17 @@ function asyncDelete(element){
         contentType: false,
         processData: false,
     })
-    .done(function(dados){
-        
-        reloadList(pagina);
+    .done(function (dados) {
+
+        recarregarLista(pagina);
     })
 }
 
-
-function reloadList(pagina){
+/**
+ * Esta função, solicita novamente a lista, assim trazendo os dados atualizados
+ * @param {string} pagina Nome da página com a tabela
+ */
+function recarregarLista(pagina) {
 
     var url = formatarLink(pagina, "listagem");
 
@@ -148,31 +197,45 @@ function reloadList(pagina){
         type: "POST",
         url: url
     })
-    .done(function(data){
-        
+    .done(function (data) {
+
         $("#app_content").html(data);
     })
 }
 
-
-
 /**
- * UTILS
+ * Recebe o nome da página e o seu tipo e retorna o a url completa
+ * 
+ * Ex : "*view/noticias/noticias_listagem.php*"
+ * @param {string} pagina Nome da página
+ * @param {string} tipo Se é listagem ou form
  */
-function formatarLink(pagina, tipo){
+function formatarLink(pagina, tipo) {
 
     return "view/" + pagina + "/" + pagina + "_" + tipo + ".php";
 }
 
-function modalToggle(abrir){
+/**
+ * Troca o estado da modal, de fechado para aberto e vice-versa
+ * @param {boolean} abrir Se é para abrir a modal ou não
+ */
+function modalToggle(abrir) {
 
-    if(abrir){
+    if (abrir) {
         $(".modal_bg")
             .css("display", "flex")
             .hide()
             .fadeIn()
     }
-    else{
+    else {
         $(".modal_bg").fadeOut();
     }
+}
+
+/**
+ * AAA
+ */
+function loader(){
+    console.log('loader');
+    
 }
