@@ -3,6 +3,8 @@ class NoticiaDAO{
     private $conex;
     private $noticia;
     public function __construct() {
+
+        session_start();
         require_once($_SESSION['PATH'].'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }

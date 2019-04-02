@@ -1,10 +1,13 @@
 <?php 
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerNoticia.php");
-    $controller = new ControllerNoticia();
-    $rs = $controller->buscarNoticias();
+
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerNoticia.php");
+
+$controller = new ControllerNoticia();
+$rs = $controller->buscarNoticias();
+
 ?>
 
-<button type="menu" onclick="callView('noticias','form')">
+<button type="menu" onclick="chamarViewParaModal('noticias')">
     NOVO
 </button>
 
@@ -30,7 +33,7 @@
                 <td><?php echo $result->getConteudo(); ?></td>
 
                 <td>
-                    <a  onclick="asyncRequest(this)"
+                    <a  onclick="asyncBuscarDados(this)"
                         href="#"
                         data-pagina="noticias"
                         data-url="view/noticias/noticias_form.php?id=<?php echo $result->getId(); ?>"
@@ -40,7 +43,7 @@
                     </a>
                 </td>
                 <td>
-                    <a  onclick="asyncAtivate(this)" 
+                    <a  onclick="asyncAtivar(this)" 
                         href="#"
                         data-pagina="noticias"
                         data-url="router.php?controller=noticias&modo=ativar" 
@@ -52,7 +55,7 @@
                     </a>
                 </td>
                 <td>
-                    <a  onclick="asyncDelete(this)" 
+                    <a  onclick="asyncApagar(this)" 
                         href="#"
                         data-pagina="noticias"
                         data-url="router.php?controller=noticias&modo=excluir" 

@@ -7,7 +7,7 @@ $rs = $controller->buscarHistoras();
 
 ?>
 
-<button type="menu" onclick="callView('historia', 'form')">
+<button type="menu" onclick="chamarViewParaModal('historia')">
     NOVO 
     <i class="fas fa-plus"></i>
 </button>
@@ -35,7 +35,7 @@ $rs = $controller->buscarHistoras();
                 <td><?php echo $result->getOrdem(); ?></td>
 
                 <td>
-                    <a  onclick="asyncRequest(this)"
+                    <a  onclick="asyncBuscarDados(this)"
                         href="#"
                         data-pagina="historia"
                         data-url="view/historia/historia_form.php?id=<?php echo $result->getId(); ?>"
@@ -45,7 +45,7 @@ $rs = $controller->buscarHistoras();
                     </a>
                 </td>
                 <td>
-                    <a  onclick="asyncAtivate(this)" 
+                    <a  onclick="asyncAtivar(this)" 
                         href="#"
                         data-pagina="historia"
                         data-url="router.php?controller=historia&modo=ativar" 

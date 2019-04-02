@@ -1,12 +1,8 @@
-$(".modal_saida").on("click", function () {
-    modalToggle(false);
-});
-
 /**
  * 
  * @param {*} pagina 
  */
-function chamarViewModal(pagina) {
+function chamarViewParaModal(pagina) {
 
     var url = formatarLink(pagina, "form");
 
@@ -26,7 +22,7 @@ function chamarViewModal(pagina) {
  * 
  * @param {*} pagina 
  */
-function chamarViewApp(pagina) {
+function chamarViewParaApp(pagina) {
 
     var url = formatarLink(pagina, "listagem");
 
@@ -64,18 +60,18 @@ function asyncSubmit(event, element) {
         contentType: false,
         processData: false,
     })
-        .done(function (html) {
+    .done(function (html) {
 
-            reloadList(pagina);
-            modalToggle(false);
-        });
+        recarregarLista(pagina);
+        modalToggle(false);
+    });
 }
 
 /**
  * 
  * @param {*} element 
  */
-function asyncRequest(element) {
+function asyncBuscarDados(element) {
 
     var url = element.getAttribute("data-url");
     var id = element.getAttribute("data-id");
@@ -153,7 +149,7 @@ function asyncAtivar(elementoHTML) {
     })
     .done(function (dados) {
 
-        reloadList(pagina);
+        recarregarLista(pagina);
     })
 }
 
@@ -237,5 +233,11 @@ function modalToggle(abrir) {
  */
 function loader(){
     console.log('loader');
-    
 }
+
+
+
+
+$(".modal_saida").on("click", function () {
+    modalToggle(false);
+});
