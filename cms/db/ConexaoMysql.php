@@ -11,8 +11,8 @@ class conexaoMysql {
 
 		$this->server = "localhost";
 		$this->user = "root";
-		$this->password = "bcd127";
-		$this->database = "db_test";
+		$this->password = "123";
+		$this->database = "db_tcc_owl_software";
 	}
 
 	public function connectDatabase() {
