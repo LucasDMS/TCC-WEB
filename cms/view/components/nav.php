@@ -15,5 +15,12 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('eventos')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Eventos
+            </div>
+        </li>
+
     </ul>
 </nav>
