@@ -1,12 +1,8 @@
-$(".modal_saida").on("click", function () {
-    modalToggle(false);
-});
-
 /**
  * 
  * @param {*} pagina 
  */
-function chamarViewModal(pagina) {
+function chamarViewParaModal(pagina) {
 
     var url = formatarLink(pagina, "form");
 
@@ -26,7 +22,7 @@ function chamarViewModal(pagina) {
  * 
  * @param {*} pagina 
  */
-function chamarViewApp(pagina) {
+function chamarViewParaApp(pagina) {
 
     var url = formatarLink(pagina, "listagem");
 
@@ -64,18 +60,18 @@ function asyncSubmit(event, element) {
         contentType: false,
         processData: false,
     })
-        .done(function (html) {
-
-            reloadList(pagina);
-            modalToggle(false);
-        });
+    .done(function (html) {
+        console.log(url);
+        recarregarLista(pagina);
+        modalToggle(false);
+    });
 }
 
 /**
  * 
  * @param {*} element 
  */
-function asyncRequest(element) {
+function asyncBuscarDados(element) {
 
     var url = element.getAttribute("data-url");
     var id = element.getAttribute("data-id");
@@ -107,8 +103,11 @@ function asyncRequest(element) {
         else if (modo == 'atualizar') {
 
             formData.append("id_noticias_fique_por_dentro", id);
+        }
+    }else if (pagina === "fale_conosco"){
+            if (modo == 'atualizar') {
 
-            console.log(id);
+            formData.append("id_fale_conosco", id);
         }
     }
     $.ajax({
@@ -136,12 +135,12 @@ function asyncAtivar(elementoHTML) {
     var url = elementoHTML.getAttribute("data-url");
     var id = elementoHTML.getAttribute("data-id");
     var pagina = elementoHTML.getAttribute("data-pagina");
-    var ativo = elementoHTML.getAttribute("data-ativo");
+    var status = elementoHTML.getAttribute("data-status");
 
     var formData = new FormData();
 
     formData.append("id", id);
-    formData.append("ativo", ativo);
+    formData.append("status", status);
 
     $.ajax({
         type: "POST",
@@ -153,7 +152,7 @@ function asyncAtivar(elementoHTML) {
     })
     .done(function (dados) {
 
-        reloadList(pagina);
+        recarregarLista(pagina);
     })
 }
 
@@ -237,5 +236,11 @@ function modalToggle(abrir) {
  */
 function loader(){
     console.log('loader');
-    
 }
+
+
+
+
+$(".modal_saida").on("click", function () {
+    modalToggle(false);
+});

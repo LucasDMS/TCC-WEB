@@ -78,6 +78,54 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'FALE_CONOSCO':
+            require_once('controller/controllerFaleConosco.php');
+            $ControllerFaleConosco = new ControllerFaleConosco();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir uma nova FaleConosco
+                    $ControllerFaleConosco->inserirFaleConosco();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerFaleConosco ->atualizarFaleConosco();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma FaleConosco
+                    $ControllerFaleConosco->excluirFaleConosco();
+                    break;
+                case 'BUSCAR':   
+                     $FaleConosco =$ControllerFaleConosco->buscarFaleConoscoPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerFaleConosco->ativarFaleConosco();
+                    break;
+            }
+            break;
+            case 'SUSTENTABILIDADE':
+            require_once('controller/controllerSustentabilidade.php');
+            $ControllerSustentabilidade = new ControllerSustentabilidade();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir uma nova Sustentabilidade
+                    $ControllerSustentabilidade->inserirSustentabilidade();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerSustentabilidade ->atualizarSustentabilidade();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma Sustentabilidade
+                    $ControllerSustentabilidade->excluirSustentabilidade();
+                    break;
+                case 'BUSCAR':   
+                     $Sustentabilidade =$ControllerSustentabilidade->buscarSustentabilidadePorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerSustentabilidade->ativarSustentabilidade();
+                    break;
+            }
+            break;
     }
 }
 
