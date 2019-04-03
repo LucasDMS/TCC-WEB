@@ -17,8 +17,28 @@
             $this->conex = new conexaoMysql();
         }
 
-        public function inserir(){
+        public function inserir(Eventos $eventos){
+            $conn = $this->conex->connectDatabase();
+            $sql = "Insert into tbl_nossos_eventos(nome,descricao,data,estado,cidade,hora_evento,status) VALUES (?,?,?,?,?,?,?)";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $eventos->getNome());
+            $stm->bindValue(2, $eventos->getDescricao());
+            $stm->bindValue(3, $eventos->getData());
+            $stm->bindValue(4, $eventos->getEstado());
+            $stm->bindValue(5, $eventos->getCidade());
+            $stm->bindValue(6, $eventos->getHora()); 
+            $stm->bindValue(7, $eventos->getStatus());
+            $sucess = $stm->execute();
+            echo("oioio");
 
+            $this->conex->closeDataBase();
+            if($sucess){
+                echo $sucess;
+                return "Sucesso";
+            }else{
+                echo $sucess;
+                return "Erro";
+            }
         }
 
         public function update(){

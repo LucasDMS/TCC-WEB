@@ -49,6 +49,12 @@ class Eventos{
 
     public function setData($data){
         $this->data=$data;
+
+        if(strpos($data,"/")){
+            $this->data = date('Y-m-d', strtotime($data));
+        }else if(strpos($data,"-")){
+            $this->data = date('Y/m/d', strtotime($data));
+        }
     }
 
     public function getEstado(){

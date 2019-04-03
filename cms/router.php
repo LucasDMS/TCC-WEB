@@ -54,7 +54,7 @@ if(isset($_GET['controller'])){
             break;
         
 
-            case 'NOTICIAS':
+        case 'NOTICIAS':
             require_once('controller/controllerNoticia.php');
             $ControllerNoticia = new ControllerNoticia();
             switch($modo){
@@ -76,6 +76,23 @@ if(isset($_GET['controller'])){
 
                     $ControllerNoticia->ativarNoticia();
                     break;
+            }
+            break;
+        
+        case 'EVENTOS':
+            require_once('controller/controllerEventos.php');
+            $ControllerEventos = new ControllerEventos();
+            switch($modo){
+                case 'INSERIR':
+                $ControllerEventos->inserirEventos();
+                break;
+                case 'ATUALIZAR':
+
+                case 'EXCLUIR':
+
+                case 'BUSCAR':
+
+                case 'Ativar':
             }
             break;
     }
