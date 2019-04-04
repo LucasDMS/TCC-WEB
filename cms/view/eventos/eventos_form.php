@@ -45,7 +45,7 @@
 
     <input type="text" name="txt_nome" id="txt_nome" placeholder="nome" value="<?php echo $nome;?>"><br>
     <textarea name="txt_descricao" id="txt_descricao" requerid placeholder="Descrição"><?php echo $descricao;?></textarea><br>
-    <input type="date" name="txt_date" id="txt_date" ><br>
+    <input type="date" name="txt_date" id="txt_date" value="<?php echo $data;?>"><br>
     <input type="text" name="txt_estado" id="txt_Estado" placeholder="Estado" value="<?php echo $estado;?>"><br>
     <input type="text" name="txt_cidade" id="txt_cidade" placeholder="Cidade" value="<?php echo $cidade;?>"><br>
     <input type="text" name="txt_hora" id="txt_hora" placeholder="Hora" value="<?php echo $hora;?>"><br>

@@ -94,7 +94,9 @@ if(isset($_GET['controller'])){
                     break;
                 case 'BUSCAR':
 
-                case 'Ativar':
+                case 'ATIVAR':
+                    $ControllerEventos->ativarEventos();
+                    break;
             }
             break;
     }

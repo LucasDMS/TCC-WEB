@@ -81,7 +81,17 @@ class ControllerEventos{
     }
 
     public function ativarEventos(){
-        
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $id = $_POST['id'];
+            $ativo = $_POST['ativo'];
+
+            $Eventos = new Eventos();
+
+            $Eventos->setId($id);
+            $Eventos->setStatus($ativo);
+
+            $this->EventosDAO->updateAtivo($Eventos);
+        }
     }
 
     public function buscarEventosPorId(){

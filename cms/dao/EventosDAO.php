@@ -44,15 +44,15 @@
 
         public function update(Eventos $eventos){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_nossos_eventos SET nome = ?, descricao = ?, estado = ?, cidade = ?, hora_evento = ? where id_nossos_eventos=?;";
+            $sql = "UPDATE tbl_nossos_eventos SET nome = ?, descricao = ?, data = ?, estado = ?, cidade = ?, hora_evento = ? where id_nossos_eventos=?;";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $eventos->getNome());
             $stm->bindValue(2, $eventos->getDescricao());
-            //$stm->bindValue(3, $eventos->getData());
-            $stm->bindValue(3, $eventos->getEstado());
-            $stm->bindValue(4, $eventos->getCidade());
-            $stm->bindValue(5, $eventos->getHora());
-            $stm->bindValue(6, $eventos->getId());
+            $stm->bindValue(3, $eventos->getData());
+            $stm->bindValue(4, $eventos->getEstado());
+            $stm->bindValue(5, $eventos->getCidade());
+            $stm->bindValue(6, $eventos->getHora());
+            $stm->bindValue(7, $eventos->getId());
             $success = $stm->execute();
             echo $success;
             $this->conex->closeDataBase();
@@ -83,8 +83,22 @@
             }
         }
 
-        public function updateAtivo(){
+        public function updateAtivo(Eventos $eventos){
+            $conn = $this->conex->connectDatabase();
+            
+            if($eventos->getStatus()=='1'){
+                $eventos->setStatus('0');
+            }else if($eventos->getStatus()=='0'){
+                $eventos->setStatus('1');
+            }
 
+            $sql = "update tbl_nossos_eventos set status=? where id_nossos_eventos=?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $eventos->getStatus());
+            $stm->bindValue(2, $eventos->getId());
+            $stm->execute();
+
+            $this->conex->closeDataBase();
         }
 
         public function selectById($id){

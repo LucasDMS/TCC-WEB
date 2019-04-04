@@ -53,7 +53,7 @@ class Eventos{
         if(strpos($data,"/")){
             $this->data = date('Y-m-d', strtotime($data));
         }else if(strpos($data,"-")){
-            $this->data = date('Y/m/d', strtotime($data));
+            //$this->data = date('Y/m/d', strtotime($data));
         }
     }
 
