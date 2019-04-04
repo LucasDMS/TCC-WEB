@@ -55,7 +55,8 @@ class ControllerEventos{
     }
 
     public function excluirEventos(){
-
+        $id = $_POST['id'];
+        $this->EventosDAO->delete($id);
     }
 
     public function ativarEventos(){

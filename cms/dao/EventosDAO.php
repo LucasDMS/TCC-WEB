@@ -45,8 +45,21 @@
 
         }
 
-        public function delete(){
-
+        public function delete($id){
+            $conn = $this->conex->connectDatabase();
+            $sql = "UPDATE tbl_nossos_eventos SET apagado = 1 where id_nossos_eventos = ?;";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $id);
+            $sucess = $stm->execute();
+            $this->conex->closeDataBase();
+            echo($id);
+            if ($sucess){
+                echo $success;
+                return "Sucesso";
+            }else{
+                echo $success;
+                return "Erro";
+            }
         }
 
         public function updateAtivo(){
@@ -59,7 +72,7 @@
 
         public function selectAll(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_nossos_eventos";
+            $sql = "select * from tbl_nossos_eventos where apagado = 0";
             $stm = $conn->prepare($sql);
             $success =$stm->execute();
             if($success){

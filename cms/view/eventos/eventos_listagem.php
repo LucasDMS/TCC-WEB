@@ -44,7 +44,17 @@
             <td><?php echo $result->getDescricao()?></td>
             <td><i class="fas fa-pen"></i></td>
             <td><i class="far fa-check-square"></i></td>
-            <td><i class="fas fa-trash"></i></td>
+            <td>
+                <a  onclick="asyncApagar(this)"
+                    href="#"
+                    data-pagina="eventos"
+                    data-url="router.php?controller=eventos&modo=excluir"
+                    data-id="<?php echo $result->getId();?>"
+                    >
+
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
         </tr>
     <?php
         }

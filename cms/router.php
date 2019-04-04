@@ -84,12 +84,13 @@ if(isset($_GET['controller'])){
             $ControllerEventos = new ControllerEventos();
             switch($modo){
                 case 'INSERIR':
-                $ControllerEventos->inserirEventos();
-                break;
+                    $ControllerEventos->inserirEventos();
+                    break;
                 case 'ATUALIZAR':
 
                 case 'EXCLUIR':
-
+                    $ControllerEventos->excluirEventos();
+                    break;
                 case 'BUSCAR':
 
                 case 'Ativar':
