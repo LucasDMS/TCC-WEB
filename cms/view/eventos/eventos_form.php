@@ -12,20 +12,20 @@
 
  if(isset($_GET['id'])){
     $id = $_GET['id'];
-     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerEventos.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerEventos.php");
 
-     $Controller = new ControllerEventos();
-     $Eventos = $Controller->buscarEventosPorId($id);
+    $Controller = new ControllerEventos();
+    $Eventos = $Controller->buscarEventosPorId($id);
 
-     $action = "router.php?controller=eventos&modo=atualizar";
-     $modo = "atualizar";
-     $id = $Eventos->getId();
-     $nome = $Eventos->getNome();
-     $descricao = $Eventos->getDescricao();
-     $data = $Eventos->getData();
-     $estado = $Eventos->getEstado();
-     $cidade = $Eventos->getCidade();
-     $hora = $Eventos->getHora();
+    $action = "router.php?controller=eventos&modo=atualizar";
+    $modo = "atualizar";
+    $id = $Eventos->getId();
+    $nome = $Eventos->getNome();
+    $descricao = $Eventos->getDescricao();
+    $data = $Eventos->getData();
+    $estado = $Eventos->getEstado();
+    $cidade = $Eventos->getCidade();
+    $hora = $Eventos->getHora();
  }
  
 
@@ -39,6 +39,7 @@
         enctype='multipart/form-data' 
         name="frm_eventos"
         class="form_padrao"
+        data-id="<?php echo $id ?>"
         data-modo="<?php echo $modo; ?>"
         data-pagina="eventos">
 
