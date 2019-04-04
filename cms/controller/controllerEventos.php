@@ -51,7 +51,28 @@ class ControllerEventos{
     }
 
     public function atualizarEventos(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
 
+            $id = $_POST['id'];
+            $nome = $_POST['txt_nome'];
+            $descricao = $_POST['txt_descricao'];
+            $data = $_POST['txt_date'];
+            $estado = $_POST['txt_estado'];
+            $cidade = $_POST['txt_cidade'];
+            $hora = $_POST['txt_hora'];
+
+            $eventos = new Eventos();
+
+            $eventos->setId($id);
+            $eventos->setNome($nome);
+            $eventos->setDescricao($descricao);
+            $eventos->setData($data);
+            $eventos->setEstado($estado);
+            $eventos->setCidade($cidade);
+            $eventos->setHora($hora);
+
+            $this->EventosDAO->update($eventos);
+        }
     }
 
     public function excluirEventos(){
@@ -64,7 +85,8 @@ class ControllerEventos{
     }
 
     public function buscarEventosPorId(){
-
+        $id = $_GET['id'];
+        return $this->EventosDAO->selectById($id);
     }
 
     public function listarEventos(){

@@ -42,15 +42,23 @@
         <tr>
             <td><?php echo $result->getNome()?></td>
             <td><?php echo $result->getDescricao()?></td>
-            <td><i class="fas fa-pen"></i></td>
+            <td>
+                <a  onclick="asyncBuscarDados(this)"
+                    href="#"
+                    data-pagina="eventos"
+                    data-url="view/eventos/eventos_form.php?id=<?php echo $result->getId();?>"
+                    data-id="<?php echo $result->getId();?>">
+
+                    <i class="fas fa-pen"></i>
+                </a>
+            </td>
             <td><i class="far fa-check-square"></i></td>
             <td>
                 <a  onclick="asyncApagar(this)"
                     href="#"
                     data-pagina="eventos"
                     data-url="router.php?controller=eventos&modo=excluir"
-                    data-id="<?php echo $result->getId();?>"
-                    >
+                    data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-trash"></i>
                 </a>

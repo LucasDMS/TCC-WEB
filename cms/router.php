@@ -87,7 +87,8 @@ if(isset($_GET['controller'])){
                     $ControllerEventos->inserirEventos();
                     break;
                 case 'ATUALIZAR':
-
+                    $ControllerEventos->atualizarEventos();
+                    break;
                 case 'EXCLUIR':
                     $ControllerEventos->excluirEventos();
                     break;
