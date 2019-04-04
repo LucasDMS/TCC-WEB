@@ -26,5 +26,11 @@
                 Sustentabilidade
             </div>
         </li>
+        <li onclick="chamarViewParaApp('promocao')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Promoção
+            </div>
+        </li>
     </ul>
 </nav>

@@ -20,7 +20,7 @@ function img($item){
             $arquivo_tmp = $_FILES['img']['tmp_name'];
             $imagem = $diretorio_arquivo . $nome_arquivo . $ext_arquivo;
         }
-        move_uploaded_file($arquivo_tmp,$imagem);
+        move_uploaded_file($arquivo_tmp, $imagem);
     }
     return $imagem;
 } 

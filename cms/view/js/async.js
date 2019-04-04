@@ -108,6 +108,24 @@ function asyncBuscarDados(element) {
 
             formData.append("id_fale_conosco", id);
         }
+    }else if(pagina === "sustentabilidade"){
+        if (modo == 'inserir'){
+            formData.append("id_sustentabilidade", id);
+
+        }
+        else if (modo == 'atualizar') {
+
+            formData.append("id_sustentabilidade", id);
+        }
+    }else if(pagina === "promocao"){
+        if (modo == 'inserir'){
+            formData.append("id_promocao", id);
+
+        }
+        else if (modo == 'atualizar') {
+
+            formData.append("id_promocao", id);
+        }
     }
     $.ajax({
         type: "POST",

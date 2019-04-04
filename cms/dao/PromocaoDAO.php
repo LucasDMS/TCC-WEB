@@ -1,8 +1,8 @@
 <?php 
-class SustentabilidadeDAO{
+class PromocaoDAO{
 
     private $conex;
-    private $Sustentabilidade;
+    private $Promocao;
     public function __construct() {
 
         session_start();
@@ -10,16 +10,19 @@ class SustentabilidadeDAO{
         $this->conex = new conexaoMysql();
     }
     //Função de inserir no banco
-    public function insert(Sustentabilidade $Sustentabilidade) {
+    public function insert(Promocao $Promocao) {
         //Conectando ao banco
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_sustentabilidade(texto,apagado,imagem,ativo) values(?,?,?,?);";
+        $sql = "insert into tbl_promocao(nome,data_inicio,data_final,imagem,tipo_texto,ativo,apagado) values(?,?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
         //Setando os valores da query
-        $stm->bindValue(1, $Sustentabilidade->getTexto());
-        $stm->bindValue(2, $Sustentabilidade->getApagado());
-        $stm->bindValue(3, $Sustentabilidade->getImagem());
-        $stm->bindValue(4, $Sustentabilidade->getAtivo());
+        $stm->bindValue(1, $Promocao->getNome());
+        $stm->bindValue(2, $Promocao->getDataInicio());
+        $stm->bindValue(3, $Promocao->getDataFinal());
+        $stm->bindValue(4, $Promocao->getImagem());
+        $stm->bindValue(5, $Promocao->getTipoTexto());
+        $stm->bindValue(6, $Promocao->getAtivo());
+        $stm->bindValue(7, $Promocao->getApagado());
         //Executando a query
         $success = $stm->execute();
         $this->conex->closeDataBase();
@@ -32,22 +35,22 @@ class SustentabilidadeDAO{
         }
     }
     //Função de update no banco
-    public function update(Sustentabilidade $Sustentabilidade) {
+    public function update(Promocao $Promocao) {
         $conn = $this->conex->connectDatabase();
         //If para saber se tem ou não imagem no update
-        if($Sustentabilidade->getImagem() == null){
-            $sql = "UPDATE tbl_sustentabilidade SET texto = ?  WHERE id_sustentabilidade=?;";
+        if($Promocao->getImagem() == null){
+            $sql = "UPDATE tbl_Promocao SET texto = ?  WHERE id_Promocao=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
-            $stm->bindValue(1, $Sustentabilidade->getTexto());
-            $stm->bindValue(2, $Sustentabilidade->getId());
+            $stm->bindValue(1, $Promocao->getTexto());
+            $stm->bindValue(2, $Promocao->getId());
         }else{
-            $sql = "UPDATE tbl_sustentabilidade SET texto = ?, imagem = ? WHERE id_sustentabilidade=?;";
+            $sql = "UPDATE tbl_Promocao SET texto = ?, imagem = ? WHERE id_Promocao=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
-            $stm->bindValue(1, $Sustentabilidade->getTexto());
-            $stm->bindValue(2, $Sustentabilidade->getImagem());
-            $stm->bindValue(3, $Sustentabilidade->getId());
+            $stm->bindValue(1, $Promocao->getTexto());
+            $stm->bindValue(2, $Promocao->getImagem());
+            $stm->bindValue(3, $Promocao->getId());
         }
         //Executando a query
         $success = $stm->execute();
@@ -65,7 +68,7 @@ class SustentabilidadeDAO{
     public function delete($id) {
         $conn = $this->conex->connectDatabase();
         //Query do "Delete"
-        $sql = "UPDATE tbl_sustentabilidade SET apagado = 1 WHERE id_sustentabilidade=?;";
+        $sql = "UPDATE tbl_Promocao SET apagado = 1 WHERE id_Promocao=?;";
         $stm = $conn->prepare($sql);
         //Setando o valor
         $stm->bindValue(1, $id);
@@ -81,23 +84,23 @@ class SustentabilidadeDAO{
         }
     }
     //Ativando ou desativando o conteudo no site
-    public function updateAtivo(Sustentabilidade $Sustentabilidade) {
+    public function updateAtivo(Promocao $Promocao) {
 
         $conn = $this->conex->connectDatabase();
 
-        if($Sustentabilidade->getAtivo()=="0"){
-            $Sustentabilidade->setAtivo("1");
+        if($Promocao->getAtivo()=="0"){
+            $Promocao->setAtivo("1");
         }
         else {
-            $Sustentabilidade->setAtivo("0");
+            $Promocao->setAtivo("0");
         }
         //Query de update
-        $sql = "update tbl_sustentabilidade set ativo=? where id_sustentabilidade=?";
+        $sql = "update tbl_Promocao set ativo=? where id_Promocao=?";
 
         $stm = $conn->prepare($sql);
         //Setando os valores
-        $stm->bindValue(1, $Sustentabilidade->getAtivo());
-        $stm->bindValue(2, $Sustentabilidade->getId());
+        $stm->bindValue(1, $Promocao->getAtivo());
+        $stm->bindValue(2, $Promocao->getId());
         //Executando a query
         $stm->execute();
 
@@ -106,19 +109,19 @@ class SustentabilidadeDAO{
     //Select a partir do id do registrou (Usado no update do registro)
     public function selectById($id) {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_sustentabilidade where id_sustentabilidade= ?;";
+        $sql = "select * from tbl_Promocao where id_Promocao= ?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $id);
         $success = $stm->execute();
         if ($success) {
            
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Sustentabilidade = new Sustentabilidade();
-                $Sustentabilidade->setId($result['id_sustentabilidade']);
-                $Sustentabilidade->setTexto($result['texto']);
-                $Sustentabilidade->setApagado($result['apagado']);
-                $Sustentabilidade->setAtivo($result['ativo']);
-                return $Sustentabilidade;
+                $Promocao = new Promocao();
+                $Promocao->setId($result['id_Promocao']);
+                $Promocao->setTexto($result['texto']);
+                $Promocao->setApagado($result['apagado']);
+                $Promocao->setAtivo($result['ativo']);
+                return $Promocao;
             };
             $this->conex -> closeDataBase();
         }
@@ -126,25 +129,25 @@ class SustentabilidadeDAO{
     //Selecionando todos os registros do banco 
     public function selectAll() {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_sustentabilidade where apagado = 0";
+        $sql = "select * from tbl_Promocao where apagado = 0";
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
         if ($success) {
             //Criando uma lista com os dados
-            $listSustentabilidade = [];
+            $listPromocao = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Sustentabilidade = new Sustentabilidade();
-                $Sustentabilidade->setId($result['id_sustentabilidade']);
-                $Sustentabilidade->setTexto($result['texto']);
-                $Sustentabilidade->setImagem($result['imagem']);
-                $Sustentabilidade->setApagado($result['apagado']);
-                $Sustentabilidade->setAtivo($result['ativo']);
-                array_push($listSustentabilidade, $Sustentabilidade);
+                $Promocao = new Promocao();
+                $Promocao->setId($result['id_Promocao']);
+                $Promocao->setTexto($result['texto']);
+                $Promocao->setImagem($result['imagem']);
+                $Promocao->setApagado($result['apagado']);
+                $Promocao->setAtivo($result['ativo']);
+                array_push($listPromocao, $Promocao);
             };
 
             $this->conex -> closeDataBase();
             //retornando a lista
-            return $listSustentabilidade;
+            return $listPromocao;
         } else {
             return "Erro";
         }
