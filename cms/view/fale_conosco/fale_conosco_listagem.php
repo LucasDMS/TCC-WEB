@@ -46,7 +46,7 @@ $rs = $controller->buscarFaleConosco();
                         data-pagina="fale_conosco"
                         data-url="router.php?controller=fale_conosco&modo=ativar" 
                         data-id="<?php echo $result->getId(); ?>"
-                        data-status="<?php echo $result->getStatus(); ?>">
+                        data-ativo="<?php echo $result->getStatus(); ?>">
 
                         <?php $status = ($result->getStatus()=='Lido') ? "-check" : "" ; ?>
                         <i class="far fa<?php echo $status ?>-square"></i>

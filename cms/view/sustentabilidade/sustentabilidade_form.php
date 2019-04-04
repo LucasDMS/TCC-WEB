@@ -10,18 +10,17 @@ if(isset($_GET['id'])){
     $id = $_GET['id'];
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSustentabilidade.php");
 
-    $Controller = new ControllerNoticia();
-    $Noticia = $Controller->buscarSustentabilidadePorId($id);
+    $Controller = new ControllerSustentabilidade();
+    $Sustentabilidade = $Controller->buscarSustentabilidadePorId($id);
 
-    $action = "router.php?controller=noticias&modo=atualizar";
+    $action = "router.php?controller=sustentabilidade&modo=atualizar";
     $modo = "atualizar";
-    $id = $Noticia->getId();
-    $titulo = $Noticia->getTitulo();
-    $conteudo= $Noticia->getConteudo();
+    $id = $Sustentabilidade->getId();
+    $texto = $Sustentabilidade->getTexto();
+
 }
 
 ?>
-
 <form   onsubmit="asyncSubmit(event, this)" 
         action="<?php echo $action; ?>" 
         method="post" 
@@ -30,11 +29,11 @@ if(isset($_GET['id'])){
         enctype='multipart/form-data' 
         name="frm_sustentabilidade" 
         class="form_padrao"
-        data-id="<?php echo $id ?>"
+        data-id="<?php echo $id?>"
         data-modo="<?php echo $modo?>"
         data-pagina="sustentabilidade">
 
-    <input type="text" name="txtTexto" id="txtTitulo" value="<?php echo $titulo?>" required>
+    <input type="text" name="txtTexto" id="txtTitulo" value="<?php echo $texto?>" required>
 
     <input type="file" name="img" id="img"/>
 

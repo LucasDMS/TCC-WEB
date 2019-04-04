@@ -11,35 +11,32 @@ class ControllerSustentabilidade{
     public function inserirSustentabilidade(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
+
+            // echo "teste";
             $texto =$_POST['txtTexto'];
             $imagem = img($_FILES['img']);
             $ativo = 1;
-            $ordem  = 1;
             $apagado = 0;
-            
             $Sustentabilidade = new Sustentabilidade(); 
             $Sustentabilidade->setTexto($texto);
             $Sustentabilidade->setImagem($imagem);
             $Sustentabilidade->setApagado($apagado);
             $Sustentabilidade->setAtivo($ativo);
-            $this->SustentabilidadeDAO->insert($Sustentabilidade);
+            return $this->SustentabilidadeDAO->insert($Sustentabilidade);
+
         }
     }
     public function atualizarSustentabilidade(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
-
-            $id     = $_POST['id'];
-            $texto =$_POST['txtTitulo'];
+            $id     = $_POST['id']; 
+            $texto =$_POST['txtTexto'];
+            $imagem = img($_FILES['img']);
             $ativo = 1;
-            $ordem  = 1;
             $apagado = 0;
-            
             $Sustentabilidade = new Sustentabilidade(); 
-            $Sustentabilidade->setTexto($titulo);
-            $Sustentabilidade->setIdImagem($texto);
-            $Sustentabilidade->setApagado($apagado);
-            $Sustentabilidade->setAtivo($ativo);
-            
+            $Sustentabilidade->setId($id);
+            $Sustentabilidade->setTexto($texto);
+            $Sustentabilidade->setImagem($imagem);
             $this->SustentabilidadeDAO->update($Sustentabilidade);
         }
     }

@@ -30,6 +30,7 @@ $rs = $controller->buscarSustentabilidades();
     <?php foreach ($rs as $result) { ?>
             <tr>
                 <td><?php echo $result->getTexto(); ?></td>
+                <td><img src="<?php echo $result->getImagem(); ?>"/></td>
                 <td><?php ?></td>
             
                 <td>

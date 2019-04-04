@@ -43,8 +43,7 @@ function chamarViewParaApp(pagina) {
  * @param {*} element 
  */
 function asyncSubmit(event, element) {
-    event.preventDefault()
-
+    event.preventDefault();
     var url = element.getAttribute("action");
     var pagina = element.getAttribute("data-pagina");
     var formdata = new FormData(element);
@@ -135,12 +134,12 @@ function asyncAtivar(elementoHTML) {
     var url = elementoHTML.getAttribute("data-url");
     var id = elementoHTML.getAttribute("data-id");
     var pagina = elementoHTML.getAttribute("data-pagina");
-    var status = elementoHTML.getAttribute("data-status");
+    var ativo = elementoHTML.getAttribute("data-ativo");
 
     var formData = new FormData();
 
     formData.append("id", id);
-    formData.append("status", status);
+    formData.append("ativo", ativo);
 
     $.ajax({
         type: "POST",

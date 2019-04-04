@@ -103,12 +103,13 @@ if(isset($_GET['controller'])){
             }
             break;
             case 'SUSTENTABILIDADE':
-            require_once('controller/controllerSustentabilidade.php');
+            require_once('controller/ControllerSustentabilidade.php');
             $ControllerSustentabilidade = new ControllerSustentabilidade();
             switch($modo){
                 case 'INSERIR':
                     //Chamando o metodo de inserir uma nova Sustentabilidade
                     $ControllerSustentabilidade->inserirSustentabilidade();
+                    
                     break;
                 case 'ATUALIZAR':
                     $ControllerSustentabilidade ->atualizarSustentabilidade();
