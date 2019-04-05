@@ -153,6 +153,15 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'PRODUTOS':
+            require_once('controller/ControllerProdutos.php');
+            $ControllerProdutos = new ControllerProdutos();
+            switch($modo){
+                case 'ATIVAR':
+                    $ControllerProdutos->ativarProduto();
+                    break;
+            }
+            break;
     }
 }
 

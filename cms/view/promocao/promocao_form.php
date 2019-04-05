@@ -6,6 +6,7 @@ $imagem = null;
 $dataInicio = null;
 $dataFinal = null;
 $tipoTexto = null;
+$texto = null;
 $id = null;
 $modo = "inserir";
 
@@ -23,7 +24,7 @@ if(isset($_GET['id'])){
     $dataInicio = $Promocao->getDataInicio();
     $dataFinal = $Promocao->getDataFinal();
     $tipoTexto = $Promocao->getTipoTexto();
-
+    $texto = $Promocao->getTexto();
 
 
 }
@@ -44,6 +45,7 @@ if(isset($_GET['id'])){
     <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome?>" required>
     <input type="date" name="txtDataInicio" id="txtDataInicio" value="<?php echo $dataInicio?>" required>
     <input type="date" name="txtDataFinal" id="txtDataFinal" value="<?php echo $dataFinal?>" required>
+    <input type="text" name="txtTexto" id="txtTexto" value="<?php echo $texto?>" required>
     <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto?>" required>
     <input type="file" name="img" id="img"/>
 

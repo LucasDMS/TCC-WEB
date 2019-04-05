@@ -32,5 +32,11 @@
                 Promoção
             </div>
         </li>
+        <li onclick="chamarViewParaApp('produto')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Produto
+            </div>
+        </li>
     </ul>
 </nav>

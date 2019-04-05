@@ -6,7 +6,7 @@ class SustentabilidadeDAO{
     public function __construct() {
 
         session_start();
-        require_once($_SESSION['PATH'].'/db/ConexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
     //Função de inserir no banco
@@ -62,7 +62,7 @@ class SustentabilidadeDAO{
         }
     }
     //Deletando o registro 
-    public function delete($id) {
+    public function delete($id){
         $conn = $this->conex->connectDatabase();
         //Query do "Delete"
         $sql = "UPDATE tbl_sustentabilidade SET apagado = 1 WHERE id_sustentabilidade=?;";

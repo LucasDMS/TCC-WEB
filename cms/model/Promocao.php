@@ -5,6 +5,7 @@ Class Promocao{
     private $imagem;
     private $dataInicio;
     private $dataFinal;
+    private $texto;
     private $tipoTexto;
     private $ativo;
     private $apagado;
@@ -105,6 +106,18 @@ Class Promocao{
     public function setApagado($apagado)
     {
         $this->apagado = $apagado;
+
+        return $this;
+    }
+
+    public function getTexto()
+    {
+        return $this->texto;
+    }
+
+    public function setTexto($texto)
+    {
+        $this->texto = $texto;
 
         return $this;
     }

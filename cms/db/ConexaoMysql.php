@@ -12,7 +12,7 @@ class conexaoMysql {
 		$this->server = "localhost";
 		$this->user = "root";
 		$this->password = "bcd127";
-		$this->database = "mydb";
+		$this->database = "db_pop_soda_drink";
 	}
 
 	public function connectDatabase() {

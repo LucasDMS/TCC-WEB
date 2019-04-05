@@ -16,6 +16,7 @@ class ControllerPromocao{
             $nome =$_POST['txtNome'];
             $dataInicio = $_POST['txtDataInicio'];
             $dataFinal = $_POST['txtDataFinal'];
+            $texto = $_POST['txtTexto'];
             $tipoTexto = $_POST['txtTipoTexto'];
             $imagem = img($_FILES['img']);
             $ativo = 1;
@@ -25,6 +26,7 @@ class ControllerPromocao{
             $Promocao->setDataInicio($dataInicio);
             $Promocao->setDataFinal($dataFinal);
             $Promocao->setTipoTexto($tipoTexto);
+            $Promocao->setTexto($texto);
             $Promocao->setImagem($imagem);
             $Promocao->setAtivo($ativo);
             $Promocao->setApagado($apagado);
@@ -38,6 +40,7 @@ class ControllerPromocao{
             $nome =$_POST['txtNome'];
             $dataInicio = $_POST['txtDataInicio'];
             $dataFinal = $_POST['txtDataFinal'];
+            $texto = $_POST['txtTexto'];
             $tipoTexto = $_POST['txtTipoTexto'];
             $imagem = img($_FILES['img']);
             $ativo = 1;
@@ -47,6 +50,7 @@ class ControllerPromocao{
             $Promocao->setNome($nome);
             $Promocao->setDataInicio($dataInicio);
             $Promocao->setDataFinal($dataFinal);
+            $Promocao->setTexto($texto);
             $Promocao->setTipoTexto($tipoTexto);
             $Promocao->setImagem($imagem);
             $Promocao->setAtivo($ativo);
