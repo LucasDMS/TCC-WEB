@@ -18,8 +18,13 @@ if(isset($_GET['id'])){
 
     $action = "router.php?controller=promocao&modo=atualizar";
     $modo = "atualizar";
-    $id = $Sustentabilidade->getId();
-    $texto = $Sustentabilidade->getTexto();
+    $id = $Promocao->getId();
+    $nome = $Promocao->getNome();
+    $dataInicio = $Promocao->getDataInicio();
+    $dataFinal = $Promocao->getDataFinal();
+    $tipoTexto = $Promocao->getTipoTexto();
+
+
 
 }
 
@@ -37,9 +42,9 @@ if(isset($_GET['id'])){
         data-pagina="promocao">
 
     <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome?>" required>
-    <input type="date" name="txtDataInicio" id="txtDataInicio" value="<?php echo $nome?>" required>
-    <input type="date" name="txtDataFinal" id="txtDataFinal" value="<?php echo $nome?>" required>
-    <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $nome?>" required>
+    <input type="date" name="txtDataInicio" id="txtDataInicio" value="<?php echo $dataInicio?>" required>
+    <input type="date" name="txtDataFinal" id="txtDataFinal" value="<?php echo $dataFinal?>" required>
+    <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto?>" required>
     <input type="file" name="img" id="img"/>
 
     <button class="btn">

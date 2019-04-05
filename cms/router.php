@@ -127,6 +127,32 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'PROMOCAO':
+            require_once('controller/ControllerPromocao.php');
+            $ControllerPromocao = new ControllerPromocao();
+            switch($modo){
+                case 'INSERIR':
+                    
+                    //Chamando o metodo de inserir uma nova Promocao
+                    $ControllerPromocao->inserirPromocao();
+                    
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPromocao ->atualizarPromocao();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma Promocao
+                    $ControllerPromocao->excluirPromocao();
+                    break;
+                case 'BUSCAR':   
+                     $Promocao =$ControllerPromocao->buscarPromocaoPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerPromocao->ativarPromocao();
+                    break;
+            }
+            break;
     }
 }
 

@@ -29,7 +29,7 @@ $rs = $controller->buscarPromocoes();
     <tbody>
     <?php foreach ($rs as $result) { ?>
             <tr>
-                <td><?php echo $result->getTexto(); ?></td>
+                <td><?php echo $result->getNome(); ?></td>
                 <td><img src="<?php echo $result->getImagem(); ?>"/></td>
                 <td><?php ?></td>
             

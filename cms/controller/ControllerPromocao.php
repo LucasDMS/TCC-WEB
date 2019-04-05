@@ -27,8 +27,7 @@ class ControllerPromocao{
             $Promocao->setTipoTexto($tipoTexto);
             $Promocao->setImagem($imagem);
             $Promocao->setAtivo($ativo);
-            $Promocao->setApagado($imagem);
-
+            $Promocao->setApagado($apagado);
             return $this->PromocaoDAO->insert($Promocao);
 
         }
@@ -36,14 +35,22 @@ class ControllerPromocao{
     public function atualizarPromocao(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $id     = $_POST['id']; 
-            $texto =$_POST['txtTexto'];
+            $nome =$_POST['txtNome'];
+            $dataInicio = $_POST['txtDataInicio'];
+            $dataFinal = $_POST['txtDataFinal'];
+            $tipoTexto = $_POST['txtTipoTexto'];
             $imagem = img($_FILES['img']);
             $ativo = 1;
             $apagado = 0;
             $Promocao = new Promocao(); 
             $Promocao->setId($id);
-            $Promocao->setTexto($texto);
+            $Promocao->setNome($nome);
+            $Promocao->setDataInicio($dataInicio);
+            $Promocao->setDataFinal($dataFinal);
+            $Promocao->setTipoTexto($tipoTexto);
             $Promocao->setImagem($imagem);
+            $Promocao->setAtivo($ativo);
+            $Promocao->setApagado($apagado);
             $this->PromocaoDAO->update($Promocao);
         }
     }
