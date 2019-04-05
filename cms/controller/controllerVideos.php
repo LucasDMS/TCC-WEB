@@ -23,7 +23,7 @@ class ControllerVideos{
         return $this->VideosDAO->selectAll();
     }
 
-    public function inserirVideos(Videos $videos){
+    public function inserirVideos(){
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $titulo = $_POST['txt_titulo'];
             $video = $_POST['txt_video'];

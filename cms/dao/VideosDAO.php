@@ -44,9 +44,11 @@ class VideosDAO{
         $sucess = $stm->execute();
         
         if($sucess){
-
+            echo $sucess;
+            return "Sucesso";
         }else{
-            
+            echo $sucess;
+            return "Erro";
         }
         
 

@@ -17,7 +17,7 @@
 ?>
 
 
-<button type="menu" onclick="chamarViewParaModal('eventos')">
+<button type="menu" onclick="chamarViewParaModal('videos')">
     Novo
     <i class="fas fa-plus"></i>
 </button>
