@@ -78,6 +78,32 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+
+
+            case 'ESTABELECIMENTO':
+            require_once('controller/controllerEstabelecimento.php');
+            $ControllerEstabelecimento = new ControllerEstabelecimento();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir um Novo Estabelecimento
+                    $ControllerEstabelecimento->inserirEstabelecimento();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerEstabelecimento ->atualizarEstabelecimento();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir um Estabelecimento
+                    $ControllerEstabelecimento->excluirEstabelecimento();
+                    break;
+                case 'BUSCAR':   
+                     $Estabelecimento =$ControllerEstabelecimento->buscarEstabelecimentoPorId();
+                    break;
+                case 'ATIVAR':
+                    
+                    $ControllerEstabelecimento->ativarEstabelecimento();
+                    break;
+            }
+            break;
     }
 }
 

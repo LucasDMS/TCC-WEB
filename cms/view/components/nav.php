@@ -15,5 +15,12 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('estabelecimento')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Estabelecimento Comercial
+            </div>
+        </li>
+
     </ul>
 </nav>
