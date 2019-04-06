@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
     $modo = "atualizar";
     $id = $Patrocinio->getId();
     $nome = $Patrocinio->getNome();
-    $descricao = $Patrocinio->geDescricao();
+    $descricao = $Patrocinio->getDescricao();
 }
 ?>
 <form   onsubmit="asyncSubmit(event, this)" 

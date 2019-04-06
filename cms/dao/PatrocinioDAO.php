@@ -30,22 +30,24 @@ class PatrocinioDAO{
         }
     }
     //Função de update no banco
-    public function update(Sustentabilidade $Sustentabilidade) {
+    public function update(Patrocinio $Patrocinio) {
         $conn = $this->conex->connectDatabase();
         //If para saber se tem ou não imagem no update
-        if($Sustentabilidade->getImagem() == null){
-            $sql = "UPDATE tbl_sustentabilidade SET texto = ?  WHERE id_sustentabilidade=?;";
+        if($Patrocinio->getImagem() == null){
+            $sql = "UPDATE tbl_patrocinio SET nome = ?, descricao=?  WHERE id_patrocinio=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
-            $stm->bindValue(1, $Sustentabilidade->getTexto());
-            $stm->bindValue(2, $Sustentabilidade->getId());
+            $stm->bindValue(1, $Patrocinio->getNome());
+            $stm->bindValue(2, $Patrocinio->getDescricao());
+            $stm->bindValue(3, $Patrocinio->getId());
         }else{
-            $sql = "UPDATE tbl_sustentabilidade SET texto = ?, imagem = ? WHERE id_sustentabilidade=?;";
+            $sql = "UPDATE tbl_patrocinio SET nome = ?, descricao=?, imagem = ? WHERE id_patrocinio=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
-            $stm->bindValue(1, $Sustentabilidade->getTexto());
-            $stm->bindValue(2, $Sustentabilidade->getImagem());
-            $stm->bindValue(3, $Sustentabilidade->getId());
+            $stm->bindValue(1, $Patrocinio->getNome());
+            $stm->bindValue(2, $Patrocinio->getDescricao());
+            $stm->bindValue(3, $Patrocinio->getImagem());
+            $stm->bindValue(4, $Patrocinio->getId());
         }
         //Executando a query
         $success = $stm->execute();
@@ -63,10 +65,11 @@ class PatrocinioDAO{
     public function delete($id){
         $conn = $this->conex->connectDatabase();
         //Query do "Delete"
-        $sql = "UPDATE tbl_sustentabilidade SET apagado = 1 WHERE id_sustentabilidade=?;";
+        $sql = "UPDATE tbl_patrocinio SET apagado = ? WHERE id_patrocinio=?;";
         $stm = $conn->prepare($sql);
         //Setando o valor
-        $stm->bindValue(1, $id);
+        $stm->bindValue(1, 1);
+        $stm->bindValue(2, $id);
         $success = $stm->execute();
         echo $success;
         $this->conex->closeDataBase();
@@ -79,20 +82,20 @@ class PatrocinioDAO{
         }
     }
     //Ativando ou desativando o conteudo no site
-    public function updateAtivo(Sustentabilidade $Sustentabilidade) {
+    public function updateAtivo(Patrocinio $Patrocinio) {
         $conn = $this->conex->connectDatabase();
-        if($Sustentabilidade->getAtivo()=="0"){
-            $Sustentabilidade->setAtivo("1");
+        if($Patrocinio->getStatus()=="0"){
+            $Patrocinio->setStatus("1");
         }
         else {
-            $Sustentabilidade->setAtivo("0");
+            $Patrocinio->setStatus("0");
         }
         //Query de update
-        $sql = "update tbl_sustentabilidade set ativo=? where id_sustentabilidade=?";
+        $sql = "update tbl_patrocinio set status=? where id_patrocinio=?";
         $stm = $conn->prepare($sql);
         //Setando os valores
-        $stm->bindValue(1, $Sustentabilidade->getAtivo());
-        $stm->bindValue(2, $Sustentabilidade->getId());
+        $stm->bindValue(1, $Patrocinio->getStatus());
+        $stm->bindValue(2, $Patrocinio->getId());
         //Executando a query
         $stm->execute();
         $this->conex->closeDataBase();

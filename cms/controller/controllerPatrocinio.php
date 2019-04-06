@@ -25,34 +25,34 @@ class ControllerPatrocinio{
             return $this->PatrocinioDAO->insert($Patrocinio);
         }
     }
-    public function atualizarSustentabilidade(){
+    public function atualizarPatrocinio(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $id     = $_POST['id']; 
-            $texto =$_POST['txtTexto'];
+            $id = $_POST['id']; 
+            $nome = $_POST['txt_nome'];
+            $descricao = $_POST['txt_descricao'];
             $imagem = img($_FILES['img']);
-            $ativo = 1;
-            $apagado = 0;
-            $Sustentabilidade = new Sustentabilidade(); 
-            $Sustentabilidade->setId($id);
-            $Sustentabilidade->setTexto($texto);
-            $Sustentabilidade->setImagem($imagem);
-            $this->SustentabilidadeDAO->update($Sustentabilidade);
+            $Patrocinio = new Patrocinio(); 
+            $Patrocinio->setId($id);
+            $Patrocinio->setNome($nome);
+            $Patrocinio->setDescricao($descricao);
+            $Patrocinio->setImagem($imagem);
+            $this->PatrocinioDAO->update($Patrocinio);
         }
     }
-    public function excluirSustentabilidade(){
+    public function excluirPatrocinio(){
         $id = $_POST['id'];
-        $this->SustentabilidadeDAO ->delete($id);
+        $this->PatrocinioDAO ->delete($id);
     }
-    public function ativarSustentabilidade() {
+    public function ativarPatrocinio() {
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $id     = $_POST['id'];
             $ativo  = $_POST['ativo'];
             
-            $Sustentabilidade = new Sustentabilidade(); 
-            $Sustentabilidade->setId($id);
-            $Sustentabilidade->setAtivo($ativo);
+            $Pratrocinio = new Patrocinio(); 
+            $Pratrocinio->setId($id);
+            $Pratrocinio->setStatus($ativo);
             
-            $this->SustentabilidadeDAO->updateAtivo($Sustentabilidade);
+            $this->PatrocinioDAO->updateAtivo($Pratrocinio);
         }
     }
     
