@@ -44,9 +44,10 @@
             <td>
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
-                    data-pagina="eventos"
-                    data-url="view/eventos/eventos_form.php?id=<?php echo $result->getId();?>"
-                    data-id="<?php echo $result->getId();?>">
+                    data-pagina="videos"
+                    data-url="router.php?controller=videos&modo=ativar"
+                    data-id="<?php echo $result->getId();?>"
+                    data-ativo = <?php echo $result->getStatus();?>>
 
                     <i class="fas fa-pen"></i>
                 </a>
@@ -54,8 +55,8 @@
             <td>
                 <a  onclick="asyncAtivar(this)"
                     href="#"
-                    data-pagina="eventos"
-                    data-url="router.php?controller=eventos&modo=ativar"
+                    data-pagina="videos"
+                    data-url="router.php?controller=videos&modo=ativar"
                     data-id="<?php echo $result->getId();?>"
                     data-ativo = <?php echo $result->getStatus();?>>
 
@@ -66,8 +67,8 @@
             <td>
                 <a  onclick="asyncApagar(this)"
                     href="#"
-                    data-pagina="eventos"
-                    data-url="router.php?controller=eventos&modo=excluir"
+                    data-pagina="videos"
+                    data-url="router.php?controller=videos&modo=excluir"
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-trash"></i>

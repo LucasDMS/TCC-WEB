@@ -27,16 +27,60 @@ class ControllerVideos{
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $titulo = $_POST['txt_titulo'];
             $video = $_POST['txt_video'];
+            $status = 1;
+            $apagado = 0;
 
             $Videos = new Videos();
-            $Videos.setTitulo($titulo);
-            $Videos.setLink($video);
+            $Videos->setTitulo($titulo);
+            $Videos->setLink($video);
+            $Videos->setStatus($status);
+            $Videos->setApagado($apagado);
 
             $this->VideosDAO->inserir($Videos);
         }
     }
 
+    public function excluirVideos(){
+        $id = $_POST['id'];
+        $this->VideosDAO->delete($id);
+    }
 
+    public function atualizarVideos(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+
+            $id = $_POST['id'];
+            $titulo = $_POST['txt_titulo'];
+            $link = $_POST['txt_video'];
+            
+
+            $Videos = new Videos();
+
+            $Videos->setId($id);
+            $Videos->setTitulo($titulo);
+            $Videos->setLink($link);
+
+            $this->VideosDAO->update($Videos);
+        }
+    }
+
+    public function buscarVideosPorId(){
+        $id = $_GET['id'];
+        return $this->VideosDAO->selectById($id);
+    }
+
+    public function ativarVideos(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $id = $_POST['id'];
+            $ativo = $_POST['ativo'];
+            $Videos = new Videos();
+
+            $Videos->setId($id);
+            $Videos->setStatus($ativo);
+            echo $Videos->getStatus();
+
+            $this->VideosDAO->updateAtivo($Videos);
+        }
+    }
 }
 
 

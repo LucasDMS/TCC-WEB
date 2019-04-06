@@ -68,9 +68,10 @@
 
         public function delete($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_nossos_eventos SET apagado = 1 where id_nossos_eventos = ?;";
+            $sql = "UPDATE tbl_nossos_eventos SET apagado = ? where id_nossos_eventos = ?;";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $id);
+            $stm->bindValue(1, 1);
+            $stm->bindValue(2, $id);
             $sucess = $stm->execute();
             $this->conex->closeDataBase();
             echo($id);

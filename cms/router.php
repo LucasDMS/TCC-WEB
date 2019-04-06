@@ -102,21 +102,19 @@ if(isset($_GET['controller'])){
 
         case 'VIDEOS':
         require_once('controller/controllerVideos.php');
-        $ControllerEventos = new ControllerVideos();
+        $ControllerVideos = new ControllerVideos();
         switch($modo){
             case 'INSERIR':
-                $ControllerEventos->inserirVideos();
+                $ControllerVideos->inserirVideos();
                 break;
             case 'ATUALIZAR':
-                $ControllerEventos->atualizarVideos();
+                $ControllerVideos->atualizarVideos();
                 break;
             case 'EXCLUIR':
-                $ControllerEventos->excluirVideos();
+                $ControllerVideos->excluirVideos();
                 break;
-            case 'BUSCAR':
-
             case 'ATIVAR':
-                $ControllerEventos->ativarVideos();
+                $ControllerVideos->ativarVideos();
                 break;
         }
         break;
