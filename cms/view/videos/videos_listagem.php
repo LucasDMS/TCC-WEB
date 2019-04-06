@@ -43,11 +43,10 @@
             <td><?php echo $result->getLink()?></td>
             <td>
                 <a  onclick="asyncBuscarDados(this)"
-                    href="#"
+                href="#"
                     data-pagina="videos"
-                    data-url="router.php?controller=videos&modo=ativar"
-                    data-id="<?php echo $result->getId();?>"
-                    data-ativo = <?php echo $result->getStatus();?>>
+                    data-url="view/videos/videos_form.php?id=<?php echo $result->getId();?>"
+                    data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-pen"></i>
                 </a>

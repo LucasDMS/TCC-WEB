@@ -51,7 +51,6 @@ class ControllerVideos{
             $id = $_POST['id'];
             $titulo = $_POST['txt_titulo'];
             $link = $_POST['txt_video'];
-            
 
             $Videos = new Videos();
 

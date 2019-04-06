@@ -29,5 +29,12 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('patrocinio')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Videos
+            </div>
+        </li>
+
     </ul>
 </nav>

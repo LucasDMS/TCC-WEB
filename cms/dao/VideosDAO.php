@@ -114,7 +114,7 @@ class VideosDAO{
                 $Videos->setTitulo($result['titulo']);
                 $Videos->setLink($result['video']);
                 return $Videos;
-
+                    
             };
             $this->conex->closeDataBase();
         }

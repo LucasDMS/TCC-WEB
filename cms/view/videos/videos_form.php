@@ -7,7 +7,7 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerVideos.php");
-    
+        
         $Controller = new ControllerVideos();
         $Videos = $Controller->buscarVideosPorId($id);
     
@@ -32,8 +32,8 @@
         data-modo="<?php echo $modo; ?>"
         data-pagina="videos">
 
-        <input type="text" name="txt_titulo" id="txt_titulo" value="<?php echo $titulo ?>" placeholder="Titulo"><br>
-        <input type="text" name="txt_video" id="txt_video" value="<?php echo $link ?>" placeholder="video" ><br>   
+        <input type="text" name="txt_titulo" id="txt_titulo" value="<?php echo $titulo; ?>" placeholder="Titulo"><br>
+        <input type="text" name="txt_video" id="txt_video" value="<?php echo $link; ?>" placeholder="video" ><br>   
     
     <button class="btn">
         Enviar

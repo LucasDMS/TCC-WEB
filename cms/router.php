@@ -101,23 +101,42 @@ if(isset($_GET['controller'])){
             break;
 
         case 'VIDEOS':
-        require_once('controller/controllerVideos.php');
-        $ControllerVideos = new ControllerVideos();
-        switch($modo){
-            case 'INSERIR':
-                $ControllerVideos->inserirVideos();
-                break;
-            case 'ATUALIZAR':
-                $ControllerVideos->atualizarVideos();
-                break;
-            case 'EXCLUIR':
-                $ControllerVideos->excluirVideos();
-                break;
-            case 'ATIVAR':
-                $ControllerVideos->ativarVideos();
-                break;
-        }
-        break;
+            require_once('controller/controllerVideos.php');
+            $ControllerVideos = new ControllerVideos();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerVideos->inserirVideos();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerVideos->atualizarVideos();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerVideos->excluirVideos();
+                    break;
+                case 'ATIVAR':
+                    $ControllerVideos->ativarVideos();
+                    break;
+            }
+            break;
+
+        case 'PATROCINIO':
+            require_once('controller/controllerPatrocinio.php');
+            $ControllerPatrocinio = new controllerPatrocinio();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPatrocinio->inserirPatrocinio();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPatrocinio->atualizarPatrocinio();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPatrocinio->excluirPatrocinio();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPatrocinio->ativarPatrocinio();
+                    break;
+            }
+            break;
     }
 }
 
