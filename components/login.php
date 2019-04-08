@@ -11,12 +11,13 @@
     
         <a href="" class="a">Esqueceu a senha?</a>
     
-        <input type="submit" value="submit" class="btn submit">
+        <button type='submit' class="btn submit">
+            <i class="fas fa-sign-in-alt"></i>
+        </button>
     
         <a href="" class="a">Não tem cadastro? clique aqui!</a>
 
     </form>
-
 
 </div>
 

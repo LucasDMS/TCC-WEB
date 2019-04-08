@@ -11,8 +11,8 @@ class conexaoMysql {
 
 		$this->server = "localhost";
 		$this->user = "root";
-		$this->password = "bcd127";
-		$this->database = "db_test";
+		$this->password = "root";
+		$this->database = "db_pop_soda_drink";
 	}
 
 	public function connectDatabase() {
