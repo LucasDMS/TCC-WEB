@@ -18,15 +18,17 @@ class ControllerMVV{
             
             $texto   = $_POST['txtTexto'];
             $tipo_texto = $_POST['txtTipoTexto'];
+            $paragrafo = $_POST['txtParagrafo'];
             $ativo   = 1;
             $apagado = 0;
 
             $MVV = new MVV(); 
             $MVV->setTexto($texto);
-            $MVV->setOrdem($ordem);
+            $MVV->setTipoTexto($tipo_texto);
+            $MVV->setParagrafo($paragrafo);
             $MVV->setAtivo($ativo);
             $MVV->setApagado($apagado);
-
+            echo $texto;
             $this->MVVDAO->insert($MVV);
         }
     }
@@ -36,11 +38,15 @@ class ControllerMVV{
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
             $id     = $_POST['id'];
-            $texto  = $_POST['txt_texto'];            
+            $texto   = $_POST['txtTexto'];
+            $tipo_texto = $_POST['txtTipoTexto'];
+            $paragrafo = $_POST['txtParagrafo'];           
             $MVV = new MVV(); 
 
             $MVV->setId($id);
             $MVV->setTexto($texto);
+            $MVV->setTipoTexto($tipo_texto);
+            $MVV->setParagrafo($paragrafo);
             
             $this->MVVDAO->update($MVV);
         }
@@ -76,7 +82,7 @@ class ControllerMVV{
         return $this->MVVDAO->selectById($id);
     }
 
-    public function buscarHistoras() {
+    public function buscarMVV() {
 
         return $this->MVVDAO->selectAll();
     }

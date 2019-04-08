@@ -14,8 +14,9 @@ class MVVDAO{
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $MVV->getTexto());
         $stm->bindValue(2, $MVV->getParagrafo());
-        $stm->bindValue(3, $MVV->getAtivo());
+        $stm->bindValue(3, $MVV->getTipoTexto());
         $stm->bindValue(4, $MVV->getApagado());
+        $stm->bindValue(5, $MVV->getAtivo());
         $success = $stm->execute();
         $this->conex->closeDataBase();
         if ($success) {
@@ -28,11 +29,12 @@ class MVVDAO{
     }
     public function update(MVV $MVV) {
         $conn = $this->conex->connectDatabase();
-        $sql = "UPDATE tbl_missao_visao_valor SET titulo = ?, texto = ? WHERE id_MVVs_fique_por_dentro=?;";
+        $sql = "UPDATE tbl_missao_visao_valor SET texto = ?, paragrafo = ?, tipo_texto = ? WHERE id_missao_visao_valor=?;";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $MVV->getTitulo());
-        $stm->bindValue(2, $MVV->getConteudo());
-        $stm->bindValue(3, $MVV->getId());
+        $stm->bindValue(1, $MVV->getTexto());
+        $stm->bindValue(2, $MVV->getParagrafo());
+        $stm->bindValue(3, $MVV->getTipoTexto());
+        $stm->bindValue(4, $MVV->getId());
         $success = $stm->execute();
         echo $success;
         $this->conex->closeDataBase();
@@ -46,7 +48,7 @@ class MVVDAO{
     }
     public function delete($id) {
         $conn = $this->conex->connectDatabase();
-        $sql = "UPDATE tbl_missao_visao_valor SET apagado = 1 WHERE id_MVVs_fique_por_dentro=?;";
+        $sql = "UPDATE tbl_missao_visao_valor SET apagado = 1 WHERE id_missao_visao_valor=?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $id);
         $success = $stm->execute();
@@ -71,7 +73,7 @@ class MVVDAO{
             $MVV->setAtivo("0");
         }
 
-        $sql = "update tbl_missao_visao_valor set ativo=? where id_MVVs_fique_por_dentro=?";
+        $sql = "update tbl_missao_visao_valor set ativo=? where id_missao_visao_valor=?";
 
         $stm = $conn->prepare($sql);
 
@@ -84,7 +86,7 @@ class MVVDAO{
     }
     public function selectById($id) {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_missao_visao_valor where id_MVVs_fique_por_dentro= ?;";
+        $sql = "select * from tbl_missao_visao_valor where id_missao_visao_valor= ?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $id);
         $success = $stm->execute();
@@ -92,11 +94,11 @@ class MVVDAO{
            
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $MVV = new MVV();
-                $MVV->setId($result['id_MVVs_fique_por_dentro']);
-                $MVV->setTitulo($result['titulo']);
-                $MVV->setConteudo($result['texto']);
+                $MVV->setId($result['id_missao_visao_valor']);
+                $MVV->setTexto($result['texto']);
+                $MVV->setTipoTexto($result['tipo_texto']);
                 $MVV->setApagado($result['apagado']);
-                $MVV->setOrdem($result['ordem']);
+                $MVV->setParagrafo($result['paragrafo']);
                 $MVV->setAtivo($result['ativo']);
                 return $MVV;
             };
@@ -113,11 +115,11 @@ class MVVDAO{
             $listMVV = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $MVV = new MVV();
-                $MVV->setId($result['id_MVVs_fique_por_dentro']);
-                $MVV->setTitulo($result['titulo']);
-                $MVV->setConteudo($result['texto']);
+                $MVV->setId($result['id_missao_visao_valor']);
+                $MVV->setTexto($result['texto']);
+                $MVV->setTipoTexto($result['tipo_texto']);
                 $MVV->setApagado($result['apagado']);
-                $MVV->setOrdem($result['ordem']);
+                $MVV->setParagrafo($result['paragrafo']);
                 $MVV->setAtivo($result['ativo']);
                 array_push($listMVV, $MVV);
             };

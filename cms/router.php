@@ -162,6 +162,32 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'MVV':
+            require_once('controller/ControllerMVV.php');
+            $ControllerMVV = new ControllerMVV();
+            switch($modo){
+                case 'INSERIR':
+                    
+                //Chamando o metodo de inserir uma nova MVV
+                $ControllerMVV->inserirMVV();
+                
+                break;
+                case 'ATUALIZAR':
+                    $ControllerMVV ->atualizarMVV();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma MVV
+                    $ControllerMVV->excluirMVV();
+                    break;
+                case 'BUSCAR':   
+                    $MVV =$ControllerMVV->buscarMVVPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerMVV->ativarMVV();
+                    break;
+            }
+            break;
     }
 }
 

@@ -38,5 +38,11 @@
                 Produto
             </div>
         </li>
+        <li onclick="chamarViewParaApp('mvv')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                MVV
+            </div>
+        </li>
     </ul>
 </nav>
