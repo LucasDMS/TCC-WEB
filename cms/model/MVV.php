@@ -5,6 +5,7 @@ class MVV{
     private $paragrafo;
     private $ativo;
     private $apagado;
+    private $tipo_texto;
     
 
     public function getId(){
@@ -53,6 +54,19 @@ class MVV{
     public function setApagado($apagado)
     {
         $this->apagado = $apagado;
+
+        return $this;
+    }
+
+    public function getTipo_texto()
+    {
+        return $this->tipo_texto;
+    }
+
+
+    public function setTipo_texto($tipo_texto)
+    {
+        $this->tipo_texto = $tipo_texto;
 
         return $this;
     }

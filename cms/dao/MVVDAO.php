@@ -10,13 +10,12 @@ class MVVDAO{
     }
     public function insert(MVV $MVV) {
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_missao_visao_valor(texto,apagado,paragrafo,ativo) values(?,?,?,?,?);";
+        $sql = "insert into tbl_missao_visao_valor(texto,paragrafo,tipo_texto,apagado,ativo) values(?,?,?,?,?);";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $MVV->getTitulo());
-        $stm->bindValue(2, $MVV->getConteudo());
-        $stm->bindValue(3, $MVV->getApagado());
-        $stm->bindValue(4, $MVV->getOrdem());
-        $stm->bindValue(5, $MVV->getAtivo());
+        $stm->bindValue(1, $MVV->getTexto());
+        $stm->bindValue(2, $MVV->getParagrafo());
+        $stm->bindValue(3, $MVV->getAtivo());
+        $stm->bindValue(4, $MVV->getApagado());
         $success = $stm->execute();
         $this->conex->closeDataBase();
         if ($success) {

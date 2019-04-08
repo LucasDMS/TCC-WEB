@@ -18,18 +18,18 @@ class FaleConoscoDAO {
         $stm->bindValue(6, $faleConosco->getCidade());
         $stm->bindValue(7, $faleConosco->getTexto());
         $stm->bindValue(8, $faleConosco->getData);
-        $stm->bindValue(9, "Não lido");
+        $stm->bindValue(9, "0");
         $stm->execute();
         $this->conex->closeDataBase();
     }
 
     public function updateAtivo(FaleConosco $faleConosco) {
         $conn = $this->conex->connectDatabase();
-        if($faleConosco->getStatus()=="Não lido"){
-            $faleConosco->setStatus("Lido");
+        if($faleConosco->getStatus()=="0"){
+            $faleConosco->setStatus("1");
         }
         else {
-            $faleConosco->setStatus("Não lido");
+            $faleConosco->setStatus("0");
         }
         $sql = "update tbl_fale_conosco set status=? where id_fale_conosco=?";
         $stm = $conn->prepare($sql);
@@ -66,7 +66,7 @@ class FaleConoscoDAO {
     }
     public function selectAll() {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_fale_conosco order by status = 'Lido'";
+        $sql = "select * from tbl_fale_conosco order by status = 1";
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
         if ($success) {
