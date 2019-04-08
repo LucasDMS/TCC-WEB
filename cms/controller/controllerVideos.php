@@ -27,6 +27,7 @@ class ControllerVideos{
         if($_SERVER['REQUEST_METHOD'] == "POST"){
             $titulo = $_POST['txt_titulo'];
             $video = $_POST['txt_video'];
+            $descricao = $_POST['txt_descricao'];
             $status = 1;
             $apagado = 0;
 
@@ -35,6 +36,7 @@ class ControllerVideos{
             $Videos->setLink($video);
             $Videos->setStatus($status);
             $Videos->setApagado($apagado);
+            $Videos->setDescricao($descricao);
 
             $this->VideosDAO->inserir($Videos);
         }
@@ -51,12 +53,14 @@ class ControllerVideos{
             $id = $_POST['id'];
             $titulo = $_POST['txt_titulo'];
             $link = $_POST['txt_video'];
+            $descricao = $_POST['txt_descricao'];
 
             $Videos = new Videos();
 
             $Videos->setId($id);
             $Videos->setTitulo($titulo);
             $Videos->setLink($link);
+            $Videos->setDescricao($descricao);
 
             $this->VideosDAO->update($Videos);
         }

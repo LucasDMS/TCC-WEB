@@ -11,7 +11,7 @@ class PatrocinioDAO{
     public function insert(Patrocinio $Patrocinio) {
     
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_patrocinio(nome,apagado,imagem,status,descricao) values(?,?,?,?,?);";
+        $sql = "insert into tbl_patrocinio(nome,apagado,imagem,ativo,descricao) values(?,?,?,?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Patrocinio->getNome());
         $stm->bindValue(2, $Patrocinio->getApagado());
@@ -91,7 +91,7 @@ class PatrocinioDAO{
             $Patrocinio->setStatus("0");
         }
         //Query de update
-        $sql = "update tbl_patrocinio set status=? where id_patrocinio=?";
+        $sql = "update tbl_patrocinio set ativo=? where id_patrocinio=?";
         $stm = $conn->prepare($sql);
         //Setando os valores
         $stm->bindValue(1, $Patrocinio->getStatus());
@@ -115,7 +115,7 @@ class PatrocinioDAO{
                 $Patrocinio->setNome($result['nome']);
                 $Patrocinio->setDescricao($result['descricao']);
                 $Patrocinio->setApagado($result['apagado']);
-                $Patrocinio->setStatus($result['status']);
+                $Patrocinio->setStatus($result['ativo']);
                 return $Patrocinio;
             };
             $this->conex -> closeDataBase();
@@ -137,7 +137,7 @@ class PatrocinioDAO{
                 $Patrocinio->setDescricao($result['descricao']);
                 $Patrocinio->setImagem($result['imagem']);
                 $Patrocinio->setApagado($result['apagado']);
-                $Patrocinio->setStatus($result['status']);
+                $Patrocinio->setStatus($result['ativo']);
                 array_push($listPatrocinio, $Patrocinio);
             };
             $this->conex -> closeDataBase();

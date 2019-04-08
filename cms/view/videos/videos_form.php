@@ -2,7 +2,8 @@
     $action = "router.php?controller=videos&modo=inserir";
     $modo = "inserir";
     $titulo = null;
-    $link = null;  
+    $link = null; 
+    $descricao = null; 
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
@@ -16,6 +17,7 @@
         $titulo = $Videos->getTitulo();
         $link = $Videos->getLink();
         $id = $Videos->getId();
+        $descricao = $Videos->getDescricao();
      }
 ?>
 
@@ -34,6 +36,7 @@
 
         <input type="text" name="txt_titulo" id="txt_titulo" value="<?php echo $titulo; ?>" placeholder="Titulo"><br>
         <input type="text" name="txt_video" id="txt_video" value="<?php echo $link; ?>" placeholder="video" ><br>   
+        <input type="text" name="txt_descricao" id="txt_descricao" value="<?php echo $descricao; ?>" placeholder="Descricao"><br>
     
     <button class="btn">
         Enviar

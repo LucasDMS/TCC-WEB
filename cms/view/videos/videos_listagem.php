@@ -32,6 +32,7 @@
         <tr class="tabela_header">
             <th>Titulo</th>
             <th>Link</th>
+            <th>Descricao</th>
             <th colspan="3">Ações</th>
         </tr>
     </thead>
@@ -41,6 +42,7 @@
         <tr>
             <td><?php echo $result->getTitulo()?></td>
             <td><?php echo $result->getLink()?></td>
+            <td><?php echo $result->getDescricao()?></td>
             <td>
                 <a  onclick="asyncBuscarDados(this)"
                 href="#"

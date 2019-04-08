@@ -30,8 +30,9 @@ class VideosDAO{
                 $videos = new Videos();
                 $videos->setId($result['id_videos']);
                 $videos->setTitulo($result['titulo']);
-                $videos->setLink($result['video']);
-                $videos->setStatus($result['status']);
+                $videos->setLink($result['link']);
+                $videos->setStatus($result['ativo']);
+                $videos->setDescricao($result['descricao']);
                 array_push($listVideos, $videos);
             };
 
@@ -44,12 +45,13 @@ class VideosDAO{
 
     public function inserir(Videos $videos){
         $conn = $this->conex->connectDatabase();
-        $sql = "insert INTO tbl_videos (video, titulo, status,apagado)Value (?,?,?,?) ";
+        $sql = "insert INTO tbl_videos (link, titulo, ativo,apagado,descricao)Value (?,?,?,?,?) ";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $videos->getLink());
         $stm->bindValue(2, $videos->getTitulo());
         $stm->bindValue(3, $videos->getStatus());
         $stm->bindValue(4, $videos->getApagado());
+        $stm->bindValue(5, $videos->getDescricao());
         $sucess = $stm->execute();
         
         if($sucess){
@@ -82,11 +84,12 @@ class VideosDAO{
 
     public function update(Videos $Videos){
         $conn = $this->conex->connectDatabase();
-        $sql = "UPDATE tbl_videos SET titulo = ?, video = ? where id_videos=?;";
+        $sql = "UPDATE tbl_videos SET titulo = ?, link = ?, descricao = ? where id_videos=?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Videos->getTitulo());
         $stm->bindValue(2, $Videos->getLink());
-        $stm->bindValue(3, $Videos->getId());
+        $stm->bindValue(3, $Videos->getDescricao());
+        $stm->bindValue(4, $Videos->getId());
         $success = $stm->execute();
         echo $success;
         $this->conex->closeDataBase();
@@ -112,7 +115,8 @@ class VideosDAO{
                 $Videos = new Videos();
                 $Videos->setId($result['id_videos']);
                 $Videos->setTitulo($result['titulo']);
-                $Videos->setLink($result['video']);
+                $Videos->setLink($result['link']);
+                $Videos->setDescricao($result['descricao']);
                 return $Videos;
                     
             };
@@ -131,7 +135,7 @@ class VideosDAO{
             echo("1");
         }
 
-        $sql = "update tbl_videos set status=? where id_videos=?";
+        $sql = "update tbl_videos set ativo=? where id_videos=?";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Videos->getStatus());
         $stm->bindValue(2, $Videos->getId());

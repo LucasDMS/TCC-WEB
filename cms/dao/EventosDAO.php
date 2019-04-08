@@ -19,7 +19,7 @@
 
         public function inserir(Eventos $eventos){
             $conn = $this->conex->connectDatabase();
-            $sql = "Insert into tbl_nossos_eventos(nome,descricao,data,estado,cidade,hora_evento,status,apagado) VALUES (?,?,?,?,?,?,?,?)";
+            $sql = "Insert into tbl_eventos(nome,descricao,data,estado,cidade,hora,ativo,apagado) VALUES (?,?,?,?,?,?,?,?)";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $eventos->getNome());
             $stm->bindValue(2, $eventos->getDescricao());
@@ -44,7 +44,7 @@
 
         public function update(Eventos $eventos){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_nossos_eventos SET nome = ?, descricao = ?, data = ?, estado = ?, cidade = ?, hora_evento = ? where id_nossos_eventos=?;";
+            $sql = "UPDATE tbl_eventos SET nome = ?, descricao = ?, data = ?, estado = ?, cidade = ?, hora = ? where id_eventos=?;";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $eventos->getNome());
             $stm->bindValue(2, $eventos->getDescricao());
@@ -68,7 +68,7 @@
 
         public function delete($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_nossos_eventos SET apagado = ? where id_nossos_eventos = ?;";
+            $sql = "UPDATE tbl_eventos SET apagado = ? where id_eventos = ?;";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 1);
             $stm->bindValue(2, $id);
@@ -93,7 +93,7 @@
                 $eventos->setStatus('1');
             }
 
-            $sql = "update tbl_nossos_eventos set status=? where id_nossos_eventos=?";
+            $sql = "update tbl_eventos set ativo=? where id_eventos=?";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $eventos->getStatus());
             $stm->bindValue(2, $eventos->getId());
@@ -104,7 +104,7 @@
 
         public function selectById($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_nossos_eventos where id_nossos_eventos=?;";
+            $sql = "select * from tbl_eventos where id_eventos=?;";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $id);
             $sucess = $stm->execute();
@@ -112,13 +112,13 @@
 
                 foreach($stm->fetchAll(PDO::FETCH_ASSOC) AS $result){
                     $eventos = new Eventos();
-                    $eventos->setId($result['id_nossos_eventos']);
+                    $eventos->setId($result['id_eventos']);
                     $eventos->setNome($result['nome']);
                     $eventos->setDescricao($result['descricao']);
                     $eventos->setData($result['data']);
                     $eventos->setEstado($result['estado']);
                     $eventos->setCidade($result['cidade']);
-                    $eventos->setHora($result['hora_evento']);
+                    $eventos->setHora($result['hora']);
                     return $eventos;
 
                 };
@@ -128,7 +128,7 @@
 
         public function selectAll(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_nossos_eventos where apagado = 0";
+            $sql = "select * from tbl_eventos where apagado = 0";
             $stm = $conn->prepare($sql);
             $success =$stm->execute();
             if($success){
@@ -136,14 +136,14 @@
 
                 foreach($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
                     $eventos = new Eventos();
-                    $eventos->setId($result['id_nossos_eventos']);
+                    $eventos->setId($result['id_eventos']);
                     $eventos->setNome($result['nome']);
                     $eventos->setDescricao($result['descricao']);
                     $eventos->setData($result['data']);
                     $eventos->setEstado($result['estado']);
                     $eventos->setCidade($result['cidade']);
-                    $eventos->setHora($result['hora_evento']);
-                    $eventos->setStatus($result['status']);
+                    $eventos->setHora($result['hora']);
+                    $eventos->setStatus($result['ativo']);
                     array_push($listEventos, $eventos);
                 };
 

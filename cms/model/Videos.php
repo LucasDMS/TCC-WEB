@@ -15,6 +15,7 @@
         private $link;
         private $status;
         private $apagado;
+        private $descricao;
 
 
         //get e set da class videos
@@ -56,6 +57,15 @@
 
         public function setApagado($apagado){
             $this->apagado=$apagado;
+        }
+
+        public function getDescricao(){
+            return $this->descricao;
+        }
+
+        public function setDescricao($descricao){
+            $this->descricao = $descricao;
+            return $this;
         }
     }
 
