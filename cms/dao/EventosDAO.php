@@ -6,7 +6,7 @@
         Data Modificação:
         Conteúdo Modificado:
         Autor da Modificação:
-        Objetivo da classe: Classe de contatos
+        Objetivo da classe: Classe dao de eventos
     */
     class EventosDAO{
         private $conex;

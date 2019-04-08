@@ -1,4 +1,14 @@
 <?php
+    /*
+        Projeto: TCC
+        Autor: Nicolas
+        Data Criação: 03/04/2019
+        Data Modificação:
+        Conteúdo Modificado:
+        Autor da Modificação:
+        Objetivo da classe: dados de Videos
+    */
+    
     $action = "router.php?controller=videos&modo=inserir";
     $modo = "inserir";
     $titulo = null;

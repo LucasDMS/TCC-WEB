@@ -22,6 +22,13 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('principal_eventos')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Principal eventos
+            </div>
+        </li>
+
         <li onclick="chamarViewParaApp('videos')">
             <div>
                 <i class="fas fa-wrench"></i>
@@ -29,10 +36,24 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('principal_video')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Principal video
+            </div>
+        </li>
+
         <li onclick="chamarViewParaApp('patrocinio')">
             <div>
                 <i class="fas fa-wrench"></i>
                 Patrocinio
+            </div>
+        </li>
+
+        <li onclick="chamarViewParaApp('principal_patrocinio')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Principal patrocinio
             </div>
         </li>
 
