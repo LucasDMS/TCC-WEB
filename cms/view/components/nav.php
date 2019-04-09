@@ -57,5 +57,12 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('news_letter')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                News Letter
+            </div>
+        </li>
+
     </ul>
 </nav>
