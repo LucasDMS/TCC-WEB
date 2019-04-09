@@ -188,6 +188,31 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'TEXTOPRINCIPAL':
+            require_once('controller/ControllerTextoPrincipal.php');
+            $ControllerTextoPrincipal = new ControllerTextoPrincipal();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir uma nova TextoPrincipal
+                    $ControllerTextoPrincipal->inserirTextoPrincipal();
+                
+                break;
+                case 'ATUALIZAR':
+                    $ControllerTextoPrincipal ->atualizarTextoPrincipal();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma TextoPrincipal
+                    $ControllerTextoPrincipal->excluirTextoPrincipal();
+                    break;
+                case 'BUSCAR':   
+                    $TextoPrincipal =$ControllerTextoPrincipal->buscarTextoPrincipalPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerTextoPrincipal->ativarTextoPrincipal();
+                    break;
+            }
+            break;
     }
 }
 

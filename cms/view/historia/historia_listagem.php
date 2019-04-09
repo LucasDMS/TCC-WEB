@@ -57,7 +57,7 @@ $rs = $controller->buscarHistoras();
                     </a>
                 </td>
                 <td>
-                    <a  onclick="asyncDelete(this)" 
+                    <a  onclick="asyncApagar(this)" 
                         href="#"
                         data-pagina="historia"
                         data-url="router.php?controller=historia&modo=excluir" 

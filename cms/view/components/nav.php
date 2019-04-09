@@ -44,5 +44,11 @@
                 MVV
             </div>
         </li>
+        <li onclick="chamarViewParaApp('texto_principal')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Texto Principal
+            </div>
+        </li>
     </ul>
 </nav>
