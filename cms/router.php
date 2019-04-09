@@ -95,12 +95,69 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir um Estabelecimento
                     $ControllerEstabelecimento->excluirEstabelecimento();
                     break;
-                case 'BUSCAR':   
+                case 'BUSCAR':
+                     //Chamando o metodo de buscar um Estabelecimento
                      $Estabelecimento =$ControllerEstabelecimento->buscarEstabelecimentoPorId();
                     break;
                 case 'ATIVAR':
-                    
+                    //Chamando o metodo de Ativar o Estabelecimento
                     $ControllerEstabelecimento->ativarEstabelecimento();
+                    break;
+            }
+            break;
+            
+             case 'PRODUTO_DESTAQUE':
+            require_once('controller/controllerProduto_Destaque.php');
+            $ControllerProduto_Destaque = new ControllerProduto_Destaque();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir um Produto em Destaque
+                    $ControllerProduto_Destaque->inserirProduto_Destaque();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerProduto_Destaque ->atualizarProduto_Destaque();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir um Produto em Destaque
+                    $ControllerProduto_Destaque->excluirProduto_Destaque();
+                    break;
+                case 'BUSCAR':
+                     //Chamando o metodo de buscar um Produto em Destaque
+                     $Produto_Destaque =$ControllerProduto_Destaque->buscarProduto_DestaquePorId();
+                    break;
+                case 'ATIVAR':
+                    //Chamando o metodo de Ativar um Produto em Destaque
+                    $ControllerProduto_Destaque->ativarProduto_Destaque();
+                    break;
+            }
+            break;
+            
+             case 'SOBRE_NOS':
+
+            require_once('controller/ControllerSobre_Nos.php');
+            
+            $ControllerSobre_Nos = new ControllerSobre_Nos();
+
+            switch($modo){
+                case 'INSERIR':
+
+                    $ControllerSobre_Nos->inserirSobre_Nos();
+                    break;
+                case 'ATUALIZAR':
+
+                    $ControllerSobre_Nos ->atualizarSobre_Nos();
+                    break;
+                case 'EXCLUIR':
+
+                    $ControllerSobre_Nos->excluirSobre_Nos();
+                    break;
+                case 'BUSCAR':
+
+                    $Sobre_Nos = $ControllerSobre_Nos->buscarSobre_NosPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerSobre_Nos->ativarSobre_Nos();
                     break;
             }
             break;

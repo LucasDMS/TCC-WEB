@@ -1,13 +1,16 @@
 <?php
-/* 
-    Projeto: Exercicio de MVC em tela de Estabelecimento
+/*
+    Projeto: MVC página Produto em Destaque.
     Autor: Kelvin
-    Data Criação: 04/04/2019
-    Objetivo da classe: Classe de Estabelecimento
+    Data Criação: 06/04/2019
+    Data Modificação:
+    Conteúdo Modificado:
+    Autor da Modificação:
+    Objetivo da classe: página Produto em Destaque.
 */
 
-class Estabelecimento{
-
+class Produto_Destaque
+{
     //Atributos do Produto_Destaque
     private $id;
     private $texto;
@@ -28,28 +31,33 @@ class Estabelecimento{
         //no atributo do objeto
         $this->id = $id;
     }
-
-    public function getTexto(){
+    
+    
+    public function getTexto()
+    {
         return $this->texto;
     }
-
-    public function setTexto($texto){
+    
+    public function setTexto($texto)
+    {
         $this->texto = $texto;
     }
-
-    public function getNome(){
+    
+    public function getNome()
+    {
         return $this->nome;
     }
-
-    public function setNome($nome){
+    
+    public function setNome($nome)
+    {
         $this->nome = $nome;
     }
-
+    
     public function getAtivo(){
         return $this->ativo;
     }
-
+    
     public function setAtivo($ativo){
         $this->ativo = $ativo;
-    } 
+    }
 }

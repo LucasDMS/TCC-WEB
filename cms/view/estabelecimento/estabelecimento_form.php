@@ -1,4 +1,15 @@
 <?php
+
+/* 
+    Projeto: MVC página de formulario do Estabelecimento.
+    Autor: Kelvin
+    Data Criação: 04/04/2019
+    Data Modificação:
+    Conteúdo Modificado:
+    Autor da Modificação:
+    Objetivo da Classe: formulario do Estabelecimento.
+*/
+
 $texto = null;
 $action = "router.php?controller=estabelecimento&modo=inserir";
 $modo = "inserir";
