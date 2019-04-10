@@ -7,3 +7,10 @@
 .login_container a{
 	display: block;
 }
+
+#frm_login a,#frm_login label{
+	color: #fff;
+	display: block;
+	margin-left: 10px;
+	margin-top: 15px;
+}
