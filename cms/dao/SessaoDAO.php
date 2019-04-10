@@ -1,7 +1,5 @@
 <?php 
-
 class sessaoDAO {
-
     private $conex;
     public function __construct(){
         
@@ -15,7 +13,6 @@ class sessaoDAO {
         $sql = "select * from tbl_autenticacao where usuario=? and senha=?";
 
         $stm = $conn->prepare($sql);
-
         $stm->bindValue(1, $sessao->getLogin());
         $stm->bindValue(2, $sessao->getSenha());
     
@@ -32,9 +29,7 @@ class sessaoDAO {
             $linhas ++;
         }
 
-
         $this->conex -> closeDataBase();
-
         if($linhas == 1){
             
             echo '1';
@@ -47,5 +42,4 @@ class sessaoDAO {
         }
     }
 }
-
 ?>

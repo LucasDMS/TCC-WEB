@@ -11,10 +11,6 @@ function img($item){
     $diretorio_arquivo = "arquivos/";
     $arquivos_permitidos = array(".jpg", ".png", ".jpeg");
 
-
-
-    
-
     if(in_array($ext_arquivo, $arquivos_permitidos)){
         if($tamanho_arquivo<=2000){
             $arquivo_tmp = $_FILES['img']['tmp_name'];
@@ -24,4 +20,6 @@ function img($item){
     }
     return $imagem;
 } 
+
 ?>
+

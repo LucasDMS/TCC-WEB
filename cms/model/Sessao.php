@@ -19,7 +19,6 @@ class Sessao{
         return $this->id;
     }
 
-
     public function setId($id)
     {
         $this->id = $id;
@@ -29,11 +28,9 @@ class Sessao{
     public function getLogin(){
         return $this->login;
     }
-
     public function setLogin($login){
         $this->login = $login;
     }
-
     public function getSenha(){
         return $this->senha;
     }
@@ -46,16 +43,11 @@ class Sessao{
         return $this->tipo;
     }
 
-
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
 
         return $this;
     }
-
-    
-   
 }
-
 ?>

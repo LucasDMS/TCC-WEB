@@ -60,7 +60,6 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
-        console.log(url);
         recarregarLista(pagina);
         modalToggle(false);
     });

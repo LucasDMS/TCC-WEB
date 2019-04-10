@@ -11,20 +11,19 @@
     
         <a href="" class="a">Esqueceu a senha?</a>
     
-        <input type="submit" value="submit" class="btn submit">
+        <button type='submit' class="btn submit">
+            <i class="fas fa-sign-in-alt"></i>
+        </button>
     
         <a href="" class="a">Não tem cadastro? clique aqui!</a>
 
     </form>
 
-
 </div>
 
 <script>
-
 function asyncSubmit(event, element){
     event.preventDefault()
-
     var url = element.getAttribute("action");
         
     $.ajax({
@@ -36,12 +35,10 @@ function asyncSubmit(event, element){
         processData: false,
     })
     .done(function(html){
-
         if(html == "1"){
             window.location.href = 'cms/index.php';
         }
     });
     
 }
-
 </script>
