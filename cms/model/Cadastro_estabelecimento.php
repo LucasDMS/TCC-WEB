@@ -4,9 +4,10 @@
 
         private $id;
         private $usuario;
+        private $tipo_usuario;
         private $senha;
-        private $cnpj;
         private $nome;
+        private $cnpe;
         private $tipo_estabelecimento;
         private $renda;
         private $descricao;
@@ -14,7 +15,13 @@
         private $bairro;
         private $cidade;
         private $estado;
-
+        private $email;
+        private $id_autenticacao;
+        private $id_usuario;
+        private $razao_social;
+        private $nome_fantasia;
+        private $ativo;
+        private $imagem;
 
 
         public function getId(){
@@ -123,6 +130,78 @@
 
         public function setEstado($estado){
             $this->estado = $estado;
+            return $this;
+        }
+ 
+        public function getTipo_usuario(){
+            return $this->tipo_usuario;
+        }
+
+        public function setTipo_usuario($tipo_usuario){
+            $this->tipo_usuario = $tipo_usuario;
+            return $this;
+        }
+
+        public function getEmail(){
+            return $this->email;
+        }
+
+        public function setEmail($email){
+            $this->email = $email;
+            return $this;
+        }
+
+        public function getId_usuario(){
+            return $this->id_usuario;
+        }
+
+        public function setId_usuario($id_usuario){
+            $this->id_usuario = $id_usuario;
+            return $this;
+        }
+ 
+        public function getRazao_social(){
+            return $this->razao_social;
+        }
+
+        public function setRazao_social($razao_social){
+            $this->razao_social = $razao_social;
+            return $this;
+        }
+
+        public function getNome_fantasia(){
+            return $this->nome_fantasia;
+        }
+
+        public function setNome_fantasia($nome_fantasia){
+            $this->nome_fantasia = $nome_fantasia;
+            return $this;
+        }
+
+        public function getId_autenticacao(){
+            return $this->id_autenticacao;
+        }
+
+        public function setId_autenticacao($id_autenticacao){
+            $this->id_autenticacao = $id_autenticacao;
+            return $this;
+        }
+
+        public function getImagem(){
+            return $this->imagem;
+        }
+
+        public function setImagem($imagem){
+            $this->imagem = $imagem;
+            return $this;
+        }
+
+        public function getAtivo(){
+            return $this->ativo;
+        }
+
+        public function setAtivo($ativo){
+            $this->ativo = $ativo;
             return $this;
         }
     }
