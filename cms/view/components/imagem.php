@@ -1,6 +1,7 @@
 <?php
 function img($item){
     $imagem = null;
+
     $arquivo = $item['name'];
     $tamanho_arquivo = $item['size'];
     $tamanho_arquivo = round($tamanho_arquivo/20000);
@@ -9,7 +10,7 @@ function img($item){
     $nome_arquivo = md5(uniqid(time()).$nome_arquivo);
     $diretorio_arquivo = "arquivos/";
     $arquivos_permitidos = array(".jpg", ".png", ".jpeg");
-    
+
     if(in_array($ext_arquivo, $arquivos_permitidos)){
         if($tamanho_arquivo<=2000){
             $arquivo_tmp = $_FILES['img']['tmp_name'];
@@ -19,4 +20,6 @@ function img($item){
     }
     return $imagem;
 } 
+
 ?>
+
