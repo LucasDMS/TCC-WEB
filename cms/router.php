@@ -406,6 +406,24 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'FUNCIONARIO':
+            require_once('controller/controllerFuncionario.php');
+            $ControllerFuncionario = new ControllerFuncionario();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerFuncionario->inserirFuncionario();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerFuncionario->atualizarFuncionario();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerFuncionario->excluirFuncionario();
+                    break;
+                case 'ATIVAR':
+                    $ControllerFuncionario->ativarFuncionario();
+                    break;
+            }
+            break;
     }
 }
 
