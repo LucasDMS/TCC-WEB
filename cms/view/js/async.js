@@ -43,8 +43,7 @@ function chamarViewParaApp(pagina) {
  * @param {*} element 
  */
 function asyncSubmit(event, element) {
-    event.preventDefault()
-
+    event.preventDefault();
     var url = element.getAttribute("action");
     var pagina = element.getAttribute("data-pagina");
     var formdata = new FormData(element);
@@ -61,7 +60,6 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
-
         recarregarLista(pagina);
         modalToggle(false);
     });
@@ -81,32 +79,7 @@ function asyncBuscarDados(element) {
 
 
     var formData = new FormData();
-    if (pagina === "historia") {
-
-        if (modo == 'inserir') {
-
-            formData.append("id_historia", id);
-        }
-        else if (modo == 'atualizar') {
-
-            formData.append("id_historia", id);
-        }
-
-    } else if (pagina === "noticias") {
-
-        console.log("modo = " + modo);
-
-        if (modo == 'inserir') {
-            formData.append("id_noticias_fique_por_dentro", id);
-
-        }
-        else if (modo == 'atualizar') {
-
-            formData.append("id_noticias_fique_por_dentro", id);
-
-            console.log(id);
-        }
-    }
+    
     $.ajax({
         type: "POST",
         url: url,

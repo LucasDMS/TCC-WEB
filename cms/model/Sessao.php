@@ -13,6 +13,7 @@ class Sessao{
     private $login;
     private $senha;
     private $tipo;
+
     public function getId()
     {
         return $this->id;
@@ -20,6 +21,7 @@ class Sessao{
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
     public function getLogin(){
@@ -39,12 +41,11 @@ class Sessao{
     {
         return $this->tipo;
     }
+  
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
         return $this;
     }
-    
-   
 }
 ?>

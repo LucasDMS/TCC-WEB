@@ -54,7 +54,7 @@ if(isset($_GET['controller'])){
             break;
         
 
-            case 'NOTICIAS':
+        case 'NOTICIAS':
             require_once('controller/controllerNoticia.php');
             $ControllerNoticia = new ControllerNoticia();
             switch($modo){
@@ -79,8 +79,7 @@ if(isset($_GET['controller'])){
             }
             break;
 
-
-            case 'ESTABELECIMENTO':
+        case 'ESTABELECIMENTO':
             require_once('controller/controllerEstabelecimento.php');
             $ControllerEstabelecimento = new ControllerEstabelecimento();
             switch($modo){
@@ -106,7 +105,7 @@ if(isset($_GET['controller'])){
             }
             break;
             
-             case 'PRODUTO_DESTAQUE':
+        case 'PRODUTO_DESTAQUE':
             require_once('controller/controllerProduto_Destaque.php');
             $ControllerProduto_Destaque = new ControllerProduto_Destaque();
             switch($modo){
@@ -132,7 +131,7 @@ if(isset($_GET['controller'])){
             }
             break;
             
-             case 'SOBRE_NOS':
+        case 'SOBRE_NOS':
 
             require_once('controller/ControllerSobre_Nos.php');
             
@@ -158,6 +157,252 @@ if(isset($_GET['controller'])){
                 case 'ATIVAR':
 
                     $ControllerSobre_Nos->ativarSobre_Nos();
+                
+        case 'FALE_CONOSCO':
+            require_once('controller/controllerFaleConosco.php');
+            $ControllerFaleConosco = new ControllerFaleConosco();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir uma nova FaleConosco
+                    $ControllerFaleConosco->inserirFaleConosco();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerFaleConosco ->atualizarFaleConosco();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma FaleConosco
+                    $ControllerFaleConosco->excluirFaleConosco();
+                    break;
+                case 'BUSCAR':   
+                     $FaleConosco =$ControllerFaleConosco->buscarFaleConoscoPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerFaleConosco->ativarFaleConosco();
+                    break;
+            }
+            break;
+        case 'SUSTENTABILIDADE':
+            require_once('controller/ControllerSustentabilidade.php');
+            $ControllerSustentabilidade = new ControllerSustentabilidade();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir uma nova Sustentabilidade
+                    $ControllerSustentabilidade->inserirSustentabilidade();
+                    
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerSustentabilidade ->atualizarSustentabilidade();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma Sustentabilidade
+                    $ControllerSustentabilidade->excluirSustentabilidade();
+                    break;
+                case 'BUSCAR':   
+                     $Sustentabilidade =$ControllerSustentabilidade->buscarSustentabilidadePorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerSustentabilidade->ativarSustentabilidade();
+                    break;
+            }
+            break;
+        case 'PROMOCAO':
+            require_once('controller/ControllerPromocao.php');
+            $ControllerPromocao = new ControllerPromocao();
+            switch($modo){
+                case 'INSERIR':
+                    
+                    //Chamando o metodo de inserir uma nova Promocao
+                    $ControllerPromocao->inserirPromocao();
+                    
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPromocao ->atualizarPromocao();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma Promocao
+                    $ControllerPromocao->excluirPromocao();
+                    break;
+                case 'BUSCAR':   
+                     $Promocao =$ControllerPromocao->buscarPromocaoPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerPromocao->ativarPromocao();
+                    break;
+            }
+            break;
+            case 'PRODUTOS':
+            require_once('controller/ControllerProdutos.php');
+            $ControllerProdutos = new ControllerProdutos();
+            switch($modo){
+                case 'ATIVAR':
+                    $ControllerProdutos->ativarProduto();
+                    break;
+            }
+            break;
+        case 'MVV':
+            require_once('controller/ControllerMVV.php');
+            $ControllerMVV = new ControllerMVV();
+            switch($modo){
+                case 'INSERIR':
+                    
+                //Chamando o metodo de inserir uma nova MVV
+                $ControllerMVV->inserirMVV();
+                
+                break;
+                case 'ATUALIZAR':
+                    $ControllerMVV ->atualizarMVV();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma MVV
+                    $ControllerMVV->excluirMVV();
+                    break;
+                case 'BUSCAR':   
+                    $MVV =$ControllerMVV->buscarMVVPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerMVV->ativarMVV();
+                    break;
+            }
+            break;
+        case 'TEXTOPRINCIPAL':
+            require_once('controller/ControllerTextoPrincipal.php');
+            $ControllerTextoPrincipal = new ControllerTextoPrincipal();
+            switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir uma nova TextoPrincipal
+                    $ControllerTextoPrincipal->inserirTextoPrincipal();
+                
+                break;
+                case 'ATUALIZAR':
+                    $ControllerTextoPrincipal ->atualizarTextoPrincipal();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir uma TextoPrincipal
+                    $ControllerTextoPrincipal->excluirTextoPrincipal();
+                    break;
+                case 'BUSCAR':   
+                    $TextoPrincipal =$ControllerTextoPrincipal->buscarTextoPrincipalPorId();
+                    break;
+                case 'ATIVAR':
+
+                    $ControllerTextoPrincipal->ativarTextoPrincipal();
+        
+        case 'EVENTOS':
+            require_once('controller/controllerEventos.php');
+            $ControllerEventos = new ControllerEventos();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerEventos->inserirEventos();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerEventos->atualizarEventos();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerEventos->excluirEventos();
+                    break;
+                case 'BUSCAR':
+
+                case 'ATIVAR':
+                    $ControllerEventos->ativarEventos();
+                    break;
+            }
+            break;
+
+        case 'VIDEOS':
+            require_once('controller/controllerVideos.php');
+            $ControllerVideos = new ControllerVideos();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerVideos->inserirVideos();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerVideos->atualizarVideos();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerVideos->excluirVideos();
+                    break;
+                case 'ATIVAR':
+                    $ControllerVideos->ativarVideos();
+                    break;
+            }
+            break;
+
+        case 'PATROCINIO':
+            require_once('controller/controllerPatrocinio.php');
+            $ControllerPatrocinio = new ControllerPatrocinio();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPatrocinio->inserirPatrocinio();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPatrocinio->atualizarPatrocinio();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPatrocinio->excluirPatrocinio();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPatrocinio->ativarPatrocinio();
+                    break;
+            }
+            break;
+
+        case 'PRINCIPAL_EVENTOS':
+            require_once('controller/controllerPrincipalEventos.php');
+            $ControllerPrincipalEventos = new ControllerPrincipalEventos();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPrincipalEventos->inserirPrincipalEventos();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPrincipalEventos->atualizarPrincipalEventos();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPrincipalEventos->excluirPrincipalEventos();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPrincipalEventos->ativarPrincipalEventos();
+                    break;
+            }
+            break;
+        
+        case 'PRINCIPAL_VIDEO':
+            require_once('controller/controllerPrincipalVideo.php');
+            $ControllerPrincipalVideo = new ControllerPrincipalVideo();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPrincipalVideo->inserirPrincipalVideo();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPrincipalVideo->atualizarPrincipalVideo();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPrincipalVideo->excluirPrincipalVideo();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPrincipalVideo->ativarPrincipalVideo();
+                    break;
+            }
+            break;
+
+        case 'PRINCIPAL_PATROCINIO':
+            require_once('controller/controllerPrincipalPatrocinio.php');
+            $ControllerPrincipalPatrocinio = new ControllerPrincipalPatrocinio();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPrincipalPatrocinio->inserirPrincipalPatrocinio();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPrincipalPatrocinio->atualizarPrincipalPatrocinio();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPrincipalPatrocinio->excluirPrincipalPatrocinio();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPrincipalPatrocinio->ativarPrincipalPatrocinio();
                     break;
             }
             break;

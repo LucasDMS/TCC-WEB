@@ -28,7 +28,7 @@ class ControllerNoticia{
     public function atualizarNoticia(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            $id     = $_POST['id'];
+            $id = $_POST['id'];
             $titulo  = $_POST['txt_titulo']; 
             $conteudo  = $_POST['txt_conteudo'];            
             $Noticia = new Noticia(); 
