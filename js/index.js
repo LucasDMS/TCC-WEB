@@ -58,7 +58,7 @@ function abrirLogin(){
     setTimeout(function(){
 
         $.ajax({
-            url: "components/cadastro.php"
+            url: "components/login.php"
         })
         .done(function(html){
 
