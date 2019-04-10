@@ -21,7 +21,7 @@
             <?php require_once("view/components/header.php"); ?>
 
             <div id="app_content">
-                <?php require_once('boas_vindas.php'); ?>
+                <?php require_once('boas_vindas/boas_vindas.php'); ?>
             </div>
 
             <?php require_once("view/components/footer.php"); ?>

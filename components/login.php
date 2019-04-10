@@ -21,10 +21,8 @@
 </div>
 
 <script>
-
 function asyncSubmit(event, element){
     event.preventDefault()
-
     var url = element.getAttribute("action");
         
     $.ajax({
@@ -36,11 +34,10 @@ function asyncSubmit(event, element){
         processData: false,
     })
     .done(function(html){
-        
-        window.location.href = 'cms/index.php';
+        if(html == "1"){
+            window.location.href = 'cms/index.php';
+        }
     });
     
 }
-
-
 </script>

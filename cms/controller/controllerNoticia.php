@@ -1,59 +1,71 @@
-
 <?php 
-class controllerHistoria{
+class ControllerNoticia{
     
-    private $historiaDAO;
+    private $NoticiaDAO;
     public function __construct(){
-
-        require_once("../../model/historiaClass.php");
-        //import da classe historiaDAO, para inserir no BD
-        require_once('../../model/DAO/historiaDAO.php');
-        $this->historiaDAO = new historiaDAO();
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Noticia.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/NoticiaDAO.php');
+        $this->NoticiaDAO = new NoticiaDAO();
     }
-
-    public function inserirHistoria(){
+    public function inserirNoticia(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $imagem = $_POST['imgHistoria'];
-            $texto = $_POST['txtTexto'];
-            $historiaClass = new Historia(); 
-            //Guardando os dados do post no objeto da classe historia
-            $historiaClass -> setImagem($imagem);
-            $historiaClass -> setTexto($texto);
-            //Chamada para o metodo de inserir no BD, e estamos passando como parametro o objeto $historiaClass que tem todos os dados que serão inseridos no BD
-            $this->historiaDAO->insert($historiaClass);
+            $titulo =$_POST['txt_titulo'];
+            $texto  = $_POST['txt_conteudo'];
+            $ativo = 1;
+            $ordem  = 1;
+            $apagado = 0;
+            
+            $Noticia = new Noticia(); 
+            $Noticia->setTitulo($titulo);
+            $Noticia->setConteudo($texto);
+            $Noticia->setApagado($apagado);
+            $Noticia->setOrdem($ordem);
+            $Noticia->setAtivo($ativo);
+            $this->NoticiaDAO->insert($Noticia);
         }
     }
-
-    public function atualizarHistoria(){
+    public function atualizarNoticia(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $id= $_GET['id'];
-            $imagem = $_POST['imgHistoria'];
-            $texto = $_POST['txtTexto'];
+
+            $id = $_POST['id'];
+            $titulo  = $_POST['txt_titulo']; 
+            $conteudo  = $_POST['txt_conteudo'];            
+            $Noticia = new Noticia(); 
+
+            $Noticia->setId($id);
+            $Noticia->setTitulo($titulo);
+            $Noticia->setConteudo($conteudo);
             
-            $historiaClass = new Historia(); 
-            //Guardando os dados do post no objeto da classe historia
-            $historiaClass ->setId($id);
-            $historiaClass -> setImagem($imagem);
-            $historiaClass-> setTexto($texto);
-            
-            $this->historiaDAO->update($historiaClass);
+            $this->NoticiaDAO->update($Noticia);
         }
     }
+    public function excluirNoticia(){
+        $id = $_POST['id'];
+        $this->NoticiaDAO ->delete($id);
+    }
+    public function ativarNoticia() {
 
-    public function excluirHistoria(){
-        $id = $_GET['id'];
-        $this->historiaDAO ->delete($id);
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+
+            $id     = $_POST['id'];
+            $ativo  = $_POST['ativo'];
+            
+            $Noticia = new Noticia(); 
+
+            $Noticia->setId($id);
+            $Noticia->setAtivo($ativo);
+            
+            $this->NoticiaDAO->updateAtivo($Noticia);
+        }
     }
     
-    public function buscarHistoriaPorId(){
+    public function buscarNoticiaPorId(){
         $id = $_GET['id'];
-        return $this->historiaDAO->selectById($id);
+        return $this->NoticiaDAO->selectById($id);
     }
-
-    public function buscarHistoras(){
-
-        return $this->historiaDAO->selectAll();
+    public function buscarNoticias(){
+        return $this->NoticiaDAO->selectAll();
     }
 }
 ?>
