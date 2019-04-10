@@ -41,10 +41,7 @@ if(isset($_GET['controller'])){
 
                     $ControllerHistoria->excluirHistoria();
                     break;
-                case 'BUSCAR':
 
-                    $Historia = $ControllerHistoria->buscarHistoriaPorId();
-                    break;
                 case 'ATIVAR':
                     $ControllerHistoria->ativarHistoria();
                     break;
@@ -66,9 +63,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir uma Noticia
                     $ControllerNoticia->excluirNoticia();
                     break;
-                case 'BUSCAR':   
-                     $Noticia =$ControllerNoticia->buscarNoticiaPorId();
-                    break;
+
                 case 'ATIVAR':
                     $ControllerNoticia->ativarNoticia();
                     break;
@@ -90,10 +85,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir um Estabelecimento
                     $ControllerEstabelecimento->excluirEstabelecimento();
                     break;
-                case 'BUSCAR':
-                     //Chamando o metodo de buscar um Estabelecimento
-                     $Estabelecimento =$ControllerEstabelecimento->buscarEstabelecimentoPorId();
-                    break;
+
                 case 'ATIVAR':
                     //Chamando o metodo de Ativar o Estabelecimento
                     $ControllerEstabelecimento->ativarEstabelecimento();
@@ -116,10 +108,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir um Produto em Destaque
                     $ControllerProduto_Destaque->excluirProduto_Destaque();
                     break;
-                case 'BUSCAR':
-                     //Chamando o metodo de buscar um Produto em Destaque
-                     $Produto_Destaque =$ControllerProduto_Destaque->buscarProduto_DestaquePorId();
-                    break;
+
                 case 'ATIVAR':
                     //Chamando o metodo de Ativar um Produto em Destaque
                     $ControllerProduto_Destaque->ativarProduto_Destaque();
@@ -146,10 +135,7 @@ if(isset($_GET['controller'])){
 
                     $ControllerSobre_Nos->excluirSobre_Nos();
                     break;
-                case 'BUSCAR':
 
-                    $Sobre_Nos = $ControllerSobre_Nos->buscarSobre_NosPorId();
-                    break;
                 case 'ATIVAR':
                     $ControllerSobre_Nos->ativarSobre_Nos();
                     break;
@@ -171,9 +157,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir uma FaleConosco
                     $ControllerFaleConosco->excluirFaleConosco();
                     break;
-                case 'BUSCAR':   
-                     $FaleConosco =$ControllerFaleConosco->buscarFaleConoscoPorId();
-                    break;
+
                 case 'ATIVAR':
 
                     $ControllerFaleConosco->ativarFaleConosco();
@@ -196,9 +180,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir uma Sustentabilidade
                     $ControllerSustentabilidade->excluirSustentabilidade();
                     break;
-                case 'BUSCAR':   
-                     $Sustentabilidade =$ControllerSustentabilidade->buscarSustentabilidadePorId();
-                    break;
+
                 case 'ATIVAR':
 
                     $ControllerSustentabilidade->ativarSustentabilidade();
@@ -222,9 +204,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir uma Promocao
                     $ControllerPromocao->excluirPromocao();
                     break;
-                case 'BUSCAR':   
-                     $Promocao =$ControllerPromocao->buscarPromocaoPorId();
-                    break;
+
                 case 'ATIVAR':
 
                     $ControllerPromocao->ativarPromocao();
@@ -257,9 +237,6 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir uma MVV
                     $ControllerMVV->excluirMVV();
                     break;
-                case 'BUSCAR':   
-                    $MVV =$ControllerMVV->buscarMVVPorId();
-                    break;
                 case 'ATIVAR':
 
                     $ControllerMVV->ativarMVV();
@@ -282,9 +259,7 @@ if(isset($_GET['controller'])){
                     //Chamando o metodo de excluir uma TextoPrincipal
                     $ControllerTextoPrincipal->excluirTextoPrincipal();
                     break;
-                case 'BUSCAR':   
-                    $TextoPrincipal =$ControllerTextoPrincipal->buscarTextoPrincipalPorId();
-                    break;
+
                 case 'ATIVAR':
                     $ControllerTextoPrincipal->ativarTextoPrincipal();
                     break;
@@ -304,7 +279,7 @@ if(isset($_GET['controller'])){
                 case 'EXCLUIR':
                     $ControllerEventos->excluirEventos();
                     break;
-                case 'BUSCAR':
+
 
                 case 'ATIVAR':
                     $ControllerEventos->ativarEventos();

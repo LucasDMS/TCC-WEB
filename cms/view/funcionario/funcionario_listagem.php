@@ -55,16 +55,7 @@
                     <i class="far fa<?php echo $ativo ?>-square"></i>
                 </a>
             </td>
-            <td>
-                <a  onclick="asyncApagar(this)"
-                    href="#"
-                    data-pagina="funcionario"
-                    data-url="router.php?controller=funcionario&modo=excluir"
-                    data-id="<?php echo $result->getId();?>">
-
-                    <i class="fas fa-trash"></i>
-                </a>
-            </td>
+            
         </tr>
     <?php
         }

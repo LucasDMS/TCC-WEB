@@ -2,6 +2,7 @@
 $nome = null;
 $login = null;
 $senha = null;
+$tipo = null;
 $cargo = null;
 $setor = null;
 $dataEmissao = null;
@@ -13,13 +14,24 @@ if(isset($_GET['id'])){
     
     $id = $_GET['id'];
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
     $Controller = new ControllerFuncionario();
+    $ControllerSessao = new ControllerSessao();
+    $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
     $Funcionario = $Controller->buscarFuncionarioPorId($id);
     $action = "router.php?controller=funcionario&modo=atualizar";
     $modo = "atualizar";
-    $texto = $Funcionario->getTexto();
+    $nome = $Funcionario->getNome();
+    $setor= $Funcionario->getSetor();
+    $cargo = $Funcionario->getCargo();
+    $dataEmissao= $Funcionario->getDataEmissao();
+    $login = $Sessao->getLogin();
+    $senha = $Sessao->getSenha();
+    $tipo = $Sessao->getTipo();
     $id = $Funcionario->getId();
+
 }
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)" 

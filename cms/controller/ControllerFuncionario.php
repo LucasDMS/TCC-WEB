@@ -38,26 +38,32 @@ class ControllerFuncionario{
 
             $id     = $_POST['id'];
             $nome =$_POST['txtNome'];
+            $login = $_POST['txtLogin'];
+            $password = $_POST['txtPassword'];
+            $tipo = $_POST['txtTipo'];
             $cargo  = $_POST['txtCargo'];
             $setor = $_POST['txtSetor'];
             $data_emissao  = $_POST['txtDtEmissao'];
-            $ativo = 1;;            
+        
             $Funcionario = new Funcionario(); 
 
             $Funcionario->setId($id);
-            $Funcionario->setNome($titulo);
-            $Funcionario->setCargo($texto);
-            $Funcionario->setSetor($apagado);
-            $Funcionario->setDataEmissao($ordem);
-            $Funcionario->setAtivo($ativo);
+            $Funcionario->setNome($nome);
+            $Funcionario->setCargo($cargo);
+            $Funcionario->setSetor($setor);
+            $Funcionario->setDataEmissao($data_emissao);
+
+
+            $Sessao = new Sessao(); 
+            $Sessao->setLogin($login);
+            $Sessao->setSenha($password);
+            $Sessao->setTipo($tipo);
+
             
-            $this->FuncionarioDAO->update($Funcionario);
+            $this->FuncionarioDAO->update($Funcionario, $Sessao);
         }
     }
-    public function excluirFuncionario(){
-        $id = $_POST['id'];
-        $this->FuncionarioDAO ->delete($id);
-    }
+
     public function ativarFuncionario() {
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
