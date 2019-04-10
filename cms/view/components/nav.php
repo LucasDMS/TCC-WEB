@@ -59,6 +59,27 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('estabelecimento')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Estabelecimento Comercial
+            </div>
+        </li>
+        
+         <li onclick="chamarViewParaApp('produto_destaque')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Produto Destaque
+            </div>
+        </li>
+        
+        <li onclick="chamarViewParaApp('sobre_nos')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Sobre Nós
+            </div>
+        </li>
+
         <li onclick="chamarViewParaApp('videos')">
             <div>
                 <i class="fas fa-wrench"></i>
@@ -79,5 +100,6 @@
                 News Letter
             </div>
         </li>
+
     </ul>
 </nav>
