@@ -1,5 +1,13 @@
 <?php
-
+/*
+        Projeto: TCC
+        Autor: Nicolas
+        Data Criação: 10/04/2019
+        Data Modificação:
+        Conteúdo Modificado:
+        Autor da Modificação:
+        Objetivo da classe: class que guarda os dados que serão manipulados.
+    */
     class Cadastro_estabelecimento{
 
         private $id;

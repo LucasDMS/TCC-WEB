@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="css/login.css">
 <form onsubmit="asyncSubmit(event, this)" action="cms/router.php?controller=cadastro_estabelecimento&modo=inserir" name="frm_cadastro" id="frm_cadastro" method="post">
 
-    <input type=text name="txt_usuario" id="txt_usuario" placeholder="Usuario"><br>
-    <input type=password name="txt_senha" id="txt_senha" placeholder="senha"><br>
+    <input type=text name="txt_usuario" id="txt_usuario" placeholder="Usuario">
+    <input type=password name="txt_senha" id="txt_senha" placeholder="senha">
     
     <input type=text name="txt_cnpj" id="txt_cnpj" placeholder="cnpj">
     <input type=text name="txt_nome" id="txt_nome" placeholder="Nome do responsavel">
@@ -17,6 +17,7 @@
     <input type=text name="txt_email" id="txt_email" placeholder="Email">
     <input type=text name="txt_razao_social" id="txt_razao_social" placeholder="Razão Social">
     <input type=text name="txt_nome_fantasia" id="txt_nome_fantasia" placeholder="Nome Fantasia">
+    <input type=file name="img" id="txt_nome_fantasia" placeholder="Nome Fantasia">
     
     <button type='submit' class="btn submit">
         <i class="fas fa-sign-in-alt"></i>

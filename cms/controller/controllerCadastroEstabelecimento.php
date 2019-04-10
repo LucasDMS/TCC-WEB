@@ -1,5 +1,13 @@
 <?php
-
+/*
+        Projeto: TCC
+        Autor: Nicolas
+        Data Criação: 10/04/2019
+        Data Modificação:
+        Conteúdo Modificado:
+        Autor da Modificação:
+        Objetivo da classe: class que controla os dados.
+    */
 class controllerCadastroEstabelecimento{
 
     private $cadastroEstabelecimentoDAO;
@@ -9,13 +17,16 @@ class controllerCadastroEstabelecimento{
         
         require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/dao/CadastroEstabelecimentoDAO.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/model/Cadastro_estabelecimento.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/view/components/imagem.php');
 
+        //estancia da class dao de cadastro de estabelecimento
         $this->cadastroEstabelecimentoDAO = new CadastroEstabelecimentoDAO();
     }
 
     public function inserirCadastroEstabelecimento(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+            //guardando dos os dados recebidos via post em uma variavel
             $usuario = $_POST['txt_usuario'];
             $senha = $_POST['txt_senha'];
 
@@ -31,9 +42,10 @@ class controllerCadastroEstabelecimento{
             $email = $_POST['txt_email'];
             $razao_social = $_POST['txt_razao_social'];
             $nome_fantasia = $_POST['txt_nome_fantasia'];
-            $imagem = 'ss';
+            $imagem = img($_FILES['img']);
             $ativo = 1;
 
+            //estanciando a model e enviando todos os dados para ela
             $cadastro = new Cadastro_estabelecimento();
             $cadastro->setUsuario($usuario);
             $cadastro->setSenha($senha);
@@ -51,7 +63,7 @@ class controllerCadastroEstabelecimento{
             $cadastro->setNome_fantasia($nome_fantasia);
             $cadastro->setImagem($imagem);
             $cadastro->setAtivo($ativo);
-            
+            //chamando o metodo de insert e passando o objeto
             $this->cadastroEstabelecimentoDAO->inserir($cadastro);
         }
 
