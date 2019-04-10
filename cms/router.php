@@ -20,7 +20,6 @@ if(isset($_GET['controller'])){
                     $ControllerSessao->logar();
                     break;
             }
-
             break;
 
         case 'HISTORIA':
@@ -47,13 +46,11 @@ if(isset($_GET['controller'])){
                     $Historia = $ControllerHistoria->buscarHistoriaPorId();
                     break;
                 case 'ATIVAR':
-
                     $ControllerHistoria->ativarHistoria();
                     break;
             }
             break;
         
-
         case 'NOTICIAS':
             require_once('controller/controllerNoticia.php');
             $ControllerNoticia = new ControllerNoticia();
@@ -73,7 +70,6 @@ if(isset($_GET['controller'])){
                      $Noticia =$ControllerNoticia->buscarNoticiaPorId();
                     break;
                 case 'ATIVAR':
-
                     $ControllerNoticia->ativarNoticia();
                     break;
             }
@@ -155,8 +151,10 @@ if(isset($_GET['controller'])){
                     $Sobre_Nos = $ControllerSobre_Nos->buscarSobre_NosPorId();
                     break;
                 case 'ATIVAR':
-
                     $ControllerSobre_Nos->ativarSobre_Nos();
+                    break;
+            }
+            break;
                 
         case 'FALE_CONOSCO':
             require_once('controller/controllerFaleConosco.php');
@@ -288,8 +286,10 @@ if(isset($_GET['controller'])){
                     $TextoPrincipal =$ControllerTextoPrincipal->buscarTextoPrincipalPorId();
                     break;
                 case 'ATIVAR':
-
                     $ControllerTextoPrincipal->ativarTextoPrincipal();
+                    break;
+            }
+            break;
         
         case 'EVENTOS':
             require_once('controller/controllerEventos.php');
@@ -408,5 +408,6 @@ if(isset($_GET['controller'])){
             break;
     }
 }
+
 
 ?>
