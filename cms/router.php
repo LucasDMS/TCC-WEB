@@ -406,6 +406,17 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+
+        case 'CADASTRO_ESTABELECIMENTO':
+            require_once('controller/controllerCadastroEstabelecimento.php');
+            $controller = new controllerCadastroEstabelecimento();
+
+            switch($modo){
+                case 'INSERIR':
+                    $controller->inserirCadastroEstabelecimento();
+                    break;
+            }
+        
     }
 }
 
