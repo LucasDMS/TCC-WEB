@@ -59,10 +59,24 @@
             </div>
         </li>
 
-        <li onclick="chamarViewParaApp('principal_eventos')">
+        <li onclick="chamarViewParaApp('estabelecimento')">
             <div>
                 <i class="fas fa-wrench"></i>
-                Principal eventos
+                Estabelecimento Comercial
+            </div>
+        </li>
+        
+         <li onclick="chamarViewParaApp('produto_destaque')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Produto Destaque
+            </div>
+        </li>
+        
+        <li onclick="chamarViewParaApp('sobre_nos')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Sobre Nós
             </div>
         </li>
 
@@ -73,24 +87,10 @@
             </div>
         </li>
 
-        <li onclick="chamarViewParaApp('principal_video')">
-            <div>
-                <i class="fas fa-wrench"></i>
-                Principal video
-            </div>
-        </li>
-
         <li onclick="chamarViewParaApp('patrocinio')">
             <div>
                 <i class="fas fa-wrench"></i>
                 Patrocinio
-            </div>
-        </li>
-
-        <li onclick="chamarViewParaApp('principal_patrocinio')">
-            <div>
-                <i class="fas fa-wrench"></i>
-                Principal patrocinio
             </div>
         </li>
 
@@ -100,5 +100,6 @@
                 News Letter
             </div>
         </li>
+
     </ul>
 </nav>

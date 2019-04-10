@@ -11,8 +11,6 @@ class conexaoMysql {
 
 		$this->server = "10.107.144.20";
 		$this->user = "teste";
-		//$this->server = "localhost";
-		//$this->user = "root";
 		$this->password = "bcd127";
 		$this->database = "db_pop_soda_drink";
 	}
