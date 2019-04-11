@@ -25,10 +25,16 @@
 <body>
 	
 	<?php 
-		
+		session_start();
+		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		
+		$conex = new conexaoMysql();
+
+		$con = $conex->connectDatabase();
+
+
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
@@ -59,33 +65,32 @@
 						<i class="fas fa-search"></i>
 					</button>
 				</form>
+				<?php		
+					$sql = "select * from tbl_historia where ativo= ? and apagado =?;";
+					$stm = $con->prepare($sql);
+					$stm->bindValue(1, 1);
+					$stm->bindValue(2, 0);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
 
 				<div class="destaques_container">
 
-					<img class="img_destaque" src="img/coca_cola.png" alt="">
+					<img class="img_destaque" src="cms/arquivos/<?php echo ($result['imagem'])?>" alt="imagem do produto">
+
 					<div class="destaques_texto">
-						<h3 class="section_titulo">PRODUTO DESTAQUE</h3>
+						<h3 class="section_titulo"><?php echo ($result['texto']) ?></h3>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-							ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-							tempora vel odit dolore.
-							Lorem ipsumLorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-							ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-							tempora vel odit dolore.
-							Lorem ipsum
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-							ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-							tempora vel odit dolore.
-							Lorem ipsum
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-							ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-							tempora vel odit dolore.
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
+							<?php echo ($result['texto']) ?>
 						</p>
 					</div>
 
 				</div>
 				
+				<?php
+					}
+        		?>
+
 			</section>
 
 			<div class="enquete">
