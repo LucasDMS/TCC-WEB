@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="css/login.css">
 <form onsubmit="asyncSubmit(event, this)" action="cms/router.php?controller=cadastro_estabelecimento&modo=inserir" name="frm_cadastro" id="frm_cadastro" method="post">
 
@@ -14,7 +13,7 @@
     <input type=text name="txt_bairro" id="txt_bairro" placeholder="Bairro">
     <input type=text name="txt_cidade" id="txt_cidade" placeholder="Cidade">
     <input type=text name="txt_estado" id="txt_estado" placeholder="Estado">
-    <input type=text name="txt_email" id="txt_email" placeholder="Email">
+    <input type=email name="txt_email" id="txt_email" placeholder="Email">
     <input type=text name="txt_razao_social" id="txt_razao_social" placeholder="Razão Social">
     <input type=text name="txt_nome_fantasia" id="txt_nome_fantasia" placeholder="Nome Fantasia">
     <input type=file name="img" id="txt_nome_fantasia" placeholder="Nome Fantasia">

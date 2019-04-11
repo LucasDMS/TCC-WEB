@@ -417,6 +417,16 @@ if(isset($_GET['controller'])){
                     break;
             }
         
+        case 'CADASTRO_USUARIO':
+            require_once('controller/controllerCadastroUsuario.php');
+            $controller = new controllerCadastroUsuario();
+
+            switch($modo){
+                case 'INSERIR':
+                    $controller->inserirCadastroUsuario();
+                    break;
+            }
+        
     }
 }
 

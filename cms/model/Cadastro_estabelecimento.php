@@ -28,8 +28,8 @@
         private $id_usuario;
         private $razao_social;
         private $nome_fantasia;
-        private $ativo;
         private $imagem;
+        private $ativo;
 
 
         public function getId(){

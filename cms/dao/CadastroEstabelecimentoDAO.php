@@ -27,11 +27,11 @@ class CadastroEstabelecimentoDAO{
         
         
         //insert da tabela de autenticacao
-        $sql_autenticacao = "INSERT INTO tbl_autenticacao(usuario,senha,tipo) Values (?,?,?)"; 
+        $sql_autenticacao = "INSERT INTO tbl_autenticacao(login,senha,tipo) Values (?,?,?)"; 
         $stm = $conn->prepare($sql_autenticacao);
         $stm->bindValue(1,$estabelecimento->getUsuario());
         $stm->bindValue(2,$estabelecimento->getSenha());
-        $stm->bindValue(3,'estabelecimento');
+        $stm->bindValue(3,'ESTABELECIMENTO');
         $success_autenticacao = $stm->execute();
         //pegando o ultimo id e enviando para model
         $this->ultimoId = $conn->lastInsertId();
