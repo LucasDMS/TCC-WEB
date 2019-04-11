@@ -33,7 +33,7 @@ $rs = $controller->buscarSobre_Nos();
         <tr class="tabela_header">
             <th>titulo</th>
             <th>texto</th>
-            <th colspan="3">Ações</th>
+            <th colspan="4">Ações</th>
         </tr>
 
     </thead>

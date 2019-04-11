@@ -10,9 +10,10 @@ $dataEmissao = null;
 $action = "router.php?controller=funcionario&modo=inserir";
 $modo = "inserir";
 $id = "";
-if(isset($_GET['id'])){
-    
+$idAutenticacao = "";
+if(isset($_GET['id']) && $_GET['idAutenticacao']){
     $id = $_GET['id'];
+    $idAutenticacao = $_GET['idAutenticacao'];
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
     $Controller = new ControllerFuncionario();
@@ -28,23 +29,23 @@ if(isset($_GET['id'])){
     $login = $Sessao->getLogin();
     $senha = $Sessao->getSenha();
     $tipo = $Sessao->getTipo();
-    $id = $Funcionario->getId();
 
+    
 }
-
 ?>
 
-<form   onsubmit="asyncSubmit(event, this)" 
-        action="<?php echo $action; ?>" 
-        method="post" 
-        autocomplete="off" 
-        id="frm_funcionario" 
-        data-id="<?php echo $id ?>"
+<form  onsubmit="asyncSubmit(event, this)"
+        action="<?php echo $action; ?>"
+        method="post"
+        autocomplete="off"
+        id="frm_funcionario"
         enctype='multipart/form-data' 
         name="frm_funcionario"
-        data-pagina="funcionario"
-        data-modo="<?php echo $modo?>"
-        class="form_padrao">
+        class="form_padrao"
+        data-id="<?php echo $id ?>"
+        data-idAutenticacao="<?php echo $idAutenticacao ?>"
+        data-modo="<?php echo $modo; ?>"
+        data-pagina="funcionario">
 
         <input type="text" name="txtNome" id="txt_hora" placeholder="Nome" value="<?php echo $nome;?>"><br>
         <input type="text" name="txtLogin" id="txtLogin" placeholder="Login" value="<?php echo $login;?>"><br>
@@ -54,6 +55,7 @@ if(isset($_GET['id'])){
         <input type="text" name="txtSetor" id="txtSetor" placeholder="Setor" value="<?php echo $setor;?>"><br>
         <input type="date" name="txtDtEmissao" id="txtDtEmissao" placeholder="Data" value="<?php echo $dataEmissao;?>"><br>
 
+        
 
     <button class="btn">
         Enviar

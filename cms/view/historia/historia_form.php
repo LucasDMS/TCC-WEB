@@ -1,14 +1,14 @@
 <?php 
 $texto = null;
-$action = "router.php?controller=funcionario&modo=inserir";
+$action = "router.php?controller=historia&modo=inserir";
 $modo = "inserir";
 $id = "";
 if(isset($_GET['id'])){
     
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
-    $Controller = new ControllerFuncionario();
-    $Funcionario = $Controller->buscarFuncionarioPorId($id);
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerHistoria.php");
+    $Controller = new ControllerHistoria();
+    $Historia = $Controller->buscarHistoriaPorId($id);
     $action = "router.php?controller=historia&modo=atualizar";
     $modo = "atualizar";
     $texto = $Historia->getTexto();
@@ -20,11 +20,11 @@ if(isset($_GET['id'])){
         action="<?php echo $action; ?>" 
         method="post" 
         autocomplete="off" 
-        id="frm_funcionario" 
+        id="frm_historia" 
         data-id="<?php echo $id ?>"
         enctype='multipart/form-data' 
-        name="frm_funcionario"
-        data-pagina="funcionario"
+        name="frm_historia"
+        data-pagina="historia"
         data-modo="<?php echo $modo?>"
         class="form_padrao">
 

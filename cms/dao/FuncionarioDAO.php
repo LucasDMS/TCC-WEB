@@ -9,19 +9,21 @@ class FuncionarioDAO {
     }
     public function insert(Funcionario $Funcionario, Sessao $Sessao) {
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_autenticacao(usuario,senha,tipo) values(?,?,?);";
+        //Insert na tabela de autenticacao
+        $sql = "insert into tbl_autenticacao(login,senha,tipo) values(?,?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Sessao->getLogin());        
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getTipo());
         $stm->execute();
-
+        //Select para pegar o ultimo id de insert para fazer o insert em funcionarios
         $sql = "SELECT id_autenticacao FROM tbl_autenticacao order by id_autenticacao desc limit 1";
         $stm = $conn->prepare($sql);
         $stm->execute();
         foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
             $Funcionario->setIdAutenticacao($result['id_autenticacao']);
         }
+        //Insert na tabela de funcionarios 
         $sql = "insert into tbl_funcionario_web(nome,cargo,setor,data_emissao,ativo,id_autenticacao) values(?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Funcionario->getNome());        
@@ -34,26 +36,28 @@ class FuncionarioDAO {
         $this->conex->closeDataBase();
     }
     public function update(Funcionario $Funcionario, Sessao $Sessao) {
-        $conn = $this->conex->connectDatabase();
-        $sql = "update tbl_funcionario_web set nome = ?, cargo = ?, setor = ?, data_emissao = ?, ativo = ? where id_funcionario_web=?";
+      $conn = $this->conex->connectDatabase();
+        // //Update no funcionario
+        $sql = "update tbl_funcionario_web set nome = ?, cargo = ?, setor = ?, data_emissao = ? where id_funcionario_web=?";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Funcionario->getNome());        
         $stm->bindValue(2, $Funcionario->getCargo());
         $stm->bindValue(3, $Funcionario->getSetor());
         $stm->bindValue(4, $Funcionario->getDataEmissao());
-        $stm->bindValue(5, $Funcionario->getAtivo());
-        $stm->bindValue(6, $Funcionario->getId());
+        $stm->bindValue(5, $Funcionario->getId());
         $stm->execute();
-
-        $sql = "update tbl_autenticacao set usuario = ?, senha = ?, tipo = ? where id_autenticacao=?";
+        //Update na autenticacao
+        $sql = "update tbl_autenticacao set login = ?, senha = ?, tipo = ? where id_autenticacao = ?";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $Funcionario->getIdAutenticacao());        
+        $stm->bindValue(1, $Sessao->getLogin());        
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getTipo());
         $stm->bindValue(4, $Sessao->getId());
         $stm->execute();
+  
         $this->conex->closeDataBase();
     }
+    //Update no funcionario ativo
     public function updateAtivo(Funcionario $Funcionario) {
         $conn = $this->conex->connectDatabase();
         if($Funcionario->getAtivo()=="0"){
@@ -70,7 +74,7 @@ class FuncionarioDAO {
         $this->conex->closeDataBase();
     }
 
-    
+    //Select para pegar um funcionario especifico
     public function selectById($id) {
         $conn = $this->conex->connectDatabase();
         $sql = "select * from tbl_funcionario_web As f, tbl_autenticacao AS a where f.id_autenticacao=a.id_autenticacao AND id_funcionario_web=?;";
@@ -92,9 +96,10 @@ class FuncionarioDAO {
             $Funcionario->setIdAutenticacao($result['id_autenticacao']);
           
             return $Funcionario;
-            var_dump($Funcionario);
+
         }
     }
+    //Select para todos os funcionario
     public function selectAll() {
         $conn = $this->conex->connectDatabase();
         $sql = "select * from tbl_funcionario_web";

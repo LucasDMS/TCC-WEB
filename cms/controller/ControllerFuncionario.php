@@ -36,7 +36,8 @@ class ControllerFuncionario{
     public function atualizarFuncionario(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            $id     = $_POST['id'];
+            $id = $_POST['id'];
+            $idAutenticacao = $_POST['idAutenticacao'];
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
@@ -44,22 +45,22 @@ class ControllerFuncionario{
             $cargo  = $_POST['txtCargo'];
             $setor = $_POST['txtSetor'];
             $data_emissao  = $_POST['txtDtEmissao'];
-        
-            $Funcionario = new Funcionario(); 
 
+           
+
+            $Funcionario = new Funcionario(); 
+            $Sessao = new Sessao(); 
             $Funcionario->setId($id);
             $Funcionario->setNome($nome);
             $Funcionario->setCargo($cargo);
             $Funcionario->setSetor($setor);
             $Funcionario->setDataEmissao($data_emissao);
 
-
-            $Sessao = new Sessao(); 
+            $Sessao->setId($idAutenticacao);
             $Sessao->setLogin($login);
             $Sessao->setSenha($password);
             $Sessao->setTipo($tipo);
 
-            
             $this->FuncionarioDAO->update($Funcionario, $Sessao);
         }
     }

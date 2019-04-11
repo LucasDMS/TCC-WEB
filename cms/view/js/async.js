@@ -49,7 +49,9 @@ function asyncSubmit(event, element) {
     var formdata = new FormData(element);
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
+    var idAutenticacao = element.getAttribute("data-idAutenticacao");
     formdata.append("id", id);
+    formdata.append("idAutenticacao", idAutenticacao);
 
     $.ajax({
         type: "POST",
@@ -62,6 +64,7 @@ function asyncSubmit(event, element) {
     .done(function (html) {
         recarregarLista(pagina);
         modalToggle(false);
+        console.log(id);
     });
 }
 
@@ -89,7 +92,6 @@ function asyncBuscarDados(element) {
         processData: false,
     })
     .done(function (dados) {
-        console.log(pagina);
         $("#modal").html(dados);
         // reloadList(pagina);
         modalToggle(true);

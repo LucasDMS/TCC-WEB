@@ -10,7 +10,7 @@ class sessaoDAO {
     public function select(Sessao $sessao){
         
         $conn = $this->conex ->connectDatabase();
-        $sql = "select * from tbl_autenticacao where usuario=? and senha=?";
+        $sql = "select * from tbl_autenticacao where login=? and senha=?";
 
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $sessao->getLogin());
@@ -54,7 +54,7 @@ class sessaoDAO {
             
             $Sessao = new Sessao();
             $Sessao->setId($result['id_autenticacao']);
-            $Sessao->setLogin($result['usuario']);
+            $Sessao->setLogin($result['login']);
             $Sessao->setSenha($result['senha']);
             $Sessao->setTipo($result['tipo']);
           

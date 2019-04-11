@@ -37,7 +37,7 @@
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
                     data-pagina="funcionario"
-                    data-url="view/funcionario/funcionario_form.php?id=<?php echo $result->getId();?>"
+                    data-url="view/funcionario/funcionario_form.php?id=<?php echo $result->getId()?>&idAutenticacao=<?php echo $result->getIdAutenticacao()?>"
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-pen"></i>
