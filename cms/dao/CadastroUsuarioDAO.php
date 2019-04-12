@@ -23,8 +23,7 @@ class CadastroUsuarioDAO{
         //conexao com o banco de dados
         $conn = $this->conex->connectDatabase();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        
-        
+           
         //insert da tabela de autenticacao
         $sql = "call sp_cadastrar_usuario(?,?,?,?,?,?,?,?,?,?)"; 
         $stm = $conn->prepare($sql);

@@ -24,8 +24,6 @@
         private $cidade;
         private $estado;
         private $email;
-        private $id_autenticacao;
-        private $id_usuario;
         private $razao_social;
         private $nome_fantasia;
         private $imagem;
@@ -158,15 +156,6 @@
             $this->email = $email;
             return $this;
         }
-
-        public function getId_usuario(){
-            return $this->id_usuario;
-        }
-
-        public function setId_usuario($id_usuario){
-            $this->id_usuario = $id_usuario;
-            return $this;
-        }
  
         public function getRazao_social(){
             return $this->razao_social;
@@ -183,15 +172,6 @@
 
         public function setNome_fantasia($nome_fantasia){
             $this->nome_fantasia = $nome_fantasia;
-            return $this;
-        }
-
-        public function getId_autenticacao(){
-            return $this->id_autenticacao;
-        }
-
-        public function setId_autenticacao($id_autenticacao){
-            $this->id_autenticacao = $id_autenticacao;
             return $this;
         }
 
