@@ -62,7 +62,7 @@
         <li onclick="chamarViewParaApp('estabelecimento')">
             <div>
                 <i class="fas fa-wrench"></i>
-                Estabelecimento Comercial
+                E. Comercial
             </div>
         </li>
         
