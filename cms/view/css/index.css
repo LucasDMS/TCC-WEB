@@ -63,8 +63,8 @@ body {
 	display: none;
 	height: 100%;
 	width: 250px;
-	background-color: #212121;
-	color: rgb(255, 255, 255);
+	background-color: rgb(75, 81, 89);
+	color: #ffffff;
 	box-shadow: 0 0 5px gray;
 }
 
@@ -114,8 +114,9 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: #202020;
-	color: #fff;
+	background-color: #ffffff;
+	color: #666;
+	border-bottom: 1px solid #ddd;
 }
 
 .header i {
@@ -136,7 +137,7 @@ body {
 #app_content{
 	height: 100%;
 	width: 100%;
-	background-color: #f8f9fc;
+	background-color: #f1f2f4;
 	overflow: auto;
 }
 
@@ -151,13 +152,11 @@ footer{
 	font-size: 14px;
 }
 
-
 .tabela_padrao {
 	width: 1000px;
 	margin: 15px auto;
 	text-align: center;
-	border-collapse: collapse;
-	box-shadow: 0 0 5px 2px #dadada;
+	border: 2px solid #ddd;
 }
 
 .tabela_padrao thead{
@@ -178,7 +177,6 @@ footer{
 
 .tabela_padrao tr {
 	height: 50px;
-	border-bottom: 1px solid #999;
 }
 
 .tabela_padrao tr:hover {
@@ -187,6 +185,11 @@ footer{
 
 .tabela_padrao td, .tabela_padrao th {
 	padding: 5px;
+}
+
+.tabela_padrao td{
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
 }
 
 
