@@ -59,6 +59,10 @@ body {
 	transform: scale(1.1);
 }
 
+.header div{
+	width: 330px;
+}
+
 .logo {
 	display: block;
 	height: 100%;

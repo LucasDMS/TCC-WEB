@@ -63,9 +63,9 @@ body {
 	display: none;
 	height: 100%;
 	width: 250px;
-	background-color: rgb(75, 81, 89);
-	color: #ffffff;
-	box-shadow: 0 0 5px gray;
+	background: rgb(214, 228, 222);
+	color: #000;
+	border-right: 1px solid #ccc;
 }
 
 .nav li {
@@ -165,9 +165,8 @@ footer{
 .tabela_padrao tbody {
 }
 
-
 .tabela_titlo {
-	background: linear-gradient(45deg, #137a47, #40ca62);
+	background: linear-gradient(-70deg, #137a47, #229650);
 	color: #fff;
 }
 
@@ -191,7 +190,10 @@ footer{
 	background-color: #fff;
 	border-bottom: 1px solid #ddd;
 }
-
+.tabela_padrao img{
+	height: 100px;
+  width: 100px;
+}
 
 .form_padrao{
 	margin: auto;
