@@ -16,8 +16,12 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
     $idAutenticacao = $_GET['idAutenticacao'];
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerMenu.php");
+
     $Controller = new ControllerFuncionario();
     $ControllerSessao = new ControllerSessao();
+    $ControllerMenu = new ControllerMenu();
+    $Paginas = $ControllerMenu->buscarMenu();
     $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
     $Funcionario = $Controller->buscarFuncionarioPorId($id);
     $action = "router.php?controller=funcionario&modo=atualizar";
@@ -55,8 +59,16 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         <input type="text" name="txtSetor" id="txtSetor" placeholder="Setor" value="<?php echo $setor;?>"><br>
         <input type="date" name="txtDtEmissao" id="txtDtEmissao" placeholder="Data" value="<?php echo $dataEmissao;?>"><br>
 
+        <div class="container" >
         
-
+    <?php  
+    
+    
+    foreach ($Paginas as $result){ ?>
+        <input type="checkbox" value="<?php echo $result->getId() ?>" id="<?php echo $result->getId() ?>"> <label for="<?php echo $result->getId() ?>"><?php echo $result->getPaginas() ?></label>
+        
+    <?php } ?>
+        </div>
     <button class="btn">
         Enviar
     </button>
