@@ -63,30 +63,32 @@ body {
 	display: none;
 	height: 100%;
 	width: 250px;
-	background: rgb(214, 228, 222);
-	color: #000;
+	background: rgb(57, 61, 68);
+	color: #fff;
 	border-right: 1px solid #ccc;
 }
 
 .nav li {
 	margin: 15px 0;
-	display: flex;
 	padding: 5px 15px;
-	justify-content: space-between;
 	transition: .2s;
 }
 
-.nav li:hover {
+.lista_btn{
 	cursor: pointer;
-	background-color: rgba(94, 94, 94, 0.3);
 }
 
-.nav li:hover>div, .seta {
-	transform: scale(1.05);
+.sub_menu{
+	display: none;
 }
 
-.nav li:hover>.seta {
-	transform: rotate(90deg);
+.sub_menu li{
+	color: #fff;
+}
+
+.sub_menu li:hover{
+	cursor: pointer;
+	color: #f8ae83;
 }
 
 #itens_barra_lateral {
@@ -97,6 +99,16 @@ body {
 
 .seta {
 	transition: .2s;
+}
+
+.lista_secundaria{
+	display: none;
+}
+
+.lista_btn{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 /* RESTO DA TELA */
@@ -137,7 +149,7 @@ body {
 #app_content{
 	height: 100%;
 	width: 100%;
-	background-color: #f1f2f4;
+	background-color: #EFF3F6;
 	overflow: auto;
 }
 
@@ -166,7 +178,7 @@ footer{
 }
 
 .tabela_titlo {
-	background: linear-gradient(-70deg, #137a47, #229650);
+	background: #167f49;
 	color: #fff;
 }
 
@@ -222,7 +234,7 @@ footer{
 
 .form_padrao button{
 	padding: 15px;
-	background-color: #40ca62;
+	background-color: #f8ae83;
 	border-radius: 5px;
 	border: none;
 	opacity: .9;
@@ -262,4 +274,55 @@ footer{
 	background-color: rgba(255, 255, 255, 0.95);
 	border-radius: 5px;
 	box-shadow: 0 0 5px gray;
+}
+
+
+
+
+.pagina_titulo{
+	max-width: 1450px;
+	padding: 10px 25px;
+	color: #f8ae83;
+	margin:25px auto;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #fff;
+	border-left: 3px solid #f8ae83;
+}
+
+.card_wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1450px;
+	margin: auto;
+}
+
+.card{
+	height: 350px;
+	width: 280px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card_operadores{
+	display: flex;
+	justify-content: space-between;
+}
+
+.card_operadores a{
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	line-height: 50px;
+	background-color: #393d44;
+}
+
+.card_operadores a:hover{
+	color: #f8ae83;
 }
