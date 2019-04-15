@@ -9,10 +9,12 @@ $cargo = null;
 $setor = null;
 $dataEmissao = null;
 $checked = null;
+
 $action = "router.php?controller=funcionario&modo=inserir";
 $modo = "inserir";
 $id = "";
 $idAutenticacao = "";
+$idMenu = null;
 $ControllerMenu = new ControllerMenu();
 $Paginas = $ControllerMenu->buscarMenu();
 if(isset($_GET['id']) && $_GET['idAutenticacao']){
@@ -39,6 +41,7 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
     $login = $Sessao->getLogin();
     $senha = $Sessao->getSenha();
     $tipo = $Sessao->getTipo();
+
     
 }
 ?>
@@ -69,10 +72,13 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
     <?php  
    
     foreach ($Paginas as $result){ 
-            // $checked = "";
-            // if($result->getId() == $Pagina->getIdMenu()){
-            //     $checked = 'checked';
-            // }
+        $checked = "";
+        foreach ($Pagina as $result1){
+            
+            if($result->getId() == $result1->getIdMenu()){
+                $checked = 'checked';
+            }
+        }
        
         ?>
         <input type="checkbox" <?php echo $checked;?> 
@@ -86,7 +92,7 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         </label>
         
     <?php 
-       
+        
      
     }
          

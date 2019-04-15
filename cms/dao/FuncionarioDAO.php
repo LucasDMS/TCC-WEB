@@ -17,12 +17,7 @@ class FuncionarioDAO {
         $stm->bindValue(3, $Sessao->getTipo());
         $stm->execute();
         //Select para pegar o ultimo id de insert para fazer o insert em funcionarios
-        $sql = "SELECT id_autenticacao FROM tbl_autenticacao order by id_autenticacao desc limit 1";
-        $stm = $conn->prepare($sql);
-        $stm->execute();
-        foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-            $Funcionario->setIdAutenticacao($result['id_autenticacao']);
-        }
+       
         //Insert na tabela de funcionarios 
         $sql = "insert into tbl_funcionario_web(nome,cargo,setor,data_emissao,ativo,id_autenticacao) values(?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
@@ -31,12 +26,19 @@ class FuncionarioDAO {
         $stm->bindValue(3, $Funcionario->getSetor());
         $stm->bindValue(4, $Funcionario->getDataEmissao());
         $stm->bindValue(5, $Funcionario->getAtivo());
-        $stm->bindValue(6, $Funcionario->getIdAutenticacao());
+        $stm->bindValue(6, $conn->lastInsertId());
         $stm->execute();
         $this->conex->closeDataBase();
-        $result = 0;
+
+    
+        $sql = "SELECT id_funcionario_web FROM tbl_funcionario_web order by id_funcionario_web desc limit 1";
+        $stm = $conn->prepare($sql);
+        $stm->execute();
+        foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
+            $MenuFuncionario->setIdFuncionario($result['id_funcionario_web']);
+        }
         foreach($MenuFuncionario->getIdMenu() as $result){
-            echo $result . "<br>";
+            echo $conn->lastInsertId();
             
             $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
             $stm = $conn->prepare($sql);

@@ -23,7 +23,6 @@ class MenuDAO {
                 $Menu->setData($result['data']);
                 $Menu->setIdMenu($result['id_menu']);
                 $Menu->setIdFuncionario($result['id_funcionario_web']);
-                return $Menu;
                 array_push($listMenu, $Menu);
             }
             $this->conex -> closeDataBase();
