@@ -55,7 +55,7 @@ class ControllerMenu{
             $Menu->setCargo($cargo);
             $Menu->setSetor($setor);
             $Menu->setDataEmissao($data_emissao);
-
+            
             $Sessao->setId($idAutenticacao);
             $Sessao->setLogin($login);
             $Sessao->setSenha($password);

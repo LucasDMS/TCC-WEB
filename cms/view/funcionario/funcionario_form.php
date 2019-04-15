@@ -1,4 +1,6 @@
 <?php 
+
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerMenu.php");
 $nome = null;
 $login = null;
 $senha = null;
@@ -6,24 +8,28 @@ $tipo = null;
 $cargo = null;
 $setor = null;
 $dataEmissao = null;
-
+$checked = null;
 $action = "router.php?controller=funcionario&modo=inserir";
 $modo = "inserir";
 $id = "";
 $idAutenticacao = "";
+$ControllerMenu = new ControllerMenu();
+$Paginas = $ControllerMenu->buscarMenu();
 if(isset($_GET['id']) && $_GET['idAutenticacao']){
     $id = $_GET['id'];
     $idAutenticacao = $_GET['idAutenticacao'];
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerMenu.php");
+    
 
     $Controller = new ControllerFuncionario();
     $ControllerSessao = new ControllerSessao();
-    $ControllerMenu = new ControllerMenu();
-    $Paginas = $ControllerMenu->buscarMenu();
+
+    
+    $Pagina = $ControllerMenu->buscarMenuPorId($id);
     $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
     $Funcionario = $Controller->buscarFuncionarioPorId($id);
+
     $action = "router.php?controller=funcionario&modo=atualizar";
     $modo = "atualizar";
     $nome = $Funcionario->getNome();
@@ -33,13 +39,12 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
     $login = $Sessao->getLogin();
     $senha = $Sessao->getSenha();
     $tipo = $Sessao->getTipo();
-
     
 }
 ?>
 
-<form  onsubmit="asyncSubmit(event, this)"
-        action="<?php echo $action; ?>"
+<form   onsubmit="asyncSubmit(event, this)"
+        action="<?php echo $action;?>"
         method="post"
         autocomplete="off"
         id="frm_funcionario"
@@ -62,12 +67,31 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         <div class="container" >
         
     <?php  
-    
-    
-    foreach ($Paginas as $result){ ?>
-        <input type="checkbox" value="<?php echo $result->getId() ?>" id="<?php echo $result->getId() ?>"> <label for="<?php echo $result->getId() ?>"><?php echo $result->getPaginas() ?></label>
+   
+    foreach ($Paginas as $result){ 
+            // $checked = "";
+            // if($result->getId() == $Pagina->getIdMenu()){
+            //     $checked = 'checked';
+            // }
+       
+        ?>
+        <input type="checkbox" <?php echo $checked;?> 
+            value="<?php echo $result->getId() ?>" 
+            name="checkbox[]"
+            id="<?php echo $result->getId() ?>"
+        />
+
+        <label for="<?php echo $result->getId() ?>">
+            <?php echo $result->getPaginas() ?>
+        </label>
         
-    <?php } ?>
+    <?php 
+       
+     
+    }
+         
+    
+    ?>
         </div>
     <button class="btn">
         Enviar

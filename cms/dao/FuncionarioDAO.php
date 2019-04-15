@@ -7,7 +7,7 @@ class FuncionarioDAO {
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
-    public function insert(Funcionario $Funcionario, Sessao $Sessao) {
+    public function insert(Funcionario $Funcionario, Sessao $Sessao, MenuFuncionario $MenuFuncionario) {
         $conn = $this->conex->connectDatabase();
         //Insert na tabela de autenticacao
         $sql = "insert into tbl_autenticacao(login,senha,tipo) values(?,?,?);";
@@ -33,6 +33,18 @@ class FuncionarioDAO {
         $stm->bindValue(5, $Funcionario->getAtivo());
         $stm->bindValue(6, $Funcionario->getIdAutenticacao());
         $stm->execute();
+        $this->conex->closeDataBase();
+        $result = 0;
+        foreach($MenuFuncionario->getIdMenu() as $result){
+            echo $result . "<br>";
+            
+            $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $result);        
+            $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
+            $stm->execute();
+        }
+       echo $MenuFuncionario->getIdFuncionario();
         $this->conex->closeDataBase();
     }
     public function update(Funcionario $Funcionario, Sessao $Sessao) {

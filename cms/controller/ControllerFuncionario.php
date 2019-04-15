@@ -5,12 +5,14 @@ class ControllerFuncionario{
     public function __construct(){
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Funcionario.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Sessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MenuFuncionario.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/FuncionarioDAO.php');
         $this->FuncionarioDAO = new FuncionarioDAO();
     }
     public function inserirFuncionario(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
+
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
@@ -19,18 +21,25 @@ class ControllerFuncionario{
             $setor = $_POST['txtSetor'];
             $data_emissao  = $_POST['txtDtEmissao'];
             $ativo = 1;
+            $idMenu = $_POST['checkbox'];
             
-            $Funcionario = new Funcionario();
             $Sessao = new Sessao(); 
             $Sessao->setLogin($login);
             $Sessao->setSenha($password);
             $Sessao->setTipo($tipo);
+
+            $Funcionario = new Funcionario();
             $Funcionario->setNome($nome);
             $Funcionario->setCargo($cargo);
             $Funcionario->setSetor($setor);
             $Funcionario->setDataEmissao($data_emissao);
             $Funcionario->setAtivo($ativo);
-            $this->FuncionarioDAO->insert($Funcionario, $Sessao);
+
+            $MenuFuncionario = new MenuFuncionario();
+            $MenuFuncionario->setIdMenu($idMenu);
+            $MenuFuncionario->setIdFuncionario($id);
+            var_dump($idMenu);
+            $this->FuncionarioDAO->insert($Funcionario, $Sessao, $MenuFuncionario);
         }
     }
     public function atualizarFuncionario(){
