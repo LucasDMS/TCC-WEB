@@ -149,7 +149,7 @@ body {
 #app_content{
 	height: 100%;
 	width: 100%;
-	background-color: #EFF3F6;
+	background-color: #dee4e9;
 	overflow: auto;
 }
 
@@ -280,14 +280,29 @@ footer{
 
 
 .pagina_titulo{
-	max-width: 1450px;
-	padding: 10px 25px;
+	max-width: 1440px;
+	padding: 15px 25px;
 	color: #f8ae83;
 	margin:25px auto;
 	font-size: 30px;
 	font-weight: bold;
 	background-color: #fff;
 	border-left: 3px solid #f8ae83;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu_novo{
+	height: 34px;
+	width: 34px;
+	background-color: #f8ae83;
+	border: none;
+	color: #fff;
+}
+
+.menu_novo:hover{
+	cursor: pointer;
+	color: #393d44;
 }
 
 .card_wrapper{
@@ -306,6 +321,14 @@ footer{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	overflow: auto;
+}
+
+.card_imagem{
+	display: block;
+	margin: auto;
+	height: 250px;
+	max-width: 100%;
 }
 
 .card_operadores{

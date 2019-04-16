@@ -1,22 +1,27 @@
+var pagina = ''
+
 $(document).ready(function(){
+    //recebe a pagina que estava salva na sessao
+    pagina = sessionStorage.getItem('pagina')
 
-    var menu_aberto = true;
-
-    $("#nav").on("click", function(){
-        if(menu_aberto){
-            $("#barra_lateral").animate({width:'toggle'},350, function(){
-                // $("#itens_barra_lateral").fadeIn(250);
-            });
-            menu_aberto = false;
-        }
-        else{
-            $("#itens_barra_lateral").fadeOut(250,function(){
-                $("#barra_lateral").animate({width:'toggle'},350);
-            });
-            menu_aberto = true;
-        }
-    });
+    chamarViewParaApp(pagina);
 });
+
+var estado = false
+function toggleMenu(){
+
+    if(estado){
+        $("#barra_lateral").animate({width:'toggle'},350, function(){
+            // $("#itens_barra_lateral").fadeIn(250);
+        });
+        estado = false
+    }
+    else{
+        $("#barra_lateral").animate({width:'toggle'},350);
+        // $("#itens_barra_lateral").fadeOut(250,function(){});
+        estado = true
+    }
+}
 
 function toggleSubMenu(element, id, abrir) {
 

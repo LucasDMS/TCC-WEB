@@ -9,12 +9,11 @@ $rs = $controller->buscarHistoras();
 
 <div class="pagina_titulo">
     Nossa História
-</div>
 
-<button type="menu" onclick="chamarViewParaModal('historia')">
-    NOVO 
-    <i class="fas fa-plus"></i>
-</button>
+    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('historia')">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
 
 <div class="card_wrapper">
     <!-- CARD -->
