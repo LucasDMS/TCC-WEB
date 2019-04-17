@@ -66,6 +66,7 @@ body {
 	background: rgb(57, 61, 68);
 	color: #fff;
 	border-right: 1px solid #ccc;
+	overflow: auto;
 }
 
 .nav li {

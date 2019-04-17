@@ -114,6 +114,13 @@
                         </div>
                     </li>
 
+                    <li onclick="chamarViewParaApp('pops_escola')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Pops Escola
+                        </div>
+                    </li>
+
                 </ul>
 
             </div>
@@ -130,41 +137,15 @@
             <!-- SUB MENU -->
             <div class="sub_menu" id="sub_menu_2">
                 <ul>
-                    <li onclick="chamarViewParaApp('news_letter')">
+                    <li onclick="chamarViewParaApp('funcionario')">
                         <div>
                             <i class="fas fa-wrench"></i>
-                            News Letter
-                        </div>
-                    </li>
-                    <li onclick="chamarViewParaApp('news_letter')">
-                        <div>
-                            <i class="fas fa-wrench"></i>
-                            News Letter
-                        </div>
-                    </li>
-                    <li onclick="chamarViewParaApp('news_letter')">
-                        <div>
-                            <i class="fas fa-wrench"></i>
-                            News Letter
+                            Funcionario
                         </div>
                     </li>
                 </ul>
             </div>
         </li>
-        <li onclick="chamarViewParaApp('funcionario')">
-            <div>
-                <i class="fas fa-wrench"></i>
-                Funcionario
-            </div>
-        </li>
-
-        <li onclick="chamarViewParaApp('pops_escola')">
-            <div>
-                <i class="fas fa-wrench"></i>
-                Pops Escola
-            </div>
-        </li>
-
     </ul>
 
 </nav>
