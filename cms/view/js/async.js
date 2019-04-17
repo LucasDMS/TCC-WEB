@@ -25,6 +25,7 @@ function chamarViewParaModal(pagina) {
 function chamarViewParaApp(pagina) {
 
     var url = formatarLink(pagina, "listagem");
+    sessionStorage.setItem('pagina', pagina)
 
     $.ajax({
         type: "GET",

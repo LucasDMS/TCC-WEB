@@ -11,38 +11,32 @@
     
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEventos.php");
     $controller = new ControllerEventos();
-    $consulta = $controller->listarEventos();
+    $rs = $controller->listarEventos();
 
 
 ?>
 
+<div class="pagina_titulo">
+    Eventos
+    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('eventos')">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
 
+<div class="card_wrapper">
+    <!-- CARD -->
+    <?php foreach ($rs as $result) { ?>
+        <div class="card">
+            <div>
+                Nome : 
+                <?php echo $result->getNome(); ?>
+            </div>
+            <div>
+                Descrição : 
+                <?php echo $result->getDescricao(); ?>
+            </div>
 
-<button type="menu" onclick="chamarViewParaModal('eventos')">
-    Novo
-    <i class="fas fa-plus"></i>
-</button>
-
-<table class="tabela_padrao">
-    <thead>
-        <tr class="tabela_titlo">
-            <th colspan="7">
-                Eventos
-            </th>
-        </tr>
-        <tr class="tabela_header">
-            <th>Titulo</th>
-            <th>Descricao</th>
-            <th colspan="3">Ações</th>
-        </tr>
-    </thead>
-
-    <tbody>
-    <?php foreach ($consulta as $result){ ?>
-        <tr>
-            <td><?php echo $result->getNome()?></td>
-            <td><?php echo $result->getDescricao()?></td>
-            <td>
+            <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
                     data-pagina="eventos"
@@ -51,8 +45,7 @@
 
                     <i class="fas fa-pen"></i>
                 </a>
-            </td>
-            <td>
+
                 <a  onclick="asyncAtivar(this)"
                     href="#"
                     data-pagina="eventos"
@@ -63,8 +56,7 @@
                     <?php $ativo = ($result->getStatus()==1) ? "-check" : "" ; ?>
                     <i class="far fa<?php echo $ativo ?>-square"></i>
                 </a>
-            </td>
-            <td>
+
                 <a  onclick="asyncApagar(this)"
                     href="#"
                     data-pagina="eventos"
@@ -73,10 +65,8 @@
 
                     <i class="fas fa-trash"></i>
                 </a>
-            </td>
-        </tr>
-    <?php
-        }
-    ?>
-    </tbody>
-</table>
+            </div>
+
+        </div>
+    <?php } ?>
+</div>

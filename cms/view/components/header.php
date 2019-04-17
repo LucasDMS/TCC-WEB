@@ -1,5 +1,5 @@
 <header class="header">
-    <i id="nav" class="fas fa-bars"></i>
+    <i id="nav" class="fas fa-bars" onclick="toggleMenu()"></i>
 
     <div>
         <img src="" alt="">
