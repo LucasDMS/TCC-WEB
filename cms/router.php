@@ -385,6 +385,46 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+
+        case 'CADASTRO_ESTABELECIMENTO':
+            require_once('controller/controllerCadastroEstabelecimento.php');
+            $controller = new controllerCadastroEstabelecimento();
+
+            switch($modo){
+                case 'INSERIR':
+                    $controller->inserirCadastroEstabelecimento();
+                    break;
+            }
+        
+        case 'CADASTRO_USUARIO':
+            require_once('controller/controllerCadastroUsuario.php');
+            $controller = new controllerCadastroUsuario();
+
+            switch($modo){
+                case 'INSERIR':
+                    $controller->inserirCadastroUsuario();
+                    break;
+            }
+
+        case 'POPS_ESCOLA':
+            require_once('controller/controllerPopsEscola.php');
+            $ControllerPopsEscola = new ControllerPopsEscola();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPopsEscola->inserirPopsEscola();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPopsEscola->atualizarPopsEscola();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPopsEscola->excluirPopsEscola();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPopsEscola->ativarPopsEscola();
+                    break;
+            }
+            break;
+        
             case 'FUNCIONARIO':
             require_once('controller/controllerFuncionario.php');
             $ControllerFuncionario = new ControllerFuncionario();
