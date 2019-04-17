@@ -132,7 +132,6 @@ if(isset($_GET['controller'])){
                     $ControllerSobre_Nos ->atualizarSobre_Nos();
                     break;
                 case 'EXCLUIR':
-
                     $ControllerSobre_Nos->excluirSobre_Nos();
                     break;
 
@@ -250,16 +249,21 @@ if(isset($_GET['controller'])){
                 case 'INSERIR':
                     //Chamando o metodo de inserir uma nova TextoPrincipal
                     $ControllerTextoPrincipal->inserirTextoPrincipal();
+                    break;
                 
-                break;
                 case 'ATUALIZAR':
                     $ControllerTextoPrincipal ->atualizarTextoPrincipal();
                     break;
+                
                 case 'EXCLUIR':
                     //Chamando o metodo de excluir uma TextoPrincipal
                     $ControllerTextoPrincipal->excluirTextoPrincipal();
                     break;
 
+                case 'BUSCAR':   
+                    $TextoPrincipal =$ControllerTextoPrincipal->buscarTextoPrincipalPorId();
+                    break;
+                
                 case 'ATIVAR':
                     $ControllerTextoPrincipal->ativarTextoPrincipal();
                     break;

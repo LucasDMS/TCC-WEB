@@ -63,30 +63,32 @@ body {
 	display: none;
 	height: 100%;
 	width: 250px;
-	background-color: #212121;
-	color: rgb(255, 255, 255);
-	box-shadow: 0 0 5px gray;
+	background: rgb(57, 61, 68);
+	color: #fff;
+	border-right: 1px solid #ccc;
 }
 
 .nav li {
 	margin: 15px 0;
-	display: flex;
 	padding: 5px 15px;
-	justify-content: space-between;
 	transition: .2s;
 }
 
-.nav li:hover {
+.lista_btn{
 	cursor: pointer;
-	background-color: rgba(94, 94, 94, 0.3);
 }
 
-.nav li:hover>div, .seta {
-	transform: scale(1.05);
+.sub_menu{
+	display: none;
 }
 
-.nav li:hover>.seta {
-	transform: rotate(90deg);
+.sub_menu li{
+	color: #fff;
+}
+
+.sub_menu li:hover{
+	cursor: pointer;
+	color: #f8ae83;
 }
 
 #itens_barra_lateral {
@@ -97,6 +99,16 @@ body {
 
 .seta {
 	transition: .2s;
+}
+
+.lista_secundaria{
+	display: none;
+}
+
+.lista_btn{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 /* RESTO DA TELA */
@@ -114,8 +126,9 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: #202020;
-	color: #fff;
+	background-color: #ffffff;
+	color: #666;
+	border-bottom: 1px solid #ddd;
 }
 
 .header i {
@@ -136,7 +149,7 @@ body {
 #app_content{
 	height: 100%;
 	width: 100%;
-	background-color: #f8f9fc;
+	background-color: #dee4e9;
 	overflow: auto;
 }
 
@@ -151,13 +164,11 @@ footer{
 	font-size: 14px;
 }
 
-
 .tabela_padrao {
 	width: 1000px;
 	margin: 15px auto;
 	text-align: center;
-	border-collapse: collapse;
-	box-shadow: 0 0 5px 2px #dadada;
+	border: 2px solid #ddd;
 }
 
 .tabela_padrao thead{
@@ -166,9 +177,8 @@ footer{
 .tabela_padrao tbody {
 }
 
-
 .tabela_titlo {
-	background: linear-gradient(45deg, #137a47, #40ca62);
+	background: #167f49;
 	color: #fff;
 }
 
@@ -178,7 +188,6 @@ footer{
 
 .tabela_padrao tr {
 	height: 50px;
-	border-bottom: 1px solid #999;
 }
 
 .tabela_padrao tr:hover {
@@ -189,6 +198,14 @@ footer{
 	padding: 5px;
 }
 
+.tabela_padrao td{
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+.tabela_padrao img{
+	height: 100px;
+  width: 100px;
+}
 
 .form_padrao{
 	margin: auto;
@@ -200,7 +217,7 @@ footer{
 	display: block;
 }
 
-.form_padrao input, .form_padrao textarea{
+.form_padrao textarea{
 	height: 50px;
 	width: 100%;
 	margin: auto;
@@ -226,7 +243,7 @@ footer{
 
 .form_padrao button{
 	padding: 15px;
-	background-color: #40ca62;
+	background-color: #f8ae83;
 	border-radius: 5px;
 	border: none;
 	opacity: .9;
@@ -266,4 +283,130 @@ footer{
 	background-color: rgba(255, 255, 255, 0.95);
 	border-radius: 5px;
 	box-shadow: 0 0 5px gray;
+}
+
+
+
+
+.pagina_titulo{
+	max-width: 1440px;
+	padding: 15px 25px;
+	color: #f8ae83;
+	margin:25px auto;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #fff;
+	border-left: 3px solid #f8ae83;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu_novo{
+	height: 34px;
+	width: 34px;
+	background-color: #f8ae83;
+	border: none;
+	color: #fff;
+}
+
+.menu_novo:hover{
+	cursor: pointer;
+	color: #393d44;
+}
+
+.card_wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1450px;
+	margin: auto;
+}
+
+.card{
+	height: 350px;
+	width: 280px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: auto;
+}
+
+.card_imagem{
+	display: block;
+	margin: auto;
+	height: 250px;
+	max-width: 100%;
+}
+
+.card_operadores{
+	display: flex;
+	justify-content: space-between;
+}
+
+.card_operadores a{
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	line-height: 50px;
+	background-color: #393d44;
+}
+
+.card_operadores a:hover{
+	color: #f8ae83;
+}
+
+
+/*FORM INPUT*/
+
+.inputDados {
+	position: relative;
+	font-family: sans-serif;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.inputDados input,
+.inputDados textarea {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+
+	border: none;
+	border-bottom: 2px solid #666;
+	outline: none;
+	background-color: transparent;
+}
+
+.inputDados textarea {
+	height: 50px;
+	resize: none;
+}
+
+.inputDados label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	pointer-events: none;
+	transition: .5s;
+}
+
+.inputDados input:focus~label,
+.inputDados input:valid~label,
+.inputDados textarea:focus~label,
+.inputDados textarea:valid~label {
+	top: -18px;
+	left: 0;
+	color: #f8ae83;
+	font-size: 12px;
+}
+
+.inputDados input:focus,
+.inputDados input:valid {
+	border-bottom: 2px solid #f8ae83;
 }
