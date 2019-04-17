@@ -1,18 +1,18 @@
 <?php
 
 /* 
-    Projeto: MVC página Sobre_Nos.
+    Projeto: MVC página SobreNos.
     Autor: Kelvin
     Data Criação: 06/04/2019
     Data Modificação:
     Conteúdo Modificado:
     Autor da Modificação:
-    Objetivo da Classe: CRUD da página Sobre_Nos.
+    Objetivo da Classe: CRUD da página SobreNos.
 */
 
-    class Sobre_NosDAO{
+    class SobreNosDAO{
     private $conex;
-    private $sobre_nos;
+    private $SobreNos;
     public function __construct() 
     {
         //Recebe a informação da view e envia para o objeto
@@ -22,44 +22,44 @@
         $this->conex = new conexaoMysql();
     }
     
-     public function insert(Sobre_Nos $sobre_nos) {
+     public function insert(SobreNos $SobreNos) {
         $conn = $this->conex->connectDatabase();
         $sql = "insert into tbl_conheca_sobre_nos(titulo,texto,ordem,ativo,apagado) values(?,?,?,?,?);";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $sobre_nos->getTitulo()); 
-        $stm->bindValue(2, $sobre_nos->getTexto());        
-        $stm->bindValue(3, $sobre_nos->getOrdem());
-        $stm->bindValue(4, $sobre_nos->getAtivo());
-        $stm->bindValue(5, $sobre_nos->getApagado());
+        $stm->bindValue(1, $SobreNos->getTitulo()); 
+        $stm->bindValue(2, $SobreNos->getTexto());        
+        $stm->bindValue(3, $SobreNos->getOrdem());
+        $stm->bindValue(4, $SobreNos->getAtivo());
+        $stm->bindValue(5, $SobreNos->getApagado());
         $stm->execute();
         $this->conex->closeDataBase();
     }    
-    public function update(Sobre_Nos $sobre_nos) {
+    public function update(SobreNos $SobreNos) {
         $conn = $this->conex->connectDatabase();
         $sql = "update tbl_conheca_sobre_nos set titulo=? texto=? where id_conheca_sobre_nos=?";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $sobre_nos->getTitulo());
-        $stm->bindValue(2, $sobre_nos->getTexto());
-        $stm->bindValue(3, $sobre_nos->getId());
+        $stm->bindValue(1, $SobreNos->getTitulo());
+        $stm->bindValue(2, $SobreNos->getTexto());
+        $stm->bindValue(3, $SobreNos->getId());
         $stm->execute();
         $this->conex->closeDataBase();
     }    
     //Atualizar o Sobre_Nos no site ativo
-    public function updateAtivo(Sobre_Nos $sobre_nos) 
+    public function updateAtivo(SobreNos $SobreNos) 
     {
         $conn = $this->conex->connectDatabase();
-        if($sobre_nos->getAtivo()=="0")
+        if($SobreNos->getAtivo()=="0")
         {
-            $sobre_nos->setAtivo("1");
+            $SobreNos->setAtivo("1");
         }
         else 
         {
-            $sobre_nos->setAtivo("0");
+            $SobreNos->setAtivo("0");
         }
         $sql = "update tbl_conheca_sobre_nos set ativo=? where id_conheca_sobre_nos=?;";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $sobre_nos->getAtivo());
-        $stm->bindValue(2, $sobre_nos->getId());
+        $stm->bindValue(1, $SobreNos->getAtivo());
+        $stm->bindValue(2, $SobreNos->getId());
         $stm->execute();
         $this->conex->closeDataBase();
     }
@@ -92,13 +92,13 @@
             
             $result = $stm->fetch(PDO::FETCH_ASSOC);
             
-            $Sobre_Nos = new Sobre_Nos();
-            $Sobre_Nos->setId($result['id_conheca_sobre_nos']);
-            $Sobre_Nos->setTitulo($result['titulo']);
-            $Sobre_Nos->setTexto($result['texto']);
-            $Sobre_Nos->setAtivo($result['ativo']);
-            $Sobre_Nos->setApagado($result['apagado']);
-            return $Sobre_Nos;
+            $SobreNos = new SobreNos();
+            $SobreNos->setId($result['id_conheca_sobre_nos']);
+            $SobreNos->setTitulo($result['titulo']);
+            $SobreNos->setTexto($result['texto']);
+            $SobreNos->setAtivo($result['ativo']);
+            $SobreNos->setApagado($result['apagado']);
+            return $SobreNos;
         }
     }
         
@@ -109,18 +109,18 @@
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
         if ($success) {
-            $listSobre_Nos = [];
+            $listSobreNos = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Sobre_Nos = new Sobre_Nos();
-                $Sobre_Nos->setId($result['id_conheca_sobre_nos']);
-                $Sobre_Nos->setTitulo($result['titulo']);
-                $Sobre_Nos->setTexto($result['texto']);
-                $Sobre_Nos->setAtivo($result['ativo']);
-                $Sobre_Nos->setApagado($result['apagado']);
-                array_push($listSobre_Nos, $Sobre_Nos);
+                $SobreNos = new SobreNos();
+                $SobreNos->setId($result['id_conheca_sobre_nos']);
+                $SobreNos->setTitulo($result['titulo']);
+                $SobreNos->setTexto($result['texto']);
+                $SobreNos->setAtivo($result['ativo']);
+                $SobreNos->setApagado($result['apagado']);
+                array_push($listSobreNos, $SobreNos);
             };
             $this->conex -> closeDataBase();
-            return $listSobre_Nos;
+            return $listSobreNos;
         } else {
             return "Erro";
         }

@@ -19,7 +19,7 @@ class CadastroUsuarioDAO{
     }
 
     //função que cadastra o Usuario comercial no banco
-    public function inserir(Cadastro_usuario $usuario){
+    public function inserir(CadastroUsuario $usuario){
         //conexao com o banco de dados
         $conn = $this->conex->connectDatabase();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);

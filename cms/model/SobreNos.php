@@ -8,7 +8,7 @@
     Autor da Modificação:
     Objetivo da classe: Classe de contatos
 */
-class Sobre_Nos{
+class SobreNos{
 
     private $id;
     private $titulo;

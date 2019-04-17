@@ -18,9 +18,9 @@ $id = "";
 if(isset($_GET['id'])){
     
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSobre_Nos.php");
-    $Controller = new ControllerSobre_Nos();
-    $Sobre_Nos = $Controller->buscarSobre_NosPorId($id);
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSobreNos.php");
+    $Controller = new ControllerSobreNos();
+    $Sobre_Nos = $Controller->buscarSobreNosPorId($id);
     $action = "router.php?controller=sobre_nos&modo=atualizar";
     $modo = "atualizar";
     $titulo = $Sobre_Nos->getTitulo();
