@@ -217,7 +217,7 @@ footer{
 	display: block;
 }
 
-.form_padrao input, .form_padrao textarea{
+.form_padrao textarea{
 	height: 50px;
 	width: 100%;
 	margin: auto;
@@ -348,4 +348,56 @@ footer{
 
 .card_operadores a:hover{
 	color: #f8ae83;
+}
+
+
+/*FORM INPUT*/
+
+.inputDados {
+	position: relative;
+	font-family: sans-serif;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+.inputDados input,
+.inputDados textarea {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+
+	border: none;
+	border-bottom: 2px solid #666;
+	outline: none;
+	background-color: transparent;
+}
+
+.inputDados textarea {
+	height: 50px;
+	resize: none;
+}
+
+.inputDados label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	pointer-events: none;
+	transition: .5s;
+}
+
+.inputDados input:focus~label,
+.inputDados input:valid~label,
+.inputDados textarea:focus~label,
+.inputDados textarea:valid~label {
+	top: -18px;
+	left: 0;
+	color: #f8ae83;
+	font-size: 12px;
+}
+
+.inputDados input:focus,
+.inputDados input:valid {
+	border-bottom: 2px solid #f8ae83;
 }

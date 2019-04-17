@@ -18,43 +18,36 @@ $rs = $controller->buscarProduto_Destaque();
 ?>
 
 
+<div class="pagina_titulo">
+    Produto em Destaque
+</div>
 
-<table class="tabela_padrao">
-    <thead>
+<div class="card_wrapper">
+    <!-- CARD -->
+    <?php foreach ($rs as $result) { ?>
+        <div class="card">
+            <div>
+                Nome : 
+                <?php echo $result->getNome(); ?>
+            </div>
+            <div>
+                Texto : 
+                <?php echo $result->getTexto(); ?>
+            </div>
 
-        <tr class="tabela_titlo">
-            <th colspan="7">
-                PRODUTO DESTAQUE
-            </th>
-        </tr>
-        <tr class="tabela_header">
-            <th>texto</th>
-            <th>Imagem</th>
-            <th>Descrição</th>
-            <th colspan="3">Ações</th>
-        </tr>
+            <div class="card_operadores">
+                <a  onclick="asyncAtivar(this)" 
+                    href="#"
+                    data-pagina="produto_destaque"
+                    data-url="router.php?controller=produto_destaque&modo=ativar" 
+                    data-id="<?php echo $result->getId(); ?>"
+                    data-ativo="<?php echo $result->getAtivo(); ?>">
 
-    </thead>
+                    <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
+                    <i class="far fa<?php echo $ativo ?>-square"></i>
+                </a>  
+            </div>
 
-    <tbody>
-        <?php foreach ($rs as $result) { ?>
-            <tr>
-                <td><?php echo $result->getNome(); ?></td>
-                <td></td>
-                <td><?php echo $result->getTexto(); ?></td>
-                <td>
-                    <a  onclick="asyncAtivar(this)" 
-                        href="#"
-                        data-pagina="produto_destaque"
-                        data-url="router.php?controller=produto_destaque&modo=ativar" 
-                        data-id="<?php echo $result->getId(); ?>"
-                        data-ativo="<?php echo $result->getAtivo(); ?>">
-
-                        <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
-                        <i class="far fa<?php echo $ativo ?>-square"></i>
-                    </a>
-                </td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+        </div>
+    <?php } ?>
+</div>

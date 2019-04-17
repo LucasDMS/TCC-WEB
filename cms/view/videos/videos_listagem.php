@@ -11,49 +11,45 @@
     
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerVideos.php");
     $controller = new ControllerVideos();
-    $consulta = $controller->listarVideos();
+    $rs = $controller->listarVideos();
 
 
 ?>
 
+<div class="pagina_titulo">
+    Videos
+    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('videos')">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
 
-<button type="menu" onclick="chamarViewParaModal('videos')">
-    Novo
-    <i class="fas fa-plus"></i>
-</button>
+<div class="card_wrapper">
+    <!-- CARD -->
+    <?php foreach ($rs as $result) { ?>
+        <div class="card">
+            <div>
+                Título : 
+                <?php echo $result->getTitulo(); ?>
+            </div>
+            <div>
+                Link : 
+                <?php echo $result->getLink(); ?>
+            </div>
+            <div>
+                Descrição : 
+                <?php echo $result->getDescricao(); ?>
+            </div>
 
-<table class="tabela_padrao">
-    <thead>
-        <tr class="tabela_titlo">
-            <th colspan="7">
-                Videos
-            </th>
-        </tr>
-        <tr class="tabela_header">
-            <th>Titulo</th>
-            <th>Link</th>
-            <th>Descricao</th>
-            <th colspan="3">Ações</th>
-        </tr>
-    </thead>
-
-    <tbody>
-    <?php foreach ($consulta as $result){ ?>
-        <tr>
-            <td><?php echo $result->getTitulo()?></td>
-            <td><?php echo $result->getLink()?></td>
-            <td><?php echo $result->getDescricao()?></td>
-            <td>
+            <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
-                href="#"
+                    href="#"
                     data-pagina="videos"
                     data-url="view/videos/videos_form.php?id=<?php echo $result->getId();?>"
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-pen"></i>
                 </a>
-            </td>
-            <td>
+
                 <a  onclick="asyncAtivar(this)"
                     href="#"
                     data-pagina="videos"
@@ -64,8 +60,7 @@
                     <?php $ativo = ($result->getStatus()==1) ? "-check" : "" ; ?>
                     <i class="far fa<?php echo $ativo ?>-square"></i>
                 </a>
-            </td>
-            <td>
+
                 <a  onclick="asyncApagar(this)"
                     href="#"
                     data-pagina="videos"
@@ -73,11 +68,9 @@
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-trash"></i>
-                </a>
-            </td>
-        </tr>
-    <?php
-        }
-    ?>
-    </tbody>
-</table>
+                </a> 
+            </div>
+
+        </div>
+    <?php } ?>
+</div>

@@ -49,7 +49,7 @@
                     <li onclick="chamarViewParaApp('produto')">
                         <div>
                             <i class="fas fa-wrench"></i>
-                            Produto
+                            Produto (Página de produtos)
                         </div>
                     </li>
                     <li onclick="chamarViewParaApp('mvv')">
@@ -82,7 +82,7 @@
                     <li onclick="chamarViewParaApp('produto_destaque')">
                         <div>
                             <i class="fas fa-wrench"></i>
-                            Produto Destaque
+                            Produto em Destaque (Home)
                         </div>
                     </li>
 

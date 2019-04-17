@@ -6,31 +6,30 @@ $controller = new ControllerTextoPrincipal();
 $rs = $controller->buscarTextoPrincipal();
 
 ?>
-<table class="tabela_padrao">
-    <thead>
-        <tr class="tabela_titlo">
-            <th colspan="7">
-                Texto Principal
-            </th>
-        </tr>
-        <tr class="tabela_header">
-            <th>Titulo</th>
-            <th>Texto</th>
-            <th>Página</th>
-            
-            <th colspan="3">Ações</th>
-        </tr>
-    </thead>
 
-    <tbody>
+<div class="pagina_titulo">
+    Texto Principal
+</div>
+
+<div class="card_wrapper">
+    <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
-            <tr>
-            <td><?php echo $result->getTitulo(); ?></td>
-                <td><?php echo $result->getTexto(); ?></td>
-                <td><?php echo $result->getTipoTexto(); ?></td>
+        <div class="card">
+            <div>
+                Titulo : 
+                <?php echo $result->getTitulo(); ?>
+            </div>
+            <div>
+                Texto : 
+                <?php echo $result->getTexto(); ?>
+            </div>
+            <div>
+                Tipo de Texto : 
+                <?php echo $result->getTipoTexto(); ?>
+            </div>
 
-                <td>
-                    <a  onclick="asyncBuscarDados(this)"
+            <div class="card_operadores">
+                <a  onclick="asyncBuscarDados(this)"
                         href="#"
                         data-pagina="texto_principal"
                         data-url="view/texto_principal/texto_principal_form.php?id=<?php echo $result->getId(); ?>"
@@ -38,8 +37,8 @@ $rs = $controller->buscarTextoPrincipal();
 
                         <i class="fas fa-pen"></i>
                     </a>
-                </td>
-                
-        </tr>
-        <?php } ?>
-    </tbody>
+            </div>
+
+        </div>
+    <?php } ?>
+</div>
