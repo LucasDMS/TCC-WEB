@@ -11,7 +11,7 @@
 	
 </head>
 <body>
-    
+    <?php require_once("view/components/alertas.php"); ?>
     <?php require_once("view/components/modal.php"); ?>
     <?php require_once("view/components/header.php"); ?>
 

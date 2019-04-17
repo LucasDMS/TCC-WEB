@@ -63,9 +63,10 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
+
         recarregarLista(pagina);
         modalToggle(false);
-        console.log(id);
+        mostrarAlerta(html)
     });
 }
 
@@ -217,3 +218,14 @@ function loader(){
 $(".modal_saida").on("click", function () {
     modalToggle(false);
 });
+
+function mostrarAlerta(texto){
+
+    $("#alerta").html(texto)
+
+    $("#alerta").fadeIn(150, function(){
+        setTimeout(() => {
+            $("#alerta").fadeOut(150)
+        }, 500);
+    });
+}
