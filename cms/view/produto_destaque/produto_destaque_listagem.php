@@ -17,7 +17,6 @@ $rs = $controller->buscarProduto_Destaque();
 
 ?>
 
-
 <div class="pagina_titulo">
     Produto em Destaque
 </div>

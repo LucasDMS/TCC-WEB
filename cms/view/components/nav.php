@@ -115,6 +115,7 @@
                     </li>
 
                 </ul>
+
             </div>
         </li>
         <li>
@@ -150,6 +151,13 @@
                 </ul>
             </div>
         </li>
+        <li onclick="chamarViewParaApp('funcionario')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Funcionario
+            </div>
+        </li>
+
     </ul>
 
 </nav>

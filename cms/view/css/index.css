@@ -226,6 +226,15 @@ footer{
 	background-color: transparent;
 }
 
+.form_padrao input[type="checkbox"]{
+	height: 15px;
+	width: 15px;
+}
+
+.container{
+	display: flex;
+	flex-wrap: wrap;
+}
 .form_padrao textarea{
 	resize: none;
 	padding-top: 5px;

@@ -20,5 +20,9 @@ class ControllerSessao{
             $this->SessaoDAO->select($Sessao);
         }
     }
+    public function buscarFuncionarioPorId(){
+        $id = $_GET['id'];
+        return $this->SessaoDAO->selectById($id);
+    }
 }
 ?>
