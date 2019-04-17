@@ -1,3 +1,5 @@
+const TYPE = { "ERROR" : 0, "SUCCESS" : 1, "ALERT" : 2 }
+
 /**
  * 
  * @param {*} pagina 
@@ -65,8 +67,9 @@ function asyncSubmit(event, element) {
     .done(function (html) {
 
         recarregarLista(pagina);
-        modalToggle(false);
-        mostrarAlerta(html)
+        // modalToggle(false);
+        // mostrarAlerta(html, TYPE.ALERT, 5000)
+        mostrarAlerta("jooj", TYPE.SUCCESS, 1000)
     });
 }
 
@@ -212,20 +215,32 @@ function loader(){
     console.log('loader');
 }
 
-
-
-
 $(".modal_saida").on("click", function () {
     modalToggle(false);
 });
 
-function mostrarAlerta(texto){
+function mostrarAlerta(texto, tipo, duracao){
 
-    $("#alerta").html(texto)
+    var alertaDIV = $("#alerta")
 
-    $("#alerta").fadeIn(150, function(){
+    switch(tipo){
+        case 0:
+            alertaDIV.css( "background-color", "red" )
+            break
+        case 1:
+            alertaDIV.css( "background-color", "green" )
+            break
+        case 2:
+            alertaDIV.css( "background-color", "orange" )
+            break
+    }
+
+    alertaDIV.html(texto)
+    alertaDIV.fadeIn(350, function(){
+
         setTimeout(() => {
-            $("#alerta").fadeOut(150)
-        }, 500);
+            alertaDIV.fadeOut(350)
+        }, duracao);
+        
     });
 }
