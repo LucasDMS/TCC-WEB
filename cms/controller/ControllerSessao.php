@@ -20,9 +20,16 @@ class ControllerSessao{
             $this->SessaoDAO->select($Sessao);
         }
     }
-    public function buscarFuncionarioPorId(){
+    public function buscarSessaoPorId(){
         $id = $_GET['id'];
         return $this->SessaoDAO->selectById($id);
     }
+    public function VerificarSessaoUsuario(){
+        $usuario = $_POST('txtUsuario');
+        $Sessao = new Sessao();
+        $Sessao->setLogin($usuario);
+        return $this->SessaoDAO->selectVerify($Sessao);
+    }
+
 }
 ?>

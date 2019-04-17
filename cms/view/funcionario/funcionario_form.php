@@ -1,49 +1,55 @@
 <?php 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerMenu.php");
-$nome = null;
-$login = null;
-$senha = null;
-$tipo = null;
-$cargo = null;
-$setor = null;
-$dataEmissao = null;
-$checked = null;
-$Pagina = array();
-$action = "router.php?controller=funcionario&modo=inserir";
-$modo = "inserir";
-$id = "";
-$idAutenticacao = "";
-$idMenu = null;
-$ControllerMenu = new ControllerMenu();
-$Paginas = $ControllerMenu->buscarMenu();
-if(isset($_GET['id']) && $_GET['idAutenticacao']){
-    $id = $_GET['id'];
-    $idAutenticacao = $_GET['idAutenticacao'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
-    
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
 
+    $nome = null;
+    $login = null;
+    $senha = null;
+    $tipo = null;
+    $cargo = null;
+    $setor = null;
+    $dataEmissao = null;
+    $checked = null;
+    $Pagina = array();
+    $action = "router.php?controller=funcionario&modo=inserir";
+    $modo = "inserir";
+    $id = "";
+    $idAutenticacao = "";
+    $idMenu = null;
+    $ControllerMenu = new ControllerMenu();
     $Controller = new ControllerFuncionario();
     $ControllerSessao = new ControllerSessao();
 
-    
-    $Pagina = $ControllerMenu->buscarMenuPorId($id);
-    $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
-    $Funcionario = $Controller->buscarFuncionarioPorId($id);
 
-    $action = "router.php?controller=funcionario&modo=atualizar";
-    $modo = "atualizar";
-    $nome = $Funcionario->getNome();
-    $setor= $Funcionario->getSetor();
-    $cargo = $Funcionario->getCargo();
-    $dataEmissao= $Funcionario->getDataEmissao();
-    $login = $Sessao->getLogin();
-    $senha = $Sessao->getSenha();
-    $tipo = $Sessao->getTipo();
+    $Paginas = $ControllerMenu->buscarMenu();
+    $Verificar = $ControllerSessao->VerificarSessaoUsuario();
+    if(isset($_GET['id']) && $_GET['idAutenticacao']){
+        $id = $_GET['id'];
+        $idAutenticacao = $_GET['idAutenticacao'];
 
-    
-}
+
+
+        
+
+
+        $Pagina = $ControllerMenu->buscarMenuPorId($id);
+        $Sessao = $ControllerSessao->buscarSessaoPorId($id);
+        $Funcionario = $Controller->buscarFuncionarioPorId($id);
+
+        $action = "router.php?controller=funcionario&modo=atualizar";
+        $modo = "atualizar";
+        $nome = $Funcionario->getNome();
+        $setor= $Funcionario->getSetor();
+        $cargo = $Funcionario->getCargo();
+        $dataEmissao= $Funcionario->getDataEmissao();
+        $login = $Sessao->getLogin();
+        $senha = $Sessao->getSenha();
+        $tipo = $Sessao->getTipo();
+
+
+    }
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)"
@@ -59,7 +65,7 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         data-modo="<?php echo $modo; ?>"
         data-pagina="funcionario">
 
-        <input type="text" name="txtNome" id="txt_hora" placeholder="Nome" value="<?php echo $nome;?>"><br>
+        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $nome;?>"><br>
         <input type="text" name="txtLogin" id="txtLogin" placeholder="Login" value="<?php echo $login;?>"><br>
         <input type="text" name="txtPassword" id="txtPassword" placeholder="Senha" value="<?php echo $senha;?>"><br>
         <input type="text" name="txtTipo" id="txtTipo" placeholder="Tipo" value="<?php echo $tipo;?>"><br>
@@ -79,9 +85,6 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
                     $checked = 'checked';
                 }
             }
-       
-
-        
         ?>
         <input type="checkbox" <?php echo $checked;?> 
             value="<?php echo $result->getId() ?>" 
@@ -94,11 +97,7 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         </label>
         
     <?php 
-        
-     
     }
-         
-    
     ?>
         </div>
     <button class="btn">

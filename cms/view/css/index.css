@@ -410,3 +410,16 @@ footer{
 .inputDados input:valid {
 	border-bottom: 2px solid #f8ae83;
 }
+
+/*ALERTA*/
+
+.alerta{
+	position: fixed;
+	bottom: 0;
+	z-index: 99999;
+	height: 100px;
+	width: 0px;
+	overflow: hidden;
+	background-color: red;
+	transition: .5s;
+}
