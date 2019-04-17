@@ -101,5 +101,12 @@
             </div>
         </li>
 
+        <li onclick="chamarViewParaApp('pops_escola')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Pops Escola
+            </div>
+        </li>
+
     </ul>
 </nav>

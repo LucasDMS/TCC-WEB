@@ -426,6 +426,25 @@ if(isset($_GET['controller'])){
                     $controller->inserirCadastroUsuario();
                     break;
             }
+
+        case 'POPS_ESCOLA':
+            require_once('controller/controllerPopsEscola.php');
+            $ControllerPopsEscola = new ControllerPopsEscola();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPopsEscola->inserirPopsEscola();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerPopsEscola->atualizarPopsEscola();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerPopsEscola->excluirPopsEscola();
+                    break;
+                case 'ATIVAR':
+                    $ControllerPopsEscola->ativarPopsEscola();
+                    break;
+            }
+            break;
         
     }
 }
