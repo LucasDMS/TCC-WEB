@@ -40,6 +40,11 @@ if(isset($_GET['id'])){
         data-pagina="sobre_nos"
         data-modo="<?php echo $modo?>"
         class="form_padrao">
+
+    <div class="inputDados">
+        <input value="<?php echo $texto ?>" name="txtTexto" type="text"  tabindex=1 required>
+        <label from="txtTexto">Texto</label>
+    </div>
     
     <textarea name="txt_titulo" id="txt_titulo" required><?php echo $titulo?></textarea>
     <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?></textarea>

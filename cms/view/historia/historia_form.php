@@ -6,7 +6,7 @@ $id = "";
 if(isset($_GET['id'])){
     
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerHistoria.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerHistoria.php");
     $Controller = new ControllerHistoria();
     $Historia = $Controller->buscarHistoriaPorId($id);
     $action = "router.php?controller=historia&modo=atualizar";

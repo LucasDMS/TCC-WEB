@@ -25,6 +25,7 @@ function chamarViewParaModal(pagina) {
 function chamarViewParaApp(pagina) {
 
     var url = formatarLink(pagina, "listagem");
+    sessionStorage.setItem('pagina', pagina)
 
     $.ajax({
         type: "GET",
@@ -49,7 +50,9 @@ function asyncSubmit(event, element) {
     var formdata = new FormData(element);
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
+    var idAutenticacao = element.getAttribute("data-idAutenticacao");
     formdata.append("id", id);
+    formdata.append("idAutenticacao", idAutenticacao);
 
     $.ajax({
         type: "POST",
@@ -60,8 +63,10 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
+
         recarregarLista(pagina);
         modalToggle(false);
+        mostrarAlerta(html)
     });
 }
 
@@ -89,7 +94,6 @@ function asyncBuscarDados(element) {
         processData: false,
     })
     .done(function (dados) {
-        console.log(pagina);
         $("#modal").html(dados);
         // reloadList(pagina);
         modalToggle(true);
@@ -214,3 +218,14 @@ function loader(){
 $(".modal_saida").on("click", function () {
     modalToggle(false);
 });
+
+function mostrarAlerta(texto){
+
+    $("#alerta").html(texto)
+
+    $("#alerta").fadeIn(150, function(){
+        setTimeout(() => {
+            $("#alerta").fadeOut(150)
+        }, 500);
+    });
+}
