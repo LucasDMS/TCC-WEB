@@ -53,11 +53,14 @@ class ControllerFuncionario{
             $cargo  = $_POST['txtCargo'];
             $setor = $_POST['txtSetor'];
             $data_emissao  = $_POST['txtDtEmissao'];
+            $idMenu = $_POST['checkbox'];
 
            
 
             $Funcionario = new Funcionario(); 
             $Sessao = new Sessao(); 
+            $MenuFuncionario = new MenuFuncionario();
+
             $Funcionario->setId($id);
             $Funcionario->setNome($nome);
             $Funcionario->setCargo($cargo);
@@ -69,7 +72,10 @@ class ControllerFuncionario{
             $Sessao->setSenha($password);
             $Sessao->setTipo($tipo);
 
-            $this->FuncionarioDAO->update($Funcionario, $Sessao);
+            $MenuFuncionario->setIdFuncionario($id);
+            $MenuFuncionario->setIdMenu($idMenu);
+            var_dump($idMenu);
+            $this->FuncionarioDAO->update($Funcionario, $Sessao, $MenuFuncionario);
         }
     }
 

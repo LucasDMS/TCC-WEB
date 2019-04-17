@@ -49,7 +49,7 @@ class FuncionarioDAO {
        echo $MenuFuncionario->getIdFuncionario();
         $this->conex->closeDataBase();
     }
-    public function update(Funcionario $Funcionario, Sessao $Sessao) {
+    public function update(Funcionario $Funcionario, Sessao $Sessao, MenuFuncionario $MenuFuncionario) {
       $conn = $this->conex->connectDatabase();
         // //Update no funcionario
         $sql = "update tbl_funcionario_web set nome = ?, cargo = ?, setor = ?, data_emissao = ? where id_funcionario_web=?";
@@ -68,7 +68,19 @@ class FuncionarioDAO {
         $stm->bindValue(3, $Sessao->getTipo());
         $stm->bindValue(4, $Sessao->getId());
         $stm->execute();
-  
+
+        $sql = "delete from tbl_menu_funcionario_web where id_funcionario_web =? ";
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $MenuFuncionario->getIdFuncionario()); 
+        $stm->execute();
+        foreach($MenuFuncionario->getIdMenu() as $result){
+            $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $result);        
+            $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
+            $stm->execute();
+        }
+        $this->conex->closeDataBase();
         $this->conex->closeDataBase();
     }
     //Update no funcionario ativo

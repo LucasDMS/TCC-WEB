@@ -9,7 +9,7 @@ $cargo = null;
 $setor = null;
 $dataEmissao = null;
 $checked = null;
-
+$Pagina = array();
 $action = "router.php?controller=funcionario&modo=inserir";
 $modo = "inserir";
 $id = "";
@@ -70,16 +70,18 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         <div class="container" >
         
     <?php  
-   
+     
     foreach ($Paginas as $result){ 
         $checked = "";
-        foreach ($Pagina as $result1){
-            
-            if($result->getId() == $result1->getIdMenu()){
-                $checked = 'checked';
+    
+            foreach ($Pagina as $result1){
+                if($result->getId() == $result1->getIdMenu()){
+                    $checked = 'checked';
+                }
             }
-        }
        
+
+        
         ?>
         <input type="checkbox" <?php echo $checked;?> 
             value="<?php echo $result->getId() ?>" 
