@@ -414,12 +414,12 @@ footer{
 /*ALERTA*/
 
 .alerta{
+	display: none;
 	position: fixed;
 	bottom: 0;
 	z-index: 99999;
 	height: 100px;
-	width: 0px;
+	width: 500px;
 	overflow: hidden;
 	background-color: red;
-	transition: .5s;
 }
