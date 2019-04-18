@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSustentabilidade.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSustentabilidade.php");
 
 $controller = new ControllerSustentabilidade();
 $rs = $controller->buscarSustentabilidades();

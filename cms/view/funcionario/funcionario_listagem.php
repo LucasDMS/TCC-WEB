@@ -1,6 +1,6 @@
 <?php 
  
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/ControllerFuncionario.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerFuncionario.php");
     $controller = new ControllerFuncionario();
     $rs = $controller->buscarFuncionario();
 

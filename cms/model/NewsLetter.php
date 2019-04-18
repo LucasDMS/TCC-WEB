@@ -9,7 +9,7 @@
     Objetivo da classe: Classe de model para news letter
 */
 
-class News_letter{
+class NewsLetter{
 
     private $id;
     private $new_letter;

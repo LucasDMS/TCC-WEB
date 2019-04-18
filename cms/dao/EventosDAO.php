@@ -6,7 +6,7 @@
         Data Modificação:
         Conteúdo Modificado:
         Autor da Modificação:
-        Objetivo da classe: Classe dao de eventos
+        Objetivo da classe: class que manipula o banco de dados
     */
     class EventosDAO{
         private $conex;

@@ -1,5 +1,5 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerPatrocinio.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPatrocinio.php");
 $controller = new ControllerPatrocinio();
 $rs = $controller->buscarPatrocinio();
 ?>

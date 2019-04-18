@@ -9,7 +9,7 @@
     Objetivo da classe: página Produto em Destaque.
 */
 
-class Produto_Destaque
+class ProdutoDestaque
 {
     //Atributos do Produto_Destaque
     private $id;
