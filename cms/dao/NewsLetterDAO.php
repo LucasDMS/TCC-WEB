@@ -18,7 +18,7 @@ class NewsLetterDao{
 
             $listNewsLetter = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $NewsLetter = new News_letter();
+                $NewsLetter = new NewsLetter();
                 $NewsLetter->setId($result['id_news_letter']);
                 $NewsLetter->setNew_letter($result['email']);
                 array_push($listNewsLetter, $NewsLetter);

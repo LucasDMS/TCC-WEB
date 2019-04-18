@@ -1,58 +1,51 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFaleConosco.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerFaleConosco.php");
 
 $controller = new ControllerFaleConosco();
 $rs = $controller->buscarFaleConosco();
 
 ?>
 
+<div class="pagina_titulo">
+    Fale Conosco
+</div>
 
-<table class="tabela_padrao">
-    <thead>
+<div class="card_wrapper">
+    <!-- CARD -->
+    <?php foreach ($rs as $result) { ?>
+        <div class="card">
+            <div>
+                Nome : 
+                <?php echo $result->getNome(); ?>
+            </div>
+            <div>
+                Email : 
+                <?php echo $result->getEmail(); ?>
+            </div>
 
-        <tr class="tabela_titlo">
-            <th colspan="7">
-                FALE CONOSCO
-            </th>
-        </tr>
-        <tr class="tabela_header">
-            <th>texto</th>
-            <th>ordem</th>
-            <th colspan="3">Ações</th>
-        </tr>
+            <div class="card_operadores">
+                <a  onclick="asyncBuscarDados(this)"
+                    href="#"
+                    data-pagina="fale_conosco"
+                    data-url="view/fale_conosco/fale_conosco_form.php?id=<?php echo $result->getId(); ?>"
+                    data-id="<?php echo $result->getId(); ?>">
 
-    </thead>
+                    <i class="fas fa-search"></i>
+                </a>
 
-    <tbody>
-        <?php foreach ($rs as $result) { ?>
-            <tr>
-                <td><?php echo $result->getNome(); ?></td>
-                <td><?php echo $result->getEmail(); ?></td>
+                <a  onclick="asyncAtivar(this)" 
+                    href="#"
+                    data-pagina="fale_conosco"
+                    data-url="router.php?controller=fale_conosco&modo=ativar" 
+                    data-id="<?php echo $result->getId(); ?>"
+                    data-ativo="<?php echo $result->getStatus(); ?>">
 
-                <td>
-                    <a  onclick="asyncBuscarDados(this)"
-                        href="#"
-                        data-pagina="fale_conosco"
-                        data-url="view/fale_conosco/fale_conosco_form.php?id=<?php echo $result->getId(); ?>"
-                        data-id="<?php echo $result->getId(); ?>">
+                    <?php $status = ($result->getStatus()=='1') ? "-open" : "" ; ?>
+                    <i class="fas fa-envelope<?php echo $status ?>"></i>
+                </a>
+            </div>
 
-                        <i class="fas fa-pen"></i>
-                    </a>
-                </td>
-                <td>
-                    <a  onclick="asyncAtivar(this)" 
-                        href="#"
-                        data-pagina="fale_conosco"
-                        data-url="router.php?controller=fale_conosco&modo=ativar" 
-                        data-id="<?php echo $result->getId(); ?>"
-                        data-ativo="<?php echo $result->getStatus(); ?>">
-
-                        <?php $status = ($result->getStatus()=='Lido') ? "-check" : "" ; ?>
-                        <i class="far fa<?php echo $status ?>-square"></i>
-                    </a>
-                </td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+        </div>
+    <?php } ?>
+</div>

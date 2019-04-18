@@ -12,7 +12,7 @@ $modo = "inserir";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerPromocao.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPromocao.php");
 
     $Controller = new ControllerPromocao();
     $Promocao = $Controller->buscarPromocaoPorId($id);

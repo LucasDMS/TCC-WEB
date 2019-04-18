@@ -61,7 +61,6 @@ function abrirLogin(){
             url: "components/login.php"
         })
         .done(function(html){
-
             $(".menu_direita_container").html(html);
         })
 
