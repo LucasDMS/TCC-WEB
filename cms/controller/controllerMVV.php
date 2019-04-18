@@ -2,8 +2,6 @@
 
 class ControllerMVV{
 
-    jooj
-    
     private $MVVDAO;
     
     public function __construct(){
