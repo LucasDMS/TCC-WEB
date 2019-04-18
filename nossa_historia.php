@@ -25,10 +25,13 @@
 <body>
 	
 	<?php 
-		
+		session_start();
+		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		
+        $conex = new conexaoMysql();
+		$con = $conex->connectDatabase();
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
@@ -52,33 +55,25 @@
 			<div class="historia_container">
 
 				<i class="fas fa-book"></i>
-
+                
+                <?php		
+					$sql = "select * from tbl_historia";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
+                
 				<div class="historia_texto">
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-						ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-						tempora vel odit dolsore.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-						ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-						tempora vel odit dolore.
+						<?php echo ($result['texto']) ?>
 					</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-						ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-						tempora vel odit dolsore.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-						ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-						tempora vel odit dolore.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-						ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-						tempora vel odit dolsore.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, quo ab! Optio, necessitatibus
-						ducimus! Fuga hic saepe incidunt. Nemo laudantium voluptas amet cum aliquid quisquam eligendi
-						tempora vel odit dolore.
-					</p>
+					
 				</div>
+				
+				 <?php
+                    }
+                 ?>
+				
 			</div>
 
 		</section>

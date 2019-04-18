@@ -26,10 +26,15 @@
 <body>
 
 	<?php 
-		
+		session_start();
+		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		
+        $conex = new conexaoMysql();
+
+		$con = $conex->connectDatabase();
+    
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
@@ -48,51 +53,60 @@
 	<main>
 
 		<section class="section_missao">
-			<h2 class="section_titulo">Saiba um pouco sobre nós</h2>
+
+			<?php		
+                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Missão, visão e valor'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			?>
+
+			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur?
-				Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
+				<?php echo ($result['texto']) ?>
 			</p>
+
+			<?php
+				}
+			?>
 
 			<div class="missao_container">
 
+                <?php		
+                    $sql = "select * from tbl_missao_visao_valor ";
+				    $stm = $con->prepare($sql);
+				    $success = $stm->execute();
+				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+                ?>
+            
 				<div>
 					<i class="fas fa-check"></i>
-					<h2>Missão</h2>
+					<h2><?php echo ($result['texto']) ?></h2>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, quia. Animi voluptatem perferendis,
-						necessitatibus nam ad itaque, earum, mollitia natus quisquam eaque sint quidem pariatur obcaecati
-						excepturi voluptate. Incidunt, atque.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, quia. Animi voluptatem perferendis,
-						necessitatibus nam ad itaque, earum, mollitia natus quisquam eaque sint quidem pariatur obcaecati
-						excepturi voluptate. Incidunt, atque.
+						<?php echo ($result['tipo_texto']) ?>
 					</p>
 				</div>
+				
 				<div>
 					<i class="fas fa-glasses"></i>
-					<h2>Visão</h2>
+					<h2><?php echo ($result['texto']) ?></h2>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, quia. Animi voluptatem perferendis,
-						necessitatibus nam ad itaque, earum, mollitia natus quisquam eaque sint quidem pariatur obcaecati
-						excepturi voluptate. Incidunt, atque.
+						<?php echo ($result['tipo_texto']) ?>
 					</p>
 				</div>
 				<div>
 					<i class="fas fa-hands-helping"></i>
-					<h2>Valores</h2>
+					<h2><?php echo ($result['texto']) ?></h2>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, quia. Animi voluptatem perferendis,
-						necessitatibus nam ad itaque, earum, mollitia natus quisquam eaque sint quidem pariatur obcaecati
-						excepturi voluptate. Incidunt, atque.
+						<?php echo ($result['tipo_texto']) ?>
 					</p>
 				</div>
 
+                <?php
+                    }
+                ?>
+        
 			</div>
 			
 		</section>
