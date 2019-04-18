@@ -36,7 +36,7 @@
     }    
     public function update(SobreNos $SobreNos) {
         $conn = $this->conex->connectDatabase();
-        $sql = "update tbl_conheca_sobre_nos set titulo=? texto=? where id_conheca_sobre_nos=?";
+        $sql = "update tbl_conheca_sobre_nos set titulo=?, texto=? where id_conheca_sobre_nos=?";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $SobreNos->getTitulo());
         $stm->bindValue(2, $SobreNos->getTexto());

@@ -10,7 +10,7 @@
     Objetivo da Classe: CRUD da página Produto em Destaque.
 */
 
-class Produto_DestaqueDAO {
+class ProdutoDestaqueDAO {
     private $conex;
     private $produto_destaque;
     public function __construct() 
@@ -23,7 +23,7 @@ class Produto_DestaqueDAO {
     }
     
     //Atualizar o produto um Produto em Destaque no site ativo
-    public function updateAtivo(Produto_Destaque $produto_destaque) {
+    public function updateAtivo(ProdutoDestaque $produto_destaque) {
         $conn = $this->conex->connectDatabase();
         if($produto_destaque->getAtivo()=="0"){
             $produto_destaque->setAtivo("1");
@@ -48,7 +48,7 @@ class Produto_DestaqueDAO {
         if ($success) {
             $listProduto_Destaque = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Produto_Destaque = new Produto_Destaque();
+                $Produto_Destaque = new ProdutoDestaque();
                 $Produto_Destaque->setId($result['id_produto']);
                 $Produto_Destaque->setTexto($result['descricao']);
                 $Produto_Destaque->setNome($result['nome']);

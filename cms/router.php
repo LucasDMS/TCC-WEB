@@ -99,19 +99,19 @@ if(isset($_GET['controller'])){
             switch($modo){
                 case 'INSERIR':
                     //Chamando o metodo de inserir um Produto em Destaque
-                    $ControllerProduto_Destaque->inserirProduto_Destaque();
+                    $ControllerProduto_Destaque->inserirProdutoDestaque();
                     break;
                 case 'ATUALIZAR':
-                    $ControllerProduto_Destaque ->atualizarProduto_Destaque();
+                    $ControllerProduto_Destaque ->atualizarProdutoDestaque();
                     break;
                 case 'EXCLUIR':
                     //Chamando o metodo de excluir um Produto em Destaque
-                    $ControllerProduto_Destaque->excluirProduto_Destaque();
+                    $ControllerProduto_Destaque->excluirProdutoDestaque();
                     break;
 
                 case 'ATIVAR':
                     //Chamando o metodo de Ativar um Produto em Destaque
-                    $ControllerProduto_Destaque->ativarProduto_Destaque();
+                    $ControllerProduto_Destaque->ativarProdutoDestaque();
                     break;
             }
             break;
