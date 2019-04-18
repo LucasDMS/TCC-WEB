@@ -44,4 +44,11 @@
 		"body": ["<?php $1 ?>"],
 		"description": "tag php",
 	}
+
+	"var_dump":{
+		"scope": "php",
+		"prefix": "vd",
+		"body": "var_dump($1);",
+		"description": "var_dump"
+	}
 }
