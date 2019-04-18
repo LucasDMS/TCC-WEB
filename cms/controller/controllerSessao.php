@@ -24,5 +24,13 @@ class ControllerSessao{
         $id = $_GET['id'];
         return $this->SessaoDAO->selectById($id);
     }
+    public function verificarUsuario(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $usuario = $_POST['txtLogin'];
+            $Sessao = new Sessao();
+            $Sessao->setLogin($usuario);
+            $this->SessaoDAO->selectVerify($Sessao);
+        }
+    }
 }
 ?>
