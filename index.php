@@ -65,69 +65,87 @@
 						<i class="fas fa-search"></i>
 					</button>
 				</form>
+				
+
+				<div class="destaques_container">
+
 				<?php		
-					$sql = "select * from tbl_historia where ativo= ? and apagado =?;";
+					$sql = "select * from vw_produtos_destaque";
 					$stm = $con->prepare($sql);
-					$stm->bindValue(1, 1);
-					$stm->bindValue(2, 0);
 					$success = $stm->execute();
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
         		?>
 
-				<div class="destaques_container">
-
-					<img class="img_destaque" src="cms/arquivos/<?php echo ($result['imagem'])?>" alt="imagem do produto">
+					<img class="img_destaque" src="cms/<?php echo ($result['imagem'])?>" alt="imagem do produto">
 
 					<div class="destaques_texto">
-						<h3 class="section_titulo"><?php echo ($result['texto']) ?></h3>
+						<h3 class="section_titulo"><?php echo ($result['nome']) ?></h3>
 						<p>
-							<?php echo ($result['texto']) ?>
+							<?php echo ($result['descricao']) ?>
 						</p>
 					</div>
 
-				</div>
-				
 				<?php
-					}
-        		?>
-
+				 }
+        ?>
+				</div>
 			</section>
 
 			<div class="enquete">
 				<div class="enquete_container">
 
-					<h3>Enquete</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti officia, possimus unde
-						expedita, dolore nemo incidunt ex soluta illo dolor minus asperiores explicabo facere
-						tenetur
-						ipsam officiis similique, quae sed?
-					</p>
-					<form action="" method="post">
+						<?php		
+							$sql = "select * from tbl_texto_principal where  tipo_texto =  'Enquete'";
+							$stm = $con->prepare($sql);
+							$success = $stm->execute();
+							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
 
+					<h3><?php echo ($result['titulo']) ?></h3>
+					<p>
+						<?php echo ($result['texto']) ?>
+					</p>
+
+					<?php
+						  }
+					  ?>
+
+					<form action="" method="post">
+                        
+          	<?php		
+							$sql = "select * from tbl_enquete where  status = 1";
+							$stm = $con->prepare($sql);
+							$success = $stm->execute();
+							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
+                        
 						<ul>
 							<li>
 								<input type="checkbox" name="ckb" id="ckb">
-								<label for="ckb">dolore nemo incidunt ex soluta illo dol</label>
+								<label for="ckb"><?php echo ($result['pergunta']) ?>dol</label>
 							</li>
 							<li>
 								<input type="checkbox" name="ckb2" id="ckb2">
-								<label for="ckb2">dolore nemo incidunt ex soluta illo dol</label>
+								<label for="ckb2"><?php echo ($result['pergunta']) ?>dol</label>
 							</li>
 							<li>
 								<input type="checkbox" name="ckb3" id="ckb3">
-								<label for="ckb3">dolore nemo incidunt ex soluta illo dol</label>
+								<label for="ckb3"><?php echo ($result['pergunta']) ?>dol</label>
 							</li>
 							<li>
 								<input type="checkbox" name="ckb4" id="ckb4">
-								<label for="ckb4">dolore nemo incidunt ex soluta illo dol</label>
+								<label for="ckb4"><?php echo ($result['pergunta']) ?> dol</label>
 							</li>
 							<li>
 								<input type="checkbox" name="ckb5" id="ckb5">
-								<label for="ckb5">dolore nemo incidunt ex soluta illo dol</label>
+								<label for="ckb5"><?php echo ($result['pergunta']) ?> dol</label>
 							</li>
 						</ul>
-
+                        
+            <?php
+						  }
+					  ?>
+                        
 						<button class="btn" type="submit">
 							VOTAR
 						</button>
@@ -150,94 +168,60 @@
 				</div>
 				
 			</div>
-
+			
+			
 			<section class="section_resumos">
 				<h2 class="section_titulo">CONHEÇA UM POUCO SOBRE NÓS</h2>
+
+				<?php		
+					$sql = "select * from tbl_conheca_sobre_nos";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
+
 				<div class="resumos_container">
-
 					<div class="resumo">
-						<h3>Pagina nome</h3>
+						<h3><?php echo ($result['titulo']) ?></h3>
 						<div>
 							<p>
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-								non,
-								exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-								dolorem qui autem deleniti numquam?
+								<?php echo ($result['texto']) ?>
 							</p>
 						</div>
 					</div>
-					<div class="resumo">
-						<h3>Pagina nome</h3>
-						<div>
-							<p>
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-								non,
-								exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-								dolorem qui autem deleniti numquam?
-							</p>
-						</div>
-					</div>
-					<div class="resumo">
-						<h3>Pagina nome</h3>
-						<div>
-							<p>
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-								non,
-								exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-								dolorem qui autem deleniti numquam?
-							</p>
-						</div>
-					</div>
-
-					<div class="resumo">
-						<h3>Pagina nome</h3>
-						<div>
-							<p>
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-								non,
-								exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-								dolorem qui autem deleniti numquam?
-							</p>
-						</div>
-					</div>
+					<?php
+					  }
+					?>
 				</div>
 			</section>
 
+
 			<section class="section_sustentabilidade">
 				<h2 class="section_titulo">SUSTENTABILIDADE</h2>
-				<div style="text-align: justify">
+
+				<?php		
+					$sql = "select * from tbl_sustentabilidade where apagado = 0 and ativo = 1";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
+
+				<div style="text-align: justify display: flex">
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quo quasi magni facere natus
-						itaque
-						minima animi, corrupti consequuntur, nulla placeat dolorem vero odio. Eum voluptas est veritatis
-						error alias.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quo quasi magni facere natus
-						itaque
-						minima animi, corrupti consequuntur, nulla placeat dolorem vero odio. Eum voluptas est veritatis
-						error alias.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quo quasi magni facere natus
-						itaque
-						minima animi, corrupti consequuntur, nulla placeat dolorem vero odio. Eum voluptas est veritatis
-						error alias.
+						<?php echo ($result['texto']) ?>
 					</p>
 					<div style="display: flex">
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quo quasi magni facere natus
-							itaque
-							minima animi, corrupti consequuntur, nulla placeat dolorem vero odio. Eum voluptas est veritatis
-							error alias.
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quo quasi magni facere natus
-							itaque
-							minima animi, corrupti consequuntur, nulla placeat dolorem vero odio. Eum voluptas est veritatis
-							error alias.
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quo quasi magni facere natus
-							itaque
-							minima animi, corrupti consequuntur, nulla placeat dolorem vero odio. Eum voluptas est veritatis
-							error alias.
+							<?php echo ($result['texto']) ?>
 						</p>
-						<img style="height: 300px; padding: 20px" src="img/sustentabilidade.jpg" alt="">
+							<img style="height: 300px; padding: 20px" src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
 					</div>
 				</div>
+
+				<?php
+				  }
+				?>
+
 			</section>
 		</div>
 
@@ -245,45 +229,28 @@
 		<div class="comentarios">
 			<h2 class="section_titulo">COMENTÁRIOS</h2>
 			<ul class="lista_comentarios">
+			
+			        <?php		
+						$sql = "select * from tbl_comentario";
+						$stm = $con->prepare($sql);
+						$success = $stm->execute();
+						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        			?>
+			
 				<li>
-					<img src="img/4436549.png" alt="">
-					<h3>nome pessoa</h3>
+					<img src="cms/<?php echo ($result['imagem']) ?>" alt="">
+					<h3><?php echo ($result['nome']) ?></h3>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iste asperiores, sit magnam autem dolor f
-						acere placeat quasi vel necessitatibus, eius excepturi? Qui aut dolores asperiores vitae earum molestias blanditiis.
+						<?php echo ($result['comentario']) ?>
 					</p>
-					<span>21/11/2018</span>
+					<span><?php echo ($result['data']) ?></span>
 				</li>
-				<li>
-					<img src="img/4436549.png" alt="">
-					<h3>nome pessoa</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iste asperiores, sit magnam autem dolor f
-						acere placeat quasi vel necessitatibus, eius excepturi? Qui aut dolores asperiores vitae earum molestias blanditiis.
-					</p>
-					<span>21/11/2018</span>
-				</li>
-				<li>
-					<img src="img/4436549.png" alt="">
-					<h3>nome pessoa</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iste asperiores, sit magnam autem dolor f
-						acere placeat quasi vel necessitatibus, eius excepturi? Qui aut dolores asperiores vitae earum molestias blanditiis.
-					</p>
-					<span>21/11/2018</span>
-				</li>
-				<li>
-					<img src="img/4436549.png" alt="">
-					<h3>nome pessoa</h3>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iste asperiores, sit magnam autem dolor f
-						acere placeat quasi vel necessitatibus, eius excepturi? Qui aut dolores asperiores vitae earum molestias blanditiis.
-					</p>
-					<span>21/11/2018</span>
-				</li>
+				
+				<?php
+                    }
+                ?>
 			</ul>
 		</div>
-
 	</main>
 
 	<?php

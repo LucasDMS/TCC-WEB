@@ -19,8 +19,8 @@ $rs = $controller->buscarSustentabilidades();
             </th>
         </tr>
         <tr class="tabela_header">
-            <th>Titulo</th>
-            <th>texto</th>
+            <th>Texto</th>
+            <th>Imagem</th>
             
             <th colspan="3">Ações</th>
         </tr>
