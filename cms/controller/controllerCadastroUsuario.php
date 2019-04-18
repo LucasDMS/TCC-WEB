@@ -39,7 +39,7 @@ class controllerCadastroUsuario{
             $email = $_POST['txt_email'];
 
             //estanciando a model e enviando todos os dados para ela
-            $cadastro = new Cadastro_usuario();
+            $cadastro = new CadastroUsuario();
             $cadastro->setLogin($usuario);
             $cadastro->setSenha($senha);
             $cadastro->setCpf($cpf);

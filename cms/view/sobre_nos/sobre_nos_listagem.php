@@ -10,10 +10,10 @@
     Objetivo da Classe: listagem do Sobre_Nos.
 */
 
-require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . "/controller/controllerSobre_Nos.php");
+require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . "/controller/controllerSobreNos.php");
 
-$controller = new controllerSobre_Nos();
-$rs = $controller->buscarSobre_Nos();
+$controller = new controllerSobreNos();
+$rs = $controller->buscarSobreNos();
 
 ?>
 

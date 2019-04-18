@@ -11,7 +11,7 @@ if(isset($_GET['controller'])){
     switch($controller){
         case 'SESSAO':
 
-            require_once('controller/ControllerSessao.php');
+            require_once('controller/controllerSessao.php');
 
             $ControllerSessao = new ControllerSessao();
 
@@ -24,7 +24,7 @@ if(isset($_GET['controller'])){
 
         case 'HISTORIA':
 
-            require_once('controller/ControllerHistoria.php');
+            require_once('controller/controllerHistoria.php');
             
             $ControllerHistoria = new ControllerHistoria();
 
@@ -94,8 +94,8 @@ if(isset($_GET['controller'])){
             break;
             
         case 'PRODUTO_DESTAQUE':
-            require_once('controller/controllerProduto_Destaque.php');
-            $ControllerProduto_Destaque = new ControllerProduto_Destaque();
+            require_once('controller/controllerProdutoDestaque.php');
+            $ControllerProduto_Destaque = new ControllerProdutoDestaque();
             switch($modo){
                 case 'INSERIR':
                     //Chamando o metodo de inserir um Produto em Destaque
@@ -118,25 +118,25 @@ if(isset($_GET['controller'])){
             
         case 'SOBRE_NOS':
 
-            require_once('controller/ControllerSobre_Nos.php');
+            require_once('controller/controllerSobreNos.php');
             
-            $ControllerSobre_Nos = new ControllerSobre_Nos();
+            $ControllerSobreNos = new ControllerSobreNos();
 
             switch($modo){
                 case 'INSERIR':
 
-                    $ControllerSobre_Nos->inserirSobre_Nos();
+                    $ControllerSobreNos->inserirSobreNos();
                     break;
                 case 'ATUALIZAR':
 
-                    $ControllerSobre_Nos ->atualizarSobre_Nos();
+                    $ControllerSobreNos ->atualizarSobreNos();
                     break;
                 case 'EXCLUIR':
-                    $ControllerSobre_Nos->excluirSobre_Nos();
+                    $ControllerSobreNos->excluirSobreNos();
                     break;
 
                 case 'ATIVAR':
-                    $ControllerSobre_Nos->ativarSobre_Nos();
+                    $ControllerSobreNos->ativarSobreNos();
                     break;
             }
             break;
@@ -164,7 +164,7 @@ if(isset($_GET['controller'])){
             }
             break;
         case 'SUSTENTABILIDADE':
-            require_once('controller/ControllerSustentabilidade.php');
+            require_once('controller/controllerSustentabilidade.php');
             $ControllerSustentabilidade = new ControllerSustentabilidade();
             switch($modo){
                 case 'INSERIR':
@@ -187,7 +187,7 @@ if(isset($_GET['controller'])){
             }
             break;
         case 'PROMOCAO':
-            require_once('controller/ControllerPromocao.php');
+            require_once('controller/controllerPromocao.php');
             $ControllerPromocao = new ControllerPromocao();
             switch($modo){
                 case 'INSERIR':
@@ -211,7 +211,7 @@ if(isset($_GET['controller'])){
             }
             break;
             case 'PRODUTOS':
-            require_once('controller/ControllerProdutos.php');
+            require_once('controller/controllerProdutos.php');
             $ControllerProdutos = new ControllerProdutos();
             switch($modo){
                 case 'ATIVAR':
@@ -220,7 +220,7 @@ if(isset($_GET['controller'])){
             }
             break;
         case 'MVV':
-            require_once('controller/ControllerMVV.php');
+            require_once('controller/controllerMVV.php');
             $ControllerMVV = new ControllerMVV();
             switch($modo){
                 case 'INSERIR':
@@ -243,7 +243,7 @@ if(isset($_GET['controller'])){
             }
             break;
         case 'TEXTOPRINCIPAL':
-            require_once('controller/ControllerTextoPrincipal.php');
+            require_once('controller/controllerTextoPrincipal.php');
             $ControllerTextoPrincipal = new ControllerTextoPrincipal();
             switch($modo){
                 case 'INSERIR':

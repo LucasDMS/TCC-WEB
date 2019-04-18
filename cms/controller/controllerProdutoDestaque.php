@@ -12,25 +12,25 @@
     
 */
 
-class ControllerProduto_Destaque{
+class ControllerProdutoDestaque{
     
-    private $Produto_DestaqueDAO;
+    private $ProdutoDestaqueDAO;
     
     public function __construct()
     {
         
         //Import do Produto Destaque
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Produto_Destaque.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/ProdutoDestaque.php");
         
         //Import do Produto DestaqueDAO, para inserir no BD
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/Produto_DestaqueDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/ProdutoDestaqueDAO.php');
         
         //Instancia  Produto DestaqueDAO
-        $this->Produto_DestaqueDAO = new Produto_DestaqueDAO();
+        $this->ProdutoDestaqueDAO = new ProdutoDestaqueDAO();
     }
 
     //Ativar o prdoduto em destaque no site
-    public function ativarProduto_Destaque() {
+    public function ativarProdutoDestaque() {
         
          //verifica qual metodo esta sendo requisitado
         //do formulário (POST ou GET)
@@ -40,23 +40,23 @@ class ControllerProduto_Destaque{
             $ativo  = $_POST['ativo'];
             
             //Instancia do Produto em Destaque
-            $Produto_Destaque = new Produto_Destaque(); 
+            $ProdutoDestaque = new ProdutoDestaque(); 
             
             //Guardando dos dados do post no objeto
             //do Produto em Destaque
-            $Produto_Destaque->setId($id);
-            $Produto_Destaque->setAtivo($ativo);
+            $ProdutoDestaque->setId($id);
+            $ProdutoDestaque->setAtivo($ativo);
             
-            //chamada para o metodo de inserir no BD, e estamos passando como parametro o objeto $Produto_Destaque que tem todos os dados que serão inseridos no BD
-            $this->Produto_DestaqueDAO->updateAtivo($Produto_Destaque);
+            //chamada para o metodo de inserir no BD, e estamos passando como parametro o objeto $ProdutoDestaque que tem todos os dados que serão inseridos no BD
+            $this->ProdutoDestaqueDAO->updateAtivo($ProdutoDestaque);
         }
     }
     
     //listar todos os produtos em destaques
-    public function buscarProduto_Destaque() {
+    public function buscarProdutoDestaque() {
         
         //chamada para o metodo de listar todos os produtos em destaques
-        return $this->Produto_DestaqueDAO->selectAll();
+        return $this->ProdutoDestaqueDAO->selectAll();
     }
 }
 

@@ -8,7 +8,7 @@
         Autor da Modificação:
         Objetivo da classe: class que guarda os dados que serão manipulados.
     */
-    class Cadastro_estabelecimento{
+    class CadastroEstabelecimento{
 
         private $id;
         private $usuario;

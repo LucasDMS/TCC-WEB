@@ -18,7 +18,7 @@ class CadastroEstabelecimentoDAO{
     }
 
     //função que cadastra o estabelecimento comercial no banco
-    public function inserir(Cadastro_estabelecimento $estabelecimento){
+    public function inserir(CadastroEstabelecimento $estabelecimento){
         //conexao com o banco de dados
         $conn = $this->conex->connectDatabase();
     

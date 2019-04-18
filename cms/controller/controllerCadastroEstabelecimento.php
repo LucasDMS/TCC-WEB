@@ -16,7 +16,7 @@ class controllerCadastroEstabelecimento{
 
         
         require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/dao/CadastroEstabelecimentoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/model/Cadastro_estabelecimento.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/model/CadastroEstabelecimento.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/view/components/imagem.php');
 
         //estancia da class dao de cadastro de estabelecimento
@@ -46,7 +46,7 @@ class controllerCadastroEstabelecimento{
             $ativo = 1;
 
             //estanciando a model e enviando todos os dados para ela
-            $cadastro = new Cadastro_estabelecimento();
+            $cadastro = new CadastroEstabelecimento();
             $cadastro->setUsuario($usuario);
             $cadastro->setSenha($senha);
             $cadastro->setCnpj($cnpj);
