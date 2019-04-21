@@ -23,13 +23,14 @@
 </head>
 
 <body>
-	
-	<?php 
+
+	<?php
 		session_start();
 		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
-		
+		require_once("components/modal.php");
+
 		$conex = new conexaoMysql();
 
 		$con = $conex->connectDatabase();
@@ -45,7 +46,7 @@
 				<i class="fas fa-circle-notch fa-spin"></i>
 			</div>
 
-		</div>        
+		</div>
 	</div>
 
 	<div class="espacador"></div>
@@ -65,15 +66,15 @@
 						<i class="fas fa-search"></i>
 					</button>
 				</form>
-				
+
 
 				<div class="destaques_container">
 
-				<?php		
+				<?php
 					$sql = "select * from vw_produtos_destaque";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
-					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
 					<img class="img_destaque" src="cms/<?php echo ($result['imagem'])?>" alt="imagem do produto">
@@ -85,40 +86,35 @@
 						</p>
 					</div>
 
-				<?php
-				 }
-        ?>
+				<?php } ?>
+
 				</div>
 			</section>
 
 			<div class="enquete">
 				<div class="enquete_container">
 
-						<?php		
-							$sql = "select * from tbl_texto_principal where  tipo_texto =  'Enquete'";
-							$stm = $con->prepare($sql);
-							$success = $stm->execute();
-							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-            ?>
+					<?php
+						$sql = "select * from tbl_texto_principal where  tipo_texto =  'Enquete'";
+						$stm = $con->prepare($sql);
+						$success = $stm->execute();
+						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+					?>
 
 					<h3><?php echo ($result['titulo']) ?></h3>
-					<p>
-						<?php echo ($result['texto']) ?>
-					</p>
+					<p><?php echo ($result['texto']) ?></p>
 
-					<?php
-						  }
-					  ?>
+					<?php } ?>
 
 					<form action="" method="post">
-                        
-          	<?php		
+
+						<?php
 							$sql = "select * from tbl_enquete where  status = 1";
 							$stm = $con->prepare($sql);
 							$success = $stm->execute();
-							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-            ?>
-                        
+							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+						?>
+
 						<ul>
 							<li>
 								<input type="checkbox" name="ckb" id="ckb">
@@ -141,14 +137,13 @@
 								<label for="ckb5"><?php echo ($result['pergunta']) ?> dol</label>
 							</li>
 						</ul>
-                        
-            <?php
-						  }
-					  ?>
-                        
+
+						<?php } ?>
+
 						<button class="btn" type="submit">
 							VOTAR
 						</button>
+
 					</form>
 
 				</div>
@@ -166,18 +161,17 @@
 						</button>
 					</form>
 				</div>
-				
+
 			</div>
-			
-			
+
 			<section class="section_resumos">
 				<h2 class="section_titulo">CONHEÇA UM POUCO SOBRE NÓS</h2>
 
-				<?php		
+				<?php
 					$sql = "select * from tbl_conheca_sobre_nos";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
-					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
 				<div class="resumos_container">
@@ -189,21 +183,20 @@
 							</p>
 						</div>
 					</div>
-					<?php
-					  }
-					?>
 				</div>
+				
+				<?php }	?>
+				
 			</section>
-
 
 			<section class="section_sustentabilidade">
 				<h2 class="section_titulo">SUSTENTABILIDADE</h2>
 
-				<?php		
+				<?php
 					$sql = "select * from tbl_sustentabilidade where apagado = 0 and ativo = 1";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
-					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
 				<div style="text-align: justify display: flex">
@@ -218,9 +211,7 @@
 					</div>
 				</div>
 
-				<?php
-				  }
-				?>
+				<?php }	?>
 
 			</section>
 		</div>
@@ -229,14 +220,14 @@
 		<div class="comentarios">
 			<h2 class="section_titulo">COMENTÁRIOS</h2>
 			<ul class="lista_comentarios">
-			
-			        <?php		
+
+			        <?php
 						$sql = "select * from tbl_comentario";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
-						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         			?>
-			
+
 				<li>
 					<img src="cms/<?php echo ($result['imagem']) ?>" alt="">
 					<h3><?php echo ($result['nome']) ?></h3>
@@ -245,10 +236,8 @@
 					</p>
 					<span><?php echo ($result['data']) ?></span>
 				</li>
-				
-				<?php
-                    }
-                ?>
+
+				<?php } ?>
 			</ul>
 		</div>
 	</main>
@@ -256,7 +245,7 @@
 	<?php
 
 		require_once("components/chat_bot.php");
-		require_once("components/footer.php"); 
+		require_once("components/footer.php");
 
 	?>
 

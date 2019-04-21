@@ -1,27 +1,31 @@
-<link rel="stylesheet" href="css/login.css">
+<div class="login-form cor_fundo_1">
 
-<div class="login_container">
-    <form onsubmit="asyncSubmit(event, this)" action="cms/router.php?controller=sessao&modo=logar" name="frm_login" id="frm_login" method="post">
+    <form   onsubmit="asyncSubmit(event, this)" 
+            action="cms/router.php?controller=sessao&modo=logar" 
+            name="frm_login" 
+            id="frm_login" 
+            method="post"
+            autocomplete="off">
 
         <label for="">Login:</label>
         <input name="txt_login" type="text" class="text">
 
         <label for="">Senha:</label>
         <input name="txt_senha" type="password" class="text" name="" id="">
-    
+
         <a href="" class="a">Esqueceu a senha?</a>
-    
+
         <button type='submit' class="btn submit">
             <i class="fas fa-sign-in-alt"></i>
         </button>
-    
+
         <a href="" class="a">Não tem cadastro? clique aqui!</a>
 
     </form>
-
 </div>
 
 <script>
+
 function asyncSubmit(event, element){
     event.preventDefault()
     var url = element.getAttribute("action");
@@ -39,6 +43,6 @@ function asyncSubmit(event, element){
             window.location.href = 'autenticacao.php';
         }
     });
-    
 }
+
 </script>

@@ -20,7 +20,7 @@
             <i class="fab fa-twitter"></i>
         </a>
 
-        <i class="fas fa-user-circle" onclick="abrirMenu('.menu_direita'); abrirLogin()"></i>
+        <i class="fas fa-user-circle" onclick="chamarViewParaModal('login')"></i>
     </div>
     
 </header>

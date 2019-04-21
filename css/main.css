@@ -4,7 +4,7 @@ body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer,
 	padding: 0;
 }
 
-label{
+label {
 	display: block;
 }
 
@@ -29,6 +29,39 @@ body {
 @font-face {
 	font-family: Divinne;
 	src: url(../fonts/Postface.ttf);
+}
+
+/* == MODAL == */
+
+.modal_bg {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+	z-index: 999;
+	position: fixed;
+	display: none;
+}
+
+.modal_central {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal_saida {
+	flex: 1;
+	height: 100%;
+	width: 100%;
+}
+
+.modal_container {
+	padding: 25px;
+	max-height: 800px;
+	width: 650px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	box-shadow: 0 0 5px gray;
+	overflow: hidden;
+	overflow-y: auto;
 }
 
 /* == HEADER == */
@@ -59,8 +92,8 @@ body {
 	transform: scale(1.1);
 }
 
-.header div{
-	width: 330px;
+.header div {
+	width: 340px;
 }
 
 .logo {
@@ -132,7 +165,7 @@ body {
 }
 
 .menu_esquerda_container li {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	color: #dbdbdb;
 	padding: 5px;
@@ -155,7 +188,7 @@ body {
 	background-color: #09a552;
 }
 
-.menu_esquerda_container li:hover > .menu_esquerda_container i {
+.menu_esquerda_container li:hover>.menu_esquerda_container i {
 	color: #ffffff;
 }
 
@@ -213,7 +246,7 @@ main {
 	font-family: Divinne;
 }
 
-.section_desc{
+.section_desc {
 	max-width: 600px;
 	padding: 0 20px;
 	margin: 10px auto;
@@ -266,18 +299,17 @@ main {
 	padding: 5px;
 }
 
-#form_chat_bot{
+#form_chat_bot {
 	display: flex;
 	margin-bottom: 10px;
-
 }
 
-#form_chat_bot input{
+#form_chat_bot input {
 	height: 40px;
 	max-width: 50%;
 }
 
-#form_chat_bot button{
+#form_chat_bot button {
 	background-color: #fff;
 	color: #09a552;
 }
@@ -355,10 +387,6 @@ footer {
 	font-weight: bold;
 }
 
-
-
-
-
 /* == PADRÃO FORMULÁRIOS */
 
 input[type=text], input[type=email], input[type=password], textarea, select {
@@ -397,7 +425,7 @@ select {
 	justify-content: center;
 }
 
-.btn{
+.btn {
 	height: 40px;
 	padding: 0 25px;
 	margin: 0 10px;
@@ -408,19 +436,13 @@ select {
 	border: 1px solid #999;
 }
 
-.btn:hover{
+.btn:hover {
 	cursor: pointer;
 	transform: scale(1.05);
 }
 
-.base_paginas{
+.base_paginas {
 	max-width: 1300px;
-    margin: auto;
-    padding: 55px 0;
+	margin: auto;
+	padding: 55px 0;
 }
-
-
-
-
-
-

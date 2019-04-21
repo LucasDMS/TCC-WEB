@@ -51,8 +51,6 @@ $(window).scroll(function(event){
     }
 })
 
-
-
 function abrirLogin(){
 
     setTimeout(function(){
@@ -166,3 +164,35 @@ function request(event, element){
         $("#app").html(dados);
     });
 }
+
+function chamarViewParaModal(pagina) {
+
+    var url = 'components/' + pagina + '.php'
+
+    $.ajax({
+        type: "GET",
+        url: url
+    })
+    .done(function (dados) {
+
+        $("#modal").html(dados);
+        modalToggle(true);
+    });
+}
+
+function modalToggle(abrir) {
+
+    if (abrir) {
+        $(".modal_bg")
+            .css("display", "flex")
+            .hide()
+            .fadeIn()
+    }
+    else {
+        $(".modal_bg").fadeOut();
+    }
+}
+
+$(".modal_saida").on("click", function () {
+    modalToggle(false);
+});
