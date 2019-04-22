@@ -1,10 +1,11 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, textarea, select, option, p label {
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, 
+footer, input, textarea, select, option, p label {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
-label{
+label {
 	display: block;
 }
 
@@ -29,6 +30,41 @@ body {
 @font-face {
 	font-family: Divinne;
 	src: url(../fonts/Postface.ttf);
+}
+
+/* == MODAL == */
+
+.modal_bg {
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(rgba(71, 184, 235,.95), rgba(45, 73, 209,.95));
+	z-index: 999;
+	position: fixed;
+	display: none;
+}
+
+.modal_central {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal_saida {
+	flex: 1;
+	height: 100%;
+	width: 100%;
+}
+
+.modal_saida:hover{
+	cursor: pointer;
+}
+
+.modal_container {
+	padding: 25px;
+	max-height: 800px;
+	max-width: 650px;
+	border-radius: 5px;
+	overflow: hidden;
+	overflow-y: auto;
 }
 
 /* == HEADER == */
@@ -59,8 +95,8 @@ body {
 	transform: scale(1.1);
 }
 
-.header div{
-	width: 330px;
+.header div {
+	width: 340px;
 }
 
 .logo {
@@ -132,7 +168,7 @@ body {
 }
 
 .menu_esquerda_container li {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	color: #dbdbdb;
 	padding: 5px;
@@ -155,7 +191,7 @@ body {
 	background-color: #09a552;
 }
 
-.menu_esquerda_container li:hover > .menu_esquerda_container i {
+.menu_esquerda_container li:hover>.menu_esquerda_container i {
 	color: #ffffff;
 }
 
@@ -213,7 +249,7 @@ main {
 	font-family: Divinne;
 }
 
-.section_desc{
+.section_desc {
 	max-width: 600px;
 	padding: 0 20px;
 	margin: 10px auto;
@@ -266,18 +302,17 @@ main {
 	padding: 5px;
 }
 
-#form_chat_bot{
+#form_chat_bot {
 	display: flex;
 	margin-bottom: 10px;
-
 }
 
-#form_chat_bot input{
+#form_chat_bot input {
 	height: 40px;
 	max-width: 50%;
 }
 
-#form_chat_bot button{
+#form_chat_bot button {
 	background-color: #fff;
 	color: #09a552;
 }
@@ -355,10 +390,6 @@ footer {
 	font-weight: bold;
 }
 
-
-
-
-
 /* == PADRÃO FORMULÁRIOS */
 
 input[type=text], input[type=email], input[type=password], textarea, select {
@@ -397,7 +428,7 @@ select {
 	justify-content: center;
 }
 
-.btn{
+.btn {
 	height: 40px;
 	padding: 0 25px;
 	margin: 0 10px;
@@ -408,19 +439,89 @@ select {
 	border: 1px solid #999;
 }
 
-.btn:hover{
+.btn:hover {
 	cursor: pointer;
 	transform: scale(1.05);
 }
 
-.base_paginas{
+.base_paginas {
 	max-width: 1300px;
-    margin: auto;
-    padding: 55px 0;
+	margin: auto;
+	padding: 55px 0;
 }
 
+/* ==== LOGIN ==== */
 
+.modal-form{
+	width: 500px;
+	background-color: rgba(0, 0, 0,.2);
+	border-radius: 15px;
+	padding: 25px;
+	text-align: center;
+}
 
+.modal-form a, .modal-form span{
+	text-align: center;
+	color: #fff;
+	margin: 30px auto 0px auto;
+}
 
+.modal-form p{
+	color: #fff;
+}
 
+.modal-form i{
+	margin-right: 7px;
+}
 
+.modal-form a:hover, .modal-form span:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.modal-form button{
+	height: 45px;
+	width: 350px;
+	display: block;
+	margin: 15px auto 25px auto;
+	border-radius: 100px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+}
+
+.modal-form button:hover{
+	cursor: pointer;
+	background-color: #3a3a3a;
+}
+
+.modal-item{
+	height: 45px;
+	width: 350px;
+	position: relative;
+	background-color: #d0e5ef;
+	display: flex;
+	border-radius: 100px;
+	overflow: hidden;
+	margin: 0 auto 10px auto;
+}
+
+.modal-item label{
+	width: 30%;
+	text-align: center;
+	line-height: 45px;
+	font-size: 16px;
+}
+
+.modal-item input{
+	margin-bottom: 15px;
+	margin-right: 0px;
+	height: 45px;
+	border: none;
+	outline: none;
+	border-radius: 0;
+}
+
+#cadastro_itens{
+	display: flex;
+}

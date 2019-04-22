@@ -9,10 +9,6 @@ $rs = $controller->buscarProdutos();
 
 <div class="pagina_titulo">
     Produtos
-
-    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('produto')">
-        <i class="fas fa-plus"></i>
-    </button>
 </div>
 
 <div class="card_wrapper">

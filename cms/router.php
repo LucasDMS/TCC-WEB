@@ -405,6 +405,7 @@ if(isset($_GET['controller'])){
                     $controller->inserirCadastroUsuario();
                     break;
             }
+            break;
 
         case 'POPS_ESCOLA':
             require_once('controller/controllerPopsEscola.php');
@@ -425,7 +426,7 @@ if(isset($_GET['controller'])){
             }
             break;
         
-            case 'FUNCIONARIO':
+        case 'FUNCIONARIO':
             require_once('controller/controllerFuncionario.php');
             $ControllerFuncionario = new ControllerFuncionario();
             switch($modo){

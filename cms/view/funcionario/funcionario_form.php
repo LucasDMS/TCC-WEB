@@ -51,6 +51,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         
 
     }
+}
+
+$modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)"
@@ -66,51 +70,78 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         data-idAutenticacao="<?php echo $idAutenticacao ?>"
         data-modo="<?php echo $modo; ?>"
         data-pagina="funcionario">
-
        
-        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $nome;?>"><br>
-        <input type="text" name="txtLogin" id="txtLogin" placeholder="Login" value="<?php echo $login;?>"><br>
-        <input type="text" name="txtPassword" id="txtPassword" placeholder="Senha" value="<?php echo $senha;?>"><br>
-        <input type="text" name="txtTipo" id="txtTipo" placeholder="Tipo" value="<?php echo $tipo;?>"><br>
-        <input type="text" name="txtCargo" id="txtCargo" placeholder="Cargo" value="<?php echo $cargo;?>"><br>
-        <input type="text" name="txtSetor" id="txtSetor" placeholder="Setor" value="<?php echo $setor;?>"><br>
-        <input type="date" name="txtDtEmissao" id="txtDtEmissao" placeholder="Data" value="<?php echo $dataEmissao;?>"><br>
+    <div class="inputDados">
+        <label from="txtNome">Nome</label>
+        <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome ?>" required>
+    </div>
 
-        <div class="container" >
-        
-    <?php  
-     
-    foreach ($Paginas as $result){ 
-        $checked = "";
+    <div class="inputDados">
+        <label from="txtLogin">Login</label>
+        <input type="text" name="txtLogin" id="txtLogin" value="<?php echo $login ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtPassword">Senha</label>
+        <input type="password" name="txtPassword" id="txtPassword" value="<?php echo $senha ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtTipo">Tipo</label>
+        <input type="text" name="txtTipo" id="txtTipo" value="<?php echo $tipo ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtCargo">Cargo</label>
+        <input type="text" name="txtCargo" id="txtCargo" value="<?php echo $cargo ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtSetor">Setor</label>
+        <input type="text" name="txtSetor" id="txtSetor" value="<?php echo $setor ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtDtEmissao">Data de emissão</label>
+        <input type="date" name="txtDtEmissao" id="txtDtEmissao" value="<?php echo $dataEmissao ?>" required>
+    </div>
+
+    <div class="container">
     
-            foreach ($Pagina as $result1){
-                if($result->getId() == $result1->getIdMenu()){
-                    $checked = 'checked';
+        <?php  
+        
+        foreach ($Paginas as $result){ 
+            $checked = "";
+        
+                foreach ($Pagina as $result1){
+                    if($result->getId() == $result1->getIdMenu()){
+                        $checked = 'checked';
+                    }
                 }
-            }
-       
+            ?>
 
-        
-        ?>
-        <input type="checkbox" <?php echo $checked;?> 
-            value="<?php echo $result->getId() ?>" 
-            name="checkbox[]"
-            id="<?php echo $result->getId() ?>"
-        />
+            <input  type="checkbox" <?php echo $checked ?> 
+                    value="<?php echo $result->getId() ?>" 
+                    name="checkbox[]"
+                    id="<?php echo $result->getId() ?>"
+            />
 
-        <label for="<?php echo $result->getId() ?>">
-            <?php echo $result->getPaginas() ?>
-        </label>
-        
-    <?php 
-        
-     
-    }
-         
-    
-    ?>
-        </div>
-    <button class="btn">
-        Enviar
-    </button>
+            <label  for="<?php echo $result->getId() ?>">
+                <?php echo $result->getPaginas() ?>
+            </label>
+            
+        <?php } ?>
+
+    </div>
+
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>

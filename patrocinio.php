@@ -24,11 +24,18 @@
 <body>
 	
 	<!-- CABEÇALHO -->
-	<?php require_once("components/header.php"); ?>
-
 	<!-- SUB MENU -->
-	<?php require_once("components/sub_menu.php"); ?>
-
+	<?php
+        session_start();
+		require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php");
+		require_once("components/sub_menu.php");
+		require_once("components/modal.php");
+    
+        $conex = new conexaoMysql();
+		$con = $conex->connectDatabase();
+    
+    ?>
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
@@ -45,63 +52,45 @@
 	<main>
 		<section class="patrocinio">
 
-			<h2 class="section_titulo">Patrocinados</h2>
+			<?php		
+                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Patrocinados'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			?>
+
+			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
+				<?php echo ($result['texto']) ?>
 			</p>
+
+			<?php
+				}
+			?>
 
 			<div class="patrocinio_bg">
 				<div class="patrocinio_container">
 					<!-- patrocinado -->
-					<ul class="lista_patrocinio">
+					<ul class="lista_patrocinio"> 
+				        <?php		
+					       $sql = "select * from tbl_patrocinio";
+					       $stm = $con->prepare($sql);
+					       $success = $stm->execute();
+					       foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		        ?>
 						<li>
-							<img src="img/patrocinio.jpg" alt="">
+							<img src="cms/<?php echo ($result['imagem']) ?>" alt="imagem do Patrocinio">
 							<div>
-								<h3>nome patrocinado</h3>
+								<h3><?php echo ($result['nome']) ?></h3>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
+									<?php echo ($result['descricao']) ?>
 								</p>
 							</div>
 						</li>
-						<li>
-							<img src="img/patrocinio.jpg" alt="">
-							<div>
-								<h3>nome patrocinado</h3>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-								</p>
-							</div>
-						</li>
-						<li>
-							<img src="img/patrocinio.jpg" alt="">
-							<div>
-								<h3>nome patrocinado</h3>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-								</p>
-							</div>
-						</li>
-						<li>
-							<img src="img/patrocinio.jpg" alt="">
-							<div>
-								<h3>nome patrocinado</h3>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, obcaecati. 
-									Repellat porro veniam, fuga beatae excepturi officiis deserunt repudiandae debitis?
-									Possimus eligendi nemo dolor magni tenetur, quod nisi saepe maiores.
-								</p>
-							</div>
-						</li>
+						<?php
+                            }
+                        ?>
 					</ul>
 				</div>
 			</div>

@@ -20,6 +20,8 @@ if(isset($_GET['id'])){
     $conteudo= $Noticia->getConteudo();
 }
 
+$modo == "atualizar" ? $paginaTitulo = "Atualizar notícia" : $paginaTitulo = "Nova notícia";
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)" 
@@ -34,11 +36,26 @@ if(isset($_GET['id'])){
         data-modo="<?php echo $modo?>"
         data-pagina="noticias">
 
-    <input type="text" name="txt_titulo" id="txt_titulo" value="<?php echo $titulo?>" required>
+    <h2><?php echo $paginaTitulo?></h2>
 
-    <textarea name="txt_conteudo" id="txt_conteudo" required><?php echo $conteudo?></textarea>
+    <div class="inputDados">
+        <label from="txtTexto">Título</label>
+        <input value="<?php echo $titulo ?>" name="txt_titulo" id="txt_titulo" type="text" required>
+    </div>
 
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="inputDados">
+        <label from="txtTexto">Conteúdo da notícia</label>
+        <textarea name="txt_conteudo" id="txt_conteudo" required><?php echo $conteudo?></textarea>
+    </div>
+
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>

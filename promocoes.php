@@ -25,11 +25,18 @@
 <body>
 	
 	<!-- CABEÇALHO -->
-	<?php require_once("components/header.php"); ?>
-
 	<!-- SUB MENU -->
-	<?php require_once("components/sub_menu.php"); ?>
+	<?php
+        session_start();
+		require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php");
+		require_once("components/sub_menu.php");
+        require_once("components/modal.php");
+    
+        $conex = new conexaoMysql();
+		$con = $conex->connectDatabase();
 
+    ?>
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
@@ -46,40 +53,33 @@
     <main>
 
 		<section class="base_paginas">
-
 			<div class="section_conteudo_center">
+			    <?php		
+                $sql = "select * from tbl_promocao where apagado = 0 and ativo = 1";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			     ?>
 				<div class="titulo_promo">
 					<i class="fas fa-award"></i>
-					<h3>Promo titulo</h3>
+					<h3><?php echo ($result['nome']) ?></h3>
 					<i class="fas fa-award"></i>
 				</div>
 				
-				<img src="img/1.jpg" alt="">
-
+				<img src="cms/<?php echo ($result['imagem']) ?>" alt="imagem da promoção">
+               
 				<p>
-					Promo desc - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut voluptatibus 
-					neque odit commodi voluptatem repellendus 
-					libero ad. Minima unde deserunt, assumenda, id, temporibus asperiores molestiae odit quam illum animi tenetur?
+					<?php echo ($result['texto']) ?>
 				</p>
-
-				<p>
-					Promo como participar - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut voluptatibus 
-					neque odit commodi voluptatem repellendus 
-					libero ad. Minima unde deserunt, assumenda, id, temporibus asperiores molestiae odit quam illum animi tenetur?
-				</p>
-
-				<p>
-					Promo premios - Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut voluptatibus 
-					neque odit commodi voluptatem repellendus 
-					libero ad. Minima unde deserunt, assumenda, id, temporibus asperiores molestiae odit quam illum animi tenetur?
-				</p>
-
+				<?php
+                }
+                ?> 
 				<button class="btn" type="submit">
 					Quero participar!
 					<i class="fas fa-award"></i>
 				</button>
 
-			</div>
+			</div> 
 
 		</section>
         

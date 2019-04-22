@@ -25,10 +25,18 @@
 <body>
 	
 	<!-- CABEÇALHO -->
-	<?php require_once("components/header.php"); ?>
-
 	<!-- SUB MENU -->
-	<?php require_once("components/sub_menu.php"); ?>
+	<?php
+        session_start();
+        require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php");
+		require_once("components/sub_menu.php");
+		require_once("components/modal.php");
+    
+        $conex = new conexaoMysql();
+
+		$con = $conex->connectDatabase();
+    ?>
 
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
@@ -59,72 +67,35 @@
 			<div class="eventos_bg">
 				<!-- lista de eventos -->
 				<ul class="eventos_container">
+				    <?php		
+					   $sql = "select * from tbl_eventos";
+					   $stm = $con->prepare($sql);
+					   $success = $stm->execute();
+					   foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		      ?>
 					<li>
 						<i class="fas fa-calendar-alt"></i>
 						<div class="evento_bg">
 							<h3>
-								nome do evento
+								<?php echo ($result['nome']) ?>
 							</h3>
 							<p>
-								descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
-								elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-								ehenderit acc Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-								ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
-								lore! Molestiusantium molestias iste veritatis dicta rerum quo dolor do
-								lore! Molestiae incidunt nisi praesentium dicta?
+								<?php echo ($result['descricao']) ?>
 							</p>
 							<div class="container_extra">
-								<span class="info_extra">21/11/1995</span>
-								<span class="info_extra">17:00</span>
+								<span class="info_extra"><?php echo ($result['data']) ?></span>
+								<span class="info_extra"><?php echo ($result['hora']) ?></span>
 							</div>
-							<span class="info_extra">Centro - SP</span>
+							<span class="info_extra"><?php echo ($result['cidade']) ?> - <?php echo ($result['estado']) ?></span>
 						</div>
 						
 					</li>
-					<li>
-						<i class="fas fa-calendar-alt"></i>
-						<div class="evento_bg">
-							<h3>
-								nome do evento
-							</h3>
-							<p>
-								descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
-								elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-								ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
-								lore! Molestiae incidunt nisi praesentium dicta?
-							</p>
-							<div class="container_extra">
-								<span class="info_extra">21/11/1995</span>
-								<span class="info_extra">17:00</span>
-							</div>
-							<span class="info_extra">Centro - SP</span>
-						</div>
-					</li>
-					<li>
-						<i class="fas fa-calendar-alt"></i>
-						<div class="evento_bg">
-							<h3>
-								nome do evento
-							</h3>
-							<p>
-								descricao evento - Lorem ipsum, dolor sit amet consectetur adipisicing
-								elit. Voluptatibus totam, blanditiis unde deleniti provident eos, repr
-								ehenderit accusantium molestias iste veritatis dicta rerum quo dolor do
-								lore! Molestiae incidunt nisi praesentium dicta?
-							</p>
-							<div class="container_extra">
-								<span class="info_extra">21/11/1995</span>
-								<span class="info_extra">17:00</span>
-							</div>
-							<span class="info_extra">Centro - SP</span>
-						</div>
-						
-					</li>
+					<?php 
+                        }
+                    ?>
 				</ul>
-
 			</div>
 		</section>
-
 	</main>
 
 	<?php require_once("components/chat_bot.php"); ?>

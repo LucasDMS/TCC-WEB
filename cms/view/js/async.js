@@ -74,6 +74,7 @@ function asyncSubmit(event, element) {
             mostrarAlerta(html[0], TYPE.SUCCESS, 1000);
             modalToggle(false);
         }
+
     });
 }
 
