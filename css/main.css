@@ -454,17 +454,29 @@ select {
 
 .modal-form{
 	width: 500px;
-	background-color: rgba(0, 0, 0,.1);
+	background-color: rgba(0, 0, 0,.2);
 	border-radius: 15px;
 	padding: 25px;
+	text-align: center;
 }
 
-.modal-form a{
-	display: block;
-	width: 100%;
+.modal-form a, .modal-form span{
 	text-align: center;
 	color: #fff;
 	margin: 30px auto 0px auto;
+}
+
+.modal-form p{
+	color: #fff;
+}
+
+.modal-form i{
+	margin-right: 7px;
+}
+
+.modal-form a:hover, .modal-form span:hover{
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .modal-form button{
@@ -476,7 +488,6 @@ select {
 	background-color: #333;
 	color: #fff;
 	border: none;
-	font-size: 16px;
 }
 
 .modal-form button:hover{
@@ -488,7 +499,7 @@ select {
 	height: 45px;
 	width: 350px;
 	position: relative;
-	background-color: #eee;
+	background-color: #d0e5ef;
 	display: flex;
 	border-radius: 100px;
 	overflow: hidden;
@@ -509,4 +520,8 @@ select {
 	border: none;
 	outline: none;
 	border-radius: 0;
+}
+
+#cadastro_itens{
+	display: flex;
 }

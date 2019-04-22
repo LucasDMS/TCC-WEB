@@ -23,7 +23,7 @@
             <label for="txt_cad_cnpj">
                 CNPJ
             </label>
-            <input name="txt_cad_cnpj" id="txt_cad_cnpj" type="text" required maxlength="20">
+            <input name="txt_cad_cnpj" id="txt_cad_cnpj" type="text" required maxlenght="20">
         </div>
 
         <div class="modal-item">
@@ -93,7 +93,7 @@
             <label for="txt_cad_estado">
                 UF
             </label>
-            <input name="txt_cad_estado" id="txt_cad_estado" type="text" required maxlength="2">
+            <input name="txt_cad_estado" id="txt_cad_estado" type="text" required maxlenght="2">
         </div>
 
         <div class="modal-item">
@@ -111,10 +111,9 @@
             <!-- <input type=file name="img" id="txt_nome_fantasia"> -->
         </div>
         
-        <button type='submit' class="btn submit">
-            Cadastrar
-        </button>
+        <button type='submit' >Cadastrar</button>
 
+        <span onclick="chamarViewParaModal('login')"><i class='fas fa-caret-left'></i>Voltar</span>
     </form>
 </div>
 

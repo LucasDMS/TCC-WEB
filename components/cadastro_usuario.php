@@ -6,94 +6,69 @@
             method="post">
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Nome
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_nome" id="txt_nome" placeholder="Nome" required>
+            <label for="txt_cad_nome">Nome</label>
+            <input name="txt_cad_nome" id="txt_cad_nome" type="text" required>
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Usuário
-            </label>
+            <label for="txt_cad_usuario">Usuário</label>
             <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_usuario" id="txt_usuario" placeholder="Usuario" required>
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Senha
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=password name="txt_senha" id="txt_senha" placeholder="senha" required>
+            <label for="txt_cad_senha">Senha</label>
+            <input name="txt_cad_senha" id="txt_cad_senha" type="password" required autocomplete="current-password">
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                CPF
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_cpf" id="txt_cpf" placeholder="CPF" required>
+            <label for="txt_cad_cpf">CPF</label>
+            <input name="txt_cad_cpf" id="txt_cad_cpf" type="text" required maxlength="20">
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Sexo
-            </label>
+            <label for="txt_cad_usuario">Sexo</label>
             M<input type=radio name="sexo" id="sexo" value="M" placeholder="Sexo" required>
             F<input type=radio name="sexo" id="sexo" value="F" placeholder="Sexo" required>
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Logradouro
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_endereco" id="txt_endereco" placeholder="Endereco" required>
+            <label for="txt_cad_cep">CEP</label>
+            <input name="txt_cad_cep" id="txt_cad_cep" type="text" required maxlength="9">
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Bairro
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_bairro" id="txt_bairro" placeholder="Bairro" required> 
+            <label for="txt_cad_logradouro">Logradouro</label>
+            <input name="txt_cad_logradouro" id="txt_cad_logradouro" type="text" required>
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                Cidade
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_cidade" id="txt_cidade" placeholder="Cidade" required>
+            <label for="txt_cad_bairro">Bairro</label>
+            <input name="txt_cad_bairro" id="txt_cad_bairro" type="text" required>
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                UF
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=text name="txt_estado" id="txt_estado" placeholder="Estado" required>
+            <label for="txt_cad_cidade">Cidade</label>
+            <input name="txt_cad_cidade" id="txt_cad_cidade" type="text" required>
         </div>
 
         <div class="modal-item">
-            <label for="txt_cad_usuario">
-                E-mail
-            </label>
-            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
-            <input type=email name="txt_email" id="txt_email" placeholder="Email" required>
+            <label for="txt_cad_uf">UF</label>
+            <input name="txt_cad_uf" id="txt_cad_uf" type="text" required maxlength="2">
         </div>
 
-        <button type='submit' class="btn submit">
-            <i class="fas fa-sign-in-alt"></i>
-        </button>
+        <div class="modal-item">
+            <label for="txt_cad_email">E-mail</label>
+            <input name="txt_cad_email" id="txt_cad_email" type="email" required>
+        </div>
 
+        <button type='submit'>Cadastre-se</button>
+
+        <span onclick="chamarViewParaModal('login')"><i class='fas fa-caret-left'></i>Voltar</span>
     </form>
 </div>
 
-
 <script>
+
 function asyncSubmit(event, element){
     event.preventDefault()
     var url = element.getAttribute("action");
@@ -108,4 +83,21 @@ function asyncSubmit(event, element){
     })
     
 }
+
+$('#txt_cad_cep').on("blur", function(){
+
+    const value = $('#txt_cad_cep').val()
+    const url = "https://viacep.com.br/ws/" + value + "/json/"
+
+    $.ajax({ url }).done(function(resposta){
+            
+        $('#txt_cad_logradouro').val(resposta.logradouro)
+        $('#txt_cad_bairro').val(resposta.bairro)
+        $('#txt_cad_cidade').val(resposta.localidade)
+        $('#txt_cad_uf').val(resposta.uf)
+    })
+})
+
+    
+
 </script>
