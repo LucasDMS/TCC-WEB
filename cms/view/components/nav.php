@@ -121,6 +121,13 @@
                         </div>
                     </li>
 
+                    <li onclick="chamarViewParaApp('enquete')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Enquete
+                        </div>
+                    </li>
+
                 </ul>
 
             </div>
