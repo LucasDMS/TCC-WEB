@@ -1,6 +1,10 @@
 <?php
+
 $action = "router.php?controller=Pops_Escola&modo=inserir";
 $modo = "inserir";
+$nome = null;
+$descricao = null;
+
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPopsEscola.php");
@@ -11,7 +15,10 @@ if(isset($_GET['id'])){
     $id = $PopsEscola->getId();
     $nome = $PopsEscola->getNome();
     $descricao = $PopsEscola->getDescricao();
-}   
+}
+
+$modo == "atualizar" ? $paginaTitulo = "Atualizar" : $paginaTitulo = "Nova";
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)"
@@ -26,11 +33,28 @@ if(isset($_GET['id'])){
         data-modo="<?php echo $modo; ?>"
         data-pagina="pops_escola">
 
-    <input type="text" name="txt_nome" id="txt_nome" placeholder="nome" value="<?php echo $nome;?>"><br>
-    <textarea name="txt_descricao" id="txt_descricao" requerid placeholder="Descrição"><?php echo $descricao;?></textarea><br>
+    <h2><?php echo $paginaTitulo?></h2>
+
+    <div class="inputDados">
+        <label from="txt_nome">Nome</label>
+        <input value="<?php echo $nome ?>" name="txt_nome" id="txt_nome" type="text" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txt_descricao">Descrição</label>
+        <textarea name="txt_descricao" id="txt_descricao" required><?php echo $descricao ?></textarea>
+    </div>
+
     <input type="file" name="img" id="img"/>
-    <button class="btn">
-        Enviar
-    </button>
+
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
 
 </form>

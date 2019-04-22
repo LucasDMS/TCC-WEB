@@ -67,9 +67,9 @@ function asyncSubmit(event, element) {
     .done(function (html) {
 
         recarregarLista(pagina);
-        // modalToggle(false);
+        modalToggle(false);
         // mostrarAlerta(html, TYPE.ALERT, 5000)
-        mostrarAlerta("jooj", TYPE.SUCCESS, 1000)
+        // mostrarAlerta("jooj", TYPE.SUCCESS, 1000)
     });
 }
 
