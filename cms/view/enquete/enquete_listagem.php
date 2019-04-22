@@ -2,23 +2,23 @@
      /*
         Projeto: TCC
         Autor: Nicolas
-        Data Criação: 03/04/2019
+        Data Criação: 22/04/2019
         Data Modificação:
         Conteúdo Modificado:
         Autor da Modificação:
         Objetivo da classe: Classe de listagem
     */
     
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEventos.php");
-    $controller = new ControllerEventos();
-    $rs = $controller->listarEventos();
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEnquete.php");
+    $controller = new controllerEnquete();
+    $rs = $controller->listarEnquete();
 
 
 ?>
 
 <div class="pagina_titulo">
-    Eventos
-    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('eventos')">
+    Enquete
+    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('enquete')">
         <i class="fas fa-plus"></i>
     </button>
 </div>
@@ -28,19 +28,24 @@
     <?php foreach ($rs as $result) { ?>
         <div class="card">
             <div>
-                Nome : 
-                <?php echo $result->getNome(); ?>
+                Pergunta : 
+
+                <?php 
+                
+                    echo $result->getPergunta(); 
+                    
+                ?>
             </div>
             <div>
-                Descrição : 
-                <?php echo $result->getDescricao(); ?>
+                Data : 
+                <?php echo $result->getData(); ?>
             </div>
 
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
-                    data-pagina="eventos"
-                    data-url="view/eventos/eventos_form.php?id=<?php echo $result->getId();?>"
+                    data-pagina="enquete"
+                    data-url="view/enquete/enquete_form.php?id=<?php echo $result->getId();?>"
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-pen"></i>
@@ -48,8 +53,8 @@
 
                 <a  onclick="asyncAtivar(this)"
                     href="#"
-                    data-pagina="eventos"
-                    data-url="router.php?controller=eventos&modo=ativar"
+                    data-pagina="enquete"
+                    data-url="router.php?controller=enquete&modo=ativar"
                     data-id="<?php echo $result->getId();?>"
                     data-ativo = <?php echo $result->getStatus();?>>
 
@@ -59,8 +64,8 @@
 
                 <a  onclick="asyncApagar(this)"
                     href="#"
-                    data-pagina="eventos"
-                    data-url="router.php?controller=eventos&modo=excluir"
+                    data-pagina="enquete"
+                    data-url="router.php?controller=enquete&modo=excluir"
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-trash"></i>

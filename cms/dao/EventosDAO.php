@@ -30,7 +30,6 @@
             $stm->bindValue(7, $eventos->getStatus());
             $stm->bindValue(8, 0);
             $sucess = $stm->execute();
-            echo("oioio");
 
             $this->conex->closeDataBase();
             if($sucess){

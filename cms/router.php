@@ -425,7 +425,7 @@ if(isset($_GET['controller'])){
             }
             break;
         
-            case 'FUNCIONARIO':
+        case 'FUNCIONARIO':
             require_once('controller/controllerFuncionario.php');
             $ControllerFuncionario = new ControllerFuncionario();
             switch($modo){
@@ -440,6 +440,25 @@ if(isset($_GET['controller'])){
                     break;
                 case 'ATIVAR':
                     $ControllerFuncionario->ativarFuncionario();
+                    break;
+            }
+            break;
+        
+        case 'ENQUETE':
+            require_once('controller/controllerEnquete.php');
+            $ControllerEnquete = new ControllerEnquete();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerEnquete->inserirEnquete();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerEnquete->atualizarEnquete();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerEnquete->excluirEnquete();
+                    break;
+                case 'ATIVAR':
+                    $ControllerEnquete->ativarEnquete();
                     break;
             }
             break;
