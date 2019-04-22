@@ -9,7 +9,6 @@ $rs = $controller->buscarSustentabilidades();
 
 <div class="pagina_titulo">
     Sustentabilidade
-
     <button class="menu_novo" type="menu" onclick="chamarViewParaModal('sustentabilidade')">
         <i class="fas fa-plus"></i>
     </button>

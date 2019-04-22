@@ -25,10 +25,14 @@
 <body>
 	
 	<?php 
-		
+		session_start();
+		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		
+		$conex = new conexaoMysql();
+		$con = $conex->connectDatabase();
+
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
@@ -47,15 +51,20 @@
 	<main>
 
 		<section class="section_fale_conosco">
-			<h2 class="section_titulo"> Fale Conosco</h2>
+			<?php		
+                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Fale Conosco'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			?>
+			<h2 class="section_titulo"> <?php echo ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur?
-				Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
+				<?php echo ($result['texto']) ?>
 			</p>
+			<?php
+				}
+			?>
 
 			<form class="form_fale_conosco" name="frm_fale_conosco" action="../index.php" method="POST">
 				<label for="txt_nome">Nome:</label>

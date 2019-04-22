@@ -25,11 +25,18 @@
 <body>
 	
 	<!-- CABEÇALHO -->
-	<?php require_once("components/header.php"); ?>
-
 	<!-- SUB MENU -->
-	<?php require_once("components/sub_menu.php"); ?>
-	
+	<?php
+        session_start();
+        require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php"); 
+        require_once("components/sub_menu.php");
+    
+        $conex = new conexaoMysql();
+
+		$con = $conex->connectDatabase();
+    ?>
+    
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
@@ -46,15 +53,27 @@
 	<main>
 
 		<section class="base_paginas pops_escola">
-			<h2 class="section_titulo">POP's na escola</h2>
+
+			<?php		
+				$sql = "select * from tbl_texto_principal where  tipo_texto =  'Pops na escola'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        	?>
+
+			<h2 class="section_titulo">
+			
+				<?php echo ($result['titulo']) ?>
+			
+			</h2>
 
 			<p class="section_desc">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-				Veritatis quia minima aut beatae sit reprehenderit repellat 
-				ipsa! Rerum debitis deleniti numquam possimus sequi, cum ex
-				maxime deserunt accusantium quos dicta.
-
+				<?php echo ($result['texto']) ?>
 			</p>
+
+			<?php
+				}
+			?>
 
 			<form class="form_pesquisa" action="">
 				<input type="text" placeholder="Veja se sua escola está na lista da POP's">
@@ -69,49 +88,32 @@
 			<div class="lista_escolas_bg">
 				<h2 class="section_titulo">Escolas Participantes</h2>
 				<!-- lista escolas -->
+
 				<ul class="lista_escolas">
-					
+				
+				<?php		
+					$sql = "select * from tbl_escola_parceiras where apagado = 0 and ativo = 1";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
+				
+				
 					<li>
-						<img src="img/esc_1.jpg" alt="">
-						<h3>nome escola</h3>
+						<img src="cms/<?php echo ($result['imagem'])?>" alt="imagem da escola">
+						<h3><?php echo ($result['titulo']) ?></h3>
 						<p>
-							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-							Eos qui veniam quae perspiciatis iure quidem ad, a cumque expedita, atque, voluptatibus optio excepturi 
-							repellendus veritatis quasi nobis laudantium sint. Temporibus.
+							<?php echo ($result['descricao']) ?>
 						</p>
 					</li>
 
-					<li>
-						<img src="img/esc_2.jpg" alt="">
-						<h3>nome escola</h3>
-						<p>
-							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-							Eos qui veniam quae perspiciatis iure quidem ad, a cumque expedita, atque, voluptatibus optio excepturi 
-							repellendus veritatis quasi nobis laudantium sint. Temporibus.
-						</p>
-					</li>
-
-					<li>
-						<img src="img/esc_3.jpg" alt="">
-						<h3>nome escola</h3>
-						<p>
-							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-							Eos qui veniam quae perspiciatis iure quidem ad, a cumque expedita, atque, voluptatibus optio excepturi 
-							repellendus veritatis quasi nobis laudantium sint. Temporibus.
-						</p>
-					</li>
-
-					<li>
-						<img src="img/esc_4.jpg" alt="">
-						<h3>nome escola</h3>
-						<p>
-							desc - Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-							Eos qui veniam quae perspiciatis iure quidem ad, a cumque expedita, atque, voluptatibus optio excepturi 
-							repellendus veritatis quasi nobis laudantium sint. Temporibus.
-						</p>
-					</li>
+				<?php
+                	}
+            	?>
 				</ul>
 			</div>
+			
+			
 		</section>
 
 	</main>

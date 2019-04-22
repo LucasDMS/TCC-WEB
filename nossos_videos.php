@@ -25,11 +25,19 @@
 <body>
 	
 	<!-- CABEÇALHO -->
-	<?php require_once("components/header.php"); ?>
-
 	<!-- SUB MENU -->
-	<?php require_once("components/sub_menu.php"); ?>
+	<?php
+        session_start();
+		require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php"); 
+        require_once("components/sub_menu.php");
+        
+        $conex = new conexaoMysql();
 
+		$con = $conex->connectDatabase();
+        
+    ?>
+    
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
@@ -47,37 +55,54 @@
 
 		<section class="nossos_videos">
 
-			<h2 class="section_titulo">Nossos vídeos</h2>
+			<?php		
+                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Nossos vídeos'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			?>
+
+			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
 			
 			<p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
+				<?php echo ($result['texto']) ?>
 			</p>
 
+			<?php
+				}
+			?>
+
 			<div class="video_novo">
+			    
+			    <?php		
+					$sql = "select * from tbl_videos where apagado = 0 and ativo = 1";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
+			
 				<iframe 
 					width="1490" 
 					height="614" 
-					src="https://www.youtube.com/embed/F2OQozbkTm8" 
+					src="<?php echo ($result['link'])?>" 
 					frameborder="0" 
 					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 					allowfullscreen>
 				</iframe>
 
 				<div class="video_info">
-
-					<h3>video titulo</h3>
-
+                    
+                    <h3><?php echo ($result['titulo']) ?></h3>
 					<p>
-						video desc - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-						Pariatur labore id ab ut officia harum, unde reiciendis nulla doloribus omnis, 
-						fugit impedit sint dolore distinctio dolorem alias, nam iste porro.
+						<?php echo ($result['descricao']) ?>
 					</p>
 
 				</div>
-
+                
+                 <?php
+                    }
+                 ?>
+                
 			</div>
 
 			
