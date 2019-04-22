@@ -159,6 +159,12 @@
                 Pops Escola
             </div>
         </li>
+        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+            <div>
+                <i class="fas fa-wrench"></i>
+               AAAAAAAAAAAAA
+            </div>
+        </li>
 
     </ul>
 
