@@ -1,48 +1,56 @@
 <?php 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMenu.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerFuncionario.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSessao.php");
 
-$nome = null;
-$login = null;
-$senha = null;
-$tipo = null;
-$cargo = null;
-$setor = null;
-$dataEmissao = null;
-$checked = null;
-$Pagina = array();
-$action = "router.php?controller=funcionario&modo=inserir";
-$modo = "inserir";
-$id = "";
-$idAutenticacao = "";
-$idMenu = null;
-$ControllerMenu = new ControllerMenu();
-$Paginas = $ControllerMenu->buscarMenu();
-
-if(isset($_GET['id']) && $_GET['idAutenticacao']){
-    $id = $_GET['id'];
-    $idAutenticacao = $_GET['idAutenticacao'];
-
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerFuncionario.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/ControllerSessao.php");
-    
+    $nome = null;
+    $login = null;
+    $senha = null;
+    $tipo = null;
+    $cargo = null;
+    $setor = null;
+    $dataEmissao = null;
+    $checked = null;
+    $Pagina = array();
+    $ControllerMenu = new ControllerMenu();
     $Controller = new ControllerFuncionario();
     $ControllerSessao = new ControllerSessao();
 
-    $Pagina = $ControllerMenu->buscarMenuPorId($id);
-    $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
-    $Funcionario = $Controller->buscarFuncionarioPorId($id);
+       
+    $action = "router.php?controller=funcionario&modo=inserir";
+    $modo = "inserir";
+    $id = "";
+    $idAutenticacao = "";
 
-    $action = "router.php?controller=funcionario&modo=atualizar";
-    $modo = "atualizar";
-    $nome = $Funcionario->getNome();
-    $setor= $Funcionario->getSetor();
-    $cargo = $Funcionario->getCargo();
-    $dataEmissao= $Funcionario->getDataEmissao();
-    $login = $Sessao->getLogin();
-    $senha = $Sessao->getSenha();
-    $tipo = $Sessao->getTipo();
+    $Paginas = $ControllerMenu->buscarMenu();
+    if(isset($_GET['id']) && $_GET['idAutenticacao']){
+        $id = $_GET['id'];
+        $idAutenticacao = $_GET['idAutenticacao'];
+        
+        $ControllerMenu = new ControllerMenu();
+        $Controller = new ControllerFuncionario();
+        $ControllerSessao = new ControllerSessao();
+        $Pagina = $ControllerMenu->buscarMenuPorId($id);
+        $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
+        $Funcionario = $Controller->buscarFuncionarioPorId($id);
 
+        $action = "router.php?controller=funcionario&modo=atualizar";
+        $modo = "atualizar";
+
+        $nome = $Funcionario->getNome();
+        $setor= $Funcionario->getSetor();
+        $cargo = $Funcionario->getCargo();
+        $dataEmissao= $Funcionario->getDataEmissao();
+
+        $login = $Sessao->getLogin();
+        $senha = $Sessao->getSenha();
+        $tipo = $Sessao->getTipo();
+
+            $texto = "Usuário já existe";
+        
+
+    }
 }
 
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
@@ -57,13 +65,12 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         enctype='multipart/form-data' 
         name="frm_funcionario"
         class="form_padrao"
+        data-texto="<?php echo $texto ?>"
         data-id="<?php echo $id ?>"
         data-idAutenticacao="<?php echo $idAutenticacao ?>"
         data-modo="<?php echo $modo; ?>"
         data-pagina="funcionario">
-
-    <h2><?php echo $paginaTitulo?></h2>
-
+       
     <div class="inputDados">
         <label from="txtNome">Nome</label>
         <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome ?>" required>

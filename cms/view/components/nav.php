@@ -146,6 +146,26 @@
                 </ul>
             </div>
         </li>
+        <li onclick="chamarViewParaApp('funcionario')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Funcionario
+            </div>
+        </li>
+
+        <li onclick="chamarViewParaApp('pops_escola')">
+            <div>
+                <i class="fas fa-wrench"></i>
+                Pops Escola
+            </div>
+        </li>
+        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+            <div>
+                <i class="fas fa-wrench"></i>
+               AAAAAAAAAAAAA
+            </div>
+        </li>
+
     </ul>
 
 </nav>

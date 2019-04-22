@@ -15,9 +15,15 @@ class FuncionarioDAO {
         $stm->bindValue(1, $Sessao->getLogin());        
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getTipo());
-        $stm->execute();
+        $success = $stm->execute();
+
+        if (!$success) {
+            echo "Usuário já existente!&";
+        }else{
+            echo "Cadastro realizado com sucesso!&";
+        }
         //Select para pegar o ultimo id de insert para fazer o insert em funcionarios
-       
+        
         //Insert na tabela de funcionarios 
         $sql = "insert into tbl_funcionario_web(nome,cargo,setor,data_emissao,ativo,id_autenticacao) values(?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
@@ -46,7 +52,6 @@ class FuncionarioDAO {
             $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
             $stm->execute();
         }
-       echo $MenuFuncionario->getIdFuncionario();
         $this->conex->closeDataBase();
     }
     public function update(Funcionario $Funcionario, Sessao $Sessao, MenuFuncionario $MenuFuncionario) {
@@ -80,7 +85,6 @@ class FuncionarioDAO {
             $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
             $stm->execute();
         }
-        $this->conex->closeDataBase();
         $this->conex->closeDataBase();
     }
     //Update no funcionario ativo

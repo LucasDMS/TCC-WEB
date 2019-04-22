@@ -38,7 +38,7 @@ class ControllerFuncionario{
             $MenuFuncionario = new MenuFuncionario();
             $MenuFuncionario->setIdMenu($idMenu);
      
-            $this->FuncionarioDAO->insert($Funcionario, $Sessao, $MenuFuncionario);
+            return $this->FuncionarioDAO->insert($Funcionario, $Sessao, $MenuFuncionario);
         }
     }
     public function atualizarFuncionario(){
@@ -74,7 +74,7 @@ class ControllerFuncionario{
 
             $MenuFuncionario->setIdFuncionario($id);
             $MenuFuncionario->setIdMenu($idMenu);
-            var_dump($idMenu);
+
             $this->FuncionarioDAO->update($Funcionario, $Sessao, $MenuFuncionario);
         }
     }
