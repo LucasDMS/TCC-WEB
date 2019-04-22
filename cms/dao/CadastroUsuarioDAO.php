@@ -39,8 +39,10 @@ class CadastroUsuarioDAO{
         $stm->bindValue(10,$usuario->getSexo());
         $success = $stm->execute();
         if($success){
+            echo "{ sucesso:true }";
             return "SUCCESS";
-        }else{
+        } else {
+            echo "{ sucesso:false }";
             return "ERRO";
         }
 

@@ -1,30 +1,124 @@
-<link rel="stylesheet" href="css/login.css">
-<form onsubmit="asyncSubmit(event, this)" action="cms/router.php?controller=cadastro_estabelecimento&modo=inserir" name="frm_cadastro" id="frm_cadastro" method="post">
+<div class="modal-form">
+    <form   onsubmit="asyncSubmit(event, this)" 
+            action="cms/router.php?controller=cadastro_estabelecimento&modo=inserir" 
+            name="frm_cadastro" 
+            id="frm_cadastro" 
+            method="post">
+        
+        <div class="modal-item">
+            <label for="txt_cad_usuario">
+                Usuário
+            </label>
+            <input name="txt_cad_usuario" id="txt_cad_usuario" type="text" required autocomplete="username">
+        </div>
 
-    <input type=text name="txt_usuario" id="txt_usuario" placeholder="Usuario">
-    <input type=password name="txt_senha" id="txt_senha" placeholder="senha">
-    
-    <input type=text name="txt_cnpj" id="txt_cnpj" placeholder="cnpj">
-    <input type=text name="txt_nome" id="txt_nome" placeholder="Nome do responsavel">
-    <input type=text name="txt_tipo_estabelecimento" id="txt_tipo_estabelecimento" placeholder="Tipo estabelecimento">
-    <input type=text name="txt_renda" id="txt_renda" placeholder="Renda">
-    <input type=text name="txt_descricao" id="txt_descricao" placeholder="Descricao">
-    <input type=text name="txt_endereco" id="txt_endereco" placeholder="Endereco">
-    <input type=text name="txt_bairro" id="txt_bairro" placeholder="Bairro">
-    <input type=text name="txt_cidade" id="txt_cidade" placeholder="Cidade">
-    <input type=text name="txt_estado" id="txt_estado" placeholder="Estado">
-    <input type=email name="txt_email" id="txt_email" placeholder="Email">
-    <input type=text name="txt_razao_social" id="txt_razao_social" placeholder="Razão Social">
-    <input type=text name="txt_nome_fantasia" id="txt_nome_fantasia" placeholder="Nome Fantasia">
-    <input type=file name="img" id="txt_nome_fantasia" placeholder="Nome Fantasia">
-    
-    <button type='submit' class="btn submit">
-        <i class="fas fa-sign-in-alt"></i>
-    </button>
+        <div class="modal-item">
+            <label for="txt_cad_senha">
+                Senha
+            </label>
+            <input name="txt_cad_senha" id="txt_cad_senha" type="password" required autocomplete="current-password">
+        </div>
 
-</form>
+        <div class="modal-item">
+            <label for="txt_cad_cnpj">
+                CNPJ
+            </label>
+            <input name="txt_cad_cnpj" id="txt_cad_cnpj" type="text" required maxlenght="20">
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_razao_social">
+                Razão social
+            </label>
+            <input name="txt_cad_razao_social" id="txt_cad_razao_social" type="text" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_nome_fantasia">
+                Nome fantasia
+            </label>
+            <input name="txt_cad_nome_fantasia" id="txt_cad_nome_fantasia" type="text" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_responsavel">
+                Responsavel
+            </label>
+            <input name="txt_cad_responsavel" id="txt_cad_responsavel" type="text" required><!--txt_nome-->
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_tipo_estabelecimento">
+                Tipo de estabelecimento
+            </label>
+            <input name="txt_cad_tipo_estabelecimento" id="txt_cad_tipo_estabelecimento" type="text" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_renda">
+                Renda média
+            </label>
+            <input name="txt_cad_renda" id="txt_cad_renda" type="text" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_descricao">
+                Descrição
+            </label>
+            <input name="txt_cad_descricao" id="txt_cad_descricao" type="text" required >
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_endereco">
+                Logradouro
+            </label>
+            <input name="txt_cad_endereco" id="txt_cad_endereco" type="text" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_bairro">
+                Bairro
+            </label>
+            <input name="txt_cad_bairro" id="txt_cad_bairro" type="text" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_cidade">
+                Cidade
+            </label>
+            <input name="txt_cad_cidade" id="txt_cad_cidade" type="text" required>
+        </div>
+        
+        <div class="modal-item">
+            <label for="txt_cad_estado">
+                UF
+            </label>
+            <input name="txt_cad_estado" id="txt_cad_estado" type="text" required maxlenght="2">
+        </div>
+
+        <div class="modal-item">
+            <label for="txt_cad_email">
+                E-mail
+            </label>
+            <input name="txt_cad_email" id="txt_cad_email" type="email" required>
+        </div>
+
+        <div class="modal-item">
+            <label for="img_estabelecimento">
+                Logo
+            </label>
+            <input name="img_estabelecimento" id="img_estabelecimento" type="file" required>
+            <!-- <input type=file name="img" id="txt_nome_fantasia"> -->
+        </div>
+        
+        <button type='submit' >Cadastrar</button>
+
+        <span onclick="chamarViewParaModal('login')"><i class='fas fa-caret-left'></i>Voltar</span>
+    </form>
+</div>
 
 <script>
+
 function asyncSubmit(event, element){
     event.preventDefault()
     var url = element.getAttribute("action");
@@ -37,6 +131,6 @@ function asyncSubmit(event, element){
         contentType: false,
         processData: false,
     })
-    
 }
+
 </script>

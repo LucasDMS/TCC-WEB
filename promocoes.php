@@ -30,7 +30,8 @@
         session_start();
 		require_once('cms/db/ConexaoMysql.php');
         require_once("components/header.php");
-        require_once("components/sub_menu.php");
+		require_once("components/sub_menu.php");
+        require_once("components/modal.php");
     
         $conex = new conexaoMysql();
 		$con = $conex->connectDatabase();

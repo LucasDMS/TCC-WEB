@@ -22,6 +22,8 @@ if(isset($_GET['id'])){
     $paragrafo= $MVV->getParagrafo();
 }
 
+$modo == "atualizar" ? $paginaTitulo = "Atualizar notícia" : $paginaTitulo = "Nova notícia";
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)" 
@@ -35,12 +37,32 @@ if(isset($_GET['id'])){
         data-id="<?php echo $id ?>"
         data-modo="<?php echo $modo?>"
         data-pagina="mvv">
+    
+    <h2><?php echo $paginaTitulo?></h2>
 
-    <input type="text" name="txtTexto" id="txtTexto" value="<?php echo $texto?>" required>
-    <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto?>" required>
-    <input type="text" name="txtParagrafo" id="txtParagrafo" value="<?php echo $paragrafo?>" required>
+    <div class="inputDados">
+        <label from="txtTexto">Texto</label>
+        <textarea name="txtTexto" id="txtTexto" required><?php echo $texto?></textarea>
+    </div>
 
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="inputDados">
+        <label from="txtTipoTexto">Tipo</label>
+        <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtParagrafo">Paragrafo</label>
+        <input type="text" name="txtParagrafo" id="txtParagrafo" value="<?php echo $paragrafo?>" required>
+    </div>
+
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>
