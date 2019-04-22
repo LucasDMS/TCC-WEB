@@ -13,12 +13,12 @@
 <body>
     <?php require_once("view/components/alerta.php"); ?>
     <?php require_once("view/components/modal.php"); ?>
-    <?php require_once("view/components/header.php"); ?>
 
     <div class="wrapper">
         <?php require_once('view/components/nav.php'); ?>
 
         <main id="app">
+        <?php require_once("view/components/header.php"); ?>
             <div id="app_content">
                 <?php //require_once('boas_vindas/boas_vindas.php'); ?>
             </div>

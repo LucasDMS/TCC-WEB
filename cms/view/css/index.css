@@ -1,4 +1,5 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, p, table, th, tr, td, button, textarea {
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, 
+header, main, footer, input, p, table, th, tr, td, button, textarea {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
