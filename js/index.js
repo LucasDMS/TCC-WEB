@@ -165,7 +165,7 @@ function request(event, element){
     });
 }
 
-function chamarViewParaModal(pagina) {
+function chamarViewParaModal(pagina, abrirModal) {
 
     var url = 'components/' + pagina + '.php'
 
@@ -176,7 +176,10 @@ function chamarViewParaModal(pagina) {
     .done(function (dados) {
 
         $("#modal").html(dados);
-        modalToggle(true);
+
+        if(abrirModal){
+            modalToggle(true);
+        }
     });
 }
 
