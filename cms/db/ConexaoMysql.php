@@ -9,10 +9,10 @@ class conexaoMysql {
 
 	public function __construct() {
 
-		// $this->server = "localhost";
-		// $this->user = "root";
-		$this->server = "10.107.144.20";
-		$this->user = "teste";
+		$this->server = "localhost";
+		$this->user = "root";
+		//$this->server = "10.107.144.20";
+		//$this->user = "teste";
 		$this->password = "bcd127";
 		$this->database = "db_pop_soda_drink";
 	}
@@ -20,7 +20,6 @@ class conexaoMysql {
 	public function connectDatabase() {
 
 		try {
-
 			$conexao = new PDO('mysql:host='.$this->server.';dbname='.$this->database, $this->user, $this->password);
 			return $conexao;
 			

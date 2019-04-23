@@ -31,16 +31,7 @@
                 <i class="fas fa-angle-right seta" id="seta_2"></i>
             </div>
             <!-- SUB MENU -->
-            <div class="sub_menu" id="sub_menu_2">
-                <ul>
-                    <li onclick="chamarViewParaApp('funcionario')">
-                        <div>
-                            <i class="fas fa-wrench"></i>
-                            Funcionario
-                        </div>
-                    </li>
-                </ul>
-            </div>
+           
         </li>
     </ul>
 
