@@ -48,7 +48,7 @@
 
         public function selectAll(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_enquete where status = ?";
+            $sql = "select e.*, r.respostas, eq.votos FROM tbl_enquete as e, tbl_resposta as r, tbl_enquete_resposta as eq Where eq.id_enquete = e.id_enquete and eq.id_resposta = r.id_resposta and e.status=1 and e.id_enquete = eq.id_enquete;";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 1);
             $success = $stm->execute();
@@ -58,7 +58,9 @@
                     $enquete = new Enquete(); 
                     $enquete->setId($result['id_enquete']);
                     $enquete->setPergunta($result['pergunta']);
+                    $enquete->setResposta($result['respostas']);
                     $enquete->setData($result['data_inicio']);
+                    $enquete->setVotos($result['votos']);
                     $enquete->setStatus($result['status']);
                     array_push($listEnquete, $enquete);
                 };

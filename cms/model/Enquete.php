@@ -17,6 +17,7 @@ class Enquete{
     private $data;
     private $apagado;
     private $status;
+    private $votos;
 
     public function getId(){
         return $this->id;
@@ -69,6 +70,15 @@ class Enquete{
 
     public function setStatus($status){
         $this->status = $status;
+        return $this;
+    }
+
+    public function getVotos(){
+        return $this->votos;
+    }
+
+    public function setVotos($votos){
+        $this->votos = $votos;
         return $this;
     }
 }
