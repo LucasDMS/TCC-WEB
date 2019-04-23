@@ -26,8 +26,8 @@
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
-                    data-pagina="UsuarioEstabelecimento"
-                    data-url="view/UsuarioEstabelecimento/UsuarioEstabelecimento_form.php?id=<?php echo $result->getId()?>&idAutenticacao=<?php echo $result->getIdAutenticacao()?>"
+                    data-pagina="usuario_estabelecimento"
+                    data-url="view/usuario_estabelecimento/usuario_estabelecimento_form.php?id=<?php echo $result->getId()?>&idAutenticacao=<?php echo $result->getIdAutenticacao()?>"
                     data-id="<?php echo $result->getId();?>">
 
                     <i class="fas fa-pen"></i>
@@ -35,8 +35,8 @@
 
                 <a  onclick="asyncAtivar(this)"
                     href="#"
-                    data-pagina="UsuarioEstabelecimento"
-                    data-url="router.php?controller=UsuarioEstabelecimento&modo=ativar"
+                    data-pagina="usuario_estabelecimento"
+                    data-url="router.php?controller=usuario_estabelecimento&modo=ativar"
                     data-id="<?php echo $result->getId();?>"
                     data-ativo = <?php echo $result->getAtivo();?>>
 

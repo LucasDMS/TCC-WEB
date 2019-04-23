@@ -18,7 +18,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
     $ControllerSessao = new ControllerSessao();
 
        
-    $action = "router.php?controller=funcionario&modo=inserir";
+    $action = "router.php?controller=usuario_estabelecimento&modo=inserir";
     $modo = "inserir";
     $id = "";
     $idAutenticacao = "";
@@ -35,7 +35,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
         $Usuario = $Controller->buscarUsuarioEstabelecimentoPorId($id);
 
-        $action = "router.php?controller=funcionario&modo=atualizar";
+        $action = "router.php?controller=usuario_estabelecimento&modo=atualizar";
         $modo = "atualizar";
 
         $nome = $Funcionario->getNome();

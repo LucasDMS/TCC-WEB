@@ -16,7 +16,7 @@ class ControllerUsuarioEstabelecimento{
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
-            $tipo = 'Funcionario Estabelecimento';
+            $tipo = 'EMPRESA';
             $ativo = 1;
             $idMenu = $_POST['checkbox'];
             

@@ -25,22 +25,23 @@ class UsuarioEstabelecimentoDAO {
         //Select para pegar o ultimo id de insert para fazer o insert em UsuarioEstabelecimentos
         
         //Insert na tabela de UsuarioEstabelecimentos 
-        $sql = "insert into tbl_usuario_estabelecimento(nome,cargo,setor,data_emissao,ativo,id_autenticacao) values(?,?,?,?,?,?);";
+        $sql = "insert into tbl_usuario_estabelecimento(nome,ativo,id_autenticacao,id_estabelecimento) values(?,?,?,?);";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $UsuarioEstabelecimento->getNome());        
-        $stm->bindValue(2, $conn->lastInsertId());
+        $stm->bindValue(1, $UsuarioEstabelecimento->getNome()); 
+        $stm->bindValue(2, $UsuarioEstabelecimento->getAtivo());        
+        $stm->bindValue(3, $conn->lastInsertId());
+        $stm->bindValue(4, $UsuarioEstabelecimento->getIdEstabelecimento());
         $stm->execute();
         $this->conex->closeDataBase();
 
     
-        $sql = "SELECT id_UsuarioEstabelecimento_web FROM tbl_usuario_estabelecimento order by id_UsuarioEstabelecimento_web desc limit 1";
+        $sql = "SELECT id_usuario_estabelecimento FROM tbl_usuario_estabelecimento order by id_usuario_estabelecimento desc limit 1";
         $stm = $conn->prepare($sql);
         $stm->execute();
         foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-            $MenuUsuarioEstabelecimento->setIdUsuarioEstabelecimento($result['id_UsuarioEstabelecimento_web']);
+            $MenuUsuarioEstabelecimento->setIdUsuarioEstabelecimento($result['id_usuario_estabelecimento']);
         }
         foreach($MenuUsuarioEstabelecimento->getIdMenu() as $result){
-            echo $conn->lastInsertId();
             
             $sql = "insert into tbl_menu_usuario_estabelecimento(id_menu,id_usuario_estabelecimento) values(?,?)";
             $stm = $conn->prepare($sql);
