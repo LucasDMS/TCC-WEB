@@ -1,13 +1,13 @@
 <?php 
  
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerUsuarioEstabelecimento.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" ."/controller/controllerUsuarioEstabelecimento.php");
     $controller = new ControllerUsuarioEstabelecimento();
     $rs = $controller->buscarUsuarioEstabelecimento();
 
 ?>
 
 <div class="pagina_titulo">
-    UsuarioEstabelecimentos
+    Usuários Estabelecimentos
     <button class="menu_novo" type="menu" onclick="chamarViewParaModal('usuario_estabelecimento')">
         <i class="fas fa-plus"></i>
     </button>

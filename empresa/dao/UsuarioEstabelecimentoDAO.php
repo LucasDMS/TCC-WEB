@@ -7,7 +7,7 @@ class UsuarioEstabelecimentoDAO {
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
-    public function insert(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao, MenuUsuarioEstabelecimento $MenuUsuarioEstabelecimento) {
+    public function insert(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao) {
         $conn = $this->conex->connectDatabase();
         //Insert na tabela de autenticacao
         $sql = "insert into tbl_autenticacao(login,senha,tipo) values(?,?,?);";

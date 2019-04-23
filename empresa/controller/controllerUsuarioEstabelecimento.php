@@ -3,10 +3,10 @@ class ControllerUsuarioEstabelecimento{
     
     private $UsuarioEstabelecimentoDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/UsuarioEstabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/model/UsuarioEstabelecimento.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Sessao.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MenuUsuarioEstabelecimento.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/UsuarioEstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/model/MenuUsuarioEstabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" .'/dao/UsuarioEstabelecimentoDAO.php');
         $this->UsuarioEstabelecimentoDAO = new UsuarioEstabelecimentoDAO();
     }
     public function inserirUsuarioEstabelecimento(){
