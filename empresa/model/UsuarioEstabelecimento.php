@@ -12,8 +12,7 @@ class UsuarioEstabelecimento{
     private $id;
     private $nome;
     private $ativo;
-    private $idMenu;
-    private $idEstabelecimento;
+    private $idAutenticacao;
 
     public function getId()
     {
@@ -38,18 +37,6 @@ class UsuarioEstabelecimento{
         return $this;
     }
     
-    public function getIdEstabelecimento()
-    {
-        return $this->idEstabelecimento;
-    }
-
-    public function setIdEstabelecimento($idEstabelecimento)
-    {
-        $this->idEstabelecimento = $idEstabelecimento;
-
-        return $this;
-    }
-
     public function getAtivo()
     {
         return $this->ativo;
@@ -62,15 +49,14 @@ class UsuarioEstabelecimento{
         return $this;
     }
 
-    public function getIdMenu()
+    public function getIdAutenticacao()
     {
-        return $this->idMenu;
+        return $this->idAutenticacao;
     }
 
- 
-    public function setIdMenu($idMenu)
+    public function setIdAutenticacao($idAutenticacao)
     {
-        $this->idMenu = $idMenu;
+        $this->idAutenticacao = $idAutenticacao;
 
         return $this;
     }

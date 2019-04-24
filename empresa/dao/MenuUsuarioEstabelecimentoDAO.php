@@ -18,9 +18,9 @@ class MenuUsuarioEstabelecimentoDAO {
         if ($success) {
             $listMenu = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Menu = new UsuarioEsbelecimento();
+                $Menu = new MenuUsuarioEstabelecimento();
                 $Menu->setIdMenu($result['id_menu']);
-                $Menu->setIdEstabelecimento($result['id_usuario_estabelecimento']);
+                $Menu->setIdUsuario($result['id_usuario_estabelecimento']);
                 array_push($listMenu, $Menu);
             }
             $this->conex -> closeDataBase();
@@ -39,7 +39,7 @@ class MenuUsuarioEstabelecimentoDAO {
         if ($success) {
             $listMenu = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Menu = new MenuUsuarioEsbelecimento();
+                $Menu = new MenuUsuarioEstabelecimento();
                 $Menu->setId($result['id_menu']);
                 $Menu->setPaginas($result['paginas']);
                 array_push($listMenu, $Menu);

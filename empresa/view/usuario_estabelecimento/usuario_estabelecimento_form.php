@@ -8,9 +8,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
     $login = null;
     $senha = null;
     $tipo = null;
-    $cargo = null;
-    $setor = null;
-    $dataEmissao = null;
     $checked = null;
     $Pagina = array();
     $ControllerMenu = new ControllerMenuUsuarioEstabelecimento();
@@ -28,21 +25,16 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         $id = $_GET['id'];
         $idAutenticacao = $_GET['idAutenticacao'];
         
-        $ControllerMenu = new ControllerMenu();
-        $Controller = new ControllerFuncionario();
+        $ControllerMenu = new ControllerMenuUsuarioEstabelecimento();
+        $Controller = new ControllerUsuarioEstabelecimento();
         $ControllerSessao = new ControllerSessao();
         $Pagina = $ControllerMenu->buscarMenuPorId($id);
-        $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
+        $Sessao = $ControllerSessao->buscarUsuarioPorId($id);
         $Usuario = $Controller->buscarUsuarioEstabelecimentoPorId($id);
 
         $action = "router.php?controller=usuario_estabelecimento&modo=atualizar";
         $modo = "atualizar";
-
-        $nome = $Funcionario->getNome();
-        $setor= $Funcionario->getSetor();
-        $cargo = $Funcionario->getCargo();
-        $dataEmissao= $Funcionario->getDataEmissao();
-
+        $nome = $Usuario->getNome();
         $login = $Sessao->getLogin();
         $senha = $Sessao->getSenha();
         $tipo = $Sessao->getTipo();
@@ -54,20 +46,24 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         action="<?php echo $action;?>"
         method="post"
         autocomplete="off"
-        id="frm_funcionario"
+        id="frm_usuario_estabelecimento"
         enctype='multipart/form-data' 
-        name="frm_funcionario"
+        name="frm_usuario_estabelecimento"
         class="form_padrao"
-        data-texto="<?php echo $texto ?>"
         data-id="<?php echo $id ?>"
         data-idAutenticacao="<?php echo $idAutenticacao ?>"
         data-modo="<?php echo $modo; ?>"
-        data-pagina="funcionario">
+        data-pagina="usuario_estabelecimento">
 
-       
-        <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $nome;?>"><br>
-        <input type="text" name="txtLogin" id="txtLogin" placeholder="Login" value="<?php echo $login;?>"><br>
-        <input type="text" name="txtPassword" id="txtPassword" placeholder="Senha" value="<?php echo $senha;?>"><br>
+        <div class="inputDados">
+            <input type="text" name="txtNome" id="txtNome" placeholder="Nome" value="<?php echo $nome;?>"><br>
+        </div>
+        <div class="inputDados">
+            <input type="text" name="txtLogin" id="txtLogin" placeholder="Login" value="<?php echo $login;?>"><br>
+        </div>
+        <div class="inputDados">
+            <input type="text" name="txtPassword" id="txtPassword" placeholder="Senha" value="<?php echo $senha;?>"><br>
+        </div>
         <div class="container" >
         
     <?php  
@@ -102,7 +98,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
     
     ?>
         </div>
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>

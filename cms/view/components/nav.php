@@ -1,7 +1,14 @@
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMenu.php");
+    $controller = new ControllerMenu();
+    $rs = $controller->buscarFuncionarioPermissoes();
+    var_dump($rs);
+?>
 <nav id="barra_lateral" class="nav">
-
+    
     <ul>
         <li>
+        <?php  foreach($rs as $result){ ?>
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 1, true)">
                 <div>
@@ -13,14 +20,15 @@
             <!-- SUB MENU -->
             <div class="sub_menu" id="sub_menu_1">
                 <ul>
-                    
-                    <li onclick="chamarViewParaApp('noticias')">
-                        <div>
-                            <i class="fas fa-wrench"></i>
-                            Noticias
-                        </div>
-                    </li>
-
+                    <?php
+                    if($result->getPaginas()=='Home'){?>
+                        <li onclick="chamarViewParaApp('noticias')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Noticias
+                            </div>
+                        </li>
+                    <?php }?>
                     <li onclick="chamarViewParaApp('historia')">
                         <div>
                             <i class="fas fa-wrench"></i>
@@ -165,7 +173,8 @@
                AAAAAAAAAAAAA
             </div>
         </li>
-
+        
     </ul>
-
+    
+        <?php }?>
 </nav>

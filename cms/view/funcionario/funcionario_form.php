@@ -46,12 +46,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         $login = $Sessao->getLogin();
         $senha = $Sessao->getSenha();
         $tipo = $Sessao->getTipo();
-
-            $texto = "Usuário já existe";
-        
-
     }
-}
+
 
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 

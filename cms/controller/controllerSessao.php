@@ -22,8 +22,13 @@ class ControllerSessao{
     }
     public function buscarFuncionarioPorId(){
         $id = $_GET['id'];
-        return $this->SessaoDAO->selectById($id);
+        return $this->SessaoDAO->selectByIdFuncionario($id);
     }
+    public function buscarUsuarioPorId(){
+        $id = $_GET['id'];
+        return $this->SessaoDAO->selectByIdUsuario($id);
+    }
+
     public function verificarUsuario(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $usuario = $_POST['txtLogin'];

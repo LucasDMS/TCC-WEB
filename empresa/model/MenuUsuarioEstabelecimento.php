@@ -8,10 +8,11 @@
     Autor da Modificação:
     Objetivo da classe: Classe de Menu
 */
-class MenuUsuarioEsbelecimento{
+class MenuUsuarioEstabelecimento{
     private $id;
     private $paginas;
-
+    private $idMenu;
+    private $idUsuario;
 
     public function getId()
     {
@@ -34,6 +35,30 @@ class MenuUsuarioEsbelecimento{
         return $this;
     }
 
- 
+    public function getIdMenu()
+    {
+        return $this->idMenu;
+    }
+
+
+    public function setIdMenu($idMenu)
+    {
+        $this->idMenu = $idMenu;
+
+        return $this;
+    }
+
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
+    
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
+
+        return $this;
+    }
 }
 ?>

@@ -12,7 +12,6 @@ class ControllerUsuarioEstabelecimento{
     public function inserirUsuarioEstabelecimento(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
-
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
@@ -28,9 +27,11 @@ class ControllerUsuarioEstabelecimento{
             $UsuarioEstabelecimento = new UsuarioEstabelecimento();
             $UsuarioEstabelecimento->setNome($nome);
             $UsuarioEstabelecimento->setAtivo($ativo);
-            $UsuarioEstabelecimento->setIdMenu($idMenu);
+
+            $MenuUsuarioEstabelecimento = new MenuUsuarioEstabelecimento();
+            $MenuUsuarioEstabelecimento->setIdMenu($idMenu);
      
-            return $this->UsuarioEstabelecimentoDAO->insert($UsuarioEstabelecimento, $Sessao);
+            return $this->UsuarioEstabelecimentoDAO->insert($UsuarioEstabelecimento, $Sessao, $MenuUsuarioEstabelecimento);
         }
     }
     public function atualizarUsuarioEstabelecimento(){
@@ -41,13 +42,8 @@ class ControllerUsuarioEstabelecimento{
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
-            $tipo = $_POST['txtTipo'];
-            $cargo  = $_POST['txtCargo'];
-            $setor = $_POST['txtSetor'];
-            $data_emissao  = $_POST['txtDtEmissao'];
+            $ativo = 1;
             $idMenu = $_POST['checkbox'];
-
-           
 
             $UsuarioEstabelecimento = new UsuarioEstabelecimento(); 
             $Sessao = new Sessao(); 
@@ -55,19 +51,19 @@ class ControllerUsuarioEstabelecimento{
 
             $UsuarioEstabelecimento->setId($id);
             $UsuarioEstabelecimento->setNome($nome);
-            $UsuarioEstabelecimento->setCargo($cargo);
-            $UsuarioEstabelecimento->setSetor($setor);
-            $UsuarioEstabelecimento->setDataEmissao($data_emissao);
+            $UsuarioEstabelecimento->setAtivo($ativo);
 
             $Sessao->setId($idAutenticacao);
             $Sessao->setLogin($login);
             $Sessao->setSenha($password);
-            $Sessao->setTipo($tipo);
 
-            $MenuUsuarioEstabelecimento->setIdUsuarioEstabelecimento($id);
+            $MenuUsuarioEstabelecimento->setIdUsuario($id);
             $MenuUsuarioEstabelecimento->setIdMenu($idMenu);
-
+        
             $this->UsuarioEstabelecimentoDAO->update($UsuarioEstabelecimento, $Sessao, $MenuUsuarioEstabelecimento);
+
+
+            
         }
     }
 

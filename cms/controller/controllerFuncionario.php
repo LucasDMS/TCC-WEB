@@ -102,5 +102,6 @@ class ControllerFuncionario{
     public function buscarFuncionario(){
         return $this->FuncionarioDAO->selectAll();
     }
+
 }
 ?>
