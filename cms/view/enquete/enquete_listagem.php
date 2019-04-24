@@ -25,9 +25,10 @@
 
 <div class="card_wrapper">
     <!-- CARD -->
-    <?php $controle = 1; ?>
+    <?php $controle = 1;     
+       
+    ?>
     <?php foreach ($rs as $result) { 
-        
         if($controle == $result->getId()){
         ?>
         <div class="card">
@@ -48,7 +49,12 @@
                             echo utf8_encode($result->getResposta()." ".$result->getVotos()." votos <br>"); 
                         }
                     }
-                    $controle++;  
+                    //while(!$controle == $result->getId()){
+                        
+                        
+                        $controle++; 
+                    //}
+                     
                 ?>
             </div>
             <div>
@@ -88,5 +94,10 @@
             </div>
 
         </div>
-    <?php }} ?>
+    <?php 
+            }else{
+               
+            }
+        }
+    ?>
 </div>

@@ -21,18 +21,17 @@ class controllerEnquete{
 
     public function inserirEnquete(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $nome = $_POST['txt_nome'];
             $pergunta = $_POST['txt_pergunta'];
             $resposta = $_POST['txt_resposta'];
             $data = $_POST['date'];
 
             $enquete = new Enquete();
-            $enquete->setNome($nome);
             $enquete->setPergunta($pergunta);
             $enquete->setResposta($resposta);
             $enquete->setData($data);
+            $enquete->setStatus(1);
 
-            $this->EnqueteDAO->buscarEnquetePorId();
+            $this->EnqueteDAO->inserirEnquete($enquete);
 
 
         }
