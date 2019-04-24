@@ -73,7 +73,7 @@
 					<!-- patrocinado -->
 					<ul class="lista_patrocinio"> 
 				        <?php		
-					       $sql = "select * from tbl_patrocinio";
+					       $sql = "select * from tbl_patrocinio where  apagado = 0 and ativo = 1";
 					       $stm = $con->prepare($sql);
 					       $success = $stm->execute();
 					       foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

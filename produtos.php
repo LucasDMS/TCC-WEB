@@ -126,8 +126,8 @@
                         
                                     <!-- Loop info -->
                                     <tr>
-                                        <td>Carboidratos</td>
-                                        <td><?php echo ($result['carboidratos']) ?></td>
+                                        <td>Valor Calórico</td>
+                                        <td><?php echo ($result['valor_calorico']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
@@ -151,18 +151,18 @@
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Proteina</td>
+                                        <td>Proteína</td>
                                         <td><?php echo ($result['proteina']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Sodio</td>
+                                        <td>Sódio</td>
                                         <td><?php echo ($result['sodio']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Valor Calorico</td>
-                                        <td><?php echo ($result['valor_calorico']) ?></td>
+                                        <td>Carboidratos</td>
+                                        <td><?php echo ($result['carboidratos']) ?></td>
                                         <td>3</td>
                                     </tr>
 

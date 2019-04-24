@@ -86,8 +86,8 @@
 					</div>
 
 				<?php
-				 }
-        ?>
+				    }
+                ?>
 				</div>
 			</section>
 
@@ -107,17 +107,17 @@
 					</p>
 
 					<?php
-						  }
-					  ?>
+				        }
+				    ?>
 
 					<form action="" method="post">
                         
-          	<?php		
+          	             <?php		
 							$sql = "select * from tbl_enquete where  status = 1";
 							$stm = $con->prepare($sql);
 							$success = $stm->execute();
 							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-            ?>
+                        ?>
                         
 						<ul>
 							<li>
@@ -142,9 +142,9 @@
 							</li>
 						</ul>
                         
-            <?php
+                        <?php
 						  }
-					  ?>
+					    ?>
                         
 						<button class="btn" type="submit">
 							VOTAR
@@ -174,7 +174,7 @@
 				<h2 class="section_titulo">CONHEÇA UM POUCO SOBRE NÓS</h2>
 
 				<?php		
-					$sql = "select * from tbl_conheca_sobre_nos";
+					$sql = "select * from tbl_conheca_sobre_nos where  apagado = 0 and ativo = 1";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

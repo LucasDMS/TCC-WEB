@@ -65,20 +65,53 @@
 			<?php
 				}
 			?>
+            
+             <script>
 
+                function Validar(caracter, blockType, campo){
+                document.getElementById(campo).style="background-color:#ffffff;";
+
+
+                    if(window.event)
+                        //guarda o ascii da letra digitada pelo usuário
+                        var letra = caracter.charCode;
+                        else
+                        //guarda o ascii da letra digitada pelo usuário
+                        var letra = caracter.which;
+
+                        //Verificar se o tipo do bloqueio é para numeros ou caracteres
+                        if(blockType=='number') {
+
+                        //Bloqueio de Numeros
+                        if(letra >= 48 && letra <= 57){
+                            document.getElementById(campo).style="background-color:#ffffff;";
+                            //Cancela a ação da tecla
+                            return false;
+                          }
+                        }else if(blockType=='caracter'){
+                        //Bloqueio de letras
+                        if(letra < 48 || letra > 57){
+                              document.getElementById(campo).style="background-color:#ffffff;";
+                            //Cancela a ação da tecla
+                            return false;
+                            }
+                        }    
+                    }
+            </script>
+            
 			<form class="form_fale_conosco" name="frm_fale_conosco" action="../index.php" method="POST">
 				<label for="txt_nome">Nome:</label>
-				<input type="text" name="txt_nome" id="txt_nome" placeholder="Nome">
+				<input type="text" name="txt_nome" id="txt_nome" placeholder="Nome" title="Nome Completo" onkeypress="return Validar(event, 'number',this.id);">
 
 				<label for="txt_email">E-mail:</label>
-				<input type="email" name="txt_email" id="txt_email" placeholder="E-mail">
+				<input type="email" name="txt_email" id="txt_email" placeholder="E-mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Exemplo: exemplo.nada@email.com.br ou exemplo.nada@email.com">
 
 				<label for="txt_telefone">Telefone:</label>
-				<input type="text" name="txt_telefone" id="txt_telefone" placeholder="Telefone" maxlength="13">
+				<input type="text" name="txt_telefone" id="txt_telefone" placeholder="Telefone" maxlength="13" title="Exemplo:(11)1234-5678" onkeypress="return Validar(event,'caracter', this.id);">
 
 
 				<label for="txt_celular">Celular:</label>
-				<input type="text" name="txt_celular" id="txt_celular" placeholder="Celular" maxlength="14">
+				<input type="text" name="txt_celular" id="txt_celular" placeholder="Celular" maxlength="14" title="Exemplo:(11) 91234-5678" onkeypress="return Validar(event,'caracter', this.id);">
 
 				<label for="cbm_estado">Estado: </label>
 				<select name="cbm_estado" id="cbm_estado" class="">
