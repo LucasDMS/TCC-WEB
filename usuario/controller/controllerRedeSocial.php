@@ -1,23 +1,22 @@
 <?php
 /*
-        Projeto: TCC
-        Autor: Nicolas
-        Data Criação: 10/04/2019
-        Data Modificação:
-        Conteúdo Modificado:
-        Autor da Modificação:
-        Objetivo da classe: class que controla os dados.
-    */
-class controllerCadastroEstabelecimento{
+    Projeto: TCC
+    Autor: Rafael
+    Data Criação: 24/04/2019
+    Data Modificação:
+    Conteúdo Modificado:
+    Autor da Modificação:
+    Objetivo da classe: class que controla os dados.
+*/
+class controllerRedeSocial{
 
-    private $cadastroEstabelecimentoDAO;
+    private $controllerRedeSocial;
 
     public function __construct(){
 
-        
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/dao/CadastroEstabelecimentoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/model/CadastroEstabelecimento.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/' . 'dao/CadastroEstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/' . 'model/CadastroEstabelecimento.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/' . 'view/components/imagem.php');
 
         //estancia da class dao de cadastro de estabelecimento
         $this->cadastroEstabelecimentoDAO = new CadastroEstabelecimentoDAO();
@@ -66,12 +65,7 @@ class controllerCadastroEstabelecimento{
             //chamando o metodo de insert e passando o objeto
             $this->cadastroEstabelecimentoDAO->inserir($cadastro);
         }
-
-
     }
-        
-
 }
-
 
 ?>

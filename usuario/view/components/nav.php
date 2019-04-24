@@ -14,10 +14,10 @@
             <div class="sub_menu" id="sub_menu_1">
                 <ul>
                     
-                    <li onclick="chamarViewParaApp('noticias')">
+                    <li onclick="chamarViewParaApp('rede_social')">
                         <div>
                             <i class="fas fa-wrench"></i>
-                            Noticias
+                            Rede Social
                         </div>
                     </li>
 
