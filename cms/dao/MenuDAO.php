@@ -61,14 +61,16 @@ class MenuDAO {
         $success = $stm->execute();
         $this->conex->closeDataBase();
         if ($success) {
-            
-            $result = $stm->fetch(PDO::FETCH_ASSOC);
-            
+            $listMenu = [];
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
             $Menu = new MenuFuncionario();
-           
             $Menu->setPaginas($result['paginas']);
-            return $Menu;
-
+            array_push($listMenu, $Menu);
+            }
+            $this->conex -> closeDataBase();
+            return $listMenu;
+        } else {
+            return "Erro";
         }
     }
 }
