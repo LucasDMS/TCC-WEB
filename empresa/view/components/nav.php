@@ -1,8 +1,14 @@
+<?php 
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controllerMenuUsuarioEstabelecimento.php");
+    $controller = new ControllerMenuUsuarioEstabelecimento();
+?>
 <nav id="barra_lateral" class="nav">
 
     <ul>
+    <?php if($_SESSION['tipo'] == 'EMPRESAROOT'){?>
         <li>
             <!-- BOTÃO -->
+
             <div class="lista_btn" onclick="toggleSubMenu(this, 1, true)">
                 <div>
                     <i class="fas fa-cog"></i>
@@ -20,8 +26,11 @@
                             Usuários cadastrados
                         </div>
                     </li>
+                </ul>
+            </div>
 
         <li>
+    <?php } ?>
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
                 <div>

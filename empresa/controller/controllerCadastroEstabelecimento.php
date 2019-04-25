@@ -32,7 +32,7 @@ class controllerCadastroEstabelecimento{
 
             $cnpj = $_POST['txt_cnpj'];
             $nome = $_POST['txt_nome'];
-            $tipo_estabelecimento = $_POST['txt_tipo_estabelecimento'];
+            $tipo_estabelecimento = "EMPRESAROOT";
             $renda = $_POST['txt_renda'];
             $descricao = $_POST['txt_descricao'];
             $endereco = $_POST['txt_endereco'];

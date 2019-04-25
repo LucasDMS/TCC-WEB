@@ -69,7 +69,7 @@ function asyncSubmit(event, element) {
         recarregarLista(pagina);
         console.log(html);
         html = html.split('&')
-        if(html[0]==="Usuário já existente!"){
+        if(html[0]==="Usuário já existente!" || html[0]==="Erro!! Limite de usuários atingido."){
             mostrarAlerta(html[0], TYPE.ERROR, 1000);
         }else{
             mostrarAlerta(html[0], TYPE.SUCCESS, 1000);

@@ -7,7 +7,7 @@ session_start();
     require_once("../cms/model/Sessao.php");
     if( isset($_SESSION['logado'])){
         $Sessao = new Sessao();
-        if($_SESSION['tipo'] == "EMPRESA"){
+        if($_SESSION['tipo'] == "EMPRESA" || $_SESSION['tipo'] == "EMPRESAROOT"){
             require_once("view/home.php");
         }
     }
