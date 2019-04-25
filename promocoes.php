@@ -37,9 +37,12 @@
         require_once("components/header.php");
 		require_once("components/sub_menu.php");
         require_once("components/modal.php");
-    
+	
+		$id = "";
+		$modo = "inserir";
         $conex = new conexaoMysql();
 		$con = $conex->connectDatabase();
+		echo($id);
 
     ?>
 	<!-- LOGIN E CADASTRE-SE -->
@@ -61,13 +64,13 @@
 		action="<?php ?>" 
 		method="post"
 		autocomplete="off"
-		id=""
-		class=""
+		id="frm_participar_promocao"
+		class="form_padrao"
 		name="frm_participar_promocao"
 		enctype="multipart/form"
-		data-id="<?php ?>"
-		data-id-promocao=""
-		data-modo=""
+		data-id="<?php echo($id)?>"
+		data-id-promocao="<?php echo($idPromocao)?>"
+		data-modo="<?php echo($Modo)?>"
 		data-pagina="participar"
 	>
 	</form>
@@ -76,11 +79,12 @@
 			<div class="section_conteudo_center">
 
 			    <?php		
-                $sql = "select * from tbl_promocao where apagado = 0 and ativo = 1";
+				$sql = "select * from tbl_promocao where apagado = 0 and ativo = 1";
 				$stm = $con->prepare($sql);
 				$success = $stm->execute();
 
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+					$id = $result['id_promocao']; 
 			     ?>
 				<div class="titulo_promo">
 					<i class="fas fa-award"></i>
