@@ -5,11 +5,17 @@ class ControllerUsuarioEstabelecimento{
     public function __construct(){
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/model/UsuarioEstabelecimento.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Sessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/dao/SessaoDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSessao.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/model/MenuUsuarioEstabelecimento.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" .'/dao/UsuarioEstabelecimentoDAO.php');
         $this->UsuarioEstabelecimentoDAO = new UsuarioEstabelecimentoDAO();
+        
     }
     public function inserirUsuarioEstabelecimento(){
+        session_start();
+        $id = $_SESSION['id'];
+    
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $nome =$_POST['txtNome'];
@@ -27,11 +33,10 @@ class ControllerUsuarioEstabelecimento{
             $UsuarioEstabelecimento = new UsuarioEstabelecimento();
             $UsuarioEstabelecimento->setNome($nome);
             $UsuarioEstabelecimento->setAtivo($ativo);
-
             $MenuUsuarioEstabelecimento = new MenuUsuarioEstabelecimento();
             $MenuUsuarioEstabelecimento->setIdMenu($idMenu);
      
-            return $this->UsuarioEstabelecimentoDAO->insert($UsuarioEstabelecimento, $Sessao, $MenuUsuarioEstabelecimento);
+            return $this->UsuarioEstabelecimentoDAO->insert($UsuarioEstabelecimento, $Sessao, $MenuUsuarioEstabelecimento, $id);
         }
     }
     public function atualizarUsuarioEstabelecimento(){

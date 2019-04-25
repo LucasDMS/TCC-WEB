@@ -38,7 +38,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         $login = $Sessao->getLogin();
         $senha = $Sessao->getSenha();
         $tipo = $Sessao->getTipo();
-
+        
     }
 ?>
 
@@ -50,8 +50,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         enctype='multipart/form-data' 
         name="frm_usuario_estabelecimento"
         class="form_padrao"
-        data-id="<?php echo $id ?>"
-        data-idAutenticacao="<?php echo $idAutenticacao ?>"
+        data-id="<?php echo $id; ?>"
+        data-idAutenticacao="<?php echo $idAutenticacao; ?>"
         data-modo="<?php echo $modo; ?>"
         data-pagina="usuario_estabelecimento">
 

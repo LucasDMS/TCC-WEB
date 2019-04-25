@@ -48,7 +48,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         $tipo = $Sessao->getTipo();
     }
 
-
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 
 ?>
@@ -61,9 +60,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         enctype='multipart/form-data' 
         name="frm_funcionario"
         class="form_padrao"
-        data-texto="<?php echo $texto ?>"
         data-id="<?php echo $id ?>"
-        data-idAutenticacao="<?php echo $idAutenticacao ?>"
+        data-idAutenticacao="<?php echo $idAutenticacao; ?>"
         data-modo="<?php echo $modo; ?>"
         data-pagina="funcionario">
        

@@ -11,10 +11,13 @@ if ( isset($_SESSION['logado']) ) {
 	$Sessao = new Sessao();
 
 	switch($_SESSION['tipo']){
-
+		case "ROOT":
+			header("Location: cms/index.php");
+		break;
 		case "ADM":
 			header("Location: cms/index.php");
 			break;
+		
 		case "USUARIO":
 			header("Location: usuario/index.php");
 			break;

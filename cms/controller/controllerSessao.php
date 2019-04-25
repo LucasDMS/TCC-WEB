@@ -32,6 +32,7 @@ class ControllerSessao{
     public function verificarUsuario(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $usuario = $_POST['txtLogin'];
+
             $Sessao = new Sessao();
             $Sessao->setLogin($usuario);
             $this->SessaoDAO->selectVerify($Sessao);

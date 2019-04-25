@@ -44,7 +44,6 @@ class controllerCadastroEstabelecimento{
             $nome_fantasia = $_POST['txt_nome_fantasia'];
             $imagem = img($_FILES['img']);
             $ativo = 1;
-
             //estanciando a model e enviando todos os dados para ela
             $cadastro = new CadastroEstabelecimento();
             $cadastro->setUsuario($usuario);
@@ -63,6 +62,7 @@ class controllerCadastroEstabelecimento{
             $cadastro->setNome_fantasia($nome_fantasia);
             $cadastro->setImagem($imagem);
             $cadastro->setAtivo($ativo);
+            
             //chamando o metodo de insert e passando o objeto
             $this->cadastroEstabelecimentoDAO->inserir($cadastro);
         }

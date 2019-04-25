@@ -7,7 +7,7 @@ class UsuarioEstabelecimentoDAO {
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
-    public function insert(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao, MenuUsuarioEstabelecimento $MenuUsuarioEstabelecimento) {
+    public function insert(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao, MenuUsuarioEstabelecimento $MenuUsuarioEstabelecimento, $id) {
         $conn = $this->conex->connectDatabase();
         //Insert na tabela de autenticacao
         $sql = "insert into tbl_autenticacao(login,senha,tipo) values(?,?,?);";
@@ -15,24 +15,24 @@ class UsuarioEstabelecimentoDAO {
         $stm->bindValue(1, $Sessao->getLogin());        
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getTipo());
-        $success = $stm->execute();
 
+        $success = $stm->execute();
         if (!$success) {
             echo "Usuário já existente!&";
         }else{
             echo "Cadastro realizado com sucesso!&";
         }
-        //Select para pegar o ultimo id de insert para fazer o insert em UsuarioEstabelecimentos
-        
         //Insert na tabela de UsuarioEstabelecimentos 
-        $sql = "insert into tbl_usuario_estabelecimento(nome,ativo,id_autenticacao) values(?,?,?);";
+        $sql = "insert into tbl_usuario_estabelecimento(nome,ativo,id_autenticacao,id_estabelecimento) values(?,?,?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $UsuarioEstabelecimento->getNome());
-        $stm->bindValue(2, $UsuarioEstabelecimento->getAtivo());        
+        $stm->bindValue(2, $UsuarioEstabelecimento->getAtivo());       
         $stm->bindValue(3, $conn->lastInsertId());
-        
+        $stm->bindValue(4, 10);  
         $stm->execute();
-        $MenuUsuarioEstabelecimento->setIdUsuario($conn->lastInsertId());
+        $idUsuario = $conn->lastInsertId();
+
+        $MenuUsuarioEstabelecimento->setIdUsuario($idUsuario);
         foreach($MenuUsuarioEstabelecimento->getIdMenu() as $result){
             $sql = "insert into tbl_usuario_estabelecimento_menu_usuario_estabelecimento(id_menu,id_usuario_estabelecimento) values(?,?)";
             $stm = $conn->prepare($sql);
@@ -41,7 +41,11 @@ class UsuarioEstabelecimentoDAO {
             $stm->execute();
  
         }
-          var_dump($MenuUsuarioEstabelecimento); 
+        echo $id;
+        $sql = "update tbl_estabelecimento set numero_usuarios = numero_usuarios + 1 where id_autenticacao = ?;";
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $id);     
+        
         $this->conex->closeDataBase();
     }
     public function update(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao, MenuUsuarioEstabelecimento $MenuUsuarioEstabelecimento) {
@@ -53,12 +57,17 @@ class UsuarioEstabelecimentoDAO {
         $stm->bindValue(2, $UsuarioEstabelecimento->getId());
         $stm->execute();
         //Update na autenticacao
-        $sql = "update tbl_autenticacao set login = ?, senha = ?where id_autenticacao = ?";
+        $sql = "update tbl_autenticacao set login = ?, senha = ? where id_autenticacao = ?";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Sessao->getLogin());        
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getId());
-        $stm->execute();
+        $success = $stm->execute();
+        if (!$success) {
+            echo "Usuário já existente!&";
+        }else{
+            echo "Atualização realizada com sucesso!&";
+        }
 
         $sql = "delete from tbl_usuario_estabelecimento_menu_usuario_estabelecimento where id_usuario_estabelecimento =? ";
         $stm = $conn->prepare($sql);
