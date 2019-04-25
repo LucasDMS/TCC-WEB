@@ -2,71 +2,62 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPromocao.php");
 
-$controller = new controllerPromocao();
-$rs = $controller->buscarPromocao();
+$controller = new ControllerPromocao();
+$rs = $controller->buscarPromocoes();
 
 ?>
 
-<button type="menu" onclick="chamarViewParaModal('promocao')">
-    NOVO 
-    <i class="fas fa-plus"></i>
-</button>
+<div class="pagina_titulo">
+    Promoção
 
-<table class="tabela_padrao">
-    <thead>
+    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('promocao')">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
 
-        <tr class="tabela_titlo">
-            <th colspan="7">
-                Promoção
-            </th>
-        </tr>
-        <tr class="tabela_header">
-            <th>texto</th>
-            <th>ordem</th>
-            <th colspan="3">Ações</th>
-        </tr>
+<div class="card_wrapper">
+    <!-- CARD -->
+    <?php foreach ($rs as $result) { ?>
+        <div class="card">
+            <div>
+                Nome : 
+                <?php echo $result->getNome(); ?>
+            </div>
+            <div>
+                <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
+            </div>
 
-    </thead>
+            <div class="card_operadores">
+                <a  onclick="asyncBuscarDados(this)"
+                    href="#"
+                    data-pagina="promocao"
+                    data-url="view/promocao/promocao_form.php?id=<?php echo $result->getId(); ?>"
+                    data-id="<?php echo $result->getId(); ?>">
 
-    <tbody>
-        <?php foreach ($rs as $result) { ?>
-            <tr>
-                <td><?php echo $result->getTexto(); ?></td>
-                <td><?php echo $result->getOrdem(); ?></td>
+                    <i class="fas fa-pen"></i>
+                </a>
 
-                <td>
-                    <a  onclick="asyncBuscarDados(this)"
-                        href="#"
-                        data-pagina="promocao"
-                        data-url="view/promocao/promocao_form.php?id=<?php echo $result->getId(); ?>"
-                        data-id="<?php echo $result->getId(); ?>">
+                <a  onclick="asyncAtivar(this)" 
+                    href="#"
+                    data-pagina="promocao"
+                    data-url="router.php?controller=promocao&modo=ativar" 
+                    data-id="<?php echo $result->getId(); ?>"
+                    data-ativo="<?php echo $result->getAtivo(); ?>">
 
-                        <i class="fas fa-pen"></i>
-                    </a>
-                </td>
-                <td>
-                    <a  onclick="asyncAtivar(this)" 
-                        href="#"
-                        data-pagina="promocao"
-                        data-url="router.php?controller=promocao&modo=ativar" 
-                        data-id="<?php echo $result->getId(); ?>"
-                        data-ativo="<?php echo $result->getAtivo(); ?>">
+                    <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
+                    <i class="far fa<?php echo $ativo ?>-square"></i>
+                </a>
 
-                        <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
-                        <i class="far fa<?php echo $ativo ?>-square"></i>
-                    </a>
-                </td>
-                <td>
-                    <a  onclick="asyncDelete(this)" 
-                        href="#"
-                        data-pagina="promocao"
-                        data-url="router.php?controller=promocao&modo=excluir" 
-                        data-id="<?php echo $result->getId(); ?>">
+                <a  onclick="asyncApagar(this)" 
+                    href="#"
+                    data-pagina="promocao"
+                    data-url="router.php?controller=promocao&modo=excluir" 
+                    data-id="<?php echo $result->getId(); ?>">
 
-                        <i class="fas fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
+
+        </div>
+    <?php } ?>
+</div>

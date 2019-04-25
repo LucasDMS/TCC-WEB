@@ -25,10 +25,18 @@
 <body>
 	
 	<!-- CABEÇALHO -->
-	<?php require_once("components/header.php"); ?>
+    <!-- SUB MENU -->
+    <?php 
+        session_start();
+        require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php"); 
+        require_once("components/sub_menu.php");
+        require_once("components/modal.php");
 
-	<!-- SUB MENU -->
-	<?php require_once("components/sub_menu.php"); ?>
+        $conex = new conexaoMysql();
+
+		$con = $conex->connectDatabase();
+    ?>
 
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
@@ -46,31 +54,62 @@
     <main>
 
         <section class="section_produtos">
-
+            
+            <?php		
+				$sql = "select * from tbl_texto_principal where  tipo_texto =  'Produtos'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
+            
             <div class="section_header">
-                <h2 class="section_titulo">Nossos produtos</h2>
+                <h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
                 <p class="section_desc">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui tempore error iure libero quas, totam,
-                    dicta commodi quae sunt quia cum numquam. Aspernatur quia in quasi cum error dicta minus!
+                   <?php echo ($result['texto']) ?>
                 </p>
             </div>
-
+            
+            <?php
+                }
+            ?>
             <div class="produtos_container">
 
+            
+            <?php
+            
+                $produto_esquerda = true;
+
+                $sql = "select * from vw_produtos_site";
+                $stm = $con->prepare($sql);
+                $success = $stm->execute();
+                foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
+
+            <?php
+            // pra arrumar a posicao -> flex-direction: row-reverse;
+
+
+                if ($produto_esquerda){
+                    $posicao = "esquerda";
+                    $produto_esquerda = false;
+                } else {
+                    $posicao = "direita";
+                    $produto_esquerda = true;
+                }
+            ?>
+
                 <!-- PRODUTO -->
-                <div class="produto produto_esquerda">
+                <div class="produto produto_<?php echo $posicao?>">
 
                     <div class="produto_conteudo">
 
-                        <h3>Protudo nome</h3>
+
+                        <h3><?php echo ($result['nome']) ?></h3>
                         <div class="produto_info">
-                            <img src="img/coca_cola.png" alt="">
+                            <img src="cms/<?php echo ($result['imagem']) ?>" alt="">
                             <div>
                                 <p>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-                                    non,
-                                    exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-                                    dolorem qui autem deleniti numquam?
+                                    <?php echo ($result['descricao']) ?>
                                 </p>
                                 <table class="tabela_nutricional">
 
@@ -85,31 +124,46 @@
                                         <th>Quantidade por porção</th>
                                         <th>%VD(*)</th>
                                     </tr>
-
+                        
                                     <!-- Loop info -->
                                     <tr>
                                         <td>Carboidratos</td>
-                                        <td>23g</td>
+                                        <td><?php echo ($result['carboidratos']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
+                                        <td>Fibra Alimentar</td>
+                                        <td><?php echo ($result['fibra_alimentar']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
+                                        <td>Gorduras Saturadas</td>
+                                        <td><?php echo ($result['gorduras_saturadas']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
+                                        <td>Gorduras Totais</td>
+                                        <td><?php echo ($result['gorduras_totais']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
+                                        <td>Gorduras Trans</td>
+                                        <td><?php echo ($result['gorduras_trans']) ?></td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Proteina</td>
+                                        <td><?php echo ($result['proteina']) ?></td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sodio</td>
+                                        <td><?php echo ($result['sodio']) ?></td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Valor Calorico</td>
+                                        <td><?php echo ($result['valor_calorico']) ?></td>
                                         <td>3</td>
                                     </tr>
 
@@ -120,81 +174,12 @@
 
                             </div>
                         </div>
-
+                        
                     </div>
                 </div>
 
-                <!-- PRODUTO -->
-
-                <div class="produto produto_direita">
-
-                    <div class="produto_conteudo">
-
-                        <h3>Protudo nome</h3>
-                        <div class="produto_info">
-
-                            <div class="produto_desc">
-                                <p>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus soluta culpa ipsa esse
-                                    non,
-                                    exercitationem nisi repudiandae voluptas similique neque laboriosam eos, sint veniam, ipsam
-                                    dolorem qui autem deleniti numquam?
-                                </p>
-                                <table class="tabela_nutricional">
-
-                                    <!-- tabela titulo -->
-                                    <tr>
-                                        <th colspan="3">INFORMAÇÃO NUTRICIONAL</th>
-                                    </tr>
-
-                                    <!-- sub titulo -->
-                                    <tr>
-                                        <th></th>
-                                        <th>Quantidade por porção</th>
-                                        <th>%VD(*)</th>
-                                    </tr>
-
-                                    <!-- Loop info -->
-                                    <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Carboidratos</td>
-                                        <td>23g</td>
-                                        <td>3</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
-                                    </tr>
-                                </table>
-
-                            </div>
-
-                            <img src="img/coca_cola.png" alt="">
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <?php } ?>
+                
             </div>
         </section>
 

@@ -1,6 +1,8 @@
 <header id="header" class="header cor_fundo_1 cor_letra_4">
-    <i class="fas fa-bars" onclick="abrirMenu('.menu_esquerda')"></i>
-
+    <div>
+        <i class="fas fa-bars" onclick="abrirMenu('.menu_esquerda')"></i>
+    </div>
+    
     <a class="logo" href="index.php">
         POP's
     </a>
@@ -18,7 +20,7 @@
             <i class="fab fa-twitter"></i>
         </a>
 
-        <i class="fas fa-user-circle" onclick="abrirMenu('.menu_direita'); abrirLogin()"></i>
+        <i class="fas fa-user-circle" onclick="chamarViewParaModal('login', true)"></i>
     </div>
     
 </header>

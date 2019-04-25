@@ -1,5 +1,5 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, 
-main, footer, input, p, table, th, tr, td, button, textarea {
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, 
+header, main, footer, input, p, table, th, tr, td, button, textarea {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -29,33 +29,37 @@ body {
 }
 
 /* width */
+
 ::-webkit-scrollbar {
 	width: 10px;
 }
 
 /* Track */
+
 ::-webkit-scrollbar-track {
 	background: #f1f1f1;
 }
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
 	background: #888;
 }
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
 
 /* TELA TODA */
-.wrapper{
+
+.wrapper {
 	height: 100%;
 	width: 100%;
 	position: fixed;
 	display: flex;
 }
-
 
 /* MENU LATERAL */
 
@@ -63,30 +67,33 @@ body {
 	display: none;
 	height: 100%;
 	width: 250px;
-	background-color: #0f0f0f;
+	background: rgb(57, 61, 68);
 	color: #fff;
+	border-right: 1px solid #ccc;
+	overflow: auto;
 }
 
 .nav li {
-	background-color: rgba(255, 255, 255, 0.25);
-	padding: 15px;
 	margin: 15px 0;
-	display: flex;
-	justify-content: space-between;
+	padding: 5px 15px;
 	transition: .2s;
 }
 
-.nav li:hover {
+.lista_btn {
 	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.3);
 }
 
-.nav li:hover>div, .seta {
-	transform: scale(1.05);
+.sub_menu {
+	display: none;
 }
 
-.nav li:hover>.seta {
-	transform: rotate(90deg);
+.sub_menu li {
+	color: #fff;
+}
+
+.sub_menu li:hover {
+	cursor: pointer;
+	color: #f8ae83;
 }
 
 #itens_barra_lateral {
@@ -99,7 +106,18 @@ body {
 	transition: .2s;
 }
 
+.lista_secundaria {
+	display: none;
+}
+
+.lista_btn {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
 /* RESTO DA TELA */
+
 #app {
 	display: flex;
 	flex-direction: column;
@@ -108,14 +126,16 @@ body {
 }
 
 /* HEADER */
+
 .header {
 	height: 80px;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: #202020;
-	color: #fff;
+	background-color: #ffffff;
+	color: #666;
+	border-bottom: 1px solid #ddd;
 }
 
 .header i {
@@ -133,119 +153,235 @@ body {
 }
 
 /* CONTAINER QUE VAI RECEBER OS DADOS */
-#app_content{
+
+#app_content {
 	height: 100%;
 	width: 100%;
-	background-color: #f8f9fc;
+	background-color: #dee4e9;
 	overflow: auto;
 }
 
 /* FOOTER */
-footer{
+
+footer {
 	height: 50px;
 	width: 100%;
 	background-color: rgb(43, 43, 43);
+	text-align: center;
+	color: gray;
+	padding-top: 15px;
+	font-size: 14px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .tabela_padrao {
 	width: 1000px;
 	margin: 15px auto;
 	text-align: center;
-	border-collapse: collapse;
-	box-shadow: 0 0 5px 2px #dadada;
+	border: 2px solid #ddd;
 }
 
-.tabela_padrao thead{
+/* ==== FORM MODAL ==== */
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.tabela_padrao tbody {
+.form_padrao {
+	margin: auto;
+	width: 100%;
+	height: 100%;
 }
 
+.form_padrao h2 {
+	text-align: center;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #09a552;
+}
 
-.tabela_titlo {
-	background: linear-gradient(45deg, #56ccf2, #2f80ed);
+.btn {
+	padding: 15px;
+	width: 100%;
+	border: none;
 	color: #fff;
 }
 
-.tabela_header {
-	background: #ebf9ff;
+.btn:hover {
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.5);
 }
 
-.tabela_padrao tr {
-	height: 50px;
-	border-bottom: 1px solid #999;
+.btn-submit {
+	background-color: #28a745;
 }
 
-.tabela_padrao tr:hover {
-	background-color: #eef1ff;
+.btn-clear {
+	background-color: #ffc107;
 }
 
-.tabela_padrao td, .tabela_padrao th {
-	padding: 5px;
+.btn i {
+	font-size: 23px;
 }
 
+/*FORM INPUT*/
 
-.form_padrao{
-	margin: auto;
+.inputDados {
+	position: relative;
+	font-family: sans-serif;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
 }
 
-.form_padrao *{
-	display: block;
-}
-
-.form_padrao input, .form_padrao textarea{
-	height: 50px;
-	width: 95%;
-	border: none;
-	border-bottom: 1px solid green;
+.inputDados input {
+	width: 100%;
+	font-size: 16px;
 	background-color: transparent;
 }
 
-.form_padrao textarea{
+.inputDados textarea {
+	width: 100%;
+	height: 150px;
 	resize: none;
 }
 
-.form_padrao button{
-	padding: 15px;
+.inputDados textarea, .inputDados input {
+	outline: none;
+	border: 1px solid #09a552;
+	padding: 10px;
 }
 
-.modal_bg{
+.inputDados label {
+	position: relative;
+	bottom: -10px;
+	left: 5px;
+	background-color: #fff;
+	padding: 0 5px;
+	color: #555;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	justify-content: center;
+}
+
+/* ==== MODAL ==== */
+
+.modal_bg {
 	height: 100%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.25);
 	z-index: 999;
 	position: fixed;
 	display: none;
 }
 
-.modal_central{
+.modal_central {
 	display: flex;
 	flex-direction: column;
 }
 
-.modal_saida{
+.modal_saida {
 	flex: 1;
 	height: 100%;
-
 	width: 100%;
-	background-color: transparent;
 }
 
-.modal_container{
-	height: 750px;
-	width: 600px;
+.modal_container {
+	padding: 25px;
+	max-height: 800px;
+	width: 650px;
 	background-color: #ffffff;
+	border-radius: 5px;
+	box-shadow: 0 0 5px gray;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.pagina_titulo {
+	max-width: 1440px;
+	padding: 15px 25px;
+	color: #f8ae83;
+	margin: 25px auto;
+	font-size: 30px;
+	font-weight: bold;
+	background-color: #fff;
+	border-left: 3px solid #f8ae83;
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu_novo {
+	height: 34px;
+	width: 34px;
+	background-color: #f8ae83;
+	border: none;
+	color: #fff;
+}
+
+.menu_novo:hover {
+	cursor: pointer;
+	color: #393d44;
+}
+
+.card_wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1450px;
+	margin: auto;
+}
+
+.card {
+	height: 350px;
+	width: 280px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: auto;
+}
+
+.card_imagem {
+	display: block;
+	margin: auto;
+	height: 250px;
+	max-width: 100%;
+}
+
+.card_operadores {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card_operadores a {
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	line-height: 50px;
+	background-color: #393d44;
+}
+
+.card_operadores a:hover {
+	color: #f8ae83;
+}
+
+/*ALERTA*/
+
+.alerta {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	z-index: 99999;
+	height: 100px;
+	width: 500px;
+	overflow: hidden;
+	background-color: red;
 }

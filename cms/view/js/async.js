@@ -1,3 +1,5 @@
+const TYPE = { "ERROR" : 0, "SUCCESS" : 1, "ALERT" : 2 }
+
 /**
  * 
  * @param {*} pagina 
@@ -25,6 +27,7 @@ function chamarViewParaModal(pagina) {
 function chamarViewParaApp(pagina) {
 
     var url = formatarLink(pagina, "listagem");
+    sessionStorage.setItem('pagina', pagina)
 
     $.ajax({
         type: "GET",
@@ -43,14 +46,16 @@ function chamarViewParaApp(pagina) {
  * @param {*} element 
  */
 function asyncSubmit(event, element) {
-    event.preventDefault()
-
+    event.preventDefault();
     var url = element.getAttribute("action");
     var pagina = element.getAttribute("data-pagina");
     var formdata = new FormData(element);
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
+    var idAutenticacao = element.getAttribute("data-idAutenticacao");
+    var texto = element.getAttribute("data-texto");
     formdata.append("id", id);
+    formdata.append("idAutenticacao", idAutenticacao);
 
     $.ajax({
         type: "POST",
@@ -61,9 +66,15 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
-
         recarregarLista(pagina);
-        modalToggle(false);
+        html = html.split('&')
+        if(html[0]==="Usuário já existente!"){
+            mostrarAlerta(html[0], TYPE.ERROR, 1000);
+        }else{
+            mostrarAlerta(html[0], TYPE.SUCCESS, 1000);
+            modalToggle(false);
+        }
+
     });
 }
 
@@ -81,32 +92,7 @@ function asyncBuscarDados(element) {
 
 
     var formData = new FormData();
-    if (pagina === "historia") {
-
-        if (modo == 'inserir') {
-
-            formData.append("id_historia", id);
-        }
-        else if (modo == 'atualizar') {
-
-            formData.append("id_historia", id);
-        }
-
-    } else if (pagina === "noticias") {
-
-        console.log("modo = " + modo);
-
-        if (modo == 'inserir') {
-            formData.append("id_noticias_fique_por_dentro", id);
-
-        }
-        else if (modo == 'atualizar') {
-
-            formData.append("id_noticias_fique_por_dentro", id);
-
-            console.log(id);
-        }
-    }
+    
     $.ajax({
         type: "POST",
         url: url,
@@ -116,7 +102,6 @@ function asyncBuscarDados(element) {
         processData: false,
     })
     .done(function (dados) {
-        console.log(pagina);
         $("#modal").html(dados);
         // reloadList(pagina);
         modalToggle(true);
@@ -235,9 +220,32 @@ function loader(){
     console.log('loader');
 }
 
-
-
-
 $(".modal_saida").on("click", function () {
     modalToggle(false);
 });
+
+function mostrarAlerta(texto, tipo, duracao){
+
+    var alertaDIV = $("#alerta")
+
+    switch(tipo){
+        case 0:
+            alertaDIV.css( "background-color", "red" )
+            break
+        case 1:
+            alertaDIV.css( "background-color", "green" )
+            break
+        case 2:
+            alertaDIV.css( "background-color", "orange" )
+            break
+    }
+
+    alertaDIV.html(texto)
+    alertaDIV.fadeIn(350, function(){
+
+        setTimeout(() => {
+            alertaDIV.fadeOut(350)
+        }, duracao);
+        
+    });
+}

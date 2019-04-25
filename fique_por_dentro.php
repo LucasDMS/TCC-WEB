@@ -25,10 +25,15 @@
 <body>
 	
     <?php 
-		
+		session_start();
+		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
+		require_once("components/modal.php");
 		
+        $conex = new conexaoMysql();
+
+		$con = $conex->connectDatabase();
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
@@ -47,70 +52,55 @@
 	<main>
 
         <section class="base_paginas fique_por_dentro">
-
-            <h2 class="section_titulo">Fique por dentro das notícias</h2>
+            
+            <?php	
+                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Fique por dentro'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
+            
+            <h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
 
             <p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur?
-				Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
+				<?php echo ($result['texto']) ?>
             </p>
-            
+			<?php
+                }
+            ?>
+
+			<?php	
+                $sql = "select * from tbl_noticias_fique_por_dentro where  apagado = 0 and ativo = 1";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
+
             <i class="fas fa-newspaper principal_img"></i>
 
             <div class="noticia_main">
-                <h2>noticia mais nova</h2>
+                <h2><?php echo ($result['titulo']) ?></h2>
                 <p>
-                    texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
-                    unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?
-                    texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
-                    unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?
-                    texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
-                    unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?
+                    <?php echo ($result['texto']) ?>
                 </p>
             </div>
 
-            <!-- varias noticias -->
+           <!-- varias noticias -->
             <div class="noticias_3_3">
                 <div class="noticias_3_3_container">
                     <div class="noticia">
-                        <h3>noticia titulo</h3>
+                        <h3><?php echo ($result['titulo']) ?></h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                            recusandae vero ipsum, reiciendis autem voluptatum. Incid
-                            texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
-                            unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?unt praesentium laborum voluptas illo.
-                        </p>
-
-                    </div>
-
-                    <div class="noticia">
-                        <h3>noticia titulo</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                            recusandae vero ipsum, reiciendis autem texto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
-                            unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?voluptatum. Incidunt praesentium laborum voluptas illo.
-                        </p>
-
-                    </div>
-
-                    <div class="noticia">
-                        <h3>noticia titulo</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectettexto dela - Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae at praesentium ipsum animi commodi harum unde! Repellat obcaecati hic aspernatur laboriosam 
-                            unde! Quaerat voluptates alias, praesentium qui fugiat perspiciatis?ur adipisicing elit. Modi velit consectetur eos quae iste quisquam eligendi necessitatibus aut non 
-                            recusandae vero ipsum, reiciendis autem voluptatum. Incidunt praesentium laborum voluptas illo.
+                            <?php echo ($result['texto']) ?>
                         </p>
 
                     </div>
                 </div>
-                
             </div>
-
+			<?php
+                }
+            ?>
         </section>
-
 	</main>
 
 	<?php
