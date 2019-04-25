@@ -13,6 +13,7 @@
         private $conex;
         private $ultimoid;
         private $ultimoid2;
+        private $ultimoid3;
 
         public function __construct(){
             session_start();
@@ -48,14 +49,16 @@
             // }
        // }
 
+       //inserir enquete no banco 
         public function inserirEnquete(Enquete $enquete){
             $conn = $this->conex->connectDatabase();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-            $sql = "INSERT INTO tbl_enquete(pergunta,status,data_inicio)VALUES(?,?,?)";
+            $sql = "INSERT INTO tbl_enquete(pergunta,status,data_inicio,apagado)VALUES(?,?,?,?)";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1,$enquete->getPergunta());
             $stm->bindValue(2,$enquete->getStatus());
             $stm->bindValue(3,$enquete->getData());
+            $stm->bindValue(4,0);
             $stm->execute();
             $this->ultimoid = $conn->lastInsertId();
             
@@ -75,27 +78,40 @@
             $stm2->bindValue(2, $this->ultimoid2);
             $stm2->bindValue(3, 0);
             $sucess = $stm2->execute();
+
+            $connn = $this->conex->connectDatabase();
+            $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+            $sql1 = "INSERT INTO tbl_resposta(respostas)VALUES(?)";
+            $stm1 = $conn->prepare($sql1);
+            $stm1->bindValue(1,$enquete->getResposta2());
+            $stm1->execute();
+            $this->ultimoid3 = $conn->lastInsertId();
+
+            $cone = $this->conex->connectDatabase();
+            $sql = "INSERT INTO tbl_enquete_resposta(id_enquete,id_resposta,votos)VALUES(?,?,?)";
+            $stm2 = $cone->prepare($sql);
+            $stm2->bindValue(1, $this->ultimoid);
+            $stm2->bindValue(2, $this->ultimoid3);
+            $stm2->bindValue(3, 0);
+            $sucess = $stm2->execute();
             
             
             $this->conex->closeDataBase();
             if($sucess){
-                echo $sucess;
+                echo "Cadastrado com sucesso!";
                 return "Sucesso";
             }else{
                 echo $sucess;
                 return "Erro";
             }
-
-
-
-
         }
 
-        public function selectAll(){
+        //select de todos as perguntas
+        public function selectPerguntas(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from listar_enquete";
+            $sql = "select * from tbl_enquete where apagado = ?";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, 1);
+            $stm->bindValue(1, 0);  
             $success = $stm->execute();
             if($success){
                 $listEnquete = [];
@@ -103,9 +119,7 @@
                     $enquete = new Enquete(); 
                     $enquete->setId($result['id_enquete']);
                     $enquete->setPergunta($result['pergunta']);
-                    $enquete->setResposta($result['respostas']);
                     $enquete->setData($result['data_inicio']);
-                    $enquete->setVotos($result['votos']);
                     $enquete->setStatus($result['status']);
                     array_push($listEnquete, $enquete);
                 };
@@ -114,10 +128,67 @@
 
             }else{
                 return "Erro";
+            }  
+        }
+
+        //select de todos as respostas
+        public function selectResposta(){
+            $conn = $this->conex->connectDatabase();
+            $sql = "select * from vw_listar_enquete";
+            $stm = $conn->prepare($sql);
+            $success = $stm->execute();
+            if($success){
+                $listEnquete = [];
+                foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+                    $enquete = new Enquete(); 
+                    $enquete->setId($result['id_enquete']);
+                    $enquete->setResposta($result['respostas']);
+                    $enquete->setVotos($result['votos']);
+                    array_push($listEnquete, $enquete);
+                };
+                $this->conex -> closeDataBase();
+                return $listEnquete;
+
+            }else{
+                return "Erro";
+            }  
+        }
+
+        //atualizar o banco -> desativando ou ativando enquete
+        public function updateAtivo(Enquete $enquete){
+            $conn = $this->conex->connectDatabase();
+            if($enquete->getStatus()=='1'){
+                $enquete->setStatus('0');
+            }else if($enquete->getStatus()=='0'){
+                $enquete->setStatus('1');
             }
+            $sql = "UPDATE tbl_enquete SET status = ? where id_enquete=?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $enquete->getStatus());
+            $stm->bindValue(2, $enquete->getId());
+            $success = $stm->execute();
+            if($success){
+                echo "Atualizado";
+                return "Sucesso";
+            }else{
+                echo "Erro";
+                return "Erro";
+            }
+        }
 
-
-            
+        //deletar enquete
+        public function delete($id){
+            $conn = $this->conex->connectDatabase();
+            $sql = "UPDATE tbl_enquete SET apagado = ? WHERE id_enquete = ?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, 1);
+            $stm->bindValue(2, $id);
+            $success = $stm->execute();
+            if($success){
+                echo "Excluido";
+            }else{
+                echo "ERRO";
+            }
         }
 
 

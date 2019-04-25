@@ -6,6 +6,7 @@
  $nome = null;
  $pergunta = null;
  $resposta = null;
+ $resposta1 = null;
 
  if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -40,13 +41,14 @@
         <h2>Enquete</h2>
 
     <div class="inputDados">
-        <input type="date" name="date" id="date" value="<?php echo $data;?>"><br>
+        <input type="date" name="date" id="date" value="<?php echo $data;?>" required><br>
     </div>
     <div class="inputDados">
-        <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>"><br>
+        <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>" required><br>
     </div>
     <div class="inputDados">
-        <input type="text" name="txt_resposta" id="txt_respsota" placeholder="Resposta" value="<?php echo $resposta;?>">
+        <input type="text" name="txt_resposta" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
+        <input type="text" name="txt_resposta1" id="txt_resposta1" placeholder="Resposta" value="<?php echo $resposta1;?>" required><br>
         <a href="#" onclick="nova_input()">
             novo
         </a>

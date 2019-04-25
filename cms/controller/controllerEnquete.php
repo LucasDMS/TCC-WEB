@@ -23,11 +23,13 @@ class controllerEnquete{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $pergunta = $_POST['txt_pergunta'];
             $resposta = $_POST['txt_resposta'];
+            $resposta1 = $_POST['txt_resposta1'];
             $data = $_POST['date'];
 
             $enquete = new Enquete();
             $enquete->setPergunta($pergunta);
             $enquete->setResposta($resposta);
+            $enquete->setResposta2($resposta1);
             $enquete->setData($data);
             $enquete->setStatus(1);
 
@@ -38,15 +40,50 @@ class controllerEnquete{
 
     }
 
-    public function listarEnquete(){
-        return $this->EnqueteDAO->selectAll();
+    //função para enviar os dados para DAO para ativar e desativar
+    public function ativarEnquete(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $id = $_POST['id'];
+            $ativo = $_POST['ativo'];
+
+            echo $id. "== ". $ativo."aaa";
+            
+            $enquete = new Enquete();
+            $enquete->setId($id);
+            $enquete->setStatus($ativo);
+
+            $this->EnqueteDAO->updateAtivo($enquete);
+
+        }
+
     }
 
 
+    //respostas
+    public function listarEnquete(){
+        return $this->EnqueteDAO->selectResposta();
+    }
+
+    //perguntas
+    public function listarPerguntas(){
+        return $this->EnqueteDAO->selectPerguntas();
+    }
+
+    //buscar enquete por id
     public function buscarEnquetePorId(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_GET['id'];
             return $this->EnqueteDAO->selectById($id);
+
+        }
+    }
+
+    //excluir enquete
+    public function excluirEnquete(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_POST['id'];
+            echo $id.'isso msm';
+            $this->EnqueteDAO->delete($id);
 
         }
 

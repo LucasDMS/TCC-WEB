@@ -11,7 +11,8 @@
     
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEnquete.php");
     $controller = new controllerEnquete();
-    $rs = $controller->listarEnquete();
+    $rs = $controller->listarPerguntas();
+    $rs2 = $controller->listarEnquete();
 
 
 ?>
@@ -25,11 +26,13 @@
 
 <div class="card_wrapper">
     <!-- CARD -->
-    <?php $controle = 1;     
-       
+    <?php 
+        $a = 1;
+   
+    
     ?>
     <?php foreach ($rs as $result) { 
-        if($controle == $result->getId()){
+        //if($a == 1){
         ?>
         <div class="card">
             <div>
@@ -37,23 +40,29 @@
 
                 <?php 
                 
+                    //echo de pergunta
                     echo $result->getPergunta(); 
+                    
+                    //recebe o id 
+                    $idE = $result->getId();             
                     
                 ?>
             </div>
             <div>
-                Respostas :     
+                Respostas : <br>   
                 <?php  
-                    foreach($rs as $result){
-                        if($result->getId() == $controle){
-                            echo utf8_encode($result->getResposta()." ".$result->getVotos()." votos <br>"); 
+                    
+                    foreach($rs2 as $result2){
+                        //se não for igual não pega a resposta
+                        //só vai pegar a resposta se for igual o id
+                        if($idE == $result2->getId()){
+                            echo utf8_encode("<strong>".$result2->getResposta()."</strong> ".$result2->getVotos()." votos <br>"); 
                         }
-                    }
-                    //while(!$controle == $result->getId()){
                         
-                        
-                        $controle++; 
-                    //}
+                        $a = 1;
+                    }   
+                    
+                    
                      
                 ?>
             </div>
@@ -95,9 +104,7 @@
 
         </div>
     <?php 
-            }else{
-               
-            }
+                       
         }
     ?>
 </div>
