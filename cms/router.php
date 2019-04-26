@@ -444,6 +444,25 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+        
+        case 'ENQUETE':
+            require_once('controller/controllerEnquete.php');
+            $ControllerEnquete = new ControllerEnquete();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerEnquete->inserirEnquete();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerEnquete->atualizarEnquete();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerEnquete->excluirEnquete();
+                    break;
+                case 'ATIVAR':
+                    $ControllerEnquete->ativarEnquete();
+                    break;
+            }
+            break;
     }
 }
 
