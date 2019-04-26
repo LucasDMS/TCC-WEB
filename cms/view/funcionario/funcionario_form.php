@@ -35,20 +35,36 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
     $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
     $Funcionario = $Controller->buscarFuncionarioPorId($id);
 
-    $action = "router.php?controller=funcionario&modo=atualizar";
-    $modo = "atualizar";
+    $action = "router.php?controller=funcionario&modo=inserir";
+    $modo = "inserir";
+    $id = "";
+    $idAutenticacao = "";
 
-    $nome = $Funcionario->getNome();
-    $setor= $Funcionario->getSetor();
-    $cargo = $Funcionario->getCargo();
-    $dataEmissao= $Funcionario->getDataEmissao();
+    $Paginas = $ControllerMenu->buscarMenu();
+    if(isset($_GET['id']) && $_GET['idAutenticacao']){
+        $id = $_GET['id'];
+        $idAutenticacao = $_GET['idAutenticacao'];
+        
+        $ControllerMenu = new ControllerMenu();
+        $Controller = new ControllerFuncionario();
+        $ControllerSessao = new ControllerSessao();
+        $Pagina = $ControllerMenu->buscarMenuPorId($id);
+        $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
+        $Funcionario = $Controller->buscarFuncionarioPorId($id);
 
-    $login = $Sessao->getLogin();
-    $senha = $Sessao->getSenha();
-    $tipo = $Sessao->getTipo();
+        $action = "router.php?controller=funcionario&modo=atualizar";
+        $modo = "atualizar";
 
-    $texto = "Usuário já existe";
-}
+        $nome = $Funcionario->getNome();
+        $setor= $Funcionario->getSetor();
+        $cargo = $Funcionario->getCargo();
+        $dataEmissao= $Funcionario->getDataEmissao();
+
+        $login = $Sessao->getLogin();
+        $senha = $Sessao->getSenha();
+        $tipo = $Sessao->getTipo();
+    }
+
 
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 
@@ -62,9 +78,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         enctype='multipart/form-data' 
         name="frm_funcionario"
         class="form_padrao"
-        data-texto="<?php echo $texto ?>"
         data-id="<?php echo $id ?>"
-        data-idAutenticacao="<?php echo $idAutenticacao ?>"
+        data-idAutenticacao="<?php echo $idAutenticacao; ?>"
         data-modo="<?php echo $modo; ?>"
         data-pagina="funcionario">
        

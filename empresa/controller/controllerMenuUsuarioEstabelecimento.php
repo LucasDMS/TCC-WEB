@@ -3,8 +3,8 @@ class ControllerMenuUsuarioEstabelecimento{
     
     private $MenuDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MenuUsuarioEstabelecimento.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/MenuUsuarioEstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/model/MenuUsuarioEstabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" .'/dao/MenuUsuarioEstabelecimentoDAO.php');
         $this->MenuUsuarioEstabelecimentoDAO = new MenuUsuarioEstabelecimentoDAO();
     }
     
@@ -32,6 +32,10 @@ class ControllerMenuUsuarioEstabelecimento{
     }
     public function buscarMenu(){
         return $this->MenuUsuarioEstabelecimentoDAO->selectAll();
+    }
+    public function buscarUsuarioPermissoes(){
+        $id = $_SESSION['id'];
+        return $this->MenuDAO->selectByPermission($id);
     }
 }
 ?>

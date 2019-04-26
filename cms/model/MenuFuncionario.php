@@ -10,6 +10,7 @@
 */
 class MenuFuncionario{
     private $id;
+    private $paginas;
     private $status;
     private $data;
     private $idMenu;
@@ -38,7 +39,6 @@ class MenuFuncionario{
         return $this;
     }
 
- 
     public function getData()
     {
         return $this->data;
@@ -71,6 +71,18 @@ class MenuFuncionario{
     public function setIdFuncionario($idFuncionario)
     {
         $this->idFuncionario = $idFuncionario;
+
+        return $this;
+    }
+
+    public function getPaginas()
+    {
+        return $this->paginas;
+    }
+
+    public function setPaginas($paginas)
+    {
+        $this->paginas = $paginas;
 
         return $this;
     }

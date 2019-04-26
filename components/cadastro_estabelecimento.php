@@ -46,14 +46,12 @@
             </label>
             <input name="txt_cad_responsavel" id="txt_cad_responsavel" type="text" required><!--txt_nome-->
         </div>
-
         <div class="modal-item">
             <label for="txt_cad_tipo_estabelecimento">
                 Tipo de estabelecimento
             </label>
             <input name="txt_cad_tipo_estabelecimento" id="txt_cad_tipo_estabelecimento" type="text" required>
         </div>
-
         <div class="modal-item">
             <label for="txt_cad_renda">
                 Renda média

@@ -6,7 +6,7 @@
     require_once("model/Sessao.php");
     if( isset($_SESSION['logado'])){
         $Sessao = new Sessao();
-        if($_SESSION['tipo'] == "ADM"){
+        if($_SESSION['tipo'] == "ADM" || $_SESSION['tipo'] == "ROOT"){
             require_once("view/home.php");
         }
     }

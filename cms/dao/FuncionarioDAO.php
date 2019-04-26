@@ -72,7 +72,12 @@ class FuncionarioDAO {
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getTipo());
         $stm->bindValue(4, $Sessao->getId());
-        $stm->execute();
+        $success = $stm->execute();
+        if (!$success) {
+            echo "Usuário já existente!&";
+        }else{
+            echo "Atualização realizada com sucesso!&";
+        }
 
         $sql = "delete from tbl_menu_funcionario_web where id_funcionario_web =? ";
         $stm = $conn->prepare($sql);
@@ -154,4 +159,5 @@ class FuncionarioDAO {
             return "Erro";
         }
     }
+    
 }

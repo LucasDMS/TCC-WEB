@@ -53,7 +53,7 @@ function asyncSubmit(event, element) {
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
     var idAutenticacao = element.getAttribute("data-idAutenticacao");
-    var texto = element.getAttribute("data-texto");
+
     formdata.append("id", id);
     formdata.append("idAutenticacao", idAutenticacao);
 

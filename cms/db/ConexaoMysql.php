@@ -22,7 +22,6 @@ class conexaoMysql {
 	public function connectDatabase() {
 
 		try {
-
 			$conexao = new PDO('mysql:host='.$this->server.';dbname='.$this->database, $this->user, $this->password);
 			return $conexao;
 			

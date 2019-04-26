@@ -1,6 +1,7 @@
 <style>
     /* PALHETA DE CORES DO SITE */
     /* COR DE BACKGROUND */
+
     .cor_fundo_1{background-color: #09a552;} /*menu*/
     .cor_fundo_2{background-color: #ffdd00;}    
     .cor_fundo_3{background-color: #e70c2c;}

@@ -3,7 +3,7 @@ class ControllerMenu{
     
     private $MenuDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Menu.php");
+
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MenuFuncionario.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/MenuDAO.php');
         $this->MenuDAO = new MenuDAO();
@@ -17,7 +17,7 @@ class ControllerMenu{
             $id     = $_POST['id'];
             $ativo  = $_POST['ativo'];
             
-            $Menu = new Menu(); 
+            $Menu = new MenuFuncionario(); 
 
             $Menu->setId($id);
             $Menu->setAtivo($ativo);
@@ -33,6 +33,10 @@ class ControllerMenu{
     }
     public function buscarMenu(){
         return $this->MenuDAO->selectAll();
+    }
+    public function buscarFuncionarioPermissoes(){
+        $id = $_SESSION['id'];
+        return $this->MenuDAO->selectByPermission($id);
     }
 }
 ?>

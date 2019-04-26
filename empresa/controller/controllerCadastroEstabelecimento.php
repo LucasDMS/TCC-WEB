@@ -27,24 +27,22 @@ class controllerCadastroEstabelecimento{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             //guardando dos os dados recebidos via post em uma variavel
-            $usuario = $_POST['txt_usuario'];
-            $senha = $_POST['txt_senha'];
-
-            $cnpj = $_POST['txt_cnpj'];
-            $nome = $_POST['txt_nome'];
-            $tipo_estabelecimento = $_POST['txt_tipo_estabelecimento'];
-            $renda = $_POST['txt_renda'];
-            $descricao = $_POST['txt_descricao'];
-            $endereco = $_POST['txt_endereco'];
-            $bairro = $_POST['txt_bairro'];
-            $cidade = $_POST['txt_cidade'];
-            $estado = $_POST['txt_estado'];
-            $email = $_POST['txt_email'];
-            $razao_social = $_POST['txt_razao_social'];
-            $nome_fantasia = $_POST['txt_nome_fantasia'];
+            $usuario = $_POST['txt_cad_usuario'];
+            $senha = $_POST['txt_cad_senha'];
+            $cnpj = $_POST['txt_cad_cnpj'];
+            $nome = $_POST['txt_cad_responsavel'];
+            $tipo_estabelecimento = ['txt_cad_tipo_estabelecimento'];
+            $renda = $_POST['txt_cad_renda'];
+            $descricao = $_POST['txt_cad_descricao'];
+            $endereco = $_POST['txt_cad_endereco'];
+            $bairro = $_POST['txt_cad_bairro'];
+            $cidade = $_POST['txt_cad_cidade'];
+            $estado = $_POST['txt_cad_estado'];
+            $email = $_POST['txt_cad_email'];
+            $razao_social = $_POST['txt_cad_razao_social'];
+            $nome_fantasia = $_POST['txt_cad_nome_fantasia'];
             $imagem = img($_FILES['img']);
             $ativo = 1;
-
             //estanciando a model e enviando todos os dados para ela
             $cadastro = new CadastroEstabelecimento();
             $cadastro->setUsuario($usuario);
@@ -63,6 +61,7 @@ class controllerCadastroEstabelecimento{
             $cadastro->setNome_fantasia($nome_fantasia);
             $cadastro->setImagem($imagem);
             $cadastro->setAtivo($ativo);
+            
             //chamando o metodo de insert e passando o objeto
             $this->cadastroEstabelecimentoDAO->inserir($cadastro);
         }
