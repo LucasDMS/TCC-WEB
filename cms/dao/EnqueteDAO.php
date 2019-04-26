@@ -52,49 +52,12 @@
        //inserir enquete no banco 
         public function inserirEnquete(Enquete $enquete){
             $conn = $this->conex->connectDatabase();
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-            $sql = "INSERT INTO tbl_enquete(pergunta,status,data_inicio,apagado)VALUES(?,?,?,?)";
+            $sql = "call sp_cadastro_enquete(?,?,?)";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1,$enquete->getPergunta());
-            $stm->bindValue(2,$enquete->getStatus());
-            $stm->bindValue(3,$enquete->getData());
-            $stm->bindValue(4,0);
-            $stm->execute();
-            $this->ultimoid = $conn->lastInsertId();
-            
-
-            $connn = $this->conex->connectDatabase();
-            $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-            $sql1 = "INSERT INTO tbl_resposta(respostas)VALUES(?)";
-            $stm1 = $conn->prepare($sql1);
-            $stm1->bindValue(1,$enquete->getResposta());
-            $stm1->execute();
-            $this->ultimoid2 = $conn->lastInsertId();
-            
-            $cone = $this->conex->connectDatabase();
-            $sql = "INSERT INTO tbl_enquete_resposta(id_enquete,id_resposta,votos)VALUES(?,?,?)";
-            $stm2 = $cone->prepare($sql);
-            $stm2->bindValue(1, $this->ultimoid);
-            $stm2->bindValue(2, $this->ultimoid2);
-            $stm2->bindValue(3, 0);
-            $sucess = $stm2->execute();
-
-            $connn = $this->conex->connectDatabase();
-            $connn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-            $sql1 = "INSERT INTO tbl_resposta(respostas)VALUES(?)";
-            $stm1 = $conn->prepare($sql1);
-            $stm1->bindValue(1,$enquete->getResposta2());
-            $stm1->execute();
-            $this->ultimoid3 = $conn->lastInsertId();
-
-            $cone = $this->conex->connectDatabase();
-            $sql = "INSERT INTO tbl_enquete_resposta(id_enquete,id_resposta,votos)VALUES(?,?,?)";
-            $stm2 = $cone->prepare($sql);
-            $stm2->bindValue(1, $this->ultimoid);
-            $stm2->bindValue(2, $this->ultimoid3);
-            $stm2->bindValue(3, 0);
-            $sucess = $stm2->execute();
-            
+            $stm->bindValue(2,$enquete->getData());
+            $stm->bindValue(3,$enquete->getResposta());
+            $sucess = $stm->execute();   
             
             $this->conex->closeDataBase();
             if($sucess){

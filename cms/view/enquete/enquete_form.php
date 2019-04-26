@@ -48,7 +48,6 @@
     </div>
     <div class="inputDados">
         <input type="text" name="txt_resposta" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
-        <input type="text" name="txt_resposta1" id="txt_resposta1" placeholder="Resposta" value="<?php echo $resposta1;?>" required><br>
         <a href="#" onclick="nova_input()">
             novo
         </a>

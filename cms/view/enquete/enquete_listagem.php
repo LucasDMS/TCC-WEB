@@ -25,12 +25,6 @@
 </div>
 
 <div class="card_wrapper">
-    <!-- CARD -->
-    <?php 
-        $a = 1;
-   
-    
-    ?>
     <?php foreach ($rs as $result) { 
         //if($a == 1){
         ?>

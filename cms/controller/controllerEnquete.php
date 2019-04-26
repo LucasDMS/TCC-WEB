@@ -23,13 +23,11 @@ class controllerEnquete{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $pergunta = $_POST['txt_pergunta'];
             $resposta = $_POST['txt_resposta'];
-            $resposta1 = $_POST['txt_resposta1'];
             $data = $_POST['date'];
 
             $enquete = new Enquete();
             $enquete->setPergunta($pergunta);
             $enquete->setResposta($resposta);
-            $enquete->setResposta2($resposta1);
             $enquete->setData($data);
             $enquete->setStatus(1);
 
