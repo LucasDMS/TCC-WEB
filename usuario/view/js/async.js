@@ -42,6 +42,25 @@ function chamarViewParaApp(pagina) {
 
 /**
  * 
+ * @param {*} pagina 
+ */
+function chamarView(pagina, url) {
+
+    sessionStorage.setItem('pagina', pagina)
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: loader
+    })
+    .done(function (dados) {
+
+        $("#app_content").html(dados);
+    });
+}
+
+/**
+ * 
  * @param {*} event 
  * @param {*} element 
  */

@@ -288,29 +288,10 @@ footer{
 	cursor: pointer;
 }
 
-.card_imagem {
-	display: block;
-	margin: auto;
-	height: 250px;
-	max-width: 100%;
-}
-
-.card_operadores {
-
-}
-
-.card_operadores a {
-	height: 50px;
-	width: 100%;
-	text-align: center;
-	color: #fff;
-	font-size: 20px;
-	line-height: 50px;
-	background-color: #393d44;
-}
-
-.card_operadores a:hover {
-	color: #f8ae83;
+.post-comentarios{
+	transition: .5s;
+	height: 0;
+	overflow: hidden;
 }
 
 /*ALERTA*/

@@ -5,8 +5,6 @@ $(document).ready(function(){
     pagina = sessionStorage.getItem('pagina')
 
     chamarViewParaApp(pagina);
-
-    
 });
 
 var estado = false
