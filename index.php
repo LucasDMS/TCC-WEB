@@ -67,7 +67,6 @@
 					</button>
 				</form>
 
-
 				<div class="destaques_container">
 
 				<?php
