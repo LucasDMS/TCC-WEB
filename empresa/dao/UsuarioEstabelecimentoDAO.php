@@ -9,6 +9,7 @@ class UsuarioEstabelecimentoDAO {
     }
     public function insert(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao, MenuUsuarioEstabelecimento $MenuUsuarioEstabelecimento, $id) {
         $conn = $this->conex->connectDatabase();
+        //Select para comparar o limite de contas de usuarios por estabelecimento
         $sql = "select * from tbl_estabelecimento where id_autenticacao = ?";
 
         $stm = $conn->prepare($sql);
@@ -16,9 +17,11 @@ class UsuarioEstabelecimentoDAO {
         $success = $stm->execute();
         if ($success) {
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
+                $UsuarioEstabelecimento->setIdEstabelecimento($result['id_estabelecimento']);
                 $limite = $result['numero_usuarios'];
             };
         }
+        //Comparação do limite
         if($limite>=3){
             echo "Erro!! Limite de usuários atingido.&";
         }else{
@@ -45,7 +48,7 @@ class UsuarioEstabelecimentoDAO {
             $stm->bindValue(1, $UsuarioEstabelecimento->getNome());
             $stm->bindValue(2, $UsuarioEstabelecimento->getAtivo());       
             $stm->bindValue(3, $conn->lastInsertId());
-            $stm->bindValue(4, 10);  
+            $stm->bindValue(4, $UsuarioEstabelecimento->getIdEstabelecimento());  
             $stm->execute();
             $idUsuario = $conn->lastInsertId();
 
@@ -61,6 +64,7 @@ class UsuarioEstabelecimentoDAO {
             $this->conex->closeDataBase();
         }
     }
+    //Update de Usuarios do estabelecimento
     public function update(UsuarioEstabelecimento $UsuarioEstabelecimento, Sessao $Sessao, MenuUsuarioEstabelecimento $MenuUsuarioEstabelecimento) {
       $conn = $this->conex->connectDatabase();
         // //Update no UsuarioEstabelecimento
@@ -76,7 +80,7 @@ class UsuarioEstabelecimentoDAO {
         $stm->bindValue(2, $Sessao->getSenha());
         $stm->bindValue(3, $Sessao->getId());
         $success = $stm->execute();
-        if (!$success) {
+        if (!$success){
             echo "Usuário já existente!&";
         }else{
             echo "Atualização realizada com sucesso!&";
@@ -134,10 +138,23 @@ class UsuarioEstabelecimentoDAO {
         }
     }
     //Select para todos os UsuarioEstabelecimento
-    public function selectAll() {
+    public function selectAll($id) {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_usuario_estabelecimento";
+        $sql = "select * from tbl_estabelecimento where id_autenticacao = ?";
+
         $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $id);
+        $success = $stm->execute();
+        if ($success) {
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
+                $UsuarioEstabelecimento = new UsuarioEstabelecimento();
+                $UsuarioEstabelecimento->setIdEstabelecimento($result['id_estabelecimento']);
+            };
+        }
+
+        $sql = "select * from tbl_usuario_estabelecimento where id_estabelecimento = ?;";
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $UsuarioEstabelecimento->getIdEstabelecimento());
         $success = $stm->execute();
         if ($success) {
             $listUsuarioEstabelecimento = [];

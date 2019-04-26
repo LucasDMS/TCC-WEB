@@ -1,6 +1,10 @@
 <?php 
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controllerMenuUsuarioEstabelecimento.php");
     $controller = new ControllerMenuUsuarioEstabelecimento();
+    $IdMenu = array();
+    $texto = null;
+    $i = 0;
+    $rs = $controller->buscarUsuarioPermissoes();
 ?>
 <nav id="barra_lateral" class="nav">
 
@@ -28,19 +32,69 @@
                     </li>
                 </ul>
             </div>
-
+        </li>
+        <?php } ?>
         <li>
-    <?php } ?>
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
                 <div>
                     <i class="fas fa-cog"></i>
-                    Alguma Coisa
+                    Menu
                 </div>
                 <i class="fas fa-angle-right seta" id="seta_2"></i>
             </div>
             <!-- SUB MENU -->
-           
+            <div class="sub_menu" id="sub_menu_2">
+            <?php 
+                foreach($rs as $result){
+                    $IdMenu[] = $result->getIdMenu();
+
+                    if($IdMenu[$i]==1){?>
+                    <ul>
+                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Comprar
+                            </div>
+                        </li>
+                    </ul>
+                    <?php } 
+                    if($IdMenu[$i]==2){
+                    ?>
+                    <ul>
+                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Ver histórico
+                            </div>
+                        </li>
+                    </ul>
+                    <?php } 
+                    if($IdMenu[$i]==3){
+                    ?>
+                    <ul>
+                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Crie seu marketing
+                            </div>
+                        </li>
+                    </ul>
+                    <?php } 
+                    if($IdMenu[$i]==4){
+                    ?>
+                    <ul>
+                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Solicitar divulgação
+                            </div>
+                        </li>
+                    </ul>
+                    <?php } 
+                    $i++;
+                }
+                    ?>
         </li>
     </ul>
 

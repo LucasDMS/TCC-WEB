@@ -93,7 +93,15 @@ class ControllerUsuarioEstabelecimento{
         return $this->UsuarioEstabelecimentoDAO->selectById($id);
     }
     public function buscarUsuarioEstabelecimento(){
-        return $this->UsuarioEstabelecimentoDAO->selectAll();
+        session_start();
+        $id = $_SESSION['id'];
+        return $this->UsuarioEstabelecimentoDAO->selectAll($id);
     }
+    public function buscarUsuarioPermissoes(){
+        session_start();
+        $id = $_SESSION['id'];
+        return $this->UsuarioEstabelecimentoDAO->selectByPermission($id);
+    }
+
 }
 ?>

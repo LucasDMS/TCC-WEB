@@ -13,6 +13,7 @@ class UsuarioEstabelecimento{
     private $nome;
     private $ativo;
     private $idAutenticacao;
+    private $idEstabelecimento;
 
     public function getId()
     {
@@ -57,6 +58,18 @@ class UsuarioEstabelecimento{
     public function setIdAutenticacao($idAutenticacao)
     {
         $this->idAutenticacao = $idAutenticacao;
+
+        return $this;
+    }
+
+    public function getIdEstabelecimento()
+    {
+        return $this->idEstabelecimento;
+    }
+
+    public function setIdEstabelecimento($idEstabelecimento)
+    {
+        $this->idEstabelecimento = $idEstabelecimento;
 
         return $this;
     }

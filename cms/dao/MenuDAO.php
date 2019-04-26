@@ -57,7 +57,7 @@ class MenuDAO {
         $conn = $this->conex->connectDatabase();
         $sql = "select * from tbl_funcionario_web where id_autenticacao = ?;";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $id);        
+        $stm->bindValue(1, $id);
         $success = $stm->execute();
         if ($success) {
             $listMenu = [];
@@ -66,9 +66,8 @@ class MenuDAO {
                 $Menu->setIdFuncionario($result['id_funcionario_web']);
  
             }
-        }
-            
-        $sql = "select * from tbl_menu_funcionario_web As mf, tbl_menu as m where mf.id_menu=m.id_menu and id_funcionario_web=?;";
+        } 
+        $sql = "select * from tbl_menu_funcionario_web As mf, tbl_menu as m where mf.id_menu=m.id_menu and id_funcionario_web = ?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Menu->getIdFuncionario());        
         $success = $stm->execute();
