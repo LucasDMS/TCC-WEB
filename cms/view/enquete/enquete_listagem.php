@@ -11,7 +11,8 @@
     
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEnquete.php");
     $controller = new controllerEnquete();
-    $rs = $controller->listarEnquete();
+    $rs = $controller->listarPerguntas();
+    $rs2 = $controller->listarEnquete();
 
 
 ?>
@@ -24,16 +25,39 @@
 </div>
 
 <div class="card_wrapper">
-    <!-- CARD -->
-    <?php foreach ($rs as $result) { ?>
+    <?php foreach ($rs as $result) { 
+        //if($a == 1){
+        ?>
         <div class="card">
             <div>
                 Pergunta : 
 
                 <?php 
                 
+                    //echo de pergunta
                     echo $result->getPergunta(); 
                     
+                    //recebe o id 
+                    $idE = $result->getId();             
+                    
+                ?>
+            </div>
+            <div>
+                Respostas : <br>   
+                <?php  
+                    
+                    foreach($rs2 as $result2){
+                        //se não for igual não pega a resposta
+                        //só vai pegar a resposta se for igual o id
+                        if($idE == $result2->getId()){
+                            echo utf8_encode("<strong>".$result2->getResposta()."</strong> ".$result2->getVotos()." votos <br>"); 
+                        }
+                        
+                        $a = 1;
+                    }   
+                    
+                    
+                     
                 ?>
             </div>
             <div>
@@ -73,5 +97,8 @@
             </div>
 
         </div>
-    <?php } ?>
+    <?php 
+                       
+        }
+    ?>
 </div>

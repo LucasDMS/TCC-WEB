@@ -4,20 +4,37 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMe
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerFuncionario.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSessao.php");
 
-    $nome = null;
-    $login = null;
-    $senha = null;
-    $tipo = null;
-    $cargo = null;
-    $setor = null;
-    $dataEmissao = null;
-    $checked = null;
-    $Pagina = array();
+$nome = null;
+$login = null;
+$senha = null;
+$tipo = null;
+$cargo = null;
+$setor = null;
+$dataEmissao = null;
+$checked = null;
+$Pagina = array();
+$ControllerMenu = new ControllerMenu();
+$Controller = new ControllerFuncionario();
+$ControllerSessao = new ControllerSessao();
+
+$action = "router.php?controller=funcionario&modo=inserir";
+$modo = "inserir";
+$id = "";
+$idAutenticacao = "";
+
+$Paginas = $ControllerMenu->buscarMenu();
+
+if(isset($_GET['id']) && $_GET['idAutenticacao']){
+    $id = $_GET['id'];
+    $idAutenticacao = $_GET['idAutenticacao'];
+    
     $ControllerMenu = new ControllerMenu();
     $Controller = new ControllerFuncionario();
     $ControllerSessao = new ControllerSessao();
+    $Pagina = $ControllerMenu->buscarMenuPorId($id);
+    $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
+    $Funcionario = $Controller->buscarFuncionarioPorId($id);
 
-       
     $action = "router.php?controller=funcionario&modo=inserir";
     $modo = "inserir";
     $id = "";
@@ -47,6 +64,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
         $senha = $Sessao->getSenha();
         $tipo = $Sessao->getTipo();
     }
+
 
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 

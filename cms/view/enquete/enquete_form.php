@@ -1,11 +1,12 @@
 <?php 
 
- $action = "router.php?controller=evnquete&modo=inserir";
+ $action = "router.php?controller=enquete&modo=inserir";
  $modo = "inserir";   
  $id = null;
  $nome = null;
  $pergunta = null;
  $resposta = null;
+ $resposta1 = null;
 
  if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -37,9 +38,22 @@
         data-modo="<?php echo $modo; ?>"
         data-pagina="enquete">
 
-    <input type="text" name="txt_nome" id="txt_nome" placeholder="nome" value="<?php echo $nome;?>"><br>
-    <input type="date" name="txt_date" id="date" value="<?php echo $data;?>"><br>
-    <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>"><br>
+        <h2>Enquete</h2>
+
+    <div class="inputDados">
+        <input type="date" name="date" id="date" value="<?php echo $data;?>" required><br>
+    </div>
+    <div class="inputDados">
+        <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>" required><br>
+    </div>
+    <div class="inputDados">
+        <input type="text" name="txt_resposta" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
+        <a href="#" onclick="nova_input()">
+            novo
+        </a>
+    </div>
+    
+        
     <button class="btn">
         Enviar
     </button>

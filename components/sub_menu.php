@@ -1,4 +1,4 @@
-<div class="menu_lateral menu_esquerda">
+<div class="menu_lateral menu_esquerda cor_fundo_2 cor_letra_4">
     <div class="menu_esquerda_container">
         <nav class="cor_letra_3">
             <ul id="menu_navegacao">

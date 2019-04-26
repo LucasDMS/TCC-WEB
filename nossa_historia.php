@@ -58,7 +58,7 @@
 				<i class="fas fa-book"></i>
                 
                 <?php		
-					$sql = "select * from tbl_historia";
+					$sql = "select * from tbl_historia where  apagado = 0 and ativo = 1";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

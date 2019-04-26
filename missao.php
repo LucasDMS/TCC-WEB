@@ -56,7 +56,7 @@
 		<section class="section_missao">
 
 			<?php		
-                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Missão, visão e valor'";
+                $sql = "select * from tbl_texto_principal where  tipo_texto =  'Missão, Visão e Valor'";
 				$stm = $con->prepare($sql);
 				$success = $stm->execute();
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -75,7 +75,7 @@
 			<div class="missao_container">
 
                 <?php		
-                    $sql = "select * from tbl_missao_visao_valor ";
+                    $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Missão' and ativo = 1 and apagado = 0";
 				    $stm = $con->prepare($sql);
 				    $success = $stm->execute();
 				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -83,24 +83,44 @@
             
 				<div>
 					<i class="fas fa-check"></i>
-					<h2><?php echo ($result['texto']) ?></h2>
+					<h2><?php echo ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['tipo_texto']) ?>
+						<?php echo ($result['texto']) ?>
 					</p>
 				</div>
+				 <?php
+                    }
+                 ?>
+                 
+                 <?php		
+                    $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Visão' and ativo = 1 and apagado = 0";
+				    $stm = $con->prepare($sql);
+				    $success = $stm->execute();
+				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+                ?>
 				
 				<div>
 					<i class="fas fa-glasses"></i>
-					<h2><?php echo ($result['texto']) ?></h2>
+					<h2><?php echo ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['tipo_texto']) ?>
+						<?php echo ($result['texto']) ?>
 					</p>
 				</div>
+				<?php
+                    }
+                 ?>
+				
+				 <?php		
+                    $sql = "select * from tbl_missao_visao_valor  where tipo_texto =  'Valor' and ativo = 1 and apagado = 0";
+				    $stm = $con->prepare($sql);
+				    $success = $stm->execute();
+				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+                ?>
 				<div>
 					<i class="fas fa-hands-helping"></i>
-					<h2><?php echo ($result['texto']) ?></h2>
+					<h2><?php echo ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['tipo_texto']) ?>
+						<?php echo ($result['texto']) ?>
 					</p>
 				</div>
 

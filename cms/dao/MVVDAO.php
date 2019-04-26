@@ -102,7 +102,7 @@ class MVVDAO{
                 $MVV->setAtivo($result['ativo']);
                 return $MVV;
             };
-            $this->conex -> closeDataBase();
+            $this->conex->closeDataBase();
         }
     }
     public function selectAll() {

@@ -444,6 +444,18 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+
+            
+            case 'CORES':
+            require_once('controller/controllerCores.php');
+            $ControllerCores = new ControllerCores();
+            switch($modo){
+                case 'INSERIR':
+                $ControllerCores->inserirCores();
+                break;
+                case 'ATUALIZAR':
+                    $ControllerCores ->atualizarCores();
+
         
         case 'ENQUETE':
             require_once('controller/controllerEnquete.php');
@@ -460,11 +472,10 @@ if(isset($_GET['controller'])){
                     break;
                 case 'ATIVAR':
                     $ControllerEnquete->ativarEnquete();
+
                     break;
             }
             break;
     }
 }
-
-
 ?>
