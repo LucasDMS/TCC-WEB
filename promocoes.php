@@ -31,6 +31,7 @@
 		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms";
 	
 		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/model/Sessao.php";
+
 		require_once($_SESSION['PATH']);
 		
 		require_once('cms/db/ConexaoMysql.php');
@@ -38,11 +39,12 @@
 		require_once("components/sub_menu.php");
         require_once("components/modal.php");
 	
-		$id = "";
+		$id = 2;
+		$idPromocao = 1;
 		$modo = "inserir";
+		$action = "usuario/router.php?controller=promocao&modo=inserir";
         $conex = new conexaoMysql();
 		$con = $conex->connectDatabase();
-		echo($id);
 
     ?>
 	<!-- LOGIN E CADASTRE-SE -->
@@ -61,7 +63,7 @@
     <main>
 	<form 
 		onsubmit="asyncSubmit(event,this)"
-		action="<?php ?>" 
+		action="<?php echo($action) ?>" 
 		method="post"
 		autocomplete="off"
 		id="frm_participar_promocao"
@@ -70,10 +72,9 @@
 		enctype="multipart/form"
 		data-id="<?php echo($id)?>"
 		data-id-promocao="<?php echo($idPromocao)?>"
-		data-modo="<?php echo($Modo)?>"
-		data-pagina="participar"
+		data-modo="<?php echo($modo)?>"
+		data-pagina="promocoes"
 	>
-	</form>
 
 		<section class="base_paginas">
 			<div class="section_conteudo_center">
@@ -104,17 +105,15 @@
 					$Sessao = new Sessao();
 					if($_SESSION['tipo'] == "USUARIO"){
 				?>
-
-				<button class="btn" type="submit" onclick="asyncParticipar(event, this)">
+				<button class="btn" type="submit">
 				Quero participar!
 				<i class="fas fa-award"></i></button>
-
 				<?php
 					}
 				}else{
 				?>
 
-				<button class="btn" type="submit" onclick="chamarViewParaModal('login', true)">
+				<button class="btn" type="reset" onclick="chamarViewParaModal('login', true)">
 				Quero participar!
 				<i class="fas fa-award"></i>
 				</button>
@@ -127,6 +126,7 @@
 
 		</section>
         
+	</form>
 	</main>
 
 	<!-- CHATBOT -->
@@ -137,6 +137,7 @@
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
+    <script src="usuario/js/async.js"></script>
 </body>
 
 </html>

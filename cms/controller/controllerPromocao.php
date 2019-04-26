@@ -85,5 +85,6 @@ class ControllerPromocao{
     public function buscarPromocoes(){
         return $this->PromocaoDAO->selectAll();
     }
+
 }
 ?>

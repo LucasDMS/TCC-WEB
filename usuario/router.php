@@ -22,6 +22,19 @@ if(isset($_GET['controller'])){
             }
             break;
 
+        case 'PROMOCAO':
+            require_once('controller/controllerPromocao.php');
+
+            $ControllerPromocao = new ControllerPromocao();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerPromocao->participarPromocao();
+                    break;
+                case 'CANCELAR':
+                    $ControllerPromocao->sairPromocao();
+                    break;
+            }
+            break;
         case 'HISTORIA':
 
             require_once('controller/controllerHistoria.php');
