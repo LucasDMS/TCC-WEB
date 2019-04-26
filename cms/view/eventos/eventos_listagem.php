@@ -6,7 +6,7 @@
         Data Modificação:
         Conteúdo Modificado:
         Autor da Modificação:
-        Objetivo da classe: Classe de contatos
+        Objetivo da classe: Classe de listagem
     */
     
     require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEventos.php");

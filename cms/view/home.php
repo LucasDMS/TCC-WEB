@@ -11,14 +11,14 @@
 	
 </head>
 <body>
-    <?php require_once("view/components/alertas.php"); ?>
+    <?php require_once("view/components/alerta.php"); ?>
     <?php require_once("view/components/modal.php"); ?>
-    <?php require_once("view/components/header.php"); ?>
 
     <div class="wrapper">
         <?php require_once('view/components/nav.php'); ?>
 
         <main id="app">
+            <?php require_once("view/components/header.php"); ?>
             <div id="app_content">
                 <?php //require_once('boas_vindas/boas_vindas.php'); ?>
             </div>
@@ -28,6 +28,7 @@
     </div>
 
     <script src="view/js/jquery_min.js"></script>
+    <script src="view/js/novo.js"></script>
     <script src="view/js/index.js"></script>
     <script src="view/js/async.js"></script>
 </body>

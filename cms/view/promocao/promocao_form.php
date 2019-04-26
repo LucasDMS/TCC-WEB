@@ -25,11 +25,12 @@ if(isset($_GET['id'])){
     $dataFinal = $Promocao->getDataFinal();
     $tipoTexto = $Promocao->getTipoTexto();
     $texto = $Promocao->getTexto();
-
-
 }
 
+$modo == "atualizar" ? $paginaTitulo = "Atualizar promoção" : $paginaTitulo = "Nova promoção";
+
 ?>
+
 <form   onsubmit="asyncSubmit(event, this)" 
         action="<?php echo $action; ?>" 
         method="post" 
@@ -42,14 +43,43 @@ if(isset($_GET['id'])){
         data-modo="<?php echo $modo?>"
         data-pagina="promocao">
 
-    <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome?>" required>
-    <input type="date" name="txtDataInicio" id="txtDataInicio" value="<?php echo $dataInicio?>" required>
-    <input type="date" name="txtDataFinal" id="txtDataFinal" value="<?php echo $dataFinal?>" required>
-    <input type="text" name="txtTexto" id="txtTexto" value="<?php echo $texto?>" required>
-    <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto?>" required>
+    <h2><?php echo $paginaTitulo?></h2>
+
+    <div class="inputDados">
+        <label from="txtNome">Título da promoção</label>
+        <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtDataInicio">Data de início</label>
+        <input type="date" name="txtDataInicio" id="txtDataInicio" value="<?php echo $dataInicio ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtDataFinal">Data de termino</label>
+        <input type="date" name="txtDataFinal" id="txtDataFinal" value="<?php echo $dataFinal ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtTexto">Texto</label>
+        <input type="text" name="txtTexto" id="txtTexto" value="<?php echo $texto ?>" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txtTipoTexto">Tipo Texto</label>
+        <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto ?>" required>
+    </div>
+
     <input type="file" name="img" id="img"/>
 
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>

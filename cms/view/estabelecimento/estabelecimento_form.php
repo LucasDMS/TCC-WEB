@@ -40,9 +40,19 @@ if(isset($_GET['id'])){
       data-modo="<?php echo $modo?>"
       class="form_padrao">
 
-    <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?> </textarea>
+    <div class="inputDados">
+        <label from="txtTexto">Conteúdo da notícia</label>
+        <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?> </textarea>
+    </div>
 
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>

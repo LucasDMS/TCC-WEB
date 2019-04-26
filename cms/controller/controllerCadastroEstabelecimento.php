@@ -66,11 +66,7 @@ class controllerCadastroEstabelecimento{
             //chamando o metodo de insert e passando o objeto
             $this->cadastroEstabelecimentoDAO->inserir($cadastro);
         }
-
-
     }
-        
-
 }
 
 

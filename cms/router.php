@@ -405,6 +405,7 @@ if(isset($_GET['controller'])){
                     $controller->inserirCadastroUsuario();
                     break;
             }
+            break;
 
         case 'POPS_ESCOLA':
             require_once('controller/controllerPopsEscola.php');
@@ -425,7 +426,7 @@ if(isset($_GET['controller'])){
             }
             break;
         
-            case 'FUNCIONARIO':
+        case 'FUNCIONARIO':
             require_once('controller/controllerFuncionario.php');
             $ControllerFuncionario = new ControllerFuncionario();
             switch($modo){
@@ -443,6 +444,7 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+
             
             case 'CORES':
             require_once('controller/controllerCores.php');
@@ -453,6 +455,24 @@ if(isset($_GET['controller'])){
                 break;
                 case 'ATUALIZAR':
                     $ControllerCores ->atualizarCores();
+
+        
+        case 'ENQUETE':
+            require_once('controller/controllerEnquete.php');
+            $ControllerEnquete = new ControllerEnquete();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerEnquete->inserirEnquete();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerEnquete->atualizarEnquete();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerEnquete->excluirEnquete();
+                    break;
+                case 'ATIVAR':
+                    $ControllerEnquete->ativarEnquete();
+
                     break;
             }
             break;

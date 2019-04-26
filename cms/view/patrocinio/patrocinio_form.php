@@ -14,6 +14,9 @@ if(isset($_GET['id'])){
     $nome = $Patrocinio->getNome();
     $descricao = $Patrocinio->getDescricao();
 }
+
+$modo == "atualizar" ? $paginaTitulo = "Atualizar patrocício" : $paginaTitulo = "Novo patrocínio";
+
 ?>
 <form   onsubmit="asyncSubmit(event, this)" 
         action="<?php echo $action; ?>" 
@@ -27,13 +30,28 @@ if(isset($_GET['id'])){
         data-modo="<?php echo $modo?>"
         data-pagina="patrocinio">
 
-    
-    <input type="text" name="txt_nome" id="txt_nome" value="<?php echo $nome?>" required>
-    <input type="text" name="txt_descricao" id="txt_descricao" value="<?php echo $descricao?>" required>
+    <h2><?php echo $paginaTitulo?></h2>
+
+    <div class="inputDados">
+        <label from="txt_nome">Nome</label>
+        <input value="<?php echo $nome ?>" name="txt_nome" id="txt_nome" type="text" required>
+    </div>
+
+    <div class="inputDados">
+        <label from="txt_descricao">Descrição</label>
+        <textarea name="txt_descricao" id="txt_descricao" required><?php echo $descricao?></textarea>
+    </div>
 
     <input type="file" name="img" id="img"/>
 
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
+
 </form>

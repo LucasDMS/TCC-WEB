@@ -42,6 +42,25 @@ function chamarViewParaApp(pagina) {
 
 /**
  * 
+ * @param {*} pagina 
+ */
+function chamarView(pagina, url) {
+
+    sessionStorage.setItem('pagina', pagina)
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        beforeSend: loader
+    })
+    .done(function (dados) {
+
+        $("#app_content").html(dados);
+    });
+}
+
+/**
+ * 
  * @param {*} event 
  * @param {*} element 
  */
@@ -53,6 +72,7 @@ function asyncSubmit(event, element) {
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
     var idAutenticacao = element.getAttribute("data-idAutenticacao");
+    var texto = element.getAttribute("data-texto");
     formdata.append("id", id);
     formdata.append("idAutenticacao", idAutenticacao);
 
@@ -65,11 +85,15 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
-
         recarregarLista(pagina);
-        // modalToggle(false);
-        // mostrarAlerta(html, TYPE.ALERT, 5000)
-        mostrarAlerta("jooj", TYPE.SUCCESS, 1000)
+        html = html.split('&')
+        if(html[0]==="Usuário já existente!"){
+            mostrarAlerta(html[0], TYPE.ERROR, 1000);
+        }else{
+            mostrarAlerta(html[0], TYPE.SUCCESS, 1000);
+            modalToggle(false);
+        }
+
     });
 }
 

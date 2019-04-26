@@ -14,6 +14,9 @@ if(isset($_GET['id'])){
     $texto = $Historia->getTexto();
     $id = $Historia->getId();
 }
+
+$modo == "atualizar" ? $paginaTitulo = "Atualizar história" : $paginaTitulo = "Nova história";
+
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)" 
@@ -28,9 +31,20 @@ if(isset($_GET['id'])){
         data-modo="<?php echo $modo?>"
         class="form_padrao">
 
-    <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?></textarea>
+    <h2><?php echo $paginaTitulo?></h2>
 
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="inputDados">
+        <label from="txtTexto">Texto</label>
+        <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?></textarea>
+    </div>
+
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
 </form>

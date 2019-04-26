@@ -43,7 +43,7 @@
 		"prefix": "php",
 		"body": ["<?php $1 ?>"],
 		"description": "tag php",
-	}
+	},
 
 	"var_dump":{
 		"scope": "php",
