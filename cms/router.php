@@ -443,8 +443,19 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            
+            case 'CORES':
+            require_once('controller/controllerCores.php');
+            $ControllerCores = new ControllerCores();
+            switch($modo){
+                case 'INSERIR':
+                $ControllerCores->inserirCores();
+                break;
+                case 'ATUALIZAR':
+                    $ControllerCores ->atualizarCores();
+                    break;
+            }
+            break;
     }
 }
-
-
 ?>
