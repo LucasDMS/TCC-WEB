@@ -28,6 +28,7 @@
     </div>
 
     <script src="view/js/jquery_min.js"></script>
+    <script src="view/js/novo.js"></script>
     <script src="view/js/index.js"></script>
     <script src="view/js/async.js"></script>
 </body>

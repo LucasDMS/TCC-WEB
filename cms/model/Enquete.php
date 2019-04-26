@@ -14,9 +14,11 @@ class Enquete{
     private $id;
     private $pergunta;
     private $resposta;
+    private $resposta2;
     private $data;
     private $apagado;
     private $status;
+    private $votos;
 
     public function getId(){
         return $this->id;
@@ -59,8 +61,13 @@ class Enquete{
     }
 
     public function setData($data){
-        $this->data = $data;
-        return $this;
+        $this->data=$data;
+
+        if(strpos($data,"/")){
+            $this->data = date('Y-m-d', strtotime($data));
+        }else if(strpos($data,"-")){
+            //$this->data = date('Y/m/d', strtotime($data));
+        }
     }
  
     public function getStatus(){
@@ -69,6 +76,24 @@ class Enquete{
 
     public function setStatus($status){
         $this->status = $status;
+        return $this;
+    }
+
+    public function getVotos(){
+        return $this->votos;
+    }
+
+    public function setVotos($votos){
+        $this->votos = $votos;
+        return $this;
+    }
+
+    public function getResposta2(){
+        return $this->resposta2;
+    }
+
+    public function setResposta2($resposta2){
+        $this->resposta2 = $resposta2;
         return $this;
     }
 }
