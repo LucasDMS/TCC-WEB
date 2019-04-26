@@ -54,21 +54,30 @@
 	<main>
 
 		<section class="eventos_pagina">
+            
+            <?php		
+				$sql = "select * from tbl_texto_principal where  tipo_texto =  'Eventos'";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
+            
 
-			<h2 class="section_titulo">Próximos eventos</h2>
+			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos aspernatur eos labore pariatur? Doloribus
-				distinctio eos illo dolor. Adipisci, distinctio voluptas! Debitis id repellendus dolores amet? Ipsa
-				dignissimos
-				facilis natus?
+				<?php echo ($result['texto']) ?>
 			</p>
+            
+            <?php
+                }
+            ?>
 
 			<div class="eventos_bg">
 				<!-- lista de eventos -->
 				<ul class="eventos_container">
 				    <?php		
-					   $sql = "select * from tbl_eventos";
+					   $sql = "select * from tbl_eventos where apagado = 0 and ativo = 1";
 					   $stm = $con->prepare($sql);
 					   $success = $stm->execute();
 					   foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

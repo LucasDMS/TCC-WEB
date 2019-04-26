@@ -58,7 +58,6 @@ $rs = $controller->buscarMVV();
                     <i class="fas fa-trash"></i>
                 </a>
             </div>
-
         </div>
     <?php } ?>
 </div>

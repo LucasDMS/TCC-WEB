@@ -120,6 +120,13 @@
                             Pops Escola
                         </div>
                     </li>
+                    
+                    <li onclick="chamarViewParaApp('cores')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Cores do Site
+                        </div>
+                    </li>
 
                     <li onclick="chamarViewParaApp('enquete')">
                         <div>
