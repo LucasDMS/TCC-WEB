@@ -1,12 +1,8 @@
 <?php
 /*
-    Projeto: Exercicio de MVC em tela de Contatos
+    Projeto: TCC
     Autor: Lucas
     Data Criação: 10/04/2019
-    Data Modificação:
-    Conteúdo Modificado:
-    Autor da Modificação:
-    Objetivo da classe: Classe de Menu funcionario
 */
 class MenuFuncionario{
     private $id;

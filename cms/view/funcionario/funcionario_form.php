@@ -22,25 +22,8 @@ $modo = "inserir";
 $id = "";
 $idAutenticacao = "";
 
+
 $Paginas = $ControllerMenu->buscarMenu();
-
-if(isset($_GET['id']) && $_GET['idAutenticacao']){
-    $id = $_GET['id'];
-    $idAutenticacao = $_GET['idAutenticacao'];
-    
-    $ControllerMenu = new ControllerMenu();
-    $Controller = new ControllerFuncionario();
-    $ControllerSessao = new ControllerSessao();
-    $Pagina = $ControllerMenu->buscarMenuPorId($id);
-    $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
-    $Funcionario = $Controller->buscarFuncionarioPorId($id);
-
-    $action = "router.php?controller=funcionario&modo=inserir";
-    $modo = "inserir";
-    $id = "";
-    $idAutenticacao = "";
-
-    $Paginas = $ControllerMenu->buscarMenu();
     if(isset($_GET['id']) && $_GET['idAutenticacao']){
         $id = $_GET['id'];
         $idAutenticacao = $_GET['idAutenticacao'];

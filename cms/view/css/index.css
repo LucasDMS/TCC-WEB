@@ -301,7 +301,12 @@ footer {
 	overflow: hidden;
 	overflow-y: auto;
 }
-
+.tituloTabelaNutricional{
+	font-size: 25px;
+	color: #f8ae83;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
 .pagina_titulo {
 	max-width: 1440px;
 	padding: 15px 25px;

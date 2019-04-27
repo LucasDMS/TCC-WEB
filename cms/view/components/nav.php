@@ -187,7 +187,7 @@
                         <?php } 
                             $i++;
                             
-                    }
+                    }?>
             </div>
         </li>
         <?php if($_SESSION['tipo'] == 'ROOT'){?>

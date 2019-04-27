@@ -21,50 +21,34 @@ class FuncionarioDAO {
             echo "Usuário já existente!&";
         }else{
             echo "Cadastro realizado com sucesso!&";
-        }
-        //Select para pegar o ultimo id de insert para fazer o insert em funcionarios
-        
-        //Insert na tabela de funcionarios 
-        $sql = "insert into tbl_funcionario_web(nome,cargo,setor,data_emissao,ativo,id_autenticacao) values(?,?,?,?,?,?);";
-        $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $Funcionario->getNome());        
-        $stm->bindValue(2, $Funcionario->getCargo());
-        $stm->bindValue(3, $Funcionario->getSetor());
-        $stm->bindValue(4, $Funcionario->getDataEmissao());
-        $stm->bindValue(5, $Funcionario->getAtivo());
-        $stm->bindValue(6, $conn->lastInsertId());
-        $stm->execute();
-        $this->conex->closeDataBase();
-
-    
-        $sql = "SELECT id_funcionario_web FROM tbl_funcionario_web order by id_funcionario_web desc limit 1";
-        $stm = $conn->prepare($sql);
-        $stm->execute();
-        foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-            $MenuFuncionario->setIdFuncionario($result['id_funcionario_web']);
-        }
-        foreach($MenuFuncionario->getIdMenu() as $result){
-            echo $conn->lastInsertId();
-            
-            $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
+            //Insert na tabela de funcionarios 
+            $sql = "insert into tbl_funcionario_web(nome,cargo,setor,data_emissao,ativo,id_autenticacao) values(?,?,?,?,?,?);";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $result);        
-            $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
+            $stm->bindValue(1, $Funcionario->getNome());        
+            $stm->bindValue(2, $Funcionario->getCargo());
+            $stm->bindValue(3, $Funcionario->getSetor());
+            $stm->bindValue(4, $Funcionario->getDataEmissao());
+            $stm->bindValue(5, $Funcionario->getAtivo());
+            $stm->bindValue(6, $conn->lastInsertId());
             $stm->execute();
+            $this->conex->closeDataBase();
+            $idFuncionario = $conn->lastInsertId();
+            foreach($MenuFuncionario->getIdMenu() as $result){
+                $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $result);        
+                $stm->bindValue(2, $idFuncionario);
+                $stm->execute();
+            }
+            $this->conex->closeDataBase();
         }
-        $this->conex->closeDataBase();
+
+        
+        
     }
     public function update(Funcionario $Funcionario, Sessao $Sessao, MenuFuncionario $MenuFuncionario) {
       $conn = $this->conex->connectDatabase();
-        // //Update no funcionario
-        $sql = "update tbl_funcionario_web set nome = ?, cargo = ?, setor = ?, data_emissao = ? where id_funcionario_web=?";
-        $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $Funcionario->getNome());        
-        $stm->bindValue(2, $Funcionario->getCargo());
-        $stm->bindValue(3, $Funcionario->getSetor());
-        $stm->bindValue(4, $Funcionario->getDataEmissao());
-        $stm->bindValue(5, $Funcionario->getId());
-        $stm->execute();
+     
         //Update na autenticacao
         $sql = "update tbl_autenticacao set login = ?, senha = ?, tipo = ? where id_autenticacao = ?";
         $stm = $conn->prepare($sql);
@@ -77,19 +61,28 @@ class FuncionarioDAO {
             echo "Usuário já existente!&";
         }else{
             echo "Atualização realizada com sucesso!&";
+             //Update no funcionario
+            $sql = "update tbl_funcionario_web set nome = ?, cargo = ?, setor = ?, data_emissao = ? where id_funcionario_web=?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $Funcionario->getNome());        
+            $stm->bindValue(2, $Funcionario->getCargo());
+            $stm->bindValue(3, $Funcionario->getSetor());
+            $stm->bindValue(4, $Funcionario->getDataEmissao());
+            $stm->bindValue(5, $Funcionario->getId());
+            $stm->execute();
+            $sql = "delete from tbl_menu_funcionario_web where id_funcionario_web =? ";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $MenuFuncionario->getIdFuncionario()); 
+            $stm->execute();
+            foreach($MenuFuncionario->getIdMenu() as $result){
+                $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $result);        
+                $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
+                $stm->execute();
+            }
         }
 
-        $sql = "delete from tbl_menu_funcionario_web where id_funcionario_web =? ";
-        $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $MenuFuncionario->getIdFuncionario()); 
-        $stm->execute();
-        foreach($MenuFuncionario->getIdMenu() as $result){
-            $sql = "insert into tbl_menu_funcionario_web(id_menu,id_funcionario_web) values(?,?)";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $result);        
-            $stm->bindValue(2, $MenuFuncionario->getIdFuncionario());
-            $stm->execute();
-        }
         $this->conex->closeDataBase();
     }
     //Update no funcionario ativo

@@ -210,12 +210,23 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
-            case 'PRODUTOS':
-            require_once('controller/controllerProdutos.php');
-            $ControllerProdutos = new ControllerProdutos();
+            case 'PRODUTO':
+            require_once('controller/controllerProduto.php');
+            $ControllerProduto = new ControllerProduto();
             switch($modo){
+                case 'INSERIR':
+                    //Chamando o metodo de inserir um novo Produto
+                    $ControllerProduto->inserirProduto();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerProduto ->atualizarProduto();
+                    break;
+                case 'EXCLUIR':
+                    //Chamando o metodo de excluir umo Produto
+                    $ControllerProduto->excluirProduto();
+                    break;
                 case 'ATIVAR':
-                    $ControllerProdutos->ativarProduto();
+                    $ControllerProduto->ativarProduto();
                     break;
             }
             break;
@@ -444,8 +455,6 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
-
-            
             case 'CORES':
             require_once('controller/controllerCores.php');
             $ControllerCores = new ControllerCores();
@@ -455,7 +464,7 @@ if(isset($_GET['controller'])){
                 break;
                 case 'ATUALIZAR':
                     $ControllerCores ->atualizarCores();
-
+            }
         
         case 'ENQUETE':
             require_once('controller/controllerEnquete.php');
@@ -478,4 +487,5 @@ if(isset($_GET['controller'])){
             break;
     }
 }
+
 ?>

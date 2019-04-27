@@ -53,9 +53,12 @@ function asyncSubmit(event, element) {
     var modo = element.getAttribute("data-modo");
     var id = element.getAttribute("data-id");
     var idAutenticacao = element.getAttribute("data-idAutenticacao");
+    var idNutricional = element.getAttribute("data-idNutricional");
 
     formdata.append("id", id);
     formdata.append("idAutenticacao", idAutenticacao);
+    formdata.append("idNutricional", idNutricional);
+
 
     $.ajax({
         type: "POST",
