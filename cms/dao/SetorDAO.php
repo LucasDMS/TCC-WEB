@@ -2,6 +2,7 @@
 class SetorDAO {
     private $conex;
     private $Setor;
+    private $ProdutoSetor;
     private $Sessao;
     public function __construct() {
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
@@ -11,19 +12,18 @@ class SetorDAO {
     //Select para pegar um Setor especifico
     public function selectById($id){
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_setor_funcionario_web where id_funcionario_web=?;";
+        $sql = "select * from tbl_produto_setores_produto where id_produto=?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $id);        
         $success = $stm->execute();
         if ($success) {
             $listSetor = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Setor = new SetorFuncionario();
-                $Setor->setId($result['id_Setor_funcionario_web']);
-                $Setor->setData($result['data']);
-                $Setor->setIdSetor($result['id_Setor']);
-                $Setor->setIdFuncionario($result['id_funcionario_web']);
-                array_push($listSetor, $Setor);
+                $ProdutoSetor = new ProdutoSetor();
+                $ProdutoSetor->setId($result['id_produto_setores_produto']);
+                $ProdutoSetor->setIdProduto($result['id_produto']);
+                $ProdutoSetor->setIdSetor($result['id_setores']);
+                array_push($listSetor, $ProdutoSetor);
             }
             $this->conex -> closeDataBase();
             return $listSetor;

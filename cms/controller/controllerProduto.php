@@ -37,7 +37,7 @@ class ControllerProduto{
             $ativo   = 1;
             $apagado = 0;
 
-            $select = $_POST['select'];
+            $setores = $_POST['setores'];
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
 
@@ -65,7 +65,7 @@ class ControllerProduto{
             $Nutricional->setSodio($sodio);
 
             $Setor = new Setor();
-            $Setor->setId($select);
+            $Setor->setId($setores);
 
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
@@ -98,7 +98,7 @@ class ControllerProduto{
             $fibras = $_POST['txtFibraAlimentar'];
             $sodio  = $_POST['txtSodio'];
 
-            $select = $_POST['select'];
+            $setores = $_POST['setores'];
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
 
@@ -124,7 +124,7 @@ class ControllerProduto{
             $Nutricional->setSodio($sodio);
 
             $Setor = new Setor();
-            $Setor->setId($select);
+            $Setor->setId($setores);
 
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
@@ -136,7 +136,7 @@ class ControllerProduto{
     }
     public function excluirProduto(){
         $id = $_POST['id'];
-        $this->SustentabilidadeDAO ->delete($id);
+        $this->ProdutoDAO ->delete($id);
     }
     public function ativarProduto() {
         if($_SERVER['REQUEST_METHOD']=='POST'){

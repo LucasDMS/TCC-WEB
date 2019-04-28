@@ -21,6 +21,9 @@ $fibraAlimentar = null;
 $sodio = null;
 
 $MateriaPrima = array();
+
+$Setor = array();
+
 $Controller = new ControllerProduto();
 $ControllerSetor = new ControllerSetor();
 $ControllerMateria = new ControllerMateriaPrima();
@@ -36,11 +39,11 @@ $Embalagem = $ControllerMateria->buscarEmbalagem();
 if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $id = $_GET['id'];
     $idNutricional = $_GET['idNutricional'];
-
-    $Controller = new ControllerProduto();
     $produto = $Controller->buscarProdutoPorId($id);
     $nutricional = $Controller->buscarNutricionalPorId($id);
     $MateriaPrima = $ControllerMateria->buscarMateriaPrimaPorId($id);
+    $Setor =  $ControllerSetor->buscarSetorPorId($id);
+
     $action = "router.php?controller=produto&modo=atualizar";
     $modo = "atualizar";
 
@@ -164,14 +167,25 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
     </div>
     <div class="container">
    
-        <select name="select" id="select">
+  
         <?php  
             foreach ($Setores as $result){ 
-        
+                $checked = "";
+    
+                foreach ($Setor as $result1){
+                    if($result->getId() == $result1->getIdSetor()){
+                        $checked = 'checked';
+                    }
+                }
             ?>
-                <option value="<?php echo $result->getId()?>"><?php echo $result->getRua() ?></option>
+                <input  type="checkbox" <?php echo $checked ?> 
+                    value="<?php echo $result->getId() ?>" 
+                    name="setores[]"
+                    id="<?php echo $result->getId() ?>">
+                <label  for="<?php echo $result->getId() ?>">
+                    <?php echo $result->getRua() ?>
+                </label>
             <?php } ?>
-        </select>
     </div>
     <div class="tituloTabelaNutricional">
         <label>Matérias primas</label><br>

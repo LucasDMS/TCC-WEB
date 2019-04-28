@@ -40,6 +40,15 @@ class ProdutoDAO{
         $stm->execute();
         $idProduto = $conn->lastInsertId();
         
+        //Insert nos Setores
+        foreach($setor->getId() as $result){
+            $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto) values(?,?);";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $result);        
+            $stm->bindValue(2, $idProduto);
+            $stm->execute();
+        }
+
         //Insert nos MateriaPrima
         foreach($materiaPrima->getId() as $result){
             $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
@@ -85,11 +94,12 @@ class ProdutoDAO{
             $stm->bindValue(6, $produto->getIpi());
             $stm->bindValue(7, $produto->getId());
             $stm->execute();
-
+            //Atualizando as materias primas utilizadas no produto
             $sql = "delete from tbl_produto_materia_prima where id_produto =? ";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $produto->getId()); 
             $stm->execute();
+            //Insert na materia prima
             foreach($materiaPrima->getId() as $result){
                 $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
                 $stm = $conn->prepare($sql);
@@ -97,11 +107,26 @@ class ProdutoDAO{
                 $stm->bindValue(2, $produto->getId());
                 $stm->execute();
             }
+             //Insert na embalagem
             $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $embalagem->getId());        
             $stm->bindValue(2, $produto->getId());
             $stm->execute();
+
+            //Atualizando os setores onde o produto está
+            $sql = "delete from tbl_produto_setores_produto where id_produto =? ";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $produto->getId()); 
+            $stm->execute();
+            //Insert nos Setores
+            foreach($setor->getId() as $result){
+                $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto) values(?,?);";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $result);        
+                $stm->bindValue(2, $produto->getId());
+                $stm->execute();
+            }
         }else{
             $sql = "UPDATE tbl_nutricional SET valor_calorico = ?, carboidratos = ?, proteina = ?, gorduras_totais = ?, gorduras_saturadas = ?, gorduras_trans = ?, fibra_alimentar = ?, sodio = ?  WHERE id_nutricional=?;";
             $stm = $conn->prepare($sql);
@@ -156,6 +181,25 @@ class ProdutoDAO{
 
         $this->conex->closeDataBase();
     }
+    //Deletando o registro 
+    public function delete($id){
+        $conn = $this->conex->connectDatabase();
+        //Query do "Delete"
+        $sql = "UPDATE tbl_produto SET apagado = 1 WHERE id_produto=?;";
+        $stm = $conn->prepare($sql);
+        //Setando o valor
+        $stm->bindValue(1, $id);
+        $success = $stm->execute();
+
+        $this->conex->closeDataBase();
+        if ($success) {
+            echo $success;
+            return "Sucesso";
+        } else {
+            echo $success;
+            return "Erro";
+        }
+    }
     //Select para pegar um produto especifico
     public function selectByIdProduto($id) {
         $conn = $this->conex->connectDatabase();
@@ -203,8 +247,6 @@ class ProdutoDAO{
             $Nutricional->setGordurasTrans($result['gorduras_trans']);
             $Nutricional->setFibrasAlimentar($result['fibra_alimentar']);
             $Nutricional->setSodio($result['sodio']);
-
-
             return $Nutricional;
         }
     }
