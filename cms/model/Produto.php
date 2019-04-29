@@ -12,6 +12,7 @@ class Produto{
     private $tamanho;
     private $modoPreparo;
     private $tempoProducao;
+    private $preco;
     private $ipi;
     private $ativo;
     private $apagado;
@@ -89,6 +90,18 @@ class Produto{
     public function setTempoProducao($tempoProducao)
     {
         $this->tempoProducao = $tempoProducao;
+
+        return $this;
+    }
+
+    public function getPreco()
+    {
+        return $this->preco;
+    }
+
+    public function setPreco($preco)
+    {
+        $this->preco = $preco;
 
         return $this;
     }

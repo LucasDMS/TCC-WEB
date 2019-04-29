@@ -20,6 +20,7 @@ class ControllerProduto{
             $tamanho  = $_POST['txtTamanho'];
             $modoPreparo = $_POST['txtModoPreparo'];
             $tempoProducao  = $_POST['txtTempoProducao'];
+            $preco = $_POST['txtPreco'];
             $ipi = $_POST['txtIpi'];
             
             $imagem  = img($_FILES['img']);
@@ -47,6 +48,7 @@ class ControllerProduto{
             $Produto->setTamanho($tamanho);
             $Produto->setModoPreparo($modoPreparo);
             $Produto->setTempoProducao($tempoProducao);
+            $Produto->setPreco($preco);
             $Produto->setIpi($ipi);
             $Produto->setAtivo($ativo);
             $Produto->setApagado($apagado);
@@ -85,6 +87,7 @@ class ControllerProduto{
             $tamanho  = $_POST['txtTamanho'];
             $modoPreparo = $_POST['txtModoPreparo'];
             $tempoProducao  = $_POST['txtTempoProducao'];
+            $preco = $_POST['txtPreco'];
             $ipi = $_POST['txtIpi'];
             
             $imagem  = img($_FILES['img']);
@@ -101,7 +104,6 @@ class ControllerProduto{
             $setores = $_POST['setores'];
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
-
             $Produto = new Produto(); 
             $Produto->setId($id);
             $Produto->setNome($nome);
@@ -109,9 +111,9 @@ class ControllerProduto{
             $Produto->setTamanho($tamanho);
             $Produto->setModoPreparo($modoPreparo);
             $Produto->setTempoProducao($tempoProducao);
+            $Produto->setPreco($preco);
             $Produto->setIpi($ipi);
             $Produto->setImagem($imagem);
-            
             $Nutricional = new Nutricional();
             $Nutricional->setId($idNutricional);
             $Nutricional->setValorCalorico($valorCalorico);

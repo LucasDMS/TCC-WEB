@@ -45,7 +45,6 @@ class SetorDAO {
                 $Setor->setId($result['id_setores']);
                 $Setor->setCapacidade($result['capacidade']);
                 $Setor->setRua($result['rua']);
-                $Setor->setPrateleira($result['prateleira']);
                 array_push($listSetor, $Setor);
             }
             $this->conex -> closeDataBase();

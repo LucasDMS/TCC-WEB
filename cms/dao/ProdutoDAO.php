@@ -23,20 +23,21 @@ class ProdutoDAO{
         $stm->bindValue(8, $nutricional->getSodio());
         $stm->execute();
         //Insert do produto
-        $sql = "insert into tbl_produto(nome, descricao, tamanho, modo_preparo, tempo_producao, ipi, ativo, apagado, ordem, produto_destaque, imagem, id_nutricional) values(?,?,?,?,?,?,?,?,?,?,?,?);";
+        $sql = "insert into tbl_produto(nome, descricao, tamanho, modo_preparo, tempo_producao, preco, ipi, ativo, apagado, ordem, produto_destaque, imagem, id_nutricional) values(?,?,?,?,?,?,?,?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $produto->getNome());        
         $stm->bindValue(2, $produto->getDescricao());
         $stm->bindValue(3, $produto->getTamanho());
         $stm->bindValue(4, $produto->getModoPreparo());
-        $stm->bindValue(5, $produto->getTempoProducao());        
-        $stm->bindValue(6, $produto->getIpi());
-        $stm->bindValue(7, $produto->getAtivo());
-        $stm->bindValue(8, $produto->getApagado());
-        $stm->bindValue(9, $produto->getOrdem());        
-        $stm->bindValue(10, $produto->getProdutoDestaque());
-        $stm->bindValue(11, $produto->getImagem());
-        $stm->bindValue(12, $conn->lastInsertId());
+        $stm->bindValue(5, $produto->getTempoProducao());
+        $stm->bindValue(6, $produto->getPreco());
+        $stm->bindValue(7, $produto->getIpi());
+        $stm->bindValue(8, $produto->getAtivo());
+        $stm->bindValue(9, $produto->getApagado());
+        $stm->bindValue(10, $produto->getOrdem());        
+        $stm->bindValue(11, $produto->getProdutoDestaque());
+        $stm->bindValue(12, $produto->getImagem());
+        $stm->bindValue(13, $conn->lastInsertId());
         $stm->execute();
         $idProduto = $conn->lastInsertId();
         
@@ -83,7 +84,7 @@ class ProdutoDAO{
             $stm->bindValue(9, $nutricional->getId());
             $stm->execute();
 
-            $sql = "UPDATE tbl_produto SET nome = ?, descricao = ?, tamanho = ?, modo_preparo = ?, tempo_producao = ?, ipi = ?  WHERE id_produto=?;";
+            $sql = "UPDATE tbl_produto SET nome = ?, descricao = ?, tamanho = ?, modo_preparo = ?, tempo_producao = ?, preco = ?, ipi = ?  WHERE id_produto=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
             $stm->bindValue(1, $produto->getNome());        
@@ -91,8 +92,9 @@ class ProdutoDAO{
             $stm->bindValue(3, $produto->getTamanho());
             $stm->bindValue(4, $produto->getModoPreparo());
             $stm->bindValue(5, $produto->getTempoProducao());        
-            $stm->bindValue(6, $produto->getIpi());
-            $stm->bindValue(7, $produto->getId());
+            $stm->bindValue(6, $produto->getPreco());
+            $stm->bindValue(7, $produto->getIpi());
+            $stm->bindValue(8, $produto->getId());
             $stm->execute();
             //Atualizando as materias primas utilizadas no produto
             $sql = "delete from tbl_produto_materia_prima where id_produto =? ";
@@ -141,17 +143,18 @@ class ProdutoDAO{
             $stm->bindValue(9, $nutricional->getId());
             $stm->execute();
             //Setando os valores da querys
-            $sql = "UPDATE tbl_produto SET nome = ?, descricao = ?, tamanho = ?, modo_preparo = ?, tempo_producao = ?, ipi = ?, imagem = ?  WHERE id_produto=?;";
+            $sql = "UPDATE tbl_produto SET nome = ?, descricao = ?, tamanho = ?, modo_preparo = ?, tempo_producao = ?, preco = ?, ipi = ?, imagem = ?  WHERE id_produto=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
             $stm->bindValue(1, $produto->getNome());        
             $stm->bindValue(2, $produto->getDescricao());
             $stm->bindValue(3, $produto->getTamanho());
             $stm->bindValue(4, $produto->getModoPreparo());
-            $stm->bindValue(5, $produto->getTempoProducao());        
-            $stm->bindValue(6, $produto->getIpi());
-            $stm->bindValue(7, $produto->getImagem());
-            $stm->bindValue(8, $produto->getId());
+            $stm->bindValue(5, $produto->getTempoProducao()); 
+            $stm->bindValue(6, $produto->getPreco());    
+            $stm->bindValue(7, $produto->getIpi());
+            $stm->bindValue(8, $produto->getImagem());
+            $stm->bindValue(9, $produto->getId());
            $stm->execute();
         }
         
@@ -185,7 +188,7 @@ class ProdutoDAO{
     public function delete($id){
         $conn = $this->conex->connectDatabase();
         //Query do "Delete"
-        $sql = "UPDATE tbl_produto SET apagado = 1 WHERE id_produto=?;";
+        $sql = "UPDATE tbl_produto SET apagado = 1 WHERE id_produto = ?;";
         $stm = $conn->prepare($sql);
         //Setando o valor
         $stm->bindValue(1, $id);
@@ -218,6 +221,7 @@ class ProdutoDAO{
             $Produto->setTamanho($result['tamanho']);
             $Produto->setModoPreparo($result['modo_preparo']);
             $Produto->setTempoProducao($result['tempo_producao']);
+            $Produto->setPreco($result['preco']);
             $Produto->setIpi($result['ipi']);
             $Produto->setAtivo($result['ativo']);
             $Produto->setApagado($result['apagado']);
@@ -268,6 +272,7 @@ class ProdutoDAO{
                 $Produto->setTamanho($result['tamanho']);
                 $Produto->setModoPreparo($result['modo_preparo']);
                 $Produto->setTempoProducao($result['tempo_producao']);
+                $Produto->setPreco($result['preco']);
                 $Produto->setIpi($result['ipi']);
                 $Produto->setIdNutricional($result['id_nutricional']);
                 $Produto->setAtivo($result['ativo']);

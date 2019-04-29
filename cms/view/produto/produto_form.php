@@ -9,6 +9,7 @@ $descricao = null;
 $tamanho = null;
 $modoPreparo = null;
 $tempoProducao = null;
+$preco = null;
 $ipi = null;
 //Variaveis da tabela nutricional
 $valorCalorico = null;
@@ -52,6 +53,7 @@ if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $tamanho = $produto->getTamanho();
     $modoPreparo= $produto->getModoPreparo();
     $tempoProducao = $produto->getTempoProducao();
+    $preco = $produto->getPreco();
     $ipi = $produto->getIpi();
 
     $idNutricional = $nutricional->getId();
@@ -111,7 +113,10 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         <label from="txtTempoProducao">Tempo de Produção</label>
         <input type="number" name="txtTempoProducao" id="txtTempoProducao" value="<?php echo $tempoProducao ?>" required>
     </div>
-
+    <div class="inputDados">
+        <label from="txtPreco">Preço Unitário </label>
+        <input type="number" step="any" name="txtPreco" id="txtPreco" value="<?php echo $preco?>" required>
+    </div>
     <div class="inputDados">
         <label from="txtIpi">IPI</label>
         <input type="number" step="any" name="txtIpi" id="txtIpi" value="<?php echo $ipi?>" required>
@@ -194,24 +199,24 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
     <div class="container">
     <?php  
         
-        foreach ($MateriasPrimas as $result){ 
+        foreach ($MateriasPrimas as $result2){ 
             $checked = "";
         
-                foreach ($MateriaPrima as $result1){
-                    if($result->getId() == $result1->getIdMateriaPrima()){
+                foreach ($MateriaPrima as $result3){
+                    if($result2->getId() == $result3->getIdMateriaPrima()){
                         $checked = 'checked';
                     }
                 }
             ?>
 
             <input  type="checkbox" <?php echo $checked ?> 
-                    value="<?php echo $result->getId() ?>" 
+                    value="<?php echo $result2->getId() ?>" 
                     name="materiaprima[]"
-                    id="<?php echo $result->getId() ?>"
+                    id="<?php echo 'm'.$result2->getId()?>"
             />
 
-            <label  for="<?php echo $result->getId() ?>">
-                <?php echo $result->getNome() ?>
+            <label  for="<?php echo 'm'.$result2->getId()?>">
+                <?php echo $result2->getNome() ?>
             </label>
             
         <?php } ?>

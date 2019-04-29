@@ -16,7 +16,7 @@ class ControllerFuncionario{
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
-            $tipo = $_POST['txtTipo'];
+            $tipo = $_POST['selectTipo'];
             $cargo  = $_POST['txtCargo'];
             $setor = $_POST['txtSetor'];
             $data_emissao  = $_POST['txtDtEmissao'];
@@ -49,7 +49,7 @@ class ControllerFuncionario{
             $nome =$_POST['txtNome'];
             $login = $_POST['txtLogin'];
             $password = $_POST['txtPassword'];
-            $tipo = $_POST['txtTipo'];
+            $tipo = $_POST['selectTipo'];
             $cargo  = $_POST['txtCargo'];
             $setor = $_POST['txtSetor'];
             $data_emissao  = $_POST['txtDtEmissao'];

@@ -48,7 +48,6 @@ $Paginas = $ControllerMenu->buscarMenu();
         $tipo = $Sessao->getTipo();
     }
 
-
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 
 ?>
@@ -82,8 +81,22 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
     </div>
 
     <div class="inputDados">
-        <label from="txtTipo">Tipo</label>
-        <input type="text" name="txtTipo" id="txtTipo" value="<?php echo $tipo ?>" required>
+        <select name="selectTipo" id="selectTipo">
+            <?php 
+                $selected1="";
+                $selected2="";
+                
+                if($tipo=="ROOT"){
+                    $selected1="selected";
+                }elseif($tipo=="ADM"){
+                    $selected2="selected";
+                }
+            ?>
+                <option <?php echo $selected1;?> value="ROOT">ROOT (Acesso a funcionarios e páginas)</option>
+
+                <option <?php echo $selected2;?> value="ADM">ADM (Acesso as páginas)</option>
+          
+        </select>
     </div>
 
     <div class="inputDados">
