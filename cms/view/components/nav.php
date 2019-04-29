@@ -184,10 +184,16 @@
                                 Pops Escola
                             </div>
                         </li>
+                        <li onclick="chamarViewParaApp('setores')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Setores
+                            </div>
+                        </li>
                         <?php } 
                             $i++;
                             
-                    }
+                        }?>
             </div>
         </li>
         <?php if($_SESSION['tipo'] == 'ROOT'){?>
