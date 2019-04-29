@@ -25,7 +25,30 @@
         //select de todos os setores
         public function selectAll(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_setores where apagado = ?";
+            $sql = "select s.*, p.prateleira from tbl_prateleira as p, tbl_setores as s where p.id_setores = s.id_setores and s.apagado = 0;";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, 0);  
+            $success = $stm->execute();
+            if($success){
+                $listSetores = [];
+                foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+                    $setores = new Setores(); 
+                    $setores->setId($result['id_setores']);
+                    $setores->setPrateleira($result['prateleira']);
+                    array_push($listSetores, $setores);
+                };
+                $this->conex -> closeDataBase();
+                return $listSetores;
+
+            }else{
+                return "Erro";
+            }  
+        }
+
+        //select de todos as prateleiras
+        public function selectSetores(){
+            $conn = $this->conex->connectDatabase();
+            $sql = "select * from tbl_setores where apagado=?";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 0);  
             $success = $stm->execute();
@@ -36,7 +59,6 @@
                     $setores->setId($result['id_setores']);
                     $setores->setCapacidade($result['capacidade']);
                     $setores->setRua($result['rua']);
-                    $setores->setPrateleira($result['prateleira']);
                     $setores->setStatus($result['status']);
                     array_push($listSetores, $setores);
                 };

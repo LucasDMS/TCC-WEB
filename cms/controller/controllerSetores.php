@@ -20,8 +20,13 @@ class ControllerSetores{
     }
 
     //listar setores
-    public function listarSetores(){
+    public function listarAll(){
         return $this->SetoresDAO->selectAll();
+    }
+
+    //listra prateleiras
+    public function listarSetores(){
+        return $this->SetoresDAO->selectSetores();
     }
     
     //ativar setores
