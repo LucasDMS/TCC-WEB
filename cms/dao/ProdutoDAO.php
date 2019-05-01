@@ -7,7 +7,7 @@ class ProdutoDAO{
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
-    public function insert(Produto $produto, Nutricional $nutricional, Setor $setor, MateriaPrima $materiaPrima, MateriaPrima $embalagem) {
+    public function insert(Produto $produto, Nutricional $nutricional, Setor $setor, MateriaPrima $materiaPrima, MateriaPrima $embalagem, ProdutoSetor $ProdutoSetor) {
         $conn = $this->conex->connectDatabase();
 
         //Insert da tabela nutricional
@@ -42,12 +42,14 @@ class ProdutoDAO{
         $idProduto = $conn->lastInsertId();
         
         //Insert nos Setores
-        foreach($setor->getId() as $result){
-            $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto) values(?,?);";
+        foreach(array_combine($setor->getId(),$ProdutoSetor->getPrateleira()) as $result => $prateleiras){
+            $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto, prateleira) values(?,?,?);";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $result);        
             $stm->bindValue(2, $idProduto);
+            $stm->bindValue(3, $prateleiras);
             $stm->execute();
+            
         }
 
         //Insert nos MateriaPrima

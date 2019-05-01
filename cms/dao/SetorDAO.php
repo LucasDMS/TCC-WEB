@@ -23,6 +23,7 @@ class SetorDAO {
                 $ProdutoSetor->setId($result['id_produto_setores_produto']);
                 $ProdutoSetor->setIdProduto($result['id_produto']);
                 $ProdutoSetor->setIdSetor($result['id_setores']);
+                $ProdutoSetor->setPrateleira($result['prateleira']);
                 array_push($listSetor, $ProdutoSetor);
             }
             $this->conex -> closeDataBase();

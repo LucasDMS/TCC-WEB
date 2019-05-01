@@ -186,7 +186,18 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 }
+.setor {
+	padding: 5px;
+	min-height: 55px;
+	height: auto;
+	min-width: 130px;
+	float: left;
+	flex-wrap: wrap;
+	border:1px solid #09a552;
+	margin-bottom: 10px;
 
+	
+}
 .form_padrao {
 	margin: auto;
 	width: 100%;

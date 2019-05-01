@@ -9,7 +9,6 @@ class Setor{
     private $id;
     private $capacidade;
     private $rua;
-    private $prateleira;
 
     public function getId()
     {
@@ -43,18 +42,6 @@ class Setor{
     public function setRua($rua)
     {
         $this->rua = $rua;
-
-        return $this;
-    }
-
-    public function getPrateleira()
-    {
-        return $this->prateleira;
-    }
-
-    public function setPrateleira($prateleira)
-    {
-        $this->prateleira = $prateleira;
 
         return $this;
     }

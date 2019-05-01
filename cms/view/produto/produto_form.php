@@ -3,6 +3,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerProduto.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSetor.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMateriaPrima.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPrateleira.php");
 //Variaveis do produto
 $nome = null;
 $descricao = null;
@@ -28,7 +29,7 @@ $Setor = array();
 $Controller = new ControllerProduto();
 $ControllerSetor = new ControllerSetor();
 $ControllerMateria = new ControllerMateriaPrima();
-
+$ControllerPrateleira = new ControllerPrateleira();
 $action = "router.php?controller=produto&modo=inserir";
 $modo = "inserir";
 $id = "";
@@ -36,6 +37,7 @@ $idNutricional = "";
 $Setores = $ControllerSetor->buscarSetor();
 $MateriasPrimas = $ControllerMateria->buscarMateriaPrima();
 $Embalagem = $ControllerMateria->buscarEmbalagem();
+$Prateleiras = $ControllerPrateleira->buscarPrateleira();
 
 if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $id = $_GET['id'];
@@ -183,6 +185,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
                     }
                 }
             ?>
+            <div class="setor">
+                <label>Rua</label>
                 <input  type="checkbox" <?php echo $checked ?> 
                     value="<?php echo $result->getId() ?>" 
                     name="setores[]"
@@ -190,7 +194,25 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
                 <label  for="<?php echo $result->getId() ?>">
                     <?php echo $result->getRua() ?>
                 </label>
-            <?php } ?>
+                <br>
+                <br>
+                <label>Prateleira</label>
+                
+                <?php foreach ($Prateleiras as $result4){ ?>
+                    <input  type="checkbox" <?php //echo $checked ?> 
+                    value="<?php echo $result->getId()?>" 
+                    name="prateleira[]"
+                    id="<?php  echo $result4->getId();?>
+                    <label  for="<?php echo $result4->getId() ?>">
+                        <?php echo $result4->getPrateleira()?>
+                    </label>
+                    <?php 
+                    }
+                    ?>
+            </div>
+        <?php 
+            }
+         ?>
     </div>
     <div class="tituloTabelaNutricional">
         <label>Matérias primas</label><br>

@@ -7,7 +7,6 @@ class PrateleiraDAO {
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
-
     //Select para pegar uma Prateleira especifica
     public function selectById($id){
         $conn = $this->conex->connectDatabase();
@@ -32,11 +31,10 @@ class PrateleiraDAO {
         
     }
     //Select para todas as Prateleira
-    public function selectAll($id) {
+    public function selectAll() {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_prateleira where id_setores = ?";
+        $sql = "select * from tbl_prateleira";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $id);
         $success = $stm->execute();
         if ($success) {
             $listPrateleira = [];
@@ -44,7 +42,7 @@ class PrateleiraDAO {
                 $Prateleira = new Prateleira();
                 $Prateleira->setId($result['id_prateleira']);
                 $Prateleira->setPrateleira($result['prateleira']);
-                $Prateleira->setIdSetor($result['id_setores']);
+                $Prateleira->setCapacidade($result['capacidade']);
                 array_push($listPrateleira, $Prateleira);
             }
             $this->conex -> closeDataBase();
