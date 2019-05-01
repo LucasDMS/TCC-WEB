@@ -199,8 +199,9 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
                 <label>Prateleira</label>
                 
                 <?php foreach ($Prateleiras as $result4){ ?>
+                    
                     <input  type="checkbox" <?php //echo $checked ?> 
-                    value="<?php echo $result->getId()?>" 
+                    value="<?php echo $result4->getId()?>" 
                     name="prateleira[]"
                     id="<?php  echo $result4->getId();?>
                     <label  for="<?php echo $result4->getId() ?>">

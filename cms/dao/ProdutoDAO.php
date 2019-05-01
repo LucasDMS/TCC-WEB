@@ -2,12 +2,13 @@
 class ProdutoDAO{
 
     private $conex;
-    private $produto;
+    
     public function __construct() {
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
+        
     }
-    public function insert(Produto $produto, Nutricional $nutricional, Setor $setor, MateriaPrima $materiaPrima, MateriaPrima $embalagem, ProdutoSetor $ProdutoSetor) {
+    public function insert(Produto $produto, Nutricional $nutricional, Setor $setor, MateriaPrima $materiaPrima, MateriaPrima $embalagem, Prateleira $prateleira) {
         $conn = $this->conex->connectDatabase();
 
         //Insert da tabela nutricional
@@ -40,18 +41,36 @@ class ProdutoDAO{
         $stm->bindValue(13, $conn->lastInsertId());
         $stm->execute();
         $idProduto = $conn->lastInsertId();
-        
+        $i = 0;
         //Insert nos Setores
-        foreach(array_combine($setor->getId(),$ProdutoSetor->getPrateleira()) as $result => $prateleiras){
-            $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto, prateleira) values(?,?,?);";
+        foreach($setor->getId() as $result ){
+            $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto) values(?,?);";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $result);        
             $stm->bindValue(2, $idProduto);
-            $stm->bindValue(3, $prateleiras);
+        
             $stm->execute();
+            $idProdutoSetor = $conn->lastInsertId();
+            $sql = "select id_setores from tbl_produto_setores_produto where id_produto_setores_produto = ?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $idProdutoSetor);  
+            $stm->execute(); 
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $Setor = new Setor();
+            $Setor->setId($result['id_setores']);     
+            //Insert nos Prateleiras
+            $idSetor = $Setor->getId();
             
+            foreach($prateleira->getId() as $result){
+                $sql = "insert into tbl_setor_prateleira(id_prateleira,id_setores) values(?,?);";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $prateleira->getId()[$i]);        
+                $stm->bindValue(2, $idSetor);
+                $stm->execute();
+                $i++;
+            }
         }
-
+        
         //Insert nos MateriaPrima
         foreach($materiaPrima->getId() as $result){
             $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";

@@ -4,7 +4,7 @@ class ControllerProduto{
     private $ProdutoDAO;
     public function __construct(){
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Produto.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/ProdutoSetor.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Prateleira.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Setor.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MateriaPrima.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/TabelaNutricional.php");
@@ -44,7 +44,7 @@ class ControllerProduto{
             $selectEmbalagem = $_POST['selectEmbalagem'];
             $prateleira = $_POST['prateleira'];
 
-            var_dump($_POST);
+           
             $Produto = new Produto(); 
             $Produto->setNome($nome);
             $Produto->setDescricao($descricao);
@@ -77,10 +77,10 @@ class ControllerProduto{
 
             $Embalagem = new MateriaPrima();
             $Embalagem->setId($selectEmbalagem);
-
-            $ProdutoSetor = new Prateleira();
-            $ProdutoSetor->setPrateleira($selectPrateleira);
-            $this->ProdutoDAO->insert($Produto, $Nutricional, $Setor, $MateriaPrima, $Embalagem, $ProdutoSetor);
+            var_dump($prateleira);
+            $Prateleira = new Prateleira();
+            $Prateleira->setId($prateleira);
+            $this->ProdutoDAO->insert($Produto, $Nutricional, $Setor, $MateriaPrima, $Embalagem, $Prateleira);
         }
     }
     public function atualizarProduto(){
