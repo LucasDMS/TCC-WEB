@@ -497,6 +497,24 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+        case 'MATERIA_PRIMA':
+            require_once('controller/controllerMateriaPrima.php');
+            $ControllerMateriaPrima = new ControllerMateriaPrima();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerMateriaPrima->inserirMateriaPrima();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerMateriaPrima->atualizarMateriaPrima();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerMateriaPrima->excluirMateriaPrima();
+                    break;
+                case 'ATIVAR':
+                    $ControllerMateriaPrima->ativarMateriaPrima();
+                    break;
+            }
+            break;
     }
 }
 ?>

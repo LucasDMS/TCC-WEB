@@ -53,7 +53,7 @@
                             echo utf8_encode("<strong>".$result2->getResposta()."</strong> ".$result2->getVotos()." votos <br>"); 
                         }
                         
-                        $a = 1;
+                        //$a = 1;
                     }   
                     
                     
