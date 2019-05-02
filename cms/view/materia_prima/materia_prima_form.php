@@ -1,5 +1,7 @@
 <?php 
-
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMateriaPrima.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSetor.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPrateleira.php");
 $action = "router.php?controller=materia_prima&modo=inserir";
 $modo = "inserir";   
 $id = null;
@@ -9,14 +11,18 @@ $tipo_materia = null;
 $tipo_embalagem = null;
 $quantidade = null;
 $validade = null;
+$ControllerSetor = new ControllerSetor();
+$ControllerPrateleira = new ControllerPrateleira();
+$Setores = $ControllerSetor->buscarSetor();
+$Prateleiras = $ControllerPrateleira->buscarPrateleira();
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMateriaPrima.php");
+    
 
     $Controller = new ControllerMateriaPrima();
     $MateriaPrima = $Controller->buscarMateriaPrimaPorId($id);
-
+    $Setor =  $ControllerSetor->buscarSetorMateriaPorId($id);
     $action = "router.php?controller=materia_prima&modo=atualizar";
     $modo = "atualizar";
     $id = $MateriaPrima->getId();
@@ -61,11 +67,51 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar materia prima" : $paginaTitulo
         <textarea name="txt_descricao" id="txt_descricao" requerid ><?php echo $descricao ?></textarea>
     </div>
 
-    <div class="inputDados">
-        <label from="txt_estado">Quantidade</label>
-        <input value="<?php echo $quantidade ?>" name="txt_quantidade" id="txt_quantidade" type="text" required>
+    <div class="container">
+   
+  
+        <?php  
+            foreach ($Setores as $result1){ 
+                
+            ?>
+            <div class="setor">
+                <label>Rua</label>
+                <label  for="<?php echo $result1->getId() ?>">
+                    <?php echo $result1->getRua(); ?>
+                </label>
+                <br>
+                <br>
+                
+                
+                <?php foreach ($Prateleiras as $result){ 
+                    $checked = "";
+                  
+                        foreach ($Setor as $result5){
+                            if($result->getId() == $result5->getIdPrateleira()){
+                                $checked = 'checked';
+                            }
+                        }
+                        if($result1->getId() == $result->getIdSetores()){
+                    ?>
+                        <label>Prateleira</label>
+                            <input type="checkbox" <?php echo $checked ?> 
+                            value="<?php echo $result->getId()?>" 
+                            name="prateleira[]"
+                            id="<?php  echo $result->getId();?>">
+                        <label for="<?php echo $result->getId();s ?>">
+                                <?php echo $result->getPrateleira();
+                                ?>
+                            </label><br>
+                        <label from="txtQuantidade">Quantidade</label>
+                        <input type="number" name="txtQuantidade" id="txtQuantidade" disabled value="<?php echo $quantidade; ?>"><br>
+                        <?php }
+                    }
+                    ?>
+            </div>
+        <?php 
+            }
+         ?>
     </div>
-
     <div class="inputDados">
         <label from="txt_cidade">Tipo Materia</label>
         <select name="txt_tipo_materia" required>

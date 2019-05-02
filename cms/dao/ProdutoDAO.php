@@ -185,7 +185,7 @@ class ProdutoDAO{
              $stm->bindValue(1, $produto->getId()); 
              $stm->execute();
              //Insert nos Setores
-             foreach($prateleira->getId() as $result ){
+             foreach($prateleira->getId() as $result){
                  $sql = "insert into tbl_produto_prateleira(id_prateleira,id_produto) values(?,?);";
                  $stm = $conn->prepare($sql);
                  $stm->bindValue(1, $result);        

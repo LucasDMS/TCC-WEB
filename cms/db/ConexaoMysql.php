@@ -12,7 +12,6 @@ class conexaoMysql {
 
 		$this->server = "localhost";
 		$this->user = "root";
-
 		// $this->server = "10.107.144.20";
 		// $this->user = "teste";
 		$this->password = "bcd127";
