@@ -17,7 +17,7 @@ class FaleConoscoDAO {
         $stm->bindValue(5, $faleConosco->getEstado());        
         $stm->bindValue(6, $faleConosco->getCidade());
         $stm->bindValue(7, $faleConosco->getTexto());
-        $stm->bindValue(8, $faleConosco->getData);
+        $stm->bindValue(8, $faleConosco->getData());
         $stm->bindValue(9, "0");
         $stm->execute();
         $this->conex->closeDataBase();

@@ -26,7 +26,6 @@ if(isset($_GET['id'])){
 }
 
 ?>
-
 <form   onsubmit="asyncSubmit(event, this)" 
         action="<?php echo $action; ?>" 
         method="post" 
@@ -46,6 +45,4 @@ if(isset($_GET['id'])){
     <input type="text" name="txtEstado" id="txtEstado" value="<?php echo $estado?>" required>
     <input type="text" name="txtCidade" id="txtCidade" value="<?php echo $cidade?>" required>
     <textarea name="txtTexto" id="txtTexto" required><?php echo $texto?></textarea>
-
-  
 </form>

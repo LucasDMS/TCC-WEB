@@ -22,25 +22,8 @@ $modo = "inserir";
 $id = "";
 $idAutenticacao = "";
 
+
 $Paginas = $ControllerMenu->buscarMenu();
-
-if(isset($_GET['id']) && $_GET['idAutenticacao']){
-    $id = $_GET['id'];
-    $idAutenticacao = $_GET['idAutenticacao'];
-    
-    $ControllerMenu = new ControllerMenu();
-    $Controller = new ControllerFuncionario();
-    $ControllerSessao = new ControllerSessao();
-    $Pagina = $ControllerMenu->buscarMenuPorId($id);
-    $Sessao = $ControllerSessao->buscarFuncionarioPorId($id);
-    $Funcionario = $Controller->buscarFuncionarioPorId($id);
-
-    $action = "router.php?controller=funcionario&modo=inserir";
-    $modo = "inserir";
-    $id = "";
-    $idAutenticacao = "";
-
-    $Paginas = $ControllerMenu->buscarMenu();
     if(isset($_GET['id']) && $_GET['idAutenticacao']){
         $id = $_GET['id'];
         $idAutenticacao = $_GET['idAutenticacao'];
@@ -64,7 +47,6 @@ if(isset($_GET['id']) && $_GET['idAutenticacao']){
         $senha = $Sessao->getSenha();
         $tipo = $Sessao->getTipo();
     }
-
 
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 
@@ -99,8 +81,22 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
     </div>
 
     <div class="inputDados">
-        <label from="txtTipo">Tipo</label>
-        <input type="text" name="txtTipo" id="txtTipo" value="<?php echo $tipo ?>" required>
+        <select name="selectTipo" id="selectTipo">
+            <?php 
+                $selected1="";
+                $selected2="";
+                
+                if($tipo=="ROOT"){
+                    $selected1="selected";
+                }elseif($tipo=="ADM"){
+                    $selected2="selected";
+                }
+            ?>
+                <option <?php echo $selected1;?> value="ROOT">ROOT (Acesso a funcionarios e páginas)</option>
+
+                <option <?php echo $selected2;?> value="ADM">ADM (Acesso as páginas)</option>
+          
+        </select>
     </div>
 
     <div class="inputDados">

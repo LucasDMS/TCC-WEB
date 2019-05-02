@@ -2,30 +2,31 @@
 /*
     Projeto: TCC
     Autor: Lucas
-    Data Criação: 30/03/2019
-    Data Modificação:
-    Conteúdo Modificado:
-    Autor da Modificação:
-    Objetivo da classe: Classe de contatos
+    Data Criação: 27/04/2019
+    Objetivo da classe: Classe de Produto
 */
-class Produtos{
+class Produto{
     private $id;
     private $nome;
     private $descricao;
     private $tamanho;
     private $modoPreparo;
     private $tempoProducao;
+    private $preco;
     private $ipi;
-    private $idNutricional;
     private $ativo;
     private $apagado;
-
+    private $ordem;
+    private $produtoDestaque;
+    private $imagem;
+    private $idNutricional;
+    
 
     public function getId()
     {
         return $this->id;
     }
- 
+
     public function setId($id)
     {
         $this->id = $id;
@@ -33,8 +34,6 @@ class Produtos{
         return $this;
     }
 
-
-    
     public function getNome()
     {
         return $this->nome;
@@ -46,11 +45,11 @@ class Produtos{
 
         return $this;
     }
+
     public function getDescricao()
     {
         return $this->descricao;
     }
-
 
     public function setDescricao($descricao)
     {
@@ -64,7 +63,6 @@ class Produtos{
         return $this->tamanho;
     }
 
- 
     public function setTamanho($tamanho)
     {
         $this->tamanho = $tamanho;
@@ -84,8 +82,6 @@ class Produtos{
         return $this;
     }
 
-
-
     public function getTempoProducao()
     {
         return $this->tempoProducao;
@@ -98,7 +94,18 @@ class Produtos{
         return $this;
     }
 
-  
+    public function getPreco()
+    {
+        return $this->preco;
+    }
+
+    public function setPreco($preco)
+    {
+        $this->preco = $preco;
+
+        return $this;
+    }
+
     public function getIpi()
     {
         return $this->ipi;
@@ -110,19 +117,6 @@ class Produtos{
 
         return $this;
     }
- 
-    public function getIdNutricional()
-    {
-        return $this->idNutricional;
-    }
-
-    public function setIdNutricional($idNutricional)
-    {
-        $this->idNutricional = $idNutricional;
-
-        return $this;
-    }
-
 
     public function getAtivo()
     {
@@ -137,16 +131,62 @@ class Produtos{
         return $this;
     }
 
- 
     public function getApagado()
     {
         return $this->apagado;
     }
 
-  
     public function setApagado($apagado)
     {
         $this->apagado = $apagado;
+
+        return $this;
+    }
+
+    public function getOrdem()
+    {
+        return $this->ordem;
+    }
+
+    public function setOrdem($ordem)
+    {
+        $this->ordem = $ordem;
+
+        return $this;
+    }
+
+    public function getProdutoDestaque()
+    {
+        return $this->produtoDestaque;
+    }
+
+    public function setProdutoDestaque($produtoDestaque)
+    {
+        $this->produtoDestaque = $produtoDestaque;
+
+        return $this;
+    }
+
+    public function getImagem()
+    {
+        return $this->imagem;
+    }
+
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+
+        return $this;
+    }
+
+    public function getIdNutricional()
+    {
+        return $this->idNutricional;
+    }
+
+    public function setIdNutricional($idNutricional)
+    {
+        $this->idNutricional = $idNutricional;
 
         return $this;
     }

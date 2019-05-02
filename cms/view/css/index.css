@@ -186,7 +186,20 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 }
-
+.setor {
+	padding: 5px;
+	min-height: 55px;
+	height: auto;
+	min-width: 130px;
+	float: left;
+	flex-wrap: wrap;
+	border:1px solid #09a552;
+	margin-right: 10px;	
+}
+.setor input[type=number]{
+	height: 20px;
+	width: 30px;
+}
 .form_padrao {
 	margin: auto;
 	width: 100%;
@@ -301,7 +314,12 @@ footer {
 	overflow: hidden;
 	overflow-y: auto;
 }
-
+.tituloTabelaNutricional{
+	font-size: 25px;
+	color: #f8ae83;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
 .pagina_titulo {
 	max-width: 1440px;
 	padding: 15px 25px;
