@@ -25,6 +25,7 @@ class controllerEnquete{
             $resposta = $_POST['txt_resposta'];
             $data = $_POST['date'];
 
+            //var_dump($resposta);
             $enquete = new Enquete();
             $enquete->setPergunta($pergunta);
             $enquete->setResposta($resposta);
@@ -72,6 +73,14 @@ class controllerEnquete{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_GET['id'];
             return $this->EnqueteDAO->selectById($id);
+
+        }
+    }
+
+    public function buscarPerguntaPorId(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_GET['id'];
+            return $this->EnqueteDAO->selectByIdPergunta($id);
 
         }
     }

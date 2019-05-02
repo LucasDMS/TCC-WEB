@@ -14,14 +14,13 @@
 
     $Controller = new ControllerEnquete();
     $Enquete = $Controller->buscarEnquetePorId($id);
+    $PerguntaSelect = $Controller->buscarPerguntaPorId($id);
 
     $action = "router.php?controller=enquete&modo=atualizar";
     $modo = "atualizar";
-    $id = $Enquete->getId();
-    $nome = $Enquete->getNome();
-    $pergunta = $Enquete->getPergunta();
-    $resposta = $Enquete->getResposta();
-    $data = $Enquete->getData();
+    $id = $PerguntaSelect->getId();
+    $pergunta = $PerguntaSelect->getPergunta();
+    $data = $PerguntaSelect->getData();
  }
 
 ?>
@@ -46,13 +45,36 @@
     <div class="inputDados">
         <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>" required><br>
     </div>
-    <div class="inputDados">
-        <input type="text" name="txt_resposta[]" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
-        <input type="text" name="txt_resposta[]" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
-        <a href="#" onclick="nova_input()">
-            novo
-        </a>
-    </div>
+    <?php 
+        if($modo == "atualizar"){
+            foreach($Enquete as $result){      
+            echo("
+                <div class='inputDados'>
+                    <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' value='".$result->getResposta()."'; required><br>
+                </div>
+                "); 
+    ?>
+    <?php
+            }
+        }else{
+            echo("
+            <div class='inputDados'>
+                <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' required><br>
+            </div>
+            <?php var_dump($resposta);?>
+            <a id='novo'><!-- descarrega uma nova resposta -->
+                
+            </a>
+            <a href='#' onclick='nova_input()'>
+                <label>Nova Resposta</label>
+            </a>
+            
+            
+            ");
+        }
+    ?>
+
+    
     
     <button class="btn">
         Enviar
