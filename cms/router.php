@@ -446,15 +446,17 @@ if(isset($_GET['controller'])){
             break;
 
             
-            case 'CORES':
+        case 'CORES':
             require_once('controller/controllerCores.php');
             $ControllerCores = new ControllerCores();
             switch($modo){
                 case 'INSERIR':
-                $ControllerCores->inserirCores();
-                break;
+                    $ControllerCores->inserirCores();
+                    break;
                 case 'ATUALIZAR':
                     $ControllerCores ->atualizarCores();
+            }
+            break;
 
         
         case 'ENQUETE':
@@ -473,6 +475,43 @@ if(isset($_GET['controller'])){
                 case 'ATIVAR':
                     $ControllerEnquete->ativarEnquete();
 
+                    break;
+            }
+            break;
+
+        case 'SETORES':
+            require_once('controller/controllerSetores.php');
+            $ControllerSetores = new ControllerSetores();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerSetores->inserirSetores();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerSetores->atualizarSetores();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerSetores->excluirSetores();
+                    break;
+                case 'ATIVAR':
+                    $ControllerSetores->ativarSetores();
+                    break;
+            }
+            break;
+        case 'MATERIA_PRIMA':
+            require_once('controller/controllerMateriaPrima.php');
+            $ControllerMateriaPrima = new ControllerMateriaPrima();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerMateriaPrima->inserirMateriaPrima();
+                    break;
+                case 'ATUALIZAR':
+                    $ControllerMateriaPrima->atualizarMateriaPrima();
+                    break;
+                case 'EXCLUIR':
+                    $ControllerMateriaPrima->excluirMateriaPrima();
+                    break;
+                case 'ATIVAR':
+                    $ControllerMateriaPrima->ativarMateriaPrima();
                     break;
             }
             break;
