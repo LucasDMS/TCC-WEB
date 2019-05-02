@@ -184,6 +184,24 @@
                                 Pops Escola
                             </div>
                         </li>
+                        <li onclick="chamarViewParaApp('enquete')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Enquete
+                            </div>
+                        </li>
+                        <li onclick="chamarViewParaApp('setores')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Setores
+                            </div>
+                        </li>
+                        <li onclick="chamarViewParaApp('materia_prima')">
+                            <div>
+                                <i class="fas fa-wrench"></i>
+                                Materia Prima
+                            </div>
+                        </li>
                         <?php } 
                             $i++;
                             

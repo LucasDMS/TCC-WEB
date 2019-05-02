@@ -1,61 +1,83 @@
-<?php
-/*
-    Projeto: TCC
-    Autor: Lucas
-    Data Criação: 27/04/2019
-    Objetivo da classe: Classe de Materia prima
-*/
+
+<?php 
+     /*
+        Projeto: TCC
+        Autor: Nicolas
+        Data Criação: 01/05/2019
+        Data Modificação:
+        Conteúdo Modificado:
+        Autor da Modificação:
+        Objetivo da classe: Classe de materia prima
+    */
+
 class MateriaPrima{
+
     private $id;
     private $nome;
     private $descricao;
-    private $tipoMateriaPrima;
-    
-    public function getId()
-    {
-        return $this->id;
-    }
- 
-    public function setId($id)
-    {
-        $this->id = $id;
+    private $tipoMateria;
+    private $quantidade;
+    private $dataValidade;
 
-        return $this;
-    }
 
-    public function getNome()
-    {
+    public function getNome(){
         return $this->nome;
     }
 
-    public function setNome($nome)
-    {
+    public function setNome($nome){
         $this->nome = $nome;
-
         return $this;
     }
 
-    public function getDescricao()
-    {
+    public function getDescricao(){
         return $this->descricao;
     }
- 
-    public function setDescricao($descricao)
-    {
-        $this->descricao = $descricao;
 
+    public function setDescricao($descricao){
+        $this->descricao = $descricao;
         return $this;
     }
 
-    public function getTipoMateriaPrima()
-    {
-        return $this->tipoMateriaPrima;
+    public function getQuantidade(){
+        return $this->quantidade;
+    }
+ 
+    public function setQuantidade($quantidade){
+        $this->quantidade = $quantidade;
+        return $this;
     }
 
-    public function setTipoMateriaPrima($tipoMateriaPrima)
-    {
-        $this->tipoMateriaPrima = $tipoMateriaPrima;
+    public function getTipoMateria(){
+        return $this->tipoMateria;
+    }
 
+    public function setTipoMateria($tipoMateria){
+        $this->tipoMateria = $tipoMateria;
+        if(strpos($tipoMateria,"/")){
+            $this->tipoMateria = date('Y-m-d', strtotime($tipoMateria));
+        }else if(strpos($tipoMateria,"-")){
+            //$this->data = date('Y/m/d', strtotime($data));
+        }
+    }
+
+    public function getDataValidade(){
+        return $this->dataValidade;
+    }
+
+    public function setDataValidade($dataValidade){
+        $this->dataValidade = $dataValidade;
+        return $this;
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+    public function setId($id){
+        $this->id = $id;
         return $this;
     }
 }
+
+?>
+
