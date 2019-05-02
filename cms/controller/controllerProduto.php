@@ -40,6 +40,7 @@ class ControllerProduto{
             $apagado = 0;
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
+            
             $prateleira = $_POST['prateleira'];
 
            

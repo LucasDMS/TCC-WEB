@@ -127,7 +127,7 @@ class ProdutoDAO{
                 $sql = "insert into tbl_produto_prateleira(id_prateleira,id_produto) values(?,?);";
                 $stm = $conn->prepare($sql);
                 $stm->bindValue(1, $result);        
-                $stm->bindValue(2, $idProduto);
+                $stm->bindValue(2,  $produto->getId());
             
                 $stm->execute();
     
@@ -158,7 +158,42 @@ class ProdutoDAO{
             $stm->bindValue(7, $produto->getIpi());
             $stm->bindValue(8, $produto->getImagem());
             $stm->bindValue(9, $produto->getId());
-           $stm->execute();
+            $stm->execute();
+             //Atualizando as materias primas utilizadas no produto
+             $sql = "delete from tbl_produto_materia_prima where id_produto =? ";
+             $stm = $conn->prepare($sql);
+             $stm->bindValue(1, $produto->getId()); 
+             $stm->execute();
+             //Insert na materia prima
+             foreach($materiaPrima->getId() as $result){
+                 $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
+                 $stm = $conn->prepare($sql);
+                 $stm->bindValue(1, $result);        
+                 $stm->bindValue(2, $produto->getId());
+                 $stm->execute();
+             }
+              //Insert na embalagem
+             $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
+             $stm = $conn->prepare($sql);
+             $stm->bindValue(1, $embalagem->getId());        
+             $stm->bindValue(2, $produto->getId());
+             $stm->execute();
+ 
+             //Atualizando os setores onde o produto está
+             $sql = "delete from tbl_produto_prateleira where id_produto =? ";
+             $stm = $conn->prepare($sql);
+             $stm->bindValue(1, $produto->getId()); 
+             $stm->execute();
+             //Insert nos Setores
+             foreach($prateleira->getId() as $result ){
+                 $sql = "insert into tbl_produto_prateleira(id_prateleira,id_produto) values(?,?);";
+                 $stm = $conn->prepare($sql);
+                 $stm->bindValue(1, $result);        
+                 $stm->bindValue(2, $produto->getId());
+             
+                 $stm->execute();
+     
+             }
         }
         
         

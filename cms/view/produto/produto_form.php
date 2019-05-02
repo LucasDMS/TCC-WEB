@@ -68,6 +68,7 @@ if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $gordurasTrans = $nutricional->getGordurasTrans();
     $fibraAlimentar = $nutricional->getFibrasAlimentar();
     $sodio = $nutricional->getSodio();
+    
     foreach ($Setor as $result){ 
         $quantidade = "";
         foreach ($Prateleiras as $result1){ 
@@ -75,6 +76,7 @@ if(isset($_GET['id']) && isset($_GET['idNutricional'])){
                 $quantidade = $result1->getQuantidade();
             }
         }
+        
     }
     
 
