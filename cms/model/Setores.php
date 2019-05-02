@@ -16,7 +16,6 @@ class Setores{
     private $prateleira;
     private $capacidade;
     private $apagado;
-    private $status;
 
 
     public function getId(){
@@ -61,15 +60,6 @@ class Setores{
  
     public function setApagado($apagado){
         $this->apagado = $apagado;
-        return $this;
-    }
-
-    public function getStatus(){
-        return $this->status;
-    }
-
-    public function setStatus($status){
-        $this->status = $status;
         return $this;
     }
 }

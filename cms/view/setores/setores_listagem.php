@@ -26,7 +26,6 @@
 
 <div class="card_wrapper">
     <?php foreach ($rs2 as $result2) { 
-        //if($a == 1){
         ?>
         <div class="card">
             <div>
@@ -39,21 +38,16 @@
                     $idP = $result2->getId();
                 ?>
             </div>
-            <div>
-                PRATELEIRA : <br>   
+            <div> 
                 <?php  
                     foreach($rs as $result){
                         if($idP == $result->getId()){
-                            echo utf8_encode($result->getPrateleira())."<br>"; 
+                            echo utf8_encode("<strong>PRATELEIRA</strong>: ".$result->getPrateleira()." / "); 
+                            echo utf8_encode("<strong>CAPACIDADE:</strong> ".$result->getCapacidade())."<br>"; 
                         }      
                     }
                 ?>
             </div>
-            <div>
-                CAPACIDADE : 
-                <?php echo utf8_encode($result2->getCapacidade()); ?>
-            </div>
-
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
@@ -62,17 +56,6 @@
                     data-id="<?php echo $result2->getId();?>">
 
                     <i class="fas fa-pen"></i>
-                </a>
-
-                <a  onclick="asyncAtivar(this)"
-                    href="#"
-                    data-pagina="setores"
-                    data-url="router.php?controller=setores&modo=ativar"
-                    data-id="<?php echo $result2->getId();?>"
-                    data-ativo = <?php echo $result2->getStatus();?>>
-
-                    <?php $ativo = ($result2->getStatus()==1) ? "-check" : "" ; ?>
-                    <i class="far fa<?php echo $ativo ?>-square"></i>
                 </a>
 
                 <a  onclick="asyncApagar(this)"

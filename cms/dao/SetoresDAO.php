@@ -25,7 +25,7 @@
         //select de todos os setores
         public function selectAll(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select s.*, p.prateleira from tbl_prateleira as p, tbl_setores as s where p.id_setores = s.id_setores and s.apagado = 0;";
+            $sql = "select s.rua, p.* FROM tbl_setores as s, tbl_prateleira as p WHERE s.id_setores = p.id_setores";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 0);  
             $success = $stm->execute();
@@ -35,6 +35,7 @@
                     $setores = new Setores(); 
                     $setores->setId($result['id_setores']);
                     $setores->setPrateleira($result['prateleira']);
+                    $setores->setCapacidade($result['capacidade']);
                     array_push($listSetores, $setores);
                 };
                 $this->conex -> closeDataBase();
@@ -48,7 +49,7 @@
         //select de todos as prateleiras
         public function selectSetores(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_setores where apagado=?";
+            $sql = "select * from tbl_setores where tbl_setores.apagado=0";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 0);  
             $success = $stm->execute();
@@ -57,9 +58,7 @@
                 foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
                     $setores = new Setores(); 
                     $setores->setId($result['id_setores']);
-                    $setores->setCapacidade($result['capacidade']);
                     $setores->setRua($result['rua']);
-                    $setores->setStatus($result['status']);
                     array_push($listSetores, $setores);
                 };
                 $this->conex -> closeDataBase();
@@ -68,25 +67,6 @@
             }else{
                 return "Erro";
             }  
-        }
-
-        public function updateAtivo(Setores $setores){
-            $conn = $this->conex->connectDatabase();
-            if($setores->getStatus()=='1'){
-                $setores->setStatus('0');
-            }else if($setores->getStatus()=='0'){
-                $setores->setStatus('1');
-            }
-            $sql = "UPDATE tbl_setores SET status = ? where id_setores=?";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $setores->getStatus());
-            $stm->bindValue(2, $setores->getId());
-            $sucess = $stm->execute();
-            if($success){
-                return "sucesso";
-            }else{
-                echo "Erro!";
-            }
         }
 
         public function delete($id){

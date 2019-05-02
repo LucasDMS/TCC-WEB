@@ -47,13 +47,13 @@
         <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>" required><br>
     </div>
     <div class="inputDados">
-        <input type="text" name="txt_resposta" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
+        <input type="text" name="txt_resposta[]" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
+        <input type="text" name="txt_resposta[]" id="txt_resposta" placeholder="Resposta" value="<?php echo $resposta;?>" required><br>
         <a href="#" onclick="nova_input()">
             novo
         </a>
     </div>
     
-        
     <button class="btn">
         Enviar
     </button>

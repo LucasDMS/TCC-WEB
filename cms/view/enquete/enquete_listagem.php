@@ -26,7 +26,6 @@
 
 <div class="card_wrapper">
     <?php foreach ($rs as $result) { 
-        //if($a == 1){
         ?>
         <div class="card">
             <div>
@@ -53,9 +52,8 @@
                             echo utf8_encode("<strong>".$result2->getResposta()."</strong> ".$result2->getVotos()." votos <br>"); 
                         }
                         
-                        //$a = 1;
-                    }   
                     
+                    }   
                     
                      
                 ?>

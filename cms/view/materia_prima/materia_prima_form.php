@@ -26,7 +26,7 @@ if(isset($_GET['id'])){
     $quantidade = $MateriaPrima->getQuantidade();
     $validade = $MateriaPrima->getDataValidade();
 
-    if($tipo_materia == "Materia Prima"){
+    if($tipo_materia == "Materia"){
         $tipo_materia = "selected";
     }else{
         $tipo_embalagem = "selected";
@@ -69,7 +69,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar materia prima" : $paginaTitulo
     <div class="inputDados">
         <label from="txt_cidade">Tipo Materia</label>
         <select name="txt_tipo_materia" required>
-            <option value="Materia Prima" <?php echo $tipo_materia?>>Materia Prima</option>
+            <option value="Materia" <?php echo $tipo_materia?>>Materia Prima</option>
             <option value="Embalagem" <?php echo $tipo_embalagem?>>Embalagem</option>   
         <select>
     </div>
