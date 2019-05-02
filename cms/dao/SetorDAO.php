@@ -12,17 +12,19 @@ class SetorDAO {
     //Select para pegar um Setor especifico
     public function selectById($id){
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_produto_setores_produto where id_produto=?;";
+        $sql = "select * from tbl_produto_prateleira where id_produto=?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $id);        
         $success = $stm->execute();
+
+
         if ($success) {
             $listSetor = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $ProdutoSetor = new ProdutoSetor();
                 $ProdutoSetor->setId($result['id_produto_setores_produto']);
                 $ProdutoSetor->setIdProduto($result['id_produto']);
-                $ProdutoSetor->setIdSetor($result['id_setores']);
+                $ProdutoSetor->setIdPrateleira($result['id_prateleira']);
                 array_push($listSetor, $ProdutoSetor);
             }
             $this->conex -> closeDataBase();
@@ -32,6 +34,8 @@ class SetorDAO {
         }
         
     }
+
+
     //Select para todos os Setor
     public function selectAll() {
         $conn = $this->conex->connectDatabase();
@@ -43,7 +47,6 @@ class SetorDAO {
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $Setor = new Setor();
                 $Setor->setId($result['id_setores']);
-                $Setor->setCapacidade($result['capacidade']);
                 $Setor->setRua($result['rua']);
                 array_push($listSetor, $Setor);
             }

@@ -194,9 +194,11 @@ footer {
 	float: left;
 	flex-wrap: wrap;
 	border:1px solid #09a552;
-	margin-bottom: 10px;
-
-	
+	margin-right: 10px;	
+}
+.setor input[type=number]{
+	height: 20px;
+	width: 30px;
 }
 .form_padrao {
 	margin: auto;

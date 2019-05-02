@@ -9,6 +9,9 @@ class Prateleira{
     private $id;
     private $prateleira;
     private $capacidade;
+    private $quantidade;
+    private $idSetores;
+
 
     public function getId()
     {
@@ -37,6 +40,30 @@ class Prateleira{
     public function setCapacidade($capacidade)
     {
         $this->capacidade = $capacidade;
+
+        return $this;
+    }
+
+    
+    public function getQuantidade()
+    {
+        return $this->quantidade;
+    }
+
+    public function setQuantidade($quantidade)
+    {
+        $this->quantidade = $quantidade;
+
+        return $this;
+    }
+    public function getIdSetores()
+    {
+        return $this->idSetores;
+    }
+
+    public function setIdSetores($idSetores)
+    {
+        $this->idSetores = $idSetores;
 
         return $this;
     }

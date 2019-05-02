@@ -23,8 +23,9 @@ $fibraAlimentar = null;
 $sodio = null;
 
 $MateriaPrima = array();
-
 $Setor = array();
+
+$quantidade = null;
 
 $Controller = new ControllerProduto();
 $ControllerSetor = new ControllerSetor();
@@ -67,9 +68,17 @@ if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $gordurasTrans = $nutricional->getGordurasTrans();
     $fibraAlimentar = $nutricional->getFibrasAlimentar();
     $sodio = $nutricional->getSodio();
+    foreach ($Setor as $result){ 
+        $quantidade = "";
+        foreach ($Prateleiras as $result1){ 
+            if($result->getIdPrateleira() == $result1->getId()){
+                $quantidade = $result1->getQuantidade();
+            }
+        }
+    }
+    
 
 }
-
 
 $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $paginaTitulo = "Novo funcionário";
 
@@ -178,36 +187,40 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         <?php  
             foreach ($Setores as $result){ 
                 $checked = "";
-    
-                foreach ($Setor as $result1){
-                    if($result->getId() == $result1->getIdSetor()){
-                        $checked = 'checked';
-                    }
-                }
+                
             ?>
             <div class="setor">
                 <label>Rua</label>
-                <input  type="checkbox" <?php echo $checked ?> 
-                    value="<?php echo $result->getId() ?>" 
-                    name="setores[]"
-                    id="<?php echo $result->getId() ?>">
                 <label  for="<?php echo $result->getId() ?>">
-                    <?php echo $result->getRua() ?>
+                    <?php echo $result->getRua(); ?>
                 </label>
                 <br>
                 <br>
-                <label>Prateleira</label>
                 
-                <?php foreach ($Prateleiras as $result4){ ?>
-                    
-                    <input  type="checkbox" <?php //echo $checked ?> 
-                    value="<?php echo $result4->getId()?>" 
-                    name="prateleira[]"
-                    id="<?php  echo $result4->getId();?>
-                    <label  for="<?php echo $result4->getId() ?>">
-                        <?php echo $result4->getPrateleira()?>
-                    </label>
-                    <?php 
+                
+                <?php foreach ($Prateleiras as $result4){ 
+                    $checked = "";
+                  
+                        foreach ($Setor as $result5){
+                            if($result4->getId() == $result5->getIdPrateleira()){
+                                $checked = 'checked';
+                            }
+                        }
+                     
+                        if($result->getId() == $result4->getIdSetores()){
+                    ?>
+                        <label>Prateleira</label>
+                        <input type="checkbox" <?php echo $checked ?> 
+                        value="<?php echo $result4->getId()?>" 
+                        name="prateleira[]"
+                        id="<?php  echo $result4->getId();?>">
+                        <label  for="<?php echo $result4->getId();s ?>">
+                            <?php echo $result4->getPrateleira();
+                            ?>
+                        </label><br>
+                        <label from="txtQuantidade">Quantidade</label>
+                        <input type="number" name="txtQuantidade" id="txtQuantidade" disabled value="<?php echo $quantidade; ?>"><br>
+                        <?php }
                     }
                     ?>
             </div>

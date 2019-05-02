@@ -8,7 +8,7 @@ class ProdutoDAO{
         $this->conex = new conexaoMysql();
         
     }
-    public function insert(Produto $produto, Nutricional $nutricional, Setor $setor, MateriaPrima $materiaPrima, MateriaPrima $embalagem, Prateleira $prateleira) {
+    public function insert(Produto $produto, Nutricional $nutricional, MateriaPrima $materiaPrima, MateriaPrima $embalagem, Prateleira $prateleira) {
         $conn = $this->conex->connectDatabase();
 
         //Insert da tabela nutricional
@@ -41,34 +41,15 @@ class ProdutoDAO{
         $stm->bindValue(13, $conn->lastInsertId());
         $stm->execute();
         $idProduto = $conn->lastInsertId();
-        $i = 0;
         //Insert nos Setores
-        foreach($setor->getId() as $result ){
-            $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto) values(?,?);";
+        foreach($prateleira->getId() as $result ){
+            $sql = "insert into tbl_produto_prateleira(id_prateleira,id_produto) values(?,?);";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $result);        
             $stm->bindValue(2, $idProduto);
         
             $stm->execute();
-            $idProdutoSetor = $conn->lastInsertId();
-            $sql = "select id_setores from tbl_produto_setores_produto where id_produto_setores_produto = ?";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $idProdutoSetor);  
-            $stm->execute(); 
-            $result = $stm->fetch(PDO::FETCH_ASSOC);
-            $Setor = new Setor();
-            $Setor->setId($result['id_setores']);     
-            //Insert nos Prateleiras
-            $idSetor = $Setor->getId();
-            
-            foreach($prateleira->getId() as $result){
-                $sql = "insert into tbl_setor_prateleira(id_prateleira,id_setores) values(?,?);";
-                $stm = $conn->prepare($sql);
-                $stm->bindValue(1, $prateleira->getId()[$i]);        
-                $stm->bindValue(2, $idSetor);
-                $stm->execute();
-                $i++;
-            }
+
         }
         
         //Insert nos MateriaPrima
@@ -79,7 +60,6 @@ class ProdutoDAO{
             $stm->bindValue(2, $idProduto);
             $stm->execute();
         }
-
         $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $embalagem->getId());        
@@ -87,7 +67,7 @@ class ProdutoDAO{
         $stm->execute();
         $this->conex->closeDataBase();
     }
-    public function update(Produto $produto, Nutricional $nutricional, Setor $setor, MateriaPrima $materiaPrima, MateriaPrima $embalagem) {
+    public function update(Produto $produto, Nutricional $nutricional, MateriaPrima $materiaPrima, MateriaPrima $embalagem, Prateleira $prateleira) {
         $conn = $this->conex->connectDatabase();
         //If para saber se tem ou não imagem no update
         if($produto->getImagem() == null){
@@ -138,17 +118,19 @@ class ProdutoDAO{
             $stm->execute();
 
             //Atualizando os setores onde o produto está
-            $sql = "delete from tbl_produto_setores_produto where id_produto =? ";
+            $sql = "delete from tbl_produto_prateleira where id_produto =? ";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $produto->getId()); 
             $stm->execute();
             //Insert nos Setores
-            foreach($setor->getId() as $result){
-                $sql = "insert into tbl_produto_setores_produto(id_setores,id_produto) values(?,?);";
+            foreach($prateleira->getId() as $result ){
+                $sql = "insert into tbl_produto_prateleira(id_prateleira,id_produto) values(?,?);";
                 $stm = $conn->prepare($sql);
                 $stm->bindValue(1, $result);        
-                $stm->bindValue(2, $produto->getId());
+                $stm->bindValue(2, $idProduto);
+            
                 $stm->execute();
+    
             }
         }else{
             $sql = "UPDATE tbl_nutricional SET valor_calorico = ?, carboidratos = ?, proteina = ?, gorduras_totais = ?, gorduras_saturadas = ?, gorduras_trans = ?, fibra_alimentar = ?, sodio = ?  WHERE id_nutricional=?;";

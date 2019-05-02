@@ -38,8 +38,6 @@ class ControllerProduto{
             $ordem   = 1;
             $ativo   = 1;
             $apagado = 0;
-
-            $setores = $_POST['setores'];
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
             $prateleira = $_POST['prateleira'];
@@ -69,18 +67,15 @@ class ControllerProduto{
             $Nutricional->setFibrasAlimentar($fibras);
             $Nutricional->setSodio($sodio);
 
-            $Setor = new Setor();
-            $Setor->setId($setores);
-
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
 
             $Embalagem = new MateriaPrima();
             $Embalagem->setId($selectEmbalagem);
-            var_dump($prateleira);
+            
             $Prateleira = new Prateleira();
             $Prateleira->setId($prateleira);
-            $this->ProdutoDAO->insert($Produto, $Nutricional, $Setor, $MateriaPrima, $Embalagem, $Prateleira);
+            $this->ProdutoDAO->insert($Produto, $Nutricional,  $MateriaPrima, $Embalagem, $Prateleira);
         }
     }
     public function atualizarProduto(){
@@ -107,7 +102,7 @@ class ControllerProduto{
             $fibras = $_POST['txtFibraAlimentar'];
             $sodio  = $_POST['txtSodio'];
 
-            $setores = $_POST['setores'];
+            $prateleira = $_POST['prateleira'];
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
             $Produto = new Produto(); 
@@ -131,15 +126,18 @@ class ControllerProduto{
             $Nutricional->setFibrasAlimentar($fibras);
             $Nutricional->setSodio($sodio);
 
-            $Setor = new Setor();
-            $Setor->setId($setores);
+
 
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
 
             $Embalagem = new MateriaPrima();
             $Embalagem->setId($selectEmbalagem);
-            $this->ProdutoDAO->update($Produto, $Nutricional, $Setor, $MateriaPrima, $Embalagem);
+
+            $Prateleira = new Prateleira();
+            $Prateleira->setId($prateleira);
+            
+            $this->ProdutoDAO->update($Produto, $Nutricional, $MateriaPrima, $Embalagem, $Prateleira);
         }
     }
     public function excluirProduto(){

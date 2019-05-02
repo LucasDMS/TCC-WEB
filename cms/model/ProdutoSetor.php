@@ -8,8 +8,7 @@
 class ProdutoSetor{
     private $id;
     private $idProduto;
-    private $idSetor;
-    private $prateleira;
+    private $idPrateleira;
 
     public function getId()
     {
@@ -35,28 +34,16 @@ class ProdutoSetor{
         return $this;
     }
 
-    public function getIdSetor()
+    public function getIdPrateleira()
     {
-        return $this->idSetor;
+        return $this->idPrateleira;
     }
 
-    public function setIdSetor($idSetor)
+    public function setIdPrateleira($idPrateleira)
     {
-        $this->idSetor = $idSetor;
+        $this->idPrateleira = $idPrateleira;
 
         return $this;
     }
 
-    public function getPrateleira()
-    {
-        return $this->prateleira;
-    }
-
-
-    public function setPrateleira($prateleira)
-    {
-        $this->prateleira = $prateleira;
-
-        return $this;
-    }
 }
