@@ -32,10 +32,7 @@ class controllerEnquete{
             $enquete->setStatus(1);
 
             $this->EnqueteDAO->inserirEnquete($enquete);
-
-
         }
-
     }
 
     //função para enviar os dados para DAO para ativar e desativar
@@ -76,6 +73,14 @@ class controllerEnquete{
         }
     }
 
+    public function buscarPerguntaPorId(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_GET['id'];
+            return $this->EnqueteDAO->selectByIdPergunta($id);
+
+        }
+    }
+
     //excluir enquete
     public function excluirEnquete(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -85,6 +90,22 @@ class controllerEnquete{
 
         }
 
+    }
+
+    public function atualizarEnquete(){
+         if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_POST['id'];
+            $pergunta = $_POST['txt_pergunta'];
+            $resposta = $_POST['txt_resposta'];
+            $data = $_POST['date'];
+
+            $enquete = new Enquete();
+            $enquete->setId($id);
+            $enquete->setPergunta($pergunta);
+            $enquete->setResposta($resposta);
+            $enquete->setData($data);
+            $this->EnqueteDAO->update($enquete);
+        }
     }
 
 

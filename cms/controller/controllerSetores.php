@@ -28,21 +28,6 @@ class ControllerSetores{
     public function listarSetores(){
         return $this->SetoresDAO->selectSetores();
     }
-    
-    //ativar setores
-    public function ativarSetores(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $id = $_POST['id'];
-            $status = $_POST['ativo'];
-
-            $Setores = new Setores();
-            $Setores->setId($id);
-            $Setores->setStatus($status);
-
-            $this->SetoresDAO->updateAtivo($Setores);
-        }
-
-    }
 
     //apagar setores
     public function excluirSetores(){
@@ -64,8 +49,6 @@ class ControllerSetores{
             $Setores->setRua($rua);
             $Setores->setCapacidade($capacidade);
             $Setores->setPrateleira($prateleira);
-            $Setores->setStatus(1);
-            $Setores->setApagado(0);
             $this->SetoresDAO->inserirSetores($Setores);
         }
 
@@ -76,7 +59,14 @@ class ControllerSetores{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_GET['id'];
             return $this->SetoresDAO->selectById($id);
+        }
+    }
 
+    //buscar um setor especifico
+    public function buscarSetoresPorPrateleira(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_GET['id'];
+            return $this->SetoresDAO->selectByIdPrateleira($id);
         }
     }
 

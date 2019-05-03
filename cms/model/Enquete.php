@@ -38,15 +38,6 @@ class Enquete{
         return $this;
     }
 
-    public function getResposta(){
-        return $this->resposta;
-    }
-
-    public function setResposta($resposta){
-        $this->resposta = $resposta;
-        return $this;
-    }
-
     function getApagado(){
         return $this->apagado;
     }
@@ -88,14 +79,15 @@ class Enquete{
         return $this;
     }
 
-    public function getResposta2(){
-        return $this->resposta2;
+    public function getResposta(){
+        return $this->resposta;
     }
 
-    public function setResposta2($resposta2){
-        $this->resposta2 = $resposta2;
+    public function setResposta($resposta){
+        $this->resposta = $resposta;
         return $this;
     }
+
 }
 
 ?>
