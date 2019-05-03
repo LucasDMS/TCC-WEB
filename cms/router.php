@@ -524,6 +524,15 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+            case 'NEWS_LETTER':
+            require_once('controller/controllerNewsLetter.php');
+            $ControllerNewsLetter = new ControllerNewsLetter();
+            switch($modo){
+                case 'INSERIR':
+                    $ControllerNewsLetter->inserirNewsLetter();
+                    break;
+            }
+            break;
     }
 }
 

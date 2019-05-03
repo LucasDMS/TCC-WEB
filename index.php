@@ -30,6 +30,7 @@
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerNewsLetter.php");
 
 		$conex = new conexaoMysql();
 
@@ -162,8 +163,17 @@
 					<p>
 						Recebe a nossa news-letter com todas as novidades da POP's
 					</p>
-					<form action="">
-						<input type="text" placeholder="Digite seu email aqui">
+					<form
+					onsubmit="asyncSubmit(event, this)"
+					name="frm_news_letter"
+					action="cms/router.php?controller=news_letter&modo=inserir" 
+					method="post"
+					autocomplete="off"
+					id="news_letter"
+					enctype='multipart/form-data' 
+					class="form_padrao"
+					data-pagina="news_letter">
+						<input type="text" placeholder="Digite seu email aqui" name="txtNewsLetter" id="txtNewsLetter">
 						<button class="btn" type="submit">
 							<i class="fas fa-paper-plane"></i>
 						</button>

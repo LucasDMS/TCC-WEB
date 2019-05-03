@@ -107,19 +107,19 @@
         }
         public function selectByIdProduto($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_produto_materia_prima where id_materia_prima=?;";
+            $sql = "select * from tbl_produto_materia_prima where id_produto=?;";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $id);
             $sucess = $stm->execute();
             if($sucess){
                 $listMateriaPrima = [];
                 foreach($stm->fetchAll(PDO::FETCH_ASSOC) AS $result){
-                    $MateriaPrima = new ProdutoMateriaPrima();
-                    $MateriaPrima->setId($result['id_materia_prima']);
-                    $MateriaPrima->setIdProduto($result['id_produto']);
-                    $MateriaPrima->setIdMateriaPrima($result['id_materia_prima']);
+                    $ProdutoMateriaPrima = new ProdutoMateriaPrima();
+                    $ProdutoMateriaPrima->setId($result['id_produto_materia_prima']);
+                    $ProdutoMateriaPrima->setIdProduto($result['id_produto']);
+                    $ProdutoMateriaPrima->setIdMateriaPrima($result['id_materia_prima']);
                    
-                    array_push($listMateriaPrima, $MateriaPrima);
+                    array_push($listMateriaPrima, $ProdutoMateriaPrima);
                 };
                 $this->conex->closeDataBase();
                 return $listMateriaPrima;

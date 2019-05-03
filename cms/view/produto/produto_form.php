@@ -40,7 +40,6 @@ $Setores = $ControllerSetor->buscarSetor();
 $MateriasPrimas = $ControllerMateria->listarMateriaPrima();
 $Embalagem = $ControllerMateria->listarEmbalagem();
 $Prateleiras = $ControllerPrateleira->buscarPrateleira();
-
 if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $id = $_GET['id'];
     $idNutricional = $_GET['idNutricional'];
@@ -79,7 +78,7 @@ if(isset($_GET['id']) && isset($_GET['idNutricional'])){
         }
         
     }
-    
+
 
 }
 

@@ -11,15 +11,13 @@ $tipo_materia = null;
 $tipo_embalagem = null;
 $quantidade = null;
 $validade = null;
+$Setor = array();
 $ControllerSetor = new ControllerSetor();
 $ControllerPrateleira = new ControllerPrateleira();
 $Setores = $ControllerSetor->buscarSetor();
 $Prateleiras = $ControllerPrateleira->buscarPrateleira();
-
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    
-
     $Controller = new ControllerMateriaPrima();
     $MateriaPrima = $Controller->buscarMateriaPrimaPorId($id);
     $Setor =  $ControllerSetor->buscarSetorMateriaPorId($id);

@@ -9,25 +9,20 @@ class ControllerNewsLetter{
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/NewsLetter.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/NewsLetterDAO.php');
 
-        $this->NewLetterDAO = new NewsLetterDao();
+        $this->NewLetterDAO = new NewsLetterDAO();
     }
-  
-    public function ativarHistoria() {
+    public function inserirNewsLetter(){
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
-
-            $id     = $_POST['id'];
-            $ativo  = $_POST['ativo'];
             
-            $NewLetter = new NewLetter(); 
+            $email  = $_POST['txtNewsLetter'];
 
-            $NewLetter->setId($id);
-            $NewLetter->setAtivo($ativo);
-            
-            $this->NewLetterDAO->updateAtivo($NewLetter);
+            $NewsLetter = new NewsLetter(); 
+            $NewsLetter->setNewLetter($email);
+
+            $this->NewLetterDAO->insert($NewsLetter);
         }
     }
-
 
 
     public function listarNewsLetter() {

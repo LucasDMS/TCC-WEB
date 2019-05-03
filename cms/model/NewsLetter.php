@@ -12,7 +12,7 @@
 class NewsLetter{
 
     private $id;
-    private $new_letter;
+    private $newLetter;
 
     public function getId(){
         return $this->id;
@@ -20,11 +20,11 @@ class NewsLetter{
     public function setId($id){
         $this->id = $id;
     }
-    public function getNew_letter(){
-        return $this->new_letter;
+    public function getNewLetter(){
+        return $this->newLetter;
     }
-    public function setNew_letter($new_letter){
-        $this->new_letter = $new_letter;
+    public function setNewLetter($newLetter){
+        $this->newLetter = $newLetter;
     }
 
 }
