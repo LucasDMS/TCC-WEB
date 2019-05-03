@@ -43,7 +43,6 @@
             ((`eq`.`id_enquete` = `e`.`id_enquete`)
                 AND (`eq`.`id_resposta` = `r`.`id_resposta`)
                 AND (`e`.`id_enquete` = `eq`.`id_enquete`)
-                AND (`e`.`apagado` = 0)
                 and (e.`id_enquete` = ".$id."));";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $id);
@@ -109,7 +108,7 @@
         //select de todos as perguntas
         public function selectPerguntas(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_enquete where apagado = ?";
+            $sql = "select * from tbl_enquete";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 0);  
             $success = $stm->execute();
@@ -179,10 +178,15 @@
         //deletar enquete
         public function delete($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_enquete SET apagado = ? WHERE id_enquete = ?";
+            $sql2 = "DELETE FROM tbl_enquete_resposta WHERE id_enquete = ?";
+            $stm2 = $conn->prepare($sql2);
+            $stm2->bindValue(1, $id);
+            $stm2->execute();
+            
+            $conn = $this->conex->connectDatabase();
+            $sql = "DELETE FROM tbl_enquete WHERE id_enquete = ?";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, 1);
-            $stm->bindValue(2, $id);
+            $stm->bindValue(1, $id);
             $success = $stm->execute();
             if($success){
                 echo "Excluido";

@@ -49,7 +49,7 @@
         //select de todos as prateleiras
         public function selectSetores(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_setores where tbl_setores.apagado=0";
+            $sql = "select * from tbl_setores";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 0);  
             $success = $stm->execute();
@@ -70,11 +70,17 @@
         }
 
         public function delete($id){
+            $conn2 = $this->conex->connectDatabase();
+            $sql2 = "DELETE FROM tbl_prateleira where id_setores=?";
+            $stm2 = $conn2->prepare($sql);
+            $stm2->bindValue(1, $id);
+            $stm2->execute();
+            
+            
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_setores SET apagado = ? where id_setores=?";
+            $sql = "DELETE FROM tbl_setores where id_setores=?";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, 1);
-            $stm->bindValue(2, $id);
+            $stm->bindValue(1, $id);
             $success = $stm->execute();
             if($success){
                 return "sucesso";
@@ -107,10 +113,9 @@
 
         public function selectById($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_setores where apagado = ? and id_setores = ?";
+            $sql = "select * from tbl_setores where id_setores = ?";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, 0);
-            $stm->bindValue(2, $id);  
+            $stm->bindValue(1, $id);  
             $success = $stm->execute();
             if($success){
                 foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
