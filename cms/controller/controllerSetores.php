@@ -28,21 +28,6 @@ class ControllerSetores{
     public function listarSetores(){
         return $this->SetoresDAO->selectSetores();
     }
-    
-    //ativar setores
-    public function ativarSetores(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $id = $_POST['id'];
-            $status = $_POST['ativo'];
-
-            $Setores = new Setores();
-            $Setores->setId($id);
-            $Setores->setStatus($status);
-
-            $this->SetoresDAO->updateAtivo($Setores);
-        }
-
-    }
 
     //apagar setores
     public function excluirSetores(){

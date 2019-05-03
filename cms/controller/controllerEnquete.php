@@ -100,11 +100,10 @@ class controllerEnquete{
             $data = $_POST['date'];
 
             $enquete = new Enquete();
+            $enquete->setId($id);
             $enquete->setPergunta($pergunta);
             $enquete->setResposta($resposta);
             $enquete->setData($data);
-            $enquete->setStatus(1);
-
             $this->EnqueteDAO->update($enquete);
         }
     }

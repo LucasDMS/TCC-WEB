@@ -148,12 +148,10 @@
 
         public function update(Setores $setores){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_setores SET rua=?, prateleira=?, capacidade=? where id_setores=?";
+            $sql = "UPDATE tbl_setores SET rua=? where id_setores=?";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $setores->getRua());
-            $stm->bindValue(2, $setores->getPrateleira());
-            $stm->bindValue(3, $setores->getCapacidade());
-            $stm->bindValue(4, $setores->getId());
+            $stm->bindValue(2, $setores->getId());
             $success = $stm->execute();
             $this->conex->closeDataBase();
             if($success){

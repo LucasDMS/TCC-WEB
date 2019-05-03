@@ -192,7 +192,21 @@
         }
 
         public function update(Enquete $enquete){
-
+            $conn = $this->conex->connectDatabase();
+            $sql = "UPDATE tbl_enquete SET pergunta=?,data_inicio=? where id_enquete=?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $enquete->getPergunta());
+            $stm->bindValue(2, $enquete->getData());
+            $stm->bindValue(3, $enquete->getId());
+            $success = $stm->execute();
+            $this->conex->closeDataBase();
+            if($success){
+                echo "Atualizado com sucesso!";
+                return "Sucesso";
+            }else{
+                echo $success;
+                return "Erro";
+            }
 
         }
 
