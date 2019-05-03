@@ -158,7 +158,7 @@ function asyncSubmit(event, element) {
         processData: false,
     })
     .done(function (html) {
-        //window.location.reload();
+        window.location.reload();
     });
 }
 function request(event, element){

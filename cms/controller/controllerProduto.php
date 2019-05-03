@@ -130,7 +130,6 @@ class ControllerProduto{
 
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
-            var_dump($MateriaPrima);
             $Embalagem = new MateriaPrima();
             $Embalagem->setId($selectEmbalagem);
 
