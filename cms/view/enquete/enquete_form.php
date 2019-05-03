@@ -53,11 +53,12 @@
                     <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' value='".$result->getResposta()."'; required><br>
                 </div>
                 "); 
-    ?>
-    <?php
             }
         }else{
             echo("
+            <div class='inputDados'>
+                <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' required><br>
+            </div>
             <div class='inputDados'>
                 <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' required><br>
             </div>

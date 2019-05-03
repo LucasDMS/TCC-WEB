@@ -60,12 +60,11 @@ class ControllerSetores{
             $capacidade = $_POST['txt_capacidade'];
             $prateleira = $_POST['txt_prateleira'];
 
+            var_dump($prateleira);
             $Setores = new Setores();
             $Setores->setRua($rua);
             $Setores->setCapacidade($capacidade);
             $Setores->setPrateleira($prateleira);
-            $Setores->setStatus(1);
-            $Setores->setApagado(0);
             $this->SetoresDAO->inserirSetores($Setores);
         }
 
@@ -76,7 +75,14 @@ class ControllerSetores{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_GET['id'];
             return $this->SetoresDAO->selectById($id);
+        }
+    }
 
+    //buscar um setor especifico
+    public function buscarSetoresPorPrateleira(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_GET['id'];
+            return $this->SetoresDAO->selectByIdPrateleira($id);
         }
     }
 

@@ -87,6 +87,7 @@ class Enquete{
         $this->resposta = $resposta;
         return $this;
     }
+
 }
 
 ?>

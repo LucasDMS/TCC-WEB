@@ -31,6 +31,7 @@
             `e`.`id_enquete` AS `id_enquete`,
             `e`.`pergunta` AS `pergunta`,
             `e`.`status` AS `status`,
+            `r`.`id_resposta` AS `id_resposta`,
             `e`.`data_inicio` AS `data_inicio`,
             `r`.`respostas` AS `respostas`,
             `eq`.`votos` AS `votos`
@@ -51,7 +52,6 @@
                 $listEnquete = [];
                 foreach($stm->fetchAll(PDO::FETCH_ASSOC) AS $result){
                     $enquete = new Enquete();
-                    $enquete->setId($result['id_enquete']);
                     $enquete->setResposta($result['respostas']);
                     $enquete->setStatus($result['status']);
                     array_push($listEnquete, $enquete);
@@ -189,6 +189,11 @@
             }else{
                 echo "ERRO";
             }
+        }
+
+        public function update(Enquete $enquete){
+
+
         }
 
 

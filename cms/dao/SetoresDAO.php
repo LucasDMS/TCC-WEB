@@ -85,15 +85,19 @@
         }
 
         public function inserirSetores(Setores $setores){
-            $conn = $this->conex->connectDatabase();
-            $sql = "INSERT INTO tbl_setores(rua, prateleira, capacidade,status,apagado)VALUES(?,?,?,?,?)";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $setores->getRua());
-            $stm->bindValue(2, $setores->getPrateleira());
-            $stm->bindValue(3, $setores->getCapacidade());
-            $stm->bindValue(4, $setores->getStatus());
-            $stm->bindValue(5, $setores->getApagado());
-            $success = $stm->execute();
+            
+            //loop para pegar inserir todas as pratileiras e capacidades
+            for($i = 0; $i<count($setores->getPrateleira()); $i++){
+                $conn = $this->conex->connectDatabase();
+                $sql = "call sp_cadastro_setores(?,?,?)";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $setores->getRua());
+                $stm->bindValue(2, $setores->getPrateleira()[$i]);
+                $stm->bindValue(3, $setores->getCapacidade()[$i]);
+                $success = $stm->execute();
+            }
+            //fechando conexão
+            $this->conex->closeDataBase();
             if($success){
                 echo "Cadastrado com Sucesso!";
             }else{
@@ -112,12 +116,30 @@
                 foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
                     $setores = new Setores(); 
                     $setores->setId($result['id_setores']);
-                    $setores->setCapacidade($result['capacidade']);
                     $setores->setRua($result['rua']);
-                    $setores->setPrateleira($result['prateleira']);
-                    $setores->setStatus($result['status']);
                     return $setores;
                 };
+                $this->conex -> closeDataBase();
+            }else{
+                return "Erro";
+            }
+        }
+
+        public function selectByIdPrateleira($id){
+            $conn = $this->conex->connectDatabase();
+            $sql = "select p.prateleira, p.capacidade FROM tbl_prateleira as p WHERE p.id_setores = ?;";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $id);  
+            $success = $stm->execute();
+            if($success){
+                $listSetores = [];
+                foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+                    $setores = new Setores(); 
+                    $setores->setPrateleira($result['prateleira']);
+                    $setores->setCapacidade($result['capacidade']);
+                    array_push($listSetores, $setores);
+                };
+                return $listSetores;
                 $this->conex -> closeDataBase();
             }else{
                 return "Erro";
