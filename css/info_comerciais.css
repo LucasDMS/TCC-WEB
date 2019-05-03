@@ -30,6 +30,8 @@
 	border: 2px solid #fff;
 	border-radius: 5px;
 	margin-bottom: 10px;
+	max-height: 700px;
+	overflow-y: auto;
 }
 
 .estabelecimentos_lista h3{
@@ -42,6 +44,7 @@
 	max-width: 900px;
 	background-color: #fff;
 	border-radius: 5px;
+	min-width: 900px;
 }
 
 .estabelecimento_mais_detalhes img{
@@ -64,14 +67,14 @@
 }
 .estabelecimentos_container{
 	max-width: 1300px;
+	min-height: 768px;
+	text-align: center;
 	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	padding: 35px;
 }
-
-
 
 .lista_estabelecimentos li{
 	text-align: center;
@@ -89,4 +92,9 @@
 
 .est_cor{
 	background-color: #fff;
+}
+
+#separador_esta{
+	height: 200px;
+	width: 100%;
 }

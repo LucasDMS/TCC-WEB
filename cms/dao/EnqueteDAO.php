@@ -25,40 +25,76 @@
 
         }
 
-       // public function selectById($id){
-            // $conn = $this->conex->connectDatabase();
-            // $sql = "select * from tbl_enquete where id_enquete=?;";
-            // $stm = $conn->prepare($sql);
-            // $stm->bindValue(1, $id);
-            // $sucess = $stm->execute();
-            // if($sucess){
+       public function selectById($id){
+            $conn = $this->conex->connectDatabase();
+            $sql = "SELECT 
+            `e`.`id_enquete` AS `id_enquete`,
+            `e`.`pergunta` AS `pergunta`,
+            `e`.`status` AS `status`,
+            `r`.`id_resposta` AS `id_resposta`,
+            `e`.`data_inicio` AS `data_inicio`,
+            `r`.`respostas` AS `respostas`,
+            `eq`.`votos` AS `votos`
+        FROM
+            ((`tbl_enquete` `e`
+            JOIN `tbl_resposta` `r`)
+            JOIN `tbl_enquete_resposta` `eq`)
+        WHERE
+            ((`eq`.`id_enquete` = `e`.`id_enquete`)
+                AND (`eq`.`id_resposta` = `r`.`id_resposta`)
+                AND (`e`.`id_enquete` = `eq`.`id_enquete`)
+                and (e.`id_enquete` = ".$id."));";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $id);
+            $sucess = $stm->execute();
+            if($sucess){
+                $listEnquete = [];
+                foreach($stm->fetchAll(PDO::FETCH_ASSOC) AS $result){
+                    $enquete = new Enquete();
+                    $enquete->setResposta($result['respostas']);
+                    $enquete->setStatus($result['status']);
+                    array_push($listEnquete, $enquete);
 
-            //     foreach($stm->fetchAll(PDO::FETCH_ASSOC) AS $result){
-            //         $eventos = new Eventos();
-            //         $eventos->setId($result['id_eventos']);
-            //         $eventos->setNome($result['nome']);
-            //         $eventos->setDescricao($result['descricao']);
-            //         $eventos->setData($result['data']);
-            //         $eventos->setEstado($result['estado']);
-            //         $eventos->setCidade($result['cidade']);
-            //         $eventos->setHora($result['hora']);
-            //         return $eventos;
+                };
+                $this->conex->closeDataBase();
+                return $listEnquete;
+            }
+       }
 
-            //     };
-            //     $this->conex->closeDataBase();
-            // }
-       // }
+       public function selectByIdPergunta($id){
+        $conn = $this->conex->connectDatabase();
+        $sql = "SELECT tbl_enquete.* FROM tbl_enquete WHERE id_enquete = ?";
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $id);
+        $sucess = $stm->execute();
+        if($sucess){
+            foreach($stm->fetchAll(PDO::FETCH_ASSOC) AS $result){
+                $enquete = new Enquete();
+                $enquete->setId($result['id_enquete']);
+                $enquete->setPergunta($result['pergunta']);
+                $enquete->setData($result['data_inicio']);
+                return $enquete;
+
+            };
+            $this->conex->closeDataBase();
+            
+        }
+       }
 
        //inserir enquete no banco 
         public function inserirEnquete(Enquete $enquete){
-            $conn = $this->conex->connectDatabase();
-            $sql = "call sp_cadastro_enquete(?,?,?)";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1,$enquete->getPergunta());
-            $stm->bindValue(2,$enquete->getData());
-            $stm->bindValue(3,$enquete->getResposta());
-            $sucess = $stm->execute();   
-            
+        
+            //loop para pegar inserir todas as respostas
+            for($i = 0; $i<count($enquete->getResposta()); $i++){
+                $conn = $this->conex->connectDatabase();
+                $sql = "call sp_cadastro_enquete(?,?,?)";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1,$enquete->getPergunta());
+                $stm->bindValue(2,$enquete->getData());
+                $stm->bindValue(3,$enquete->getResposta()[$i]);
+                $sucess = $stm->execute();       
+            }
+            //fechando conexão
             $this->conex->closeDataBase();
             if($sucess){
                 echo "Cadastrado com sucesso!";
@@ -72,7 +108,7 @@
         //select de todos as perguntas
         public function selectPerguntas(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_enquete where apagado = ?";
+            $sql = "select * from tbl_enquete";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, 0);  
             $success = $stm->execute();
@@ -142,16 +178,40 @@
         //deletar enquete
         public function delete($id){
             $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_enquete SET apagado = ? WHERE id_enquete = ?";
+            $sql2 = "DELETE FROM tbl_enquete_resposta WHERE id_enquete = ?";
+            $stm2 = $conn->prepare($sql2);
+            $stm2->bindValue(1, $id);
+            $stm2->execute();
+            
+            $conn = $this->conex->connectDatabase();
+            $sql = "DELETE FROM tbl_enquete WHERE id_enquete = ?";
             $stm = $conn->prepare($sql);
-            $stm->bindValue(1, 1);
-            $stm->bindValue(2, $id);
+            $stm->bindValue(1, $id);
             $success = $stm->execute();
             if($success){
                 echo "Excluido";
             }else{
                 echo "ERRO";
             }
+        }
+
+        public function update(Enquete $enquete){
+            $conn = $this->conex->connectDatabase();
+            $sql = "UPDATE tbl_enquete SET pergunta=?,data_inicio=? where id_enquete=?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $enquete->getPergunta());
+            $stm->bindValue(2, $enquete->getData());
+            $stm->bindValue(3, $enquete->getId());
+            $success = $stm->execute();
+            $this->conex->closeDataBase();
+            if($success){
+                echo "Atualizado com sucesso!";
+                return "Sucesso";
+            }else{
+                echo $success;
+                return "Erro";
+            }
+
         }
 
 
