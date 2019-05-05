@@ -114,37 +114,27 @@
 					<form action="" method="post">
                         
           	             <?php		
-							$sql = "select * from tbl_enquete where  status = 1";
+							$sql = "select * from tbl_enquete where status = 1 and apagado = 0";
 							$stm = $con->prepare($sql);
 							$success = $stm->execute();
 							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+
+							$sql2 = "select tbl_resposta.respostas, tbl_resposta.id_resposta  FROM tbl_resposta, tbl_enquete_resposta WHERE tbl_enquete_resposta.id_enquete = 35 and tbl_enquete_resposta.id_resposta = tbl_resposta.id_resposta;";
+							$stm2 = $con->prepare($sql);
+							$success2 = $stm2->execute();
+							foreach ($stm2->fetchAll(PDO::FETCH_ASSOC) as $result2){	
                         ?>
 
 						<ul>
 							<li>
 								<input type="checkbox" name="ckb" id="ckb">
-								<label for="ckb"><?php echo ($result['pergunta']) ?>dol</label>
+								<label for="ckb"><?php echo ($result2['respostas']) ?>dol</label>
 							</li>
-							<li>
-								<input type="checkbox" name="ckb2" id="ckb2">
-								<label for="ckb2"><?php echo ($result['pergunta']) ?>dol</label>
-							</li>
-							<li>
-								<input type="checkbox" name="ckb3" id="ckb3">
-								<label for="ckb3"><?php echo ($result['pergunta']) ?>dol</label>
-							</li>
-							<li>
-								<input type="checkbox" name="ckb4" id="ckb4">
-								<label for="ckb4"><?php echo ($result['pergunta']) ?> dol</label>
-							</li>
-							<li>
-								<input type="checkbox" name="ckb5" id="ckb5">
-								<label for="ckb5"><?php echo ($result['pergunta']) ?> dol</label>
-							</li>
+							
 						</ul>
                         
                         <?php
-						  }
+						  }}
 					    ?>
                         
 

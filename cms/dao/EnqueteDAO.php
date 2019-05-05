@@ -196,13 +196,20 @@
         }
 
         public function update(Enquete $enquete){
-            $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_enquete SET pergunta=?,data_inicio=? where id_enquete=?";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $enquete->getPergunta());
-            $stm->bindValue(2, $enquete->getData());
-            $stm->bindValue(3, $enquete->getId());
-            $success = $stm->execute();
+            
+            //for para rodar todas as respostas no uptdate
+            for($i = 0; $i<count($enquete->getResposta()); $i++){
+                $conn = $this->conex->connectDatabase();
+                //procedure que atualiza as enquetes
+                $sql = "call sp_update_enquete(?,?,?,?,?)";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $enquete->getPergunta());
+                $stm->bindValue(2, $enquete->getData());
+                $stm->bindValue(3, $enquete->getResposta()[$i]);
+                $stm->bindValue(4, $i);
+                $stm->bindValue(5, $enquete->getId());
+                $success = $stm->execute();
+            }
             $this->conex->closeDataBase();
             if($success){
                 echo "Atualizado com sucesso!";
