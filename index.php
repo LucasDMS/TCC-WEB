@@ -96,16 +96,16 @@
 			<div class="enquete">
 				<div class="enquete_container">
 
+					<!-- select de pergunta -->
 					<?php
-						$sql = "select * from tbl_texto_principal where  tipo_texto =  'Enquete'";
+						$sql = "select * from tbl_enquete";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
 						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
 					?>
 
-					<h3><?php echo ($result['titulo']) ?></h3>
-					<p><?php echo ($result['texto']) ?></p>
-
+					<h3>Enquete</h3>
+					<p><?php echo ($result['pergunta']) ?></p> <!--Pergunta da enquete-->
 
 					<?php
 				        }
@@ -114,30 +114,24 @@
 					<form action="" method="post">
                         
           	             <?php		
-							$sql = "select * from tbl_enquete where status = 1 and apagado = 0";
+							$sql = "select tbl_resposta.respostas, tbl_resposta.id_resposta  FROM tbl_resposta, tbl_enquete_resposta WHERE tbl_enquete_resposta.id_enquete = 1 and tbl_enquete_resposta.id_resposta = tbl_resposta.id_resposta;";
 							$stm = $con->prepare($sql);
 							$success = $stm->execute();
 							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-
-							$sql2 = "select tbl_resposta.respostas, tbl_resposta.id_resposta  FROM tbl_resposta, tbl_enquete_resposta WHERE tbl_enquete_resposta.id_enquete = 35 and tbl_enquete_resposta.id_resposta = tbl_resposta.id_resposta;";
-							$stm2 = $con->prepare($sql);
-							$success2 = $stm2->execute();
-							foreach ($stm2->fetchAll(PDO::FETCH_ASSOC) as $result2){	
                         ?>
 
 						<ul>
 							<li>
-								<input type="checkbox" name="ckb" id="ckb">
-								<label for="ckb"><?php echo ($result2['respostas']) ?>dol</label>
+								<input type="radio" name="ckb" id="ckb">
+								<label for="ckb"><?php echo ($result['respostas']) ?></label><br>
+								
 							</li>
 							
 						</ul>
                         
                         <?php
-						  }}
+						  }
 					    ?>
-                        
-
 						<button class="btn" type="submit">
 							VOTAR
 						</button>
