@@ -101,8 +101,8 @@ class ProdutoDAO{
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $produto->getId()); 
             $stm->execute();
+            
             //Insert na materia prima
-            echo $produto->getId();
             foreach($materiaPrima->getId() as $result){
                 $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
                 $stm = $conn->prepare($sql);

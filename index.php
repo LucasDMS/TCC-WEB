@@ -25,7 +25,15 @@
 <body>
 
 	<?php
-		session_start();
+
+
+		if(isset($_GET["modo"])){
+			if($_GET["modo"]=="logout"){
+				session_destroy();
+				header("location: index.php");
+			}
+		}
+			
 		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");

@@ -180,7 +180,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         <label from="txtSodio">Sódio</label>
         <input type="number" name="txtSodio" id="txtSodio" value="<?php echo $sodio ?>" required>
     </div>
-    <div class="tituloTabelaNutricional">
+    <div class="titulosform">
         <label>Setores</label><br>
     </div>
     <div class="container">
@@ -230,7 +230,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
             }
          ?>
     </div>
-    <div class="tituloTabelaNutricional">
+    <div class="titulosform">
         <label>Matérias primas</label><br>
     </div>
     
@@ -259,7 +259,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
             
         <?php } ?>
     </div>
-    <div class="tituloTabelaNutricional">
+    
+    <div class="titulosform">
         <label>Embalagem</label><br>
     </div>
     <div class="container">

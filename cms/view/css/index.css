@@ -259,7 +259,7 @@ footer {
 	resize: none;
 }
 
-.inputDados textarea, .inputDados input {
+.inputDados textarea, .inputDados input{
 	outline: none;
 	border: 1px solid #09a552;
 	padding: 10px;
@@ -314,7 +314,7 @@ footer {
 	overflow: hidden;
 	overflow-y: auto;
 }
-.tituloTabelaNutricional{
+.titulosform{
 	font-size: 25px;
 	color: #f8ae83;
 	margin-top: 30px;

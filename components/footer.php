@@ -1,5 +1,5 @@
 <!-- FOOTER -->
-<footer>
+<footer class="cor_fundo_6 cor_letra_4">
     <div class="footer_principal">
         <div class="footer_container">
 
@@ -34,7 +34,7 @@
         </div>
 
     </div>
-    <div class="footer_secundario">
+    <div class="footer_secundario cor_fundo_7">
         <p>
             Desenvolvido com
             <i class="fas fa-heart ic_coracao"></i>

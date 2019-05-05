@@ -10,15 +10,10 @@ class conexaoMysql {
 	public function __construct() {
 
 
-<<<<<<< HEAD
-		// $this->server = "localhost";
-		// $this->user = "root";
-		$this->server = "10.107.144.20";
-		$this->user = "teste";
-=======
 		$this->server = "localhost";
 		$this->user = "root";
->>>>>>> d5a9c9a8f97b7af1eee5b682404714aedda2d5bb
+		// $this->server = "10.107.144.20";
+		// $this->user = "teste";
 		$this->password = "bcd127";
 		$this->database = "db_pop_soda_drink";
 	}

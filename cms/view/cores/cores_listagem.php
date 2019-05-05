@@ -9,10 +9,6 @@ $rs = $controller->buscarCores();
 
 <div class="pagina_titulo">
     Cores do Site
-    
-    <button class="menu_novo" type="menu" onclick="chamarViewParaModal('cores')">
-        <i class="fas fa-plus"></i>
-    </button>
 </div>
 
 
@@ -25,7 +21,7 @@ $rs = $controller->buscarCores();
                <?php echo $result->getCores(); ?> 
             </div>
             <div> 
-                Tipo cores :
+                Cor do 
                 <?php echo $result->getTipoCores(); ?>
             </div>
             

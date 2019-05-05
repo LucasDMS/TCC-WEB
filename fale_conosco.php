@@ -124,16 +124,15 @@
 
 				<label for="txtCelular">Celular:</label>
 				<input type="text" name="txtCelular" id="txtCelular" placeholder="Celular" maxlength="14" title="Exemplo:(11) 91234-5678" onkeypress="return Validar(event,'caracter', this.id);">
+				
+				<label for="txtCEP">CEP:</label>
+				<input type="text" name="txtCEP" id="txtCEP" placeholder="CEP" maxlength="14" title="Exemplo: 06626-050" onkeypress="return Validar(event,'caracter', this.id);">
+				
+				<label for="txtEstado">Estado:</label>
+				<input type="text" name="txtEstado" id="txtEstado" placeholder="Estado" maxlength="14" onkeypress="return Validar(event,'number', this.id);">
 
-				<label for="cbm_estado">Estado: </label>
-				<select name="cbm_estado" id="cbm_estado" class="">
-					<option value="0">Selecione seu estado</option>
-				</select>
-
-				<label for="cmb_cidade">Cidade:</label>
-				<select name="cmb_cidade" id="cmb_cidade" class="">
-					<option value="0">Selecione sua cidade</option>
-				</select>
+				<label for="txtCidade">Cidade:</label>
+				<input type="text" name="txtCidade" id="txtCidade" placeholder="Cidade" maxlength="14" onkeypress="return Validar(event,'number', this.id);">
 
 				<label for="txtTexto">Comentário:</label>
 				<textarea name="txtTexto" id="txt_comentario" placeholder="Comentário" class=""></textarea>
@@ -159,5 +158,21 @@
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
 </body>
+<script>
 
+
+$('#txtCEP').on("blur", function(){
+
+    const value = $('#txtCEP').val()
+    const url = "https://viacep.com.br/ws/" + value + "/json/"
+
+    $.ajax({ url }).done(function(resposta){
+        $('#txtCidade').val(resposta.localidade)
+        $('#txtEstado').val(resposta.uf)
+    })
+})
+
+    
+
+</script>
 </html>
