@@ -137,7 +137,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
     
     <input type="file" name="img" id="img"/>
     
-    <div class="tituloTabelaNutricional">
+    <div class="titulosform">
         <label>Tabela Nutricional</label>
     </div>
 
