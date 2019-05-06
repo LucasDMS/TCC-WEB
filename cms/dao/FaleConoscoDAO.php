@@ -20,6 +20,7 @@ class FaleConoscoDAO {
         $stm->bindValue(8, "0");
         $stm->execute();
         $this->conex->closeDataBase();
+        echo "Enviado, obrigado por opinar.";
     }
 
     public function updateAtivo(FaleConosco $faleConosco) {

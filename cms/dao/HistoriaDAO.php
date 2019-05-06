@@ -16,6 +16,7 @@ class HistoriaDAO {
         $stm->bindValue(4, $historia->getApagado());
         $stm->execute();
         $this->conex->closeDataBase();
+        echo "Cadastrado com Sucesso";
     }
     public function update(Historia $historia) {
         $conn = $this->conex->connectDatabase();
@@ -40,6 +41,7 @@ class HistoriaDAO {
         $stm->bindValue(2, $historia->getId());
         $stm->execute();
         $this->conex->closeDataBase();
+        echo "Atualizado com Sucesso";
     }
     public function delete($id) {
         $conn = $this->conex->connectDatabase();

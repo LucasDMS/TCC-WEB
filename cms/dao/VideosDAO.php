@@ -55,7 +55,7 @@ class VideosDAO{
         $sucess = $stm->execute();
         
         if($sucess){
-            echo $sucess;
+            echo "Cadastrado com Sucesso";
             return "Sucesso";
         }else{
             echo $sucess;
@@ -94,7 +94,7 @@ class VideosDAO{
         echo $success;
         $this->conex->closeDataBase();
         if($success){
-            echo $success;
+            echo "Atualizado com Sucesso";
             return "Sucesso";
         }else{
             echo $success;

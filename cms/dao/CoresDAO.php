@@ -17,7 +17,7 @@ class CoresDAO{
         $sucess = $stm->execute();
         $this->conex->closeDataBase();
         if ($sucess) {
-            echo $sucess;
+            echo "Cadastrado com Sucesso";
             return "Sucesso";
         } else {
             echo "$sucess";

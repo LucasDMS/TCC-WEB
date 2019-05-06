@@ -33,7 +33,7 @@ class PromocaoDAO{
 
         $this->conex->closeDataBase();
         if ($success) {
-            // echo $success;
+            echo "Cadastrado com Sucesso";
             return "Sucesso";
         } else {
             // echo $success;
@@ -69,7 +69,7 @@ class PromocaoDAO{
         print_r($stm->errorInfo());
         $this->conex->closeDataBase();
         if ($success) {
-            echo $success;
+            echo "Atualizado com Sucesso";
             return "Sucesso";
         } else {
             echo $success;
