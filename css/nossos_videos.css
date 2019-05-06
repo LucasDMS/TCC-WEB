@@ -1,0 +1,71 @@
+.nossos_videos{
+    padding: 55px 0;
+}
+
+.video_novo{
+    background-color: #212529;
+    padding: 50px;
+    color: #fff;
+    margin: 45px auto;
+}
+
+.video_novo iframe{
+    display: block;
+    margin: 15px auto;
+    max-width:640px;
+    min-height: 380px;
+    height: auto;
+}
+
+.video_novo h3{
+    font-size: 30px;
+    margin: 30px 0;
+}
+
+.video_info{
+    max-width: 640px;
+    margin: auto
+}
+
+
+.mais_videos h3{
+    padding: 25px;
+}
+
+.mais_videos_container{
+    max-width: 1200px;
+    margin: auto;
+    overflow: scroll hidden;
+}
+
+.videos_lista{
+    width: 2200px;
+}
+
+.videos_lista li{
+    display: inline-block;
+    min-height: 350px;
+    width: 400px;
+    background-color: #78d649;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    float: left;
+}
+
+.videos_lista li:hover{
+    cursor: pointer;
+}
+
+.videos_lista img{
+    display: block;
+    margin: 15px auto;
+    height: 250px;
+    width: 350px;
+    border-radius: 5px;
+}
+
+.videos_lista h4{
+    text-align: center;
+    font-size: 30px;
+}

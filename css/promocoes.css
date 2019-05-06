@@ -1,0 +1,42 @@
+.section_conteudo_center{
+    text-align: center;
+}
+
+.titulo_promo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.titulo_promo i{
+    padding: 0 10px;
+    color: goldenrod;
+    border-bottom: 2px solid goldenrod;
+}
+
+.titulo_promo h3{
+    border-bottom: 2px solid goldenrod;
+    font-family: Divinne;
+}
+
+.section_conteudo_center img{
+    max-width: 80%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.section_conteudo_center p{
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 25px;
+    text-align: justify;
+    background-color: #deffed;
+    border-radius: 5px;
+}
+
+.section_conteudo_center button{
+    background-color: #fff;
+    color: #15a64f;
+}
