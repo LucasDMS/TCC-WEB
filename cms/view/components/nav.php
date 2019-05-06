@@ -194,24 +194,6 @@
                             </div>
                         </li>
                         <?php } 
-                            if($IdMenu[$i]==19) {
-                        ?>
-                        <li onclick="chamarViewParaApp('setores')">
-                            <div>
-                                <i class="fas fa-wrench"></i>
-                                Setores
-                            </div>
-                        </li>
-                        <?php } 
-                            if($IdMenu[$i]==20) {
-                        ?>
-                        <li onclick="chamarViewParaApp('materia_prima')">
-                            <div>
-                                <i class="fas fa-wrench"></i>
-                                Matéria Prima
-                            </div>
-                        </li>
-                        <?php } 
                             if($IdMenu[$i]==21) {
                         ?>
                         <li onclick="chamarViewParaApp('cores')">
@@ -234,7 +216,7 @@
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
                 <div>
                     <i class="fas fa-cog"></i>
-                    Funcionarios
+                    Outras Administrações
                 </div>
                 <i class="fas fa-angle-right seta" id="seta_2"></i>
             </div>
@@ -245,6 +227,18 @@
                         <div>
                             <i class="fas fa-wrench"></i>
                             Cadastro de Funcionario
+                        </div>
+                    </li>
+                    <li onclick="chamarViewParaApp('setores')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Setores
+                        </div>
+                    </li>
+                    <li onclick="chamarViewParaApp('materia_prima')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Matéria Prima
                         </div>
                     </li>
                 </ul>
