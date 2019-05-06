@@ -76,7 +76,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar Enquete" : $paginaTitulo = "No
             </a>
             <a href='#' onclick='nova_input()'>
                 <img src='view/imagem/novo.png'>
-                <label>Nova Resposta</label>
+                Nova Resposta<br><br>
             </a>
             
             

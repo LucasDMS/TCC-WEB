@@ -133,7 +133,7 @@
 					
 					<!-- select de pergunta -->
 					<?php
-						$sql = "select * from tbl_enquete";
+						$sql = "select * from tbl_enquete where status=1";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
 						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){

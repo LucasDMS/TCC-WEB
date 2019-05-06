@@ -40,10 +40,6 @@
                 <?php echo $result->getTipoMateria(); ?>
             </div>
             <div>
-                <strong>Quantidade :</strong> 
-                <?php echo $result->getQuantidade(); ?>
-            </div>
-            <div>
                 <strong>Validade :</strong> 
                 <?php echo $result->getDataValidade(); ?>
             </div>

@@ -33,7 +33,7 @@
 
             $this->conex->closeDataBase();
             if($sucess){
-                echo $sucess;
+                echo "Cadastrado com Sucesso";
                 return "Sucesso";
             }else{
                 echo $sucess;
@@ -56,7 +56,7 @@
             echo $success;
             $this->conex->closeDataBase();
             if($success){
-                echo $success;
+                echo "Atualizado com Sucesso";
                 return "Sucesso";
             }else{
                 echo $success;
