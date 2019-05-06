@@ -40,7 +40,7 @@
                 data: {nome},
                 url: "estabelecimentos_parceiros.php",
                 success: function(data) {
-                    $('main').html(data)
+                    $('body').html(data)
                 }
             })            
         }   
@@ -123,7 +123,6 @@
                         }
 			            $stm = $con->prepare($sql);
 			            $success = $stm->execute();
-                        $i = 2;
 			            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
                             if($nome == $result['nome_fantasia'] || $nome == $result['nome_fantasia']){
                     ?> 
