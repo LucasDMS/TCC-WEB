@@ -21,7 +21,10 @@
     $id = $PerguntaSelect->getId();
     $pergunta = $PerguntaSelect->getPergunta();
     $data = $PerguntaSelect->getData();
- }
+}
+
+$modo == "atualizar" ? $paginaTitulo = "Atualizar Enquete" : $paginaTitulo = "Nova Enquete";
+
 
 ?>
 
@@ -37,36 +40,42 @@
         data-modo="<?php echo $modo; ?>"
         data-pagina="enquete">
 
-        <h2>Enquete</h2>
+    <h2><?php echo $paginaTitulo?></h2>
 
     <div class="inputDados">
+        <label from="date">Data</label>
         <input type="date" name="date" id="date" value="<?php echo $data;?>" required><br>
     </div>
     <div class="inputDados">
-        <input type="text" name="txt_pergunta" id="txt_pergunta" placeholder="Pergunta" value="<?php echo $pergunta;?>" required><br>
+        <label from="txt_pergunta">Pergunta</label>
+        <input type="text" name="txt_pergunta" id="txt_pergunta" value="<?php echo $pergunta;?>" required><br>
     </div>
     <?php 
         if($modo == "atualizar"){
             foreach($Enquete as $result){      
             echo("
                 <div class='inputDados'>
-                    <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' value='".$result->getResposta()."'; required><br>
+                    <label from='txt_resposta'>Respostas</label>
+                    <input type='text' name='txt_resposta[]' id='txt_resposta' value='".$result->getResposta()."'; required><br>
                 </div>
                 "); 
             }
         }else{
             echo("
             <div class='inputDados'>
-                <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' required><br>
+                <label from='txt_resposta'>Respostas</label>
+                <input type='text' name='txt_resposta[]' id='txt_resposta' required><br>
             </div>
             <div class='inputDados'>
-                <input type='text' name='txt_resposta[]' id='txt_resposta' placeholder='Resposta' required><br>
+                <label from='txt_resposta'>Respostas</label>
+                <input type='text' name='txt_resposta[]' id='txt_resposta' required><br>
             </div>
             <?php var_dump($resposta);?>
             <a id='novo'><!-- descarrega uma nova resposta -->
                 
             </a>
             <a href='#' onclick='nova_input()'>
+                <img src='view/imagem/novo.png'>
                 <label>Nova Resposta</label>
             </a>
             
@@ -77,8 +86,14 @@
 
     
     
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
 
 </form>

@@ -144,7 +144,23 @@ function mostrarChat(ativo){
         $(".chat_container").fadeIn(200)
     }
 }
-
+function asyncSubmit(event, element) {
+    event.preventDefault();
+    var url = element.getAttribute("action");
+    var pagina = element.getAttribute("data-pagina");
+    var formdata = new FormData(element);
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formdata,
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function (html) {
+        window.location.reload();
+    });
+}
 function request(event, element){
     event.preventDefault();
 

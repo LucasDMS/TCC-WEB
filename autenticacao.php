@@ -25,7 +25,7 @@ if ( isset($_SESSION['logado']) ) {
 			header("Location: empresa/index.php");
 			break;
 		case "EMPRESAROOT":
-		header("Location: empresa/index.php");
+			header("Location: empresa/index.php");
 		break;
 		default:
 			echo "INVALIDO";

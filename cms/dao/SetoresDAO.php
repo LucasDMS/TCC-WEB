@@ -152,12 +152,20 @@
         }
 
         public function update(Setores $setores){
-            $conn = $this->conex->connectDatabase();
-            $sql = "UPDATE tbl_setores SET rua=? where id_setores=?";
-            $stm = $conn->prepare($sql);
-            $stm->bindValue(1, $setores->getRua());
-            $stm->bindValue(2, $setores->getId());
-            $success = $stm->execute();
+              
+            //for para atualizar todas as pratileiras e todos os setores
+            for($i = 0; $i<count($setores->getPrateleira()); $i++){
+                $conn = $this->conex->connectDatabase();
+                $sql = "call sp_update_setores(?,?,?,?,?)";
+                $stm = $conn->prepare($sql);
+                $stm->bindValue(1, $setores->getPrateleira()[$i]);
+                $stm->bindValue(2, $setores->getCapacidade()[$i]);
+                $stm->bindValue(3, $setores->getRua());
+                $stm->bindValue(4, $i);
+                $stm->bindValue(5, $setores->getId());
+                $success = $stm->execute();
+            }
+
             $this->conex->closeDataBase();
             if($success){
                 echo "Atualizado com sucesso!";

@@ -8,7 +8,7 @@ class FaleConoscoDAO {
     }
     public function insert(FaleConosco $faleConosco) {
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_fale_conosco(nome,email,telefone,celular,estado,cidade,texto_faleconosco,data,status) values(?,?,?,?,?,?,?,?,?);";
+        $sql = "insert into tbl_fale_conosco(nome,email,telefone,celular,estado,cidade,texto_faleconosco,status) values(?,?,?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $faleConosco->getNome());        
         $stm->bindValue(2, $faleConosco->getEmail());
@@ -17,8 +17,7 @@ class FaleConoscoDAO {
         $stm->bindValue(5, $faleConosco->getEstado());        
         $stm->bindValue(6, $faleConosco->getCidade());
         $stm->bindValue(7, $faleConosco->getTexto());
-        $stm->bindValue(8, $faleConosco->getData());
-        $stm->bindValue(9, "0");
+        $stm->bindValue(8, "0");
         $stm->execute();
         $this->conex->closeDataBase();
     }

@@ -25,11 +25,20 @@
 <body>
 
 	<?php
-		session_start();
+
+
+		if(isset($_GET["modo"])){
+			if($_GET["modo"]=="logout"){
+				session_destroy();
+				header("location: index.php");
+			}
+		}
+			
 		require_once('cms/db/ConexaoMysql.php');
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerNewsLetter.php");
 
 		$conex = new conexaoMysql();
 
@@ -94,27 +103,51 @@
 			</section>
 
 			<div class="enquete">
-				<div class="enquete_container">
+				<?php
+					$cont = 0;
+					if(isset($_POST['btnEnquete'])){
+						$cont++;
+						$id = $_POST['ckbEnquete'];
+						
+						$sql = "Select tbl_enquete_resposta.votos from tbl_enquete_resposta WHERE id_resposta=?";
+						$stm = $con->prepare($sql);
+						$stm->bindValue(1, $id);
+						$stm->execute();
+						$sucess = $stm->fetch();
+						$votos = $sucess['votos'];
+						$votos++;
 
+						$sql2 = "UPDATE tbl_enquete_resposta SET votos = ? WHERE id_resposta = ?";
+						$stm2 = $con->prepare($sql2);
+						$stm2->bindValue(1, $votos);
+						$stm2->bindValue(2, $id);
+						$stm2->execute();
+
+					}
+
+					
+				?>
+
+				<div class="enquete_container">
+					<h3>Enquete</h3><!--Titulo da enquete-->
+					
+					<!-- select de pergunta -->
 					<?php
-						$sql = "select * from tbl_texto_principal where  tipo_texto =  'Enquete'";
+						$sql = "select * from tbl_enquete";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
 						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
+							$idE[] = $result['id_enquete'];
+							$enqueteP[] = $result['pergunta'];
+						}
 					?>
-
-					<h3><?php echo ($result['titulo']) ?></h3>
-					<p><?php echo ($result['texto']) ?></p>
-
-
-					<?php
-				        }
-				    ?>
-
-					<form action="" method="post">
+					
+					<p><?php echo ($enqueteP[$cont]);?></p> <!--Pergunta da enquete-->
+					
+					<form action="index.php" method="post">
                         
           	             <?php		
-							$sql = "select * from tbl_enquete where  status = 1";
+							$sql = "select tbl_resposta.respostas, tbl_resposta.id_resposta FROM tbl_resposta, tbl_enquete_resposta WHERE tbl_enquete_resposta.id_enquete =".$idE[$cont]." and tbl_enquete_resposta.id_resposta = tbl_resposta.id_resposta;";
 							$stm = $con->prepare($sql);
 							$success = $stm->execute();
 							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -122,38 +155,21 @@
 
 						<ul>
 							<li>
-								<input type="checkbox" name="ckb" id="ckb">
-								<label for="ckb"><?php echo ($result['pergunta']) ?>dol</label>
+								<input type="radio" name="ckbEnquete" id="ckbEnquete" value="<?php echo ($result['id_resposta']) ?>" required/>
+								<label for="ckbEnquete"><?php echo ($result['respostas']) ?></label><br>
+								
 							</li>
-							<li>
-								<input type="checkbox" name="ckb2" id="ckb2">
-								<label for="ckb2"><?php echo ($result['pergunta']) ?>dol</label>
-							</li>
-							<li>
-								<input type="checkbox" name="ckb3" id="ckb3">
-								<label for="ckb3"><?php echo ($result['pergunta']) ?>dol</label>
-							</li>
-							<li>
-								<input type="checkbox" name="ckb4" id="ckb4">
-								<label for="ckb4"><?php echo ($result['pergunta']) ?> dol</label>
-							</li>
-							<li>
-								<input type="checkbox" name="ckb5" id="ckb5">
-								<label for="ckb5"><?php echo ($result['pergunta']) ?> dol</label>
-							</li>
+							
 						</ul>
                         
                         <?php
-						  }
+							}
 					    ?>
-                        
-
-						<button class="btn" type="submit">
+						<button class="btn" type="submit" name="btnEnquete">
 							VOTAR
 						</button>
 
 					</form>
-
 				</div>
 			</div>
 
@@ -162,8 +178,17 @@
 					<p>
 						Recebe a nossa news-letter com todas as novidades da POP's
 					</p>
-					<form action="">
-						<input type="text" placeholder="Digite seu email aqui">
+					<form
+					onsubmit="asyncSubmit(event, this)"
+					name="frm_news_letter"
+					action="cms/router.php?controller=news_letter&modo=inserir" 
+					method="post"
+					autocomplete="off"
+					id="news_letter"
+					enctype='multipart/form-data' 
+					class="form_padrao"
+					data-pagina="news_letter">
+						<input type="text" placeholder="Digite seu email aqui" name="txtNewsLetter" id="txtNewsLetter">
 						<button class="btn" type="submit">
 							<i class="fas fa-paper-plane"></i>
 						</button>
@@ -260,6 +285,7 @@
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
+	<script src="js/enquete.js"></script>
 </body>
 
 </html>

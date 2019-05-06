@@ -38,11 +38,10 @@ class ControllerProduto{
             $ordem   = 1;
             $ativo   = 1;
             $apagado = 0;
+
             $materia = $_POST['materiaprima'];
             $selectEmbalagem = $_POST['selectEmbalagem'];
-            
             $prateleira = $_POST['prateleira'];
-
            
             $Produto = new Produto(); 
             $Produto->setNome($nome);
@@ -70,7 +69,7 @@ class ControllerProduto{
 
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
-
+            
             $Embalagem = new MateriaPrima();
             $Embalagem->setId($selectEmbalagem);
             
@@ -105,6 +104,7 @@ class ControllerProduto{
 
             $prateleira = $_POST['prateleira'];
             $materia = $_POST['materiaprima'];
+            
             $selectEmbalagem = $_POST['selectEmbalagem'];
             $Produto = new Produto(); 
             $Produto->setId($id);
@@ -116,6 +116,7 @@ class ControllerProduto{
             $Produto->setPreco($preco);
             $Produto->setIpi($ipi);
             $Produto->setImagem($imagem);
+            
             $Nutricional = new Nutricional();
             $Nutricional->setId($idNutricional);
             $Nutricional->setValorCalorico($valorCalorico);
@@ -127,11 +128,8 @@ class ControllerProduto{
             $Nutricional->setFibrasAlimentar($fibras);
             $Nutricional->setSodio($sodio);
 
-
-
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($materia);
-
             $Embalagem = new MateriaPrima();
             $Embalagem->setId($selectEmbalagem);
 
