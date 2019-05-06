@@ -73,7 +73,7 @@
                 </a>
                 <a href='#' onclick='nova_input_setores()'>
                     <img src='view/imagem/novo.png'>
-                    <label>Nova Pateleira</label><br><br>
+                    Nova Pateleira<br><br>
                 </a>
             ");
         }
