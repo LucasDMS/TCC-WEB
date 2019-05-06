@@ -31,21 +31,21 @@ $Controller = new ControllerProduto();
 $ControllerSetor = new ControllerSetor();
 $ControllerMateria = new ControllerMateriaPrima();
 $ControllerPrateleira = new ControllerPrateleira();
+
 $action = "router.php?controller=produto&modo=inserir";
 $modo = "inserir";
 $id = "";
 $idNutricional = "";
 $Setores = $ControllerSetor->buscarSetor();
-$MateriasPrimas = $ControllerMateria->buscarMateriaPrima();
-$Embalagem = $ControllerMateria->buscarEmbalagem();
+$MateriasPrimas = $ControllerMateria->listarMateriaPrima();
+$Embalagem = $ControllerMateria->listarEmbalagem();
 $Prateleiras = $ControllerPrateleira->buscarPrateleira();
-
 if(isset($_GET['id']) && isset($_GET['idNutricional'])){
     $id = $_GET['id'];
     $idNutricional = $_GET['idNutricional'];
     $produto = $Controller->buscarProdutoPorId($id);
     $nutricional = $Controller->buscarNutricionalPorId($id);
-    $MateriaPrima = $ControllerMateria->buscarMateriaPrimaPorId($id);
+    $MateriaPrima = $ControllerMateria->buscarProdutoMateriaPrimaPorId($id);
     $Setor =  $ControllerSetor->buscarSetorPorId($id);
 
     $action = "router.php?controller=produto&modo=atualizar";
@@ -78,7 +78,7 @@ if(isset($_GET['id']) && isset($_GET['idNutricional'])){
         }
         
     }
-    
+
 
 }
 
@@ -180,7 +180,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
         <label from="txtSodio">Sódio</label>
         <input type="number" name="txtSodio" id="txtSodio" value="<?php echo $sodio ?>" required>
     </div>
-    <div class="tituloTabelaNutricional">
+    <div class="titulosform">
         <label>Setores</label><br>
     </div>
     <div class="container">
@@ -212,14 +212,14 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
                         if($result->getId() == $result4->getIdSetores()){
                     ?>
                         <label>Prateleira</label>
-                        <input type="checkbox" <?php echo $checked ?> 
-                        value="<?php echo $result4->getId()?>" 
-                        name="prateleira[]"
-                        id="<?php  echo $result4->getId();?>">
-                        <label  for="<?php echo $result4->getId();s ?>">
-                            <?php echo $result4->getPrateleira();
-                            ?>
-                        </label><br>
+                            <input type="checkbox" <?php echo $checked ?> 
+                            value="<?php echo $result4->getId()?>" 
+                            name="prateleira[]"
+                            id="<?php  echo $result4->getId();?>">
+                        <label for="<?php echo $result4->getId();s ?>">
+                                <?php echo $result4->getPrateleira();
+                                ?>
+                            </label><br>
                         <label from="txtQuantidade">Quantidade</label>
                         <input type="number" name="txtQuantidade" id="txtQuantidade" disabled value="<?php echo $quantidade; ?>"><br>
                         <?php }
@@ -230,7 +230,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
             }
          ?>
     </div>
-    <div class="tituloTabelaNutricional">
+    <div class="titulosform">
         <label>Matérias primas</label><br>
     </div>
     
@@ -250,8 +250,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
             <input  type="checkbox" <?php echo $checked ?> 
                     value="<?php echo $result2->getId() ?>" 
                     name="materiaprima[]"
-                    id="<?php echo 'm'.$result2->getId()?>"
-            />
+                    id="<?php echo 'm'.$result2->getId()?>"/>
+            
 
             <label  for="<?php echo 'm'.$result2->getId()?>">
                 <?php echo $result2->getNome() ?>
@@ -259,7 +259,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
             
         <?php } ?>
     </div>
-    <div class="tituloTabelaNutricional">
+    
+    <div class="titulosform">
         <label>Embalagem</label><br>
     </div>
     <div class="container">

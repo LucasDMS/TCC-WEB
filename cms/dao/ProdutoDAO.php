@@ -51,7 +51,6 @@ class ProdutoDAO{
             $stm->execute();
 
         }
-        
         //Insert nos MateriaPrima
         foreach($materiaPrima->getId() as $result){
             $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
@@ -102,6 +101,7 @@ class ProdutoDAO{
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $produto->getId()); 
             $stm->execute();
+            
             //Insert na materia prima
             foreach($materiaPrima->getId() as $result){
                 $sql = "insert into tbl_produto_materia_prima(id_materia_prima,id_produto) values(?,?);";
@@ -185,7 +185,7 @@ class ProdutoDAO{
              $stm->bindValue(1, $produto->getId()); 
              $stm->execute();
              //Insert nos Setores
-             foreach($prateleira->getId() as $result ){
+             foreach($prateleira->getId() as $result){
                  $sql = "insert into tbl_produto_prateleira(id_prateleira,id_produto) values(?,?);";
                  $stm = $conn->prepare($sql);
                  $stm->bindValue(1, $result);        

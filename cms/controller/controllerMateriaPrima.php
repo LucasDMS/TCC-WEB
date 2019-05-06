@@ -21,6 +21,8 @@ class ControllerMateriaPrima{
 
     public function __construct(){
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MateriaPrima.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Prateleira.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/ProdutoMateriaPrima.php"); 
         require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms". "/dao/MateriaPrimaDAO.php");
         $this->MateriaPrimaDAO = new MateriaPrimaDAO();
         
@@ -31,17 +33,17 @@ class ControllerMateriaPrima{
             $nome = $_POST['txt_nome'];
             $descricao = $_POST['txt_descricao'];
             $validade = $_POST['txt_date'];
-            $quantidade = $_POST['txt_quantidade'];
             $tipoMateria = $_POST['txt_tipo_materia'];
-
+            $prateleira = $_POST['prateleira'];
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setNome($nome);
             $MateriaPrima->setDescricao($descricao);
             $MateriaPrima->setDataValidade($validade);
-            $MateriaPrima->setQuantidade($quantidade);
             $MateriaPrima->setTipoMateria($tipoMateria);
 
-            $this->MateriaPrimaDAO->inserir($MateriaPrima);
+            $Prateleira = new Prateleira();
+            $Prateleira->setId($prateleira);
+            $this->MateriaPrimaDAO->inserir($MateriaPrima, $Prateleira);
         }
     }
 
@@ -51,18 +53,18 @@ class ControllerMateriaPrima{
             $nome = $_POST['txt_nome'];
             $descricao = $_POST['txt_descricao'];
             $validade = $_POST['txt_date'];
-            $quantidade = $_POST['txt_quantidade'];
             $tipoMateria = $_POST['txt_tipo_materia'];
-
+            $prateleira = $_POST['prateleira'];
             $MateriaPrima = new MateriaPrima();
             $MateriaPrima->setId($id);
             $MateriaPrima->setNome($nome);
             $MateriaPrima->setDescricao($descricao);
             $MateriaPrima->setDataValidade($validade);
-            $MateriaPrima->setQuantidade($quantidade);
             $MateriaPrima->setTipoMateria($tipoMateria);
+            $Prateleira = new Prateleira();
+            $Prateleira->setId($prateleira);
 
-            $this->MateriaPrimaDAO->update($MateriaPrima);
+            $this->MateriaPrimaDAO->update($MateriaPrima, $Prateleira);
         }
     }
 
@@ -75,11 +77,19 @@ class ControllerMateriaPrima{
         $id = $_GET['id'];
         return $this->MateriaPrimaDAO->selectById($id);
     }
+            
+    public function buscarProdutoMateriaPrimaPorId(){
+        $id = $_GET['id'];
+        return $this->MateriaPrimaDAO->selectByIdProduto($id);
+    }
 
     public function listarMateriaPrima(){
         return $this->MateriaPrimaDAO->selectAll();
     }
 
+    public function listarEmbalagem(){
+        return $this->MateriaPrimaDAO->selectAllEmbalagem();
+    }
 }
 
 ?>

@@ -30,6 +30,7 @@
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerFaleConosco.php");
 		
 		$conex = new conexaoMysql();
 		$con = $conex->connectDatabase();
@@ -100,38 +101,47 @@
                     }
             </script>
             
-			<form class="form_fale_conosco" name="frm_fale_conosco" action="../index.php" method="POST">
-				<label for="txt_nome">Nome:</label>
-				<input type="text" name="txt_nome" id="txt_nome" placeholder="Nome" title="Nome Completo" onkeypress="return Validar(event, 'number',this.id);">
+			<form 
+				onsubmit="asyncSubmit(event, this)"
+				class="form_fale_conosco" name="frm_fale_conosco"
+				action="cms/router.php?controller=fale_conosco&modo=inserir" 
+				method="post"
+				autocomplete="off"
+				id="fale_conosco"
+				enctype='multipart/form-data' 
+				class="form_padrao"
+				data-pagina="fale_conosco">
 
-				<label for="txt_email">E-mail:</label>
-				<input type="email" name="txt_email" id="txt_email" placeholder="E-mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Exemplo: exemplo.nada@email.com.br ou exemplo.nada@email.com">
+				<label for="txtNome">Nome:</label>
+				<input type="text" name="txtNome" id="txtNome" placeholder="Nome" title="Nome Completo" onkeypress="return Validar(event, 'number',this.id);">
 
-				<label for="txt_telefone">Telefone:</label>
-				<input type="text" name="txt_telefone" id="txt_telefone" placeholder="Telefone" maxlength="13" title="Exemplo:(11)1234-5678" onkeypress="return Validar(event,'caracter', this.id);">
+				<label for="txtEmail">E-mail:</label>
+				<input type="email" name="txtEmail" id="txtEmail" placeholder="E-mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Exemplo: exemplo.nada@email.com.br ou exemplo.nada@email.com">
+
+				<label for="txtTelefone">Telefone:</label>
+				<input type="text" name="txtTelefone" id="txtTelefone" placeholder="Telefone" maxlength="13" title="Exemplo:(11)1234-5678" onkeypress="return Validar(event,'caracter', this.id);">
 
 
-				<label for="txt_celular">Celular:</label>
-				<input type="text" name="txt_celular" id="txt_celular" placeholder="Celular" maxlength="14" title="Exemplo:(11) 91234-5678" onkeypress="return Validar(event,'caracter', this.id);">
+				<label for="txtCelular">Celular:</label>
+				<input type="text" name="txtCelular" id="txtCelular" placeholder="Celular" maxlength="14" title="Exemplo:(11) 91234-5678" onkeypress="return Validar(event,'caracter', this.id);">
+				
+				<label for="txtCEP">CEP:</label>
+				<input type="text" name="txtCEP" id="txtCEP" placeholder="CEP" maxlength="14" title="Exemplo: 06626-050" onkeypress="return Validar(event,'caracter', this.id);">
+				
+				<label for="txtEstado">Estado:</label>
+				<input type="text" name="txtEstado" id="txtEstado" placeholder="Estado" maxlength="14" onkeypress="return Validar(event,'number', this.id);">
 
-				<label for="cbm_estado">Estado: </label>
-				<select name="cbm_estado" id="cbm_estado" class="">
-					<option value="0">Selecione seu estado</option>
-				</select>
+				<label for="txtCidade">Cidade:</label>
+				<input type="text" name="txtCidade" id="txtCidade" placeholder="Cidade" maxlength="14" onkeypress="return Validar(event,'number', this.id);">
 
-				<label for="cmb_cidade">Cidade:</label>
-				<select name="cmb_cidade" id="cmb_cidade" class="">
-					<option value="0">Selecione sua cidade</option>
-				</select>
-
-				<label for="txt_comentario">Comentário:</label>
-				<textarea name="txt_comentario" id="txt_comentario" placeholder="Comentário" class=""></textarea>
+				<label for="txtTexto">Comentário:</label>
+				<textarea name="txtTexto" id="txt_comentario" placeholder="Comentário" class=""></textarea>
 
 				<div class="flex_center">
 
 					<input type="reset" name='btn_limpar' class="btn cor_fundo_4 cor_letra_5" value="Limpar">
-					<input type="submit" name='btn_salvar' class="btn cor_fundo_1 cor_letra_4" value="Salvar">
-
+					<input type="submit" name='btn_salvar' class="btn cor_fundo_1 cor_letra_4" value="Salvar" onclick="<?php header("Refresh: 0"); ?>">
+					
 				</div>
 			</form>
 		</section>
@@ -142,11 +152,26 @@
 
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php"); 
-
 	?>
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
 </body>
+<script>
 
+
+$('#txtCEP').on("blur", function(){
+
+    const value = $('#txtCEP').val()
+    const url = "https://viacep.com.br/ws/" + value + "/json/"
+
+    $.ajax({ url }).done(function(resposta){
+        $('#txtCidade').val(resposta.localidade)
+        $('#txtEstado').val(resposta.uf)
+    })
+})
+
+    
+
+</script>
 </html>

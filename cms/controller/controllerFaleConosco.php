@@ -18,8 +18,8 @@ class ControllerFaleConosco{
             
             $nome   = $_POST['txtNome'];
             $email  = $_POST['txtEmail'];
-            $celular  = $_POST['txtNome'];
-            $telefone  = $_POST['txtEmail'];
+            $celular  = $_POST['txtCelular'];
+            $telefone  = $_POST['txtTelefone'];
             $estado   = $_POST['txtNome'];
             $cidade  = $_POST['txtEmail'];
             $texto   = $_POST['txtTexto'];
