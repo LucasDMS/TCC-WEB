@@ -9,10 +9,10 @@ function img($item){
     $nome_arquivo = pathinfo($arquivo, PATHINFO_FILENAME);
     $nome_arquivo = md5(uniqid(time()).$nome_arquivo);
     $diretorio_arquivo = "arquivos/";
-    $arquivos_permitidos = array(".jpg", ".png", ".jpeg");
+    $arquivos_permitidos = array(".jpg", ".png", ".jpeg", ".PNG");
 
     if(in_array($ext_arquivo, $arquivos_permitidos)){
-        if($tamanho_arquivo<=2000){
+        if($tamanho_arquivo<=10000){
             $arquivo_tmp = $_FILES['img']['tmp_name'];
             $imagem = $diretorio_arquivo . $nome_arquivo . $ext_arquivo;
         }
