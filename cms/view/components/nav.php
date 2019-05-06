@@ -184,24 +184,36 @@
                                 Pops Escola
                             </div>
                         </li>
+                        <?php } 
+                            if($IdMenu[$i]==3) {
+                        ?>
                         <li onclick="chamarViewParaApp('enquete')">
                             <div>
                                 <i class="fas fa-wrench"></i>
                                 Enquete
                             </div>
                         </li>
+                        <?php } 
+                            if($IdMenu[$i]==19) {
+                        ?>
                         <li onclick="chamarViewParaApp('setores')">
                             <div>
                                 <i class="fas fa-wrench"></i>
                                 Setores
                             </div>
                         </li>
+                        <?php } 
+                            if($IdMenu[$i]==20) {
+                        ?>
                         <li onclick="chamarViewParaApp('materia_prima')">
                             <div>
                                 <i class="fas fa-wrench"></i>
-                                Materia Prima
+                                Matéria Prima
                             </div>
                         </li>
+                        <?php } 
+                            if($IdMenu[$i]==21) {
+                        ?>
                         <li onclick="chamarViewParaApp('cores')">
                             <div>
                                 <i class="fas fa-wrench"></i>
@@ -222,7 +234,7 @@
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
                 <div>
                     <i class="fas fa-cog"></i>
-                    Alguma Coisa
+                    Funcionarios
                 </div>
                 <i class="fas fa-angle-right seta" id="seta_2"></i>
             </div>
@@ -232,7 +244,7 @@
                     <li onclick="chamarViewParaApp('funcionario')">
                         <div>
                             <i class="fas fa-wrench"></i>
-                            Funcionario
+                            Cadastro de Funcionario
                         </div>
                     </li>
                 </ul>

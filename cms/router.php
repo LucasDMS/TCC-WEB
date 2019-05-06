@@ -208,6 +208,11 @@ if(isset($_GET['controller'])){
 
                     $ControllerPromocao->ativarPromocao();
                     break;
+
+                case 'PARTICIPAR':
+
+                    $ControllerPromocao->participar();
+                    break;
             }
             break;
             case 'PRODUTO':

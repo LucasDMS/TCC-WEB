@@ -364,6 +364,10 @@ footer {
 	justify-content: space-between;
 	overflow: auto;
 }
+.cores {
+	height: 50px;
+	width: 278px;
+}
 
 .card_imagem {
 	display: block;

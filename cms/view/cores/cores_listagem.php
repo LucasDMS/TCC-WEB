@@ -16,9 +16,7 @@ $rs = $controller->buscarCores();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-               Cores :
-               <?php echo $result->getCores(); ?> 
+            <div class="cores" style="background-color: <?php echo $result->getCores(); ?>;">
             </div>
             <div> 
                 Cor do 

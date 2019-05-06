@@ -10,11 +10,10 @@ class CoresDAO{
     }
     public function update(Cores $cores) {
         $conn = $this->conex->connectDatabase();
-        $sql = "UPDATE tbl_cores SET cores = ?, tipo_cores = ? WHERE id_cores=?;";
+        $sql = "UPDATE tbl_cores SET cores = ? WHERE id_cores=?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $cores->getCores());
-        $stm->bindValue(2, $cores->getTipoCores());
-        $stm->bindValue(3, $cores->getId());
+        $stm->bindValue(2, $cores->getId());
         $sucess = $stm->execute();
         $this->conex->closeDataBase();
         if ($sucess) {

@@ -152,7 +152,6 @@
 
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php"); 
-		header("Refresh: 0");
 	?>
 
 	<script src="js/jquery_min.js"></script>

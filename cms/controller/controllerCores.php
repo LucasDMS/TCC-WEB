@@ -15,11 +15,9 @@ class ControllerCores{
 
             $id = $_POST['id'];
             $cores = $_POST['txtCores'];
-            $tipo_cores = $_POST['txtTipoCores'];
             $Cores = new Cores(); 
             $Cores->setId($id);
             $Cores->setCores($cores);
-            $Cores->setTipoCores($tipo_cores);
             $this->CoresDAO->update($Cores);
 
         }
