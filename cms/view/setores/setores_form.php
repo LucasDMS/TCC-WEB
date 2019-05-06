@@ -83,8 +83,14 @@
     
     
         
-    <button class="btn">
-        Enviar
-    </button>
+    <div class="flex flex-center">
+        <button type="reset" class="btn btn-clear">
+            <i class="fas fa-eraser"></i>
+        </button>
+
+        <button class="btn btn-submit">
+            <i class="fas fa-save"></i>
+        </button>
+    </div>
 
 </form>
