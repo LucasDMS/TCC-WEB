@@ -113,7 +113,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar dados do funcionário" : $pagi
 
     <div class="inputDados">
         <label from="txtTamanho">Tamanho</label>
-        <input type="number" step="0.1" name="txtTamanho" id="txtTamanho" value="<?php echo $tamanho ?>" required>
+        <input type="number" step="any" name="txtTamanho" id="txtTamanho" value="<?php echo $tamanho ?>" required>
     </div>
 
     <div class="inputDados">
