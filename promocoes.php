@@ -27,7 +27,9 @@
 	<!-- CABEÇALHO -->
 	<!-- SUB MENU -->
 	<?php
-        session_start();
+		if(!isset($_SESSION['logado'])){
+			session_destroy();
+		}
 		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms";
 	
 		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/model/Sessao.php";
