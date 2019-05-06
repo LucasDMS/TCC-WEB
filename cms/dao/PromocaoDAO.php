@@ -84,7 +84,7 @@ class PromocaoDAO{
     public function delete($id) {
         $conn = $this->conex->connectDatabase();
         //Query do "Delete"
-        $sql = "UPDATE tbl_Promocao SET apagado = 1 WHERE id_Promocao=?;";
+        $sql = "UPDATE tbl_promocao SET apagado = 1 WHERE id_promocao=?;";
         $stm = $conn->prepare($sql);
         //Setando o valor
         $stm->bindValue(1, $id);
@@ -111,7 +111,7 @@ class PromocaoDAO{
             $Promocao->setAtivo("0");
         }
         //Query de update
-        $sql = "update tbl_Promocao set ativo=? where id_promocao=?";
+        $sql = "update tbl_promocao set ativo=? where id_promocao=?";
 
         $stm = $conn->prepare($sql);
         //Setando os valores
@@ -150,7 +150,7 @@ class PromocaoDAO{
     //Selecionando todos os registros do banco 
     public function selectAll() {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_Promocao where apagado = 0";
+        $sql = "select * from tbl_promocao where apagado = 0";
         $stm = $conn->prepare($sql);
         $success = $stm->execute();
 
@@ -175,6 +175,34 @@ class PromocaoDAO{
             //retornando a lista
             return $listPromocao;
         } else {
+            return "Erro";
+        }
+    }
+
+    public function participe(Promocao $Promocao) {
+        //Conectando ao banco
+        $conn = $this->conex->connectDatabase();
+        $sql = "insert into tbl_promocao_usuario (id_promocao, id_usuario) VALUES (?,?);";
+        echo $sql;
+        echo $Promocao->getId();
+        echo $Promocao->getIdUsuario();
+        $stm = $conn->prepare($sql);
+        //Setando os valores da query
+        $stm->bindValue(1, $Promocao->getId());
+        $stm->bindValue(2, $Promocao->getIdUsuario());
+        //Executando a query
+        $success = $stm->execute();
+
+        print_r($stm->errorInfo());
+
+        
+
+        $this->conex->closeDataBase();
+        if ($success) {
+            echo $success;
+            return "Sucesso";
+        } else {
+            echo $success;
             return "Erro";
         }
     }
