@@ -27,9 +27,6 @@ class PromocaoDAO{
         //Executando a query
         $success = $stm->execute();
 
-
-        
-
         $this->conex->closeDataBase();
         if ($success) {
             echo "Cadastrado com sucesso";
