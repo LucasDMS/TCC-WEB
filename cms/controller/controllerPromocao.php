@@ -85,5 +85,19 @@ class ControllerPromocao{
     public function buscarPromocoes(){
         return $this->PromocaoDAO->selectAll();
     }
+
+    public function participar(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+
+            // echo "teste";
+            $idPromocao =$_POST['idPromocao'];
+            $idUsuario = $_POST['id'];
+            $Promocao = new Promocao(); 
+            $Promocao->setId($idPromocao);
+            $Promocao->setIdUsuario($idUsuario);
+            return $this->PromocaoDAO->participe($Promocao);
+
+        }
+    }
 }
 ?>

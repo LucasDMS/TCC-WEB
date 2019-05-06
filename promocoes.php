@@ -28,13 +28,39 @@
 	<!-- SUB MENU -->
 	<?php
         session_start();
+		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms";
+	
+		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/model/Sessao.php";
+
+		require_once($_SESSION['PATH']);
+		
 		require_once('cms/db/ConexaoMysql.php');
         require_once("components/header.php");
 		require_once("components/sub_menu.php");
         require_once("components/modal.php");
-    
+	
+		$id = $_SESSION['id'];
+		$idPromocao = "";
+		$nome = "";
+		$texto = "";
+		$imagem = "";
+		$verificar = array();
+		$modo = "inserir";
+		$action = "cms/router.php?controller=promocao&modo=participar";
         $conex = new conexaoMysql();
 		$con = $conex->connectDatabase();
+
+		$sql = "select * from tbl_promocao where apagado = 0 and ativo = 1 limit 1";
+		$stm = $con->prepare($sql);
+		$success = $stm->execute();
+
+		foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+			$idPromocao = $result['id_promocao']; 
+			$nome = $result['nome'];
+			$texto = $result['texto'];
+			$imagem = $result['imagem'];
+		}
+
 
     ?>
 	<!-- LOGIN E CADASTRE-SE -->
@@ -51,38 +77,75 @@
 	<div class="espacador"></div>
 
     <main>
+	<form 
+		onsubmit="asyncParticipar(event,this)"
+		action="<?php echo($action) ?>" 
+		method="post"
+		autocomplete="off"
+		id="frm_participar_promocao"
+		class="form_padrao"
+		name="frm_participar_promocao"
+		enctype="multipart/form"
+		data-id="<?php echo($id)?>"
+		data-id-promocao="<?php echo($idPromocao)?>"
+		data-modo="<?php echo($modo)?>"
+		data-pagina="promocoes"
+	>
 
 		<section class="base_paginas">
 			<div class="section_conteudo_center">
-			    <?php		
-                $sql = "select * from tbl_promocao where apagado = 0 and ativo = 1";
-				$stm = $con->prepare($sql);
-				$success = $stm->execute();
-				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-			     ?>
+
 				<div class="titulo_promo">
 					<i class="fas fa-award"></i>
-					<h3><?php echo ($result['nome']) ?></h3>
+					<h3><?php echo ($nome) ?></h3>
 					<i class="fas fa-award"></i>
 				</div>
 				
-				<img src="cms/<?php echo ($result['imagem']) ?>" alt="imagem da promoção">
+				<img src="cms/<?php echo ($imagem) ?>" alt="imagem da promoção">
                
 				<p>
-					<?php echo ($result['texto']) ?>
+					<?php echo ($texto) ?>
 				</p>
-				<?php
-                }
-                ?> 
-				<button class="btn" type="submit">
-					Quero participar!
-					<i class="fas fa-award"></i>
-				</button>
 
+				<?php
+		
+				if(isset($_SESSION['logado'])){
+					$Sessao = new Sessao();
+					if($_SESSION['tipo'] == "USUARIO"){
+						$sql = "select * from tbl_promocao_usuario";
+						$stm = $con->prepare($sql);
+						$success = $stm->execute();
+						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+							array_push($verificar, $result['id_usuario']);
+						}
+						if(in_array($id, $verificar)){
+				?>
+				<button class="btn" type="reset">
+				Você já está participando dessa promoção!
+				</button>
+				<?php
+					}else{
+				?>
+				<button class="btn" type="submit">
+				Quero participar!
+				<i class="fas fa-award"></i></button>
+				<?php
+						}
+					}
+				}else{
+                ?> 
+
+				<button class="btn" type="reset" onclick="chamarViewParaModal('login', true)">
+				Quero participar!
+				<i class="fas fa-award"></i>
+				</button>
+				<?php }
+				?>
 			</div> 
 
 		</section>
         
+	</form>
 	</main>
 
 	<!-- CHATBOT -->

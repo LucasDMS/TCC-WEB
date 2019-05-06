@@ -1,6 +1,7 @@
 <?php
 Class Promocao{
     private $id;
+    private $idUsuario;
     private $nome;
     private $imagem;
     private $dataInicio;
@@ -10,6 +11,18 @@ Class Promocao{
     private $ativo;
     private $apagado;
 
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
+
+        return $this;
+    }
+    
     public function getId()
     {
         return $this->id;
