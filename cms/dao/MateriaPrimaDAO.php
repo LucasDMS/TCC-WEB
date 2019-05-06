@@ -37,6 +37,7 @@
                 $stm->bindValue(2, $idMateria);
                 $stm->execute();
             }
+            echo "Cadastrado com Sucesso!";
             
         }
         public function update(MateriaPrima $MateriaPrima, Prateleira $prateleira){
@@ -63,9 +64,11 @@
                 $stm->bindValue(2, $MateriaPrima->getId());
             
                 $stm->execute();
+
     
             }
-            
+
+            echo "Atualizado com Sucesso!";
         }
 
         public function delete($id){
