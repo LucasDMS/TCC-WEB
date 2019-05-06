@@ -12,7 +12,6 @@ class ControllerPromocao{
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            // echo "teste";
             $nome =$_POST['txtNome'];
             $dataInicio = $_POST['txtDataInicio'];
             $dataFinal = $_POST['txtDataFinal'];
@@ -85,7 +84,6 @@ class ControllerPromocao{
     public function participar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            // echo "teste";
             $idPromocao =$_POST['idPromocao'];
             $idUsuario = $_POST['id'];
             $Promocao = new Promocao(); 

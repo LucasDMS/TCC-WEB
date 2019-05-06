@@ -27,16 +27,12 @@ class PromocaoDAO{
         //Executando a query
         $success = $stm->execute();
 
-        // print_r($stm->errorInfo());
-
-        
-
         $this->conex->closeDataBase();
         if ($success) {
-            echo "Cadastrado com Sucesso";
+            echo "Cadastrado com sucesso";
             return "Sucesso";
         } else {
-            // echo $success;
+            echo $success;
             return "Erro";
         }
     }
@@ -66,10 +62,10 @@ class PromocaoDAO{
         }
         //Executando a query
         $success = $stm->execute();
-        print_r($stm->errorInfo());
+
         $this->conex->closeDataBase();
         if ($success) {
-            echo "Atualizado com Sucesso";
+            echo "Atualizado com sucesso";
             return "Sucesso";
         } else {
             echo $success;
@@ -85,10 +81,10 @@ class PromocaoDAO{
         //Setando o valor
         $stm->bindValue(1, $id);
         $success = $stm->execute();
-        // echo $success;
+
         $this->conex->closeDataBase();
         if ($success) {
-            echo $success;
+            echo "Deletado com sucesso";
             return "Sucesso";
         } else {
             echo $success;
@@ -177,9 +173,7 @@ class PromocaoDAO{
         //Conectando ao banco
         $conn = $this->conex->connectDatabase();
         $sql = "insert into tbl_promocao_usuario (id_promocao, id_usuario) VALUES (?,?);";
-        // echo $sql;
-        // echo $Promocao->getId();
-        // echo $Promocao->getIdUsuario();
+
         $stm = $conn->prepare($sql);
         //Setando os valores da query
         $stm->bindValue(1, $Promocao->getId());
@@ -187,13 +181,8 @@ class PromocaoDAO{
         //Executando a query
         $success = $stm->execute();
 
-        print_r($stm->errorInfo());
-
-        
-
         $this->conex->closeDataBase();
         if ($success) {
-            echo $success;
             return "Sucesso";
         } else {
             echo $success;
