@@ -20,7 +20,7 @@ class MVVDAO{
         $success = $stm->execute();
         $this->conex->closeDataBase();
         if ($success) {
-            echo $success;
+            echo "Cadastrado com Sucesso";
             return "Sucesso";
         } else {
             echo $success;
@@ -39,7 +39,7 @@ class MVVDAO{
         echo $success;
         $this->conex->closeDataBase();
         if ($success) {
-            echo $success;
+            echo "Atualizado com Sucesso";
             return "Sucesso";
         } else {
             echo $success;

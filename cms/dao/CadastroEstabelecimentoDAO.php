@@ -45,8 +45,10 @@ class CadastroEstabelecimentoDAO{
         $sucess = $stm->execute();
         if($sucess){
             return "SUCCESS";
+            echo "Cadastrado com Sucesso";
         }else{
             return "ERRO";
+            echo "Erro";
         }
 
         
