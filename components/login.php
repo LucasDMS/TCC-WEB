@@ -46,6 +46,8 @@ function asyncSubmit(event, element){
     .done(function(html){
         if(html == "1"){
             window.location.href = 'autenticacao.php';
+        }else{
+            alert("Usuário ou senha incorretos!");
         }
     });
 }
