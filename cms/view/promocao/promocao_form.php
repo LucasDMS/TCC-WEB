@@ -65,11 +65,6 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar promoção" : $paginaTitulo = 
         <input type="text" name="txtTexto" id="txtTexto" value="<?php echo $texto ?>" required>
     </div>
 
-    <div class="inputDados">
-        <label from="txtTipoTexto">Tipo Texto</label>
-        <input type="text" name="txtTipoTexto" id="txtTipoTexto" value="<?php echo $tipoTexto ?>" required>
-    </div>
-
     <input type="file" name="img" id="img"/>
 
     <div class="flex flex-center">

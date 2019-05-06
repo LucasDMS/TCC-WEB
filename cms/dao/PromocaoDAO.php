@@ -13,8 +13,7 @@ class PromocaoDAO{
     public function insert(Promocao $Promocao) {
         //Conectando ao banco
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_promocao(nome,data_inicio,data_final,imagem,texto,tipo_texto,ativo,apagado) values(?,?,?,?,?,?,?,?);";
-        echo $sql;
+        $sql = "insert into tbl_promocao(nome,data_inicio,data_final,imagem,texto,ativo,apagado) values(?,?,?,?,?,?,?);";
         $stm = $conn->prepare($sql);
         //Setando os valores da query
         $stm->bindValue(1, $Promocao->getNome());
@@ -22,23 +21,22 @@ class PromocaoDAO{
         $stm->bindValue(3, $Promocao->getDataFinal());
         $stm->bindValue(4, $Promocao->getImagem());
         $stm->bindValue(5, $Promocao->getTexto());
-        $stm->bindValue(6, $Promocao->getTipoTexto());
-        $stm->bindValue(7, $Promocao->getAtivo());
-        $stm->bindValue(8, $Promocao->getApagado());
+        $stm->bindValue(6, $Promocao->getAtivo());
+        $stm->bindValue(7, $Promocao->getApagado());
 
         //Executando a query
         $success = $stm->execute();
 
-        print_r($stm->errorInfo());
+        // print_r($stm->errorInfo());
 
         
 
         $this->conex->closeDataBase();
         if ($success) {
-            echo $success;
+            // echo $success;
             return "Sucesso";
         } else {
-            echo $success;
+            // echo $success;
             return "Erro";
         }
     }
@@ -47,26 +45,24 @@ class PromocaoDAO{
         $conn = $this->conex->connectDatabase();
         //If para saber se tem ou não imagem no update
         if($Promocao->getImagem() == null){
-            $sql = "UPDATE tbl_promocao SET nome = ?, data_inicio = ?, data_final = ?,texto = ? ,tipo_texto = ?  WHERE id_promocao=?;";
+            $sql = "UPDATE tbl_promocao SET nome = ?, data_inicio = ?, data_final = ?,texto = ? WHERE id_promocao=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
             $stm->bindValue(1, $Promocao->getNome());
             $stm->bindValue(2, $Promocao->getDataInicio());
             $stm->bindValue(3, $Promocao->getDataFinal());
             $stm->bindValue(4, $Promocao->getTexto());
-            $stm->bindValue(5, $Promocao->getTipoTexto());
-            $stm->bindValue(6, $Promocao->getId());
+            $stm->bindValue(5, $Promocao->getId());
         }else{
-            $sql = "UPDATE tbl_promocao SET nome = ?, data_inicio = ?, data_final = ?,texto = ?, tipo_texto = ?, imagem = ? WHERE id_promocao=?;";
+            $sql = "UPDATE tbl_promocao SET nome = ?, data_inicio = ?, data_final = ?,texto = ?, imagem = ? WHERE id_promocao=?;";
             $stm = $conn->prepare($sql);
             //Setando os valores da query
             $stm->bindValue(1, $Promocao->getNome());
             $stm->bindValue(2, $Promocao->getDataInicio());
             $stm->bindValue(3, $Promocao->getDataFinal());
             $stm->bindValue(4, $Promocao->getTexto());
-            $stm->bindValue(5, $Promocao->getTipoTexto());
-            $stm->bindValue(6, $Promocao->getImagem());
-            $stm->bindValue(7, $Promocao->getId());
+            $stm->bindValue(5, $Promocao->getImagem());
+            $stm->bindValue(6, $Promocao->getId());
         }
         //Executando a query
         $success = $stm->execute();
@@ -89,7 +85,7 @@ class PromocaoDAO{
         //Setando o valor
         $stm->bindValue(1, $id);
         $success = $stm->execute();
-        echo $success;
+        // echo $success;
         $this->conex->closeDataBase();
         if ($success) {
             echo $success;
@@ -139,7 +135,6 @@ class PromocaoDAO{
                 $Promocao->setDataInicio($result['data_inicio']);
                 $Promocao->setDataFinal($result['data_final']);
                 $Promocao->setTexto($result['texto']);
-                $Promocao->setTipoTexto($result['tipo_texto']);
                 $Promocao->setApagado($result['apagado']);
                 $Promocao->setAtivo($result['ativo']);
                 return $Promocao;
@@ -165,7 +160,6 @@ class PromocaoDAO{
                 $Promocao->setDataInicio($result['data_inicio']);
                 $Promocao->setDataFinal($result['data_final']);
                 $Promocao->setTexto($result['texto']);
-                $Promocao->setTipoTexto($result['tipo_texto']);
                 $Promocao->setApagado($result['apagado']);
                 $Promocao->setAtivo($result['ativo']);
                 array_push($listPromocao, $Promocao);
@@ -183,9 +177,9 @@ class PromocaoDAO{
         //Conectando ao banco
         $conn = $this->conex->connectDatabase();
         $sql = "insert into tbl_promocao_usuario (id_promocao, id_usuario) VALUES (?,?);";
-        echo $sql;
-        echo $Promocao->getId();
-        echo $Promocao->getIdUsuario();
+        // echo $sql;
+        // echo $Promocao->getId();
+        // echo $Promocao->getIdUsuario();
         $stm = $conn->prepare($sql);
         //Setando os valores da query
         $stm->bindValue(1, $Promocao->getId());
