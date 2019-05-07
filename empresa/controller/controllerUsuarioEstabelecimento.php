@@ -35,7 +35,6 @@ class ControllerUsuarioEstabelecimento{
             $UsuarioEstabelecimento->setAtivo($ativo);
             $MenuUsuarioEstabelecimento = new MenuUsuarioEstabelecimento();
             $MenuUsuarioEstabelecimento->setIdMenu($idMenu);
-     
             return $this->UsuarioEstabelecimentoDAO->insert($UsuarioEstabelecimento, $Sessao, $MenuUsuarioEstabelecimento, $id);
         }
     }

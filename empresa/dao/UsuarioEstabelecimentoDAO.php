@@ -146,12 +146,10 @@ class UsuarioEstabelecimentoDAO {
         $stm->bindValue(1, $id);
         $success = $stm->execute();
         if ($success) {
-            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $UsuarioEstabelecimento = new UsuarioEstabelecimento();
-                $UsuarioEstabelecimento->setIdEstabelecimento($result['id_estabelecimento']);
-            };
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $UsuarioEstabelecimento = new UsuarioEstabelecimento();
+            $UsuarioEstabelecimento->setIdEstabelecimento($result['id_estabelecimento']);
         }
-
         $sql = "select * from tbl_usuario_estabelecimento where id_estabelecimento = ?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $UsuarioEstabelecimento->getIdEstabelecimento());
