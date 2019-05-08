@@ -134,7 +134,7 @@
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Valor Calórico</td>
+                                        <td>Carboidratos</td>
                                         <td><?php echo ($result['carboidratos']) ?></td>
                                         <td>3</td>
                                     </tr>

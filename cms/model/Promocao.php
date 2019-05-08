@@ -2,6 +2,7 @@
 Class Promocao{
     private $id;
     private $idUsuario;
+    private $ativoUsuario;
     private $nome;
     private $imagem;
     private $dataInicio;
@@ -34,6 +35,16 @@ Class Promocao{
         return $this;
     }
 
+    public function getAtivoUsuario()
+    {
+        return $this->ativoUsuario;
+    }
+
+    public function setAtivoUsuario($ativoUsuario)
+    {
+        $this->ativoUsuario = $ativoUsuario;
+        return $this;
+    }
     public function getNome()
     {
         return $this->nome;
