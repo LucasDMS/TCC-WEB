@@ -70,6 +70,7 @@ class MenuUsuarioEstabelecimentoDAO {
         if ($success) {
             $listMenu = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
+                $Menu = new MenuUsuarioEstabelecimento();
                 $Menu->setIdMenu($result['id_menu']);
                 array_push($listMenu, $Menu);
             }

@@ -64,7 +64,6 @@ class MenuDAO {
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $Menu = new MenuFuncionario();
                 $Menu->setIdFuncionario($result['id_funcionario_web']);
- 
             }
         } 
         $sql = "select * from tbl_menu_funcionario_web As mf, tbl_menu as m where mf.id_menu=m.id_menu and id_funcionario_web = ?;";
