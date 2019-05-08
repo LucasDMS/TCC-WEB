@@ -24,24 +24,24 @@ class CadastroEstabelecimentoDAO{
     
         //insert na tabela de estabelecimento
         $conn = $this->conex->connectDatabase();
-        $sql = "call sp_cadastrar_estabelecimento(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "call sp_cadastrar_estabelecimento(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $estabelecimento->getUsuario());
-        $stm->bindValue(1, $estabelecimento->getSenha());
-        $stm->bindValue(1, $estabelecimento->getEndereco());
-        $stm->bindValue(1, $estabelecimento->getBairro());
-        $stm->bindValue(1, $estabelecimento->getCidade());
-        $stm->bindValue(1, $estabelecimento->getEstado());
-        $stm->bindValue(1, $estabelecimento->getEmail());
-        $stm->bindValue(1, $estabelecimento->getRazao_social());
-        $stm->bindValue(2, $estabelecimento->getNome_fantasia());
-        $stm->bindValue(3, $estabelecimento->getCnpj());
-        $stm->bindValue(4, $estabelecimento->getNome());
-        $stm->bindValue(5, $estabelecimento->getImagem());
-        $stm->bindValue(6, $estabelecimento->getTipo_estabelecimento());
-        $stm->bindValue(10, $estabelecimento->getAtivo());
-        $stm->bindValue(11, 0);
-        $stm->bindValue(12, $estabelecimento->getDescricao());
+        $stm->bindValue(2, $estabelecimento->getSenha());
+        $stm->bindValue(3, $estabelecimento->getEndereco());
+        $stm->bindValue(4, $estabelecimento->getBairro());
+        $stm->bindValue(5, $estabelecimento->getCidade());
+        $stm->bindValue(6, $estabelecimento->getEstado());
+        $stm->bindValue(7, $estabelecimento->getEmail());
+        $stm->bindValue(8, $estabelecimento->getRazao_social());
+        $stm->bindValue(9, $estabelecimento->getNome_fantasia());
+        $stm->bindValue(10, $estabelecimento->getCnpj());
+        $stm->bindValue(11, $estabelecimento->getNome());
+        $stm->bindValue(12, $estabelecimento->getImagem());
+        $stm->bindValue(13, $estabelecimento->getTipo_estabelecimento());
+        $stm->bindValue(14, $estabelecimento->getRenda());
+        $stm->bindValue(15, 0);
+        $stm->bindValue(16, $estabelecimento->getDescricao());
         $sucess = $stm->execute();
         if($sucess){
             return "SUCCESS";

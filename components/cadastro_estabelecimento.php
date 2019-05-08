@@ -1,6 +1,6 @@
 <div class="modal-form">
     <form   onsubmit="asyncSubmit(event, this)" 
-            action="cms/router.php?controller=cadastro_estabelecimento&modo=inserir" 
+            action="empresa/router.php?controller=cadastro_estabelecimento&modo=inserir" 
             name="frm_cadastro" 
             id="frm_cadastro" 
             method="post">
@@ -105,7 +105,7 @@
             <label for="img_estabelecimento">
                 Logo
             </label>
-            <input name="img_estabelecimento" id="img_estabelecimento" type="file" required>
+            <input name="img" id="img" type="file" required>
             <!-- <input type=file name="img" id="txt_nome_fantasia"> -->
         </div>
         

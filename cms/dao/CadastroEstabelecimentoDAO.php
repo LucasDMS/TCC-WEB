@@ -26,7 +26,7 @@ class CadastroEstabelecimentoDAO{
         $conn = $this->conex->connectDatabase();
         $sql = "call sp_cadastrar_estabelecimento(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $estabelecimento->getUsuario());
+        $stm->bindValue(1, 'batata');
         $stm->bindValue(1, $estabelecimento->getSenha());
         $stm->bindValue(1, $estabelecimento->getEndereco());
         $stm->bindValue(1, $estabelecimento->getBairro());
