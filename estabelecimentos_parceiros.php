@@ -128,7 +128,7 @@
                     ?> 
                     <li style="background-color:#09a552;" onclick="trocarEstabelecimento('<?php echo($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
                     <?php	
-                            }else{
+                        }else{
                     ?>
                     <li style="background-color:#ffffff;" onclick="trocarEstabelecimento('<?php echo($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
                     <?php 

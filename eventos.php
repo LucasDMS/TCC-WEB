@@ -79,7 +79,7 @@
 				<!-- lista de eventos -->
 				<ul class="eventos_container">
 				    <?php		
-					   $sql = "select * from tbl_eventos where apagado = 0 and ativo = 1";
+					   $sql = "select * from vw_eventos_data_format where apagado = 0 and ativo = 1";
 					   $stm = $con->prepare($sql);
 					   $success = $stm->execute();
 					   foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

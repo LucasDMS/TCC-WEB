@@ -72,7 +72,7 @@
             ?>
 
 			<?php	
-                $sql = "select * from tbl_noticias_fique_por_dentro where  apagado = 0 and ativo = 1";
+                $sql = "select * from tbl_noticias_fique_por_dentro where  apagado = 0 and ativo = 1 limit 1";
 				$stm = $con->prepare($sql);
 				$success = $stm->execute();
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -86,6 +86,17 @@
                     <?php echo ($result['texto']) ?>
                 </p>
             </div>
+            
+            <?php
+                }
+            ?>
+            
+            <?php	
+                $sql = "select * from tbl_noticias_fique_por_dentro where  apagado = 0 and ativo = 1 limit 3";
+				$stm = $con->prepare($sql);
+				$success = $stm->execute();
+				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+            ?>
 
            <!-- varias noticias -->
             <div class="noticias_3_3">
