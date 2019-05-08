@@ -62,7 +62,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSe
             <input type="text" name="txtLogin" id="txtLogin" placeholder="Login" value="<?php echo $login;?>"><br>
         </div>
         <div class="inputDados">
-            <input type="text" name="txtPassword" id="txtPassword" placeholder="Senha" value="<?php echo $senha;?>"><br>
+            <input type="password" name="txtPassword" id="txtPassword" placeholder="Senha" value="<?php echo $senha;?>"><br>
         </div>
         <div class="container" >
         

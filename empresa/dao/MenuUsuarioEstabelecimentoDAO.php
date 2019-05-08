@@ -58,7 +58,6 @@ class MenuUsuarioEstabelecimentoDAO {
         $stm->bindValue(1, $id);        
         $success = $stm->execute();
         if ($success) {
-            $listMenu = [];
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
                 $Menu = new MenuUsuarioEstabelecimento();
                 $Menu->setIdUsuario($result['id_usuario_estabelecimento']);
