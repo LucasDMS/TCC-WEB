@@ -15,9 +15,9 @@ class controllerCadastroEstabelecimento{
     public function __construct(){
 
         
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/dao/CadastroEstabelecimentoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/model/CadastroEstabelecimento.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/dao/CadastroEstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/model/CadastroEstabelecimento.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/view/components/imagem.php');
 
         //estancia da class dao de cadastro de estabelecimento
         $this->cadastroEstabelecimentoDAO = new CadastroEstabelecimentoDAO();
@@ -31,7 +31,7 @@ class controllerCadastroEstabelecimento{
             $senha = $_POST['txt_cad_senha'];
             $cnpj = $_POST['txt_cad_cnpj'];
             $nome = $_POST['txt_cad_responsavel'];
-            $tipo_estabelecimento = ['txt_cad_tipo_estabelecimento'];
+            $tipo_estabelecimento = $_POST['txt_cad_tipo_estabelecimento'];
             $renda = $_POST['txt_cad_renda'];
             $descricao = $_POST['txt_cad_descricao'];
             $endereco = $_POST['txt_cad_endereco'];
