@@ -1,4 +1,4 @@
-<header id="header" class="header cor_fundo_1 cor_letra_4">
+<header id="header" class="header cor_fundo_4 cor_letra_4">
     <div>
         <i class="fas fa-bars" onclick="abrirMenu('.menu_esquerda')"></i>
     </div>

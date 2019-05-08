@@ -152,6 +152,7 @@ body {
 	width: 0;
 	position: fixed;
 	margin-top: 80px;
+    background-color: #212529;
 }
 
 .menu_esquerda {
@@ -321,6 +322,7 @@ main {
 footer {
 	min-height: 50px;
 	width: 100%;
+    background-color: #2d2f31;
 }
 
 /* == FOOTER - PRINCIPAL == */

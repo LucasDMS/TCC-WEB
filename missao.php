@@ -77,7 +77,7 @@
 			<div class="missao_container">
 
                 <?php		
-                    $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Missão' and ativo = 1 and apagado = 0";
+                    $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Missão' and ativo = 1 and apagado = 0 limit 1";
 				    $stm = $con->prepare($sql);
 				    $success = $stm->execute();
 				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -95,7 +95,7 @@
                  ?>
                  
                  <?php		
-                    $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Visão' and ativo = 1 and apagado = 0";
+                    $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Visão' and ativo = 1 and apagado = 0 limit 1";
 				    $stm = $con->prepare($sql);
 				    $success = $stm->execute();
 				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -113,7 +113,7 @@
                  ?>
 				
 				 <?php		
-                    $sql = "select * from tbl_missao_visao_valor  where tipo_texto =  'Valor' and ativo = 1 and apagado = 0";
+                    $sql = "select * from tbl_missao_visao_valor  where tipo_texto =  'Valor' and ativo = 1 and apagado = 0 limit 1";
 				    $stm = $con->prepare($sql);
 				    $success = $stm->execute();
 				    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	

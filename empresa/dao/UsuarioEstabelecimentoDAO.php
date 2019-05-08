@@ -31,8 +31,8 @@ class UsuarioEstabelecimentoDAO {
             $stm->bindValue(1, $Sessao->getLogin());        
             $stm->bindValue(2, $Sessao->getSenha());
             $stm->bindValue(3, $Sessao->getTipo());
-
             $success = $stm->execute();
+            $idAutenticacao = $conn->lastInsertId();
             if (!$success) {
                 echo "Usuário já existente!&";
             }else{
@@ -42,22 +42,22 @@ class UsuarioEstabelecimentoDAO {
                 $stm->bindValue(1, $id);  
                 $stm->execute(); 
             }
+            echo $conn->lastInsertId(). "asfasfasfsa".  $UsuarioEstabelecimento->getIdEstabelecimento();
             //Insert na tabela de UsuarioEstabelecimentos 
             $sql = "insert into tbl_usuario_estabelecimento(nome,ativo,id_autenticacao,id_estabelecimento) values(?,?,?,?);";
             $stm = $conn->prepare($sql);
             $stm->bindValue(1, $UsuarioEstabelecimento->getNome());
             $stm->bindValue(2, $UsuarioEstabelecimento->getAtivo());       
-            $stm->bindValue(3, $conn->lastInsertId());
+            $stm->bindValue(3, $idAutenticacao);
             $stm->bindValue(4, $UsuarioEstabelecimento->getIdEstabelecimento());  
             $stm->execute();
             $idUsuario = $conn->lastInsertId();
-
-            $MenuUsuarioEstabelecimento->setIdUsuario($idUsuario);
+            echo $idUsuario;
             foreach($MenuUsuarioEstabelecimento->getIdMenu() as $result){
                 $sql = "insert into tbl_usuario_estabelecimento_menu_usuario_estabelecimento(id_menu,id_usuario_estabelecimento) values(?,?)";
                 $stm = $conn->prepare($sql);
                 $stm->bindValue(1, $result);        
-                $stm->bindValue(2, $MenuUsuarioEstabelecimento->getIdUsuario());
+                $stm->bindValue(2, $idUsuario);
                 $stm->execute();
 
             }
@@ -146,12 +146,10 @@ class UsuarioEstabelecimentoDAO {
         $stm->bindValue(1, $id);
         $success = $stm->execute();
         if ($success) {
-            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $UsuarioEstabelecimento = new UsuarioEstabelecimento();
-                $UsuarioEstabelecimento->setIdEstabelecimento($result['id_estabelecimento']);
-            };
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $UsuarioEstabelecimento = new UsuarioEstabelecimento();
+            $UsuarioEstabelecimento->setIdEstabelecimento($result['id_estabelecimento']);
         }
-
         $sql = "select * from tbl_usuario_estabelecimento where id_estabelecimento = ?;";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $UsuarioEstabelecimento->getIdEstabelecimento());

@@ -17,9 +17,9 @@
                                             echo $result->getCores();
                                          }       ?>;}
 
-    .cor_fundo_3{background-color: #00000;}
-    .cor_fundo_4{background-color: #ffdd00;}
-    .cor_fundo_5{background-color: #1c1c1d;}
+    .cor_fundo_3{background-color: #ffdd00;}
+    .cor_fundo_4{background-color: #15a650;}
+    .cor_fundo_5{background-color: #09a552;}
     .cor_fundo_6{background-color: <?php if($result->getTipoCores()=="Rodapé primário"){
                                             echo $result->getCores();
                                          }       ?>;}

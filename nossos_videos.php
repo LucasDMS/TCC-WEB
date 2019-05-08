@@ -78,7 +78,7 @@
 			<div class="video_novo">
 			    
 			    <?php		
-					$sql = "select * from tbl_videos where apagado = 0 and ativo = 1";
+					$sql = "select * from tbl_videos where apagado = 0 and ativo = 1 limit 1";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -115,34 +115,29 @@
 				<h3 class="section_titulo">veja mais videos</h3>
 
 				<div class="mais_videos_container">
-
+                <?php		
+				    $sql = "select * from tbl_videos where apagado = 0 and ativo = 1";
+					$stm = $con->prepare($sql);
+					$success = $stm->execute();
+					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+        		?>
 					<ul class="videos_lista">
 						<li>
-							<img src="img/video_1.jpg" alt="">
-							<h4>titulo</h4>
-						</li>
-						<li>
-							<img src="img/video_2.jpg" alt="">
-							<h4>titulo</h4>
-						</li>
-						<li>
-							<img src="img/video_3.jpg" alt="">
-							<h4>titulo</h4>
-						</li>
-						<li>
-							<img src="img/video_1.jpg" alt="">
-							<h4>titulo</h4>
-						</li>
-						<li>
-							<img src="img/video_2.jpg" alt="">
-							<h4>titulo</h4>
-						</li>
+							<iframe 
+					            width="380" 
+					            height="380" 
+							    src="<?php echo ($result['link'])?>" alt="" frameborder="0" 
+					            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+					            allowfullscreen>
+                            </iframe>
+                            
+                                <h4><?php echo ($result['titulo']) ?></h4>
+                        </li>
+                        <?php
+                            }
+                        ?>	
 					</ul>
-
 				</div>
-
-				
-
 			</div>
 		</section>
 

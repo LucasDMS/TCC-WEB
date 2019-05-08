@@ -48,7 +48,6 @@
             <?php 
                 foreach($rs as $result){
                     $IdMenu[] = $result->getIdMenu();
-
                     if($IdMenu[$i]==1){?>
                     <ul>
                         <li onclick="chamarViewParaApp('usuario_estabelecimento')">

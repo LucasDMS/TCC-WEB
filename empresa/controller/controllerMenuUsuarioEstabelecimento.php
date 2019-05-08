@@ -35,7 +35,7 @@ class ControllerMenuUsuarioEstabelecimento{
     }
     public function buscarUsuarioPermissoes(){
         $id = $_SESSION['id'];
-        return $this->MenuDAO->selectByPermission($id);
+        return $this->MenuUsuarioEstabelecimentoDAO->selectByPermission($id);
     }
 }
 ?>
