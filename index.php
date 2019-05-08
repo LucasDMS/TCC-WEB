@@ -79,7 +79,7 @@
 				<div class="destaques_container">
 
 				<?php
-					$sql = "select * from vw_produtos_destaque";
+					$sql = "select * from vw_produtos_destaque where produto_destaque = 1";
 					$stm = $con->prepare($sql);
 					$success = $stm->execute();
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
@@ -256,19 +256,19 @@
 			<ul class="lista_comentarios">
 
 			        <?php
-						$sql = "select * from tbl_comentario";
+						$sql = "select * from vw_listar_posts where ativo = 1 and aprovado = 1";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
 						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         			?>
 
 				<li>
-					<img src="cms/<?php echo ($result['imagem']) ?>" alt="">
-					<h3><?php echo ($result['nome']) ?></h3>
+					<img src="cms/<?php echo ($result['autor_foto']) ?>" alt="foto">
+					<h3><?php echo ($result['autor']) ?></h3>
 					<p>
-						<?php echo ($result['comentario']) ?>
+						<?php echo ($result['texto']) ?>
 					</p>
-					<span><?php echo ($result['data']) ?></span>
+					<span><?php echo ($result['data_publicacao']) ?></span>
 				</li>
 
 				<?php } ?>

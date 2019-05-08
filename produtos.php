@@ -81,7 +81,7 @@
             
                 $produto_esquerda = true;
 
-                $sql = "select * from vw_produtos_site";
+                $sql = "select * from vw_produtos_site where apagado = 0 and ativo = 1";
                 $stm = $con->prepare($sql);
                 $success = $stm->execute();
                 foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -134,6 +134,11 @@
                                         <td>3</td>
                                     </tr>
                                     <tr>
+                                        <td>Valor Calórico</td>
+                                        <td><?php echo ($result['carboidratos']) ?></td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
                                         <td>Fibra Alimentar</td>
                                         <td><?php echo ($result['fibra_alimentar']) ?></td>
                                         <td>3</td>
@@ -164,24 +169,14 @@
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td>Carboidratos</td>
-                                        <td><?php echo ($result['carboidratos']) ?></td>
-                                        <td>3</td>
-                                    </tr>
-
-                                    <tr>
                                         <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
                                     </tr>
                                 </table>
-
                             </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                 </div>
-
-            <?php } ?>
-                
+            <?php } ?>  
             </div>
         </section>
 
