@@ -19,7 +19,7 @@ if ( isset($_SESSION['logado']) ) {
 			break;
 		
 		case "USUARIO":
-			header("Location: index.php");
+			header("Location: usuario/index.php");
 			break;
 		case "EMPRESA":
 			header("Location: empresa/index.php");

@@ -285,7 +285,6 @@
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
-	<script src="js/enquete.js"></script>
 </body>
 
 </html>
