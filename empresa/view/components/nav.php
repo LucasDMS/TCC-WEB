@@ -50,7 +50,7 @@
                     $IdMenu[] = $result->getIdMenu();
                     if($IdMenu[$i]==1){?>
                     <ul>
-                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                        <li onclick="chamarViewParaApp('compras')">
                             <div>
                                 <i class="fas fa-wrench"></i>
                                 Comprar
@@ -61,10 +61,10 @@
                     if($IdMenu[$i]==2){
                     ?>
                     <ul>
-                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                        <li onclick="chamarViewParaApp('compras')">
                             <div>
                                 <i class="fas fa-wrench"></i>
-                                Ver histórico
+                                Compras
                             </div>
                         </li>
                     </ul>

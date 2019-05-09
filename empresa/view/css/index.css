@@ -373,6 +373,12 @@ footer {
 	color: #f8ae83;
 }
 
+
+.carrinho_compra:hover{
+	cursor: pointer;
+	color: #09a552 !important;
+}
+
 /*ALERTA*/
 
 .alerta {
