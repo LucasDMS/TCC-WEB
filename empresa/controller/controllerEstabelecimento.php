@@ -8,22 +8,22 @@
         Autor da Modificação:
         Objetivo da classe: class que controla os dados.
     */
-class controllerCadastroEstabelecimento{
+class ControllerEstabelecimento{
 
-    private $cadastroEstabelecimentoDAO;
+    private $EstabelecimentoDAO;
 
     public function __construct(){
 
         
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/dao/CadastroEstabelecimentoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/model/CadastroEstabelecimento.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/dao/EstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/model/Estabelecimento.php');
         require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/view/components/imagem.php');
 
         //estancia da class dao de cadastro de estabelecimento
-        $this->cadastroEstabelecimentoDAO = new CadastroEstabelecimentoDAO();
+        $this->EstabelecimentoDAO = new EstabelecimentoDAO();
     }
 
-    public function inserirCadastroEstabelecimento(){
+    public function inserirEstabelecimento(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             //guardando dos os dados recebidos via post em uma variavel
@@ -44,7 +44,7 @@ class controllerCadastroEstabelecimento{
             $imagem = img($_FILES['img']);
             $ativo = 1;
             //estanciando a model e enviando todos os dados para ela
-            $cadastro = new CadastroEstabelecimento();
+            $cadastro = new Estabelecimento();
             $cadastro->setUsuario($usuario);
             $cadastro->setSenha($senha);
             $cadastro->setCnpj($cnpj);
@@ -63,10 +63,14 @@ class controllerCadastroEstabelecimento{
             $cadastro->setAtivo($ativo);
             
             //chamando o metodo de insert e passando o objeto
-            $this->cadastroEstabelecimentoDAO->inserir($cadastro);
+            $this->EstabelecimentoDAO->inserir($cadastro);
         }
 
 
+    }
+    public function buscarEstabelecimento(){
+        $id = $_SESSION['id'];
+        return $this->EstabelecimentoDAO->selectAll($id);
     }
         
 

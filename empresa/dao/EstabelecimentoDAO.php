@@ -8,7 +8,7 @@
         Autor da Modificação:
         Objetivo da classe: class que manipula o banco de dados
     */
-class CadastroEstabelecimentoDAO{
+class EstabelecimentoDAO{
     private $conex;
 
     public function __construct(){
@@ -18,7 +18,7 @@ class CadastroEstabelecimentoDAO{
     }
 
     //função que cadastra o estabelecimento comercial no banco
-    public function inserir(CadastroEstabelecimento $estabelecimento){
+    public function inserir(Estabelecimento $estabelecimento){
         //conexao com o banco de dados
         $conn = $this->conex->connectDatabase();
     
@@ -50,6 +50,25 @@ class CadastroEstabelecimentoDAO{
         }
 
         
+    }
+    //Select para todos os UsuarioEstabelecimento
+    public function selectAll($id) {
+        $conn = $this->conex->connectDatabase();
+        $sql = "select * from tbl_estabelecimento where id_autenticacao = ?";
+
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $id);
+        $success = $stm->execute();
+        if ($success) {
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $estabelecimento = new Estabelecimento();
+            $estabelecimento->setId($result['id_estabelecimento']); 
+            $estabelecimento->setImagem($result['imagem']);
+            $estabelecimento->setDescricao($result['descricao']);
+            return $estabelecimento;
+        }else {
+            return "Erro";
+        }
     }
 
 }
