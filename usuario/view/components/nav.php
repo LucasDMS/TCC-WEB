@@ -25,6 +25,12 @@
                             Promoções
                         </div>
                     </li>
+                    <li onclick="chamarView('brinde', 'view/brinde/brinde_listagem.php')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Brindes
+                        </div>
+                    </li>
                 </ul>
             </div>
         </li>
