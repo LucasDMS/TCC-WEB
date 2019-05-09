@@ -56,7 +56,7 @@ $rs = $controller->buscarPromocoes();
                     if(in_array($id, $verificar)){
 				?>
 				<a
-                    onclick="asyncAtivar(this)"
+                    onclick="asyncParticipar(this)"
                     href="#"
                     data-pagina="promocao"
                     data-url="router.php?controller=promocao&modo=participar"
@@ -67,7 +67,7 @@ $rs = $controller->buscarPromocoes();
 					}else{
 				?>
 				<a
-                    onclick="asyncAtivar(this)"
+                    onclick="asyncParticipar(this)"
                     href="#"
                     data-pagina="promocao"
                     data-url="router.php?controller=promocao&modo=participar"
