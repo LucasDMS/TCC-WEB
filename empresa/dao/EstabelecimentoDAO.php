@@ -23,7 +23,6 @@ class EstabelecimentoDAO{
         $conn = $this->conex->connectDatabase();
     
         //insert na tabela de estabelecimento
-        $conn = $this->conex->connectDatabase();
         $sql = "call sp_cadastrar_estabelecimento(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $estabelecimento->getUsuario());
@@ -50,6 +49,44 @@ class EstabelecimentoDAO{
         }
 
         
+    }
+    //função que cadastra o estabelecimento comercial no banco
+    public function update($id, Estabelecimento $estabelecimento){
+        //update na tabela de estabelecimento
+        $conn = $this->conex->connectDatabase();
+        $sql = "select * from tbl_estabelecimento where id_autenticacao = ?";
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $id);
+        $success = $stm->execute();
+        if ($success) {
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            $estabelecimento->setId($result['id_estabelecimento']);
+        }
+        if($estabelecimento->getImagem() == null){
+            $sql = "update tbl_estabelecimento set descricao = ? where id_estabelecimento = ?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $estabelecimento->getDescricao());
+            $stm->bindValue(2, $estabelecimento->getId());
+            $success = $stm->execute();
+            if($success){
+                echo "Atualização feita com sucesso!";
+            }else{
+                echo "Error :/";
+            }
+        }else{
+            $sql = "update tbl_estabelecimento set descricao = ?, imagem = ? where id_estabelecimento = ?";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $estabelecimento->getDescricao());
+            $stm->bindValue(2, $estabelecimento->getImagem());
+            $stm->bindValue(3, $estabelecimento->getId());
+            $success = $stm->execute();
+            if($success){
+                echo "Atualização feita com sucesso!";
+            }else{
+                echo "Error :/";
+            } 
+        }
+
     }
     //Select para todos os UsuarioEstabelecimento
     public function selectAll($id) {

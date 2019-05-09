@@ -68,6 +68,23 @@ class ControllerEstabelecimento{
 
 
     }
+    public function atualizarEstabelecimento(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_SESSION['id'];
+            //guardando dos os dados recebidos via post em uma variavel
+            $descricao = $_POST['txtDescricao'];
+            $imagem = img($_FILES['img']);
+            //estanciando a model e enviando todos os dados para ela
+            $estabelecimento = new Estabelecimento();
+            $estabelecimento->setImagem($imagem);
+            $estabelecimento->setDescricao($descricao);
+            
+            //chamando o metodo de update e passando o objeto
+            $this->EstabelecimentoDAO->update($id, $estabelecimento);
+        }
+
+
+    }
     public function buscarEstabelecimento(){
         $id = $_SESSION['id'];
         return $this->EstabelecimentoDAO->selectAll($id);

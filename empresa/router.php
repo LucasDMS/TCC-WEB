@@ -55,6 +55,9 @@ if(isset($_GET['controller'])){
                 case 'INSERIR':
                     $controller->inserirEstabelecimento();
                     break;
+                case 'ATUALIZAR':
+                $controller->atualizarEstabelecimento();
+                break;
             }
     }
 }

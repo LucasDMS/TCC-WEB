@@ -11,7 +11,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controll
 
         $estabelecimento = $Controller->buscarEstabelecimento($id);
 
-        $action = "router.php?controller=estabelecimento&modo=atualizar";
+        $action = "router.php?controller=cadastro_estabelecimento&modo=atualizar";
         $modo = "atualizar";
         $descricao = $estabelecimento->getDescricao();
         
@@ -27,9 +27,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controll
         name="frm_estabelecimento"
         class="form_padrao"
         data-id="<?php echo $id; ?>"
-        data-idAutenticacao="<?php echo $idAutenticacao; ?>"
         data-modo="<?php echo $modo; ?>"
-        data-pagina="estabelecimento">
+        data-pagina="marketing">
 
         <div class="inputDados">
             <label from="txtDescricao">Descrição</label>
