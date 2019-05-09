@@ -13,10 +13,16 @@
             <!-- SUB MENU -->
             <div class="sub_menu" id="sub_menu_1">
                 <ul>
-                    <li onclick="chamarView('rede_social', 'view/rede_social/rede_social_form.php')">
+                    <li onclick="chamarView('rede_social', 'view/rede_social/rede_social_listagem.php')">
                         <div>
                             <i class="fas fa-wrench"></i>
                             Rede Social
+                        </div>
+                    </li>
+                    <li onclick="chamarView('promocao', 'view/promocao/promocao_listagem.php')">
+                        <div>
+                            <i class="fas fa-wrench"></i>
+                            Promoções
                         </div>
                     </li>
                 </ul>

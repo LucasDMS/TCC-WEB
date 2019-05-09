@@ -47,6 +47,22 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+
+        case 'PROMOCAO':
+
+        require_once('../cms/controller/controllerPromocao.php');
+        
+        $ControllerPromocao = new ControllerPromocao();
+
+        switch($modo){
+            case 'PARTICIPAR':
+                $ControllerPromocao->participar();
+                break;
+            case 'ATIVAR':
+                $ControllerPromocao->ativarPromocao();
+                break;
+        }
+        break;
     }
 }
 
