@@ -268,3 +268,29 @@ function mostrarAlerta(texto, tipo, duracao){
         
     });
 }
+
+/**
+ * 
+ * @param {HTMLElement} elementoHTML Imagem de check-box
+ */
+function asyncParticipar(elementoHTML) {
+    var url = elementoHTML.getAttribute("action");
+    var pagina = elementoHTML.getAttribute("data-pagina");
+    var id = elementoHTML.getAttribute("data-id");
+    var idPromocao = elementoHTML.getAttribute("data-id-promocao");
+    var formdata = new FormData();
+    formdata.append("id", id);
+    formdata.append("idPromocao", idPromocao);
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: formdata,
+        cache: false,
+        contentType: false,
+        processData: false,
+    })
+    .done(function (html) {
+        recarregarLista(pagina);
+    });
+}

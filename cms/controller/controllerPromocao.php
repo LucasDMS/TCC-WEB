@@ -81,6 +81,10 @@ class ControllerPromocao{
         return $this->PromocaoDAO->selectAll();
     }
 
+    public function buscarPromocaoUsuario(){
+        return $this->PromocaoDAO->selectPromoUser();
+    }
+
     public function participar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
 

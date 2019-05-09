@@ -11,7 +11,7 @@ if(isset($_GET['controller'])){
     switch($controller){
         case 'SESSAO':
 
-            require_once('controller/controllerSessao.php');
+            require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/controller/controllerSessao.php");
 
             $ControllerSessao = new ControllerSessao();
 
@@ -50,7 +50,7 @@ if(isset($_GET['controller'])){
 
         case 'PROMOCAO':
 
-        require_once('../cms/controller/controllerPromocao.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/controller/controllerPromocao.php");
         
         $ControllerPromocao = new ControllerPromocao();
 

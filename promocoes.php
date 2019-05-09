@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<meta name="description" content="Site da POP's Soda Drink">
 	<meta name="keywords" content="POP's Soda Drink">
 	<meta name="author" content="Owl Sofware">
@@ -102,10 +103,10 @@
 					<i class="fas fa-award"></i>
 				</div>
 				
-				<img src="cms/<?php echo ($result['imagem']) ?>" alt="imagem da promoção">
+				<img src="cms/<?php echo ($imagem) ?>" alt="imagem da promoção">
                
 				<p>
-					<?php echo ($result['texto']) ?>
+					<?php echo ($texto) ?>
 				</p>
 
 				<?php
@@ -113,7 +114,7 @@
 				if(isset($_SESSION['logado'])){
 					$Sessao = new Sessao();
 					if($_SESSION['tipo'] == "USUARIO"){
-						$sql = "select * from tbl_promocao_usuario where apagado = 0 and ativo = 1";
+						$sql = "select * from tbl_promocao_usuario";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
 						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -135,14 +136,13 @@
 					}
 				}else{
                 ?> 
-                <button class=btn type="reset"
-                onclick="chamarViewParaModal('login', true)"></button> 
-                <?php }
-				?>
-				<button class="btn" type="submit" onclick="chamarViewParaModal('login', true)">
+
+				<button class="btn" type="reset" onclick="chamarViewParaModal('login', true)">
 				Quero participar!
 				<i class="fas fa-award"></i>
 				</button>
+				<?php }
+				?>
 			</div> 
 
 		</section>

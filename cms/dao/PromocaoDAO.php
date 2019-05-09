@@ -172,8 +172,8 @@ class PromocaoDAO{
     public function participe(Promocao $Promocao) {
         //Conectando ao banco
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_promocao_usuario (id_promocao, id_usuario) VALUES (?,?);";
-
+        $sql = "insert into tbl_promocao_usuario (id_promocao, id_usuario, ativo) VALUES (?,?,1);";
+        
         $stm = $conn->prepare($sql);
         //Setando os valores da query
         $stm->bindValue(1, $Promocao->getId());
@@ -186,6 +186,32 @@ class PromocaoDAO{
             return "Sucesso";
         } else {
             echo $success;
+            return "Erro";
+        }
+    }
+
+    //Selecionando todos os registros do banco 
+    public function selectPromoUser() {
+        $conn = $this->conex->connectDatabase();
+        $sql = "select * from tbl_promocao_usuario";
+        $stm = $conn->prepare($sql);
+        $success = $stm->execute();
+
+        if ($success) {
+            //Criando uma lista com os dados
+            $listPromocao = [];
+            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
+                $Promocao = new Promocao();
+                $Promocao->setId($result['id_promocao']);
+                $Promocao->setIdUsuario($result['id_usuario']);
+                $Promocao->setAtivoUsuario($result['ativo']);
+                array_push($listPromocao, $Promocao);
+            };
+
+            $this->conex -> closeDataBase();
+            //retornando a lista
+            return $listPromocao;
+        } else {
             return "Erro";
         }
     }
