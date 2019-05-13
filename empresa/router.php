@@ -59,6 +59,31 @@ if(isset($_GET['controller'])){
                 $controller->atualizarEstabelecimento();
                 break;
             }
+        case 'COMPRAS':
+
+            require_once('controller/controllerCompras.php');
+            
+            $Controller = new ControllerCompras();
+
+            switch($modo){
+                case 'INSERIR':
+
+                    $Controller->inserirCarrinho();
+                    break;
+                case 'ATUALIZAR':
+
+                    $Controller ->atualizarUsuarioEstabelecimento();
+                    break;
+                case 'EXCLUIR':
+
+                    $Controller->excluirUsuarioEstabelecimento();
+                    break;
+
+                case 'ATIVAR':
+                    $Controller->ativarUsuarioEstabelecimento();
+                    break;
+            }
+            break;
     }
 }
 
