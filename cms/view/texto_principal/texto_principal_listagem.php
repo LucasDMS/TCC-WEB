@@ -24,7 +24,7 @@ $rs = $controller->buscarTextoPrincipal();
                 <?php echo $result->getTexto(); ?>
             </div>
             <div>
-                Tipo de Texto : 
+                Página de 
                 <?php echo $result->getTipoTexto(); ?>
             </div>
 

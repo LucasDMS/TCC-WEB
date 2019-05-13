@@ -20,8 +20,15 @@ $rs = $controller->buscarPatrocinio();
                 <?php echo $result->getNome(); ?>
             </div>
             <div>
+                <p style= "
+  max-width: 15ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+">
                 Descrição : 
                 <?php echo $result->getDescricao(); ?>
+                </p>
             </div>
             <div>
                 <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
