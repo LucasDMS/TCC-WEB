@@ -56,7 +56,6 @@ class ControllerEstabelecimento{
     
      //listar todos os Estabelecimentos
      public function buscarEstabelecimento() {
-        
         //chamada para o metodo de listar todos os Estabelecimentos
         return $this->EstabelecimentoDAO->selectAll();
     }

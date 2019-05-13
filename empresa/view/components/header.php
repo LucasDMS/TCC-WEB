@@ -4,6 +4,8 @@
     <div>
         <img src="" alt="">
         <span>Admin</span>
-        <i class="fas fa-sign-out-alt"></i>
+        <a href="../index.php?modo=logout" onclick="sessionStorage.clear();">
+                <i class="fas fa-sign-out-alt"></i>
+        </a>
     </div>
 </header>

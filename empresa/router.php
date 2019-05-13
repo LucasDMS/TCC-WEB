@@ -48,14 +48,42 @@ if(isset($_GET['controller'])){
             }
             break;
         case 'CADASTRO_ESTABELECIMENTO':
-            require_once('controller/controllerCadastroEstabelecimento.php');
-            $controller = new controllerCadastroEstabelecimento();
+            require_once('controller/controllerEstabelecimento.php');
+            $controller = new controllerEstabelecimento();
 
             switch($modo){
                 case 'INSERIR':
-                    $controller->inserirCadastroEstabelecimento();
+                    $controller->inserirEstabelecimento();
+                    break;
+                case 'ATUALIZAR':
+                $controller->atualizarEstabelecimento();
+                break;
+            }
+        case 'COMPRAS':
+
+            require_once('controller/controllerCompras.php');
+            
+            $Controller = new ControllerCompras();
+
+            switch($modo){
+                case 'INSERIR':
+
+                    $Controller->inserirCarrinho();
+                    break;
+                case 'ATUALIZAR':
+
+                    $Controller ->atualizarUsuarioEstabelecimento();
+                    break;
+                case 'EXCLUIR':
+
+                    $Controller->excluirUsuarioEstabelecimento();
+                    break;
+
+                case 'ATIVAR':
+                    $Controller->ativarUsuarioEstabelecimento();
                     break;
             }
+            break;
     }
 }
 

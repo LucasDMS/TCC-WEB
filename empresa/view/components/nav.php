@@ -9,7 +9,8 @@
 <nav id="barra_lateral" class="nav">
 
     <ul>
-    <?php if($_SESSION['tipo'] == 'EMPRESAROOT'){?>
+    <?php
+    if($_SESSION['tipo'] == 'EMPRESAROOT'){?>
         <li>
             <!-- BOTÃO -->
 
@@ -32,9 +33,57 @@
                     </li>
                 </ul>
             </div>
-        </li>
-        <?php } ?>
+        </li> 
+
         <li>
+            <!-- BOTÃO -->
+            <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
+                    <div>
+                        <i class="fas fa-cog"></i>
+                        Menu
+                    </div>
+                    <i class="fas fa-angle-right seta" id="seta_2"></i>
+            </div>
+            <!-- SUB MENU -->
+            <div class="sub_menu" id="sub_menu_2">
+            <ul>
+                <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                    <div>
+                        <i class="fas fa-wrench"></i>
+                        Comprar
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                    <div>
+                        <i class="fas fa-wrench"></i>
+                        Ver histórico
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li onclick="chamarViewParaApp('marketing')">
+                    <div>
+                        <i class="fas fa-wrench"></i>
+                        Crie seu marketing
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                    <div>
+                        <i class="fas fa-wrench"></i>
+                        Solicitar divulgação
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <?php } 
+           if($_SESSION['tipo'] == 'EMPRESA'){
+        ?>
+        <li>
+        
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
                 <div>
@@ -45,12 +94,13 @@
             </div>
             <!-- SUB MENU -->
             <div class="sub_menu" id="sub_menu_2">
-            <?php 
+            
+               <?php
                 foreach($rs as $result){
                     $IdMenu[] = $result->getIdMenu();
                     if($IdMenu[$i]==1){?>
                     <ul>
-                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                        <li onclick="chamarViewParaApp('compras')">
                             <div>
                                 <i class="fas fa-wrench"></i>
                                 Comprar
@@ -61,10 +111,10 @@
                     if($IdMenu[$i]==2){
                     ?>
                     <ul>
-                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                        <li onclick="chamarViewParaApp('compras')">
                             <div>
                                 <i class="fas fa-wrench"></i>
-                                Ver histórico
+                                Compras
                             </div>
                         </li>
                     </ul>
@@ -72,7 +122,7 @@
                     if($IdMenu[$i]==3){
                     ?>
                     <ul>
-                        <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                        <li onclick="chamarViewParaApp('marketing')">
                             <div>
                                 <i class="fas fa-wrench"></i>
                                 Crie seu marketing
@@ -93,6 +143,7 @@
                     <?php } 
                     $i++;
                 }
+            }
                     ?>
         </li>
     </ul>

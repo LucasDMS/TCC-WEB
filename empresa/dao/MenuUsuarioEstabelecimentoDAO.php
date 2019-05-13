@@ -58,26 +58,31 @@ class MenuUsuarioEstabelecimentoDAO {
         $stm->bindValue(1, $id);        
         $success = $stm->execute();
         if ($success) {
+            $Menu = new MenuUsuarioEstabelecimento();
             foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Menu = new MenuUsuarioEstabelecimento();
+                
                 $Menu->setIdUsuario($result['id_usuario_estabelecimento']);
             }
         }
-        $sql = "select * from tbl_usuario_estabelecimento_menu_usuario_estabelecimento As mu, tbl_menu_usuario_estabelecimento as m where mu.id_menu=m.id_menu and id_usuario_estabelecimento=?;";
-        $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $Menu->getIdUsuario());        
-        $success = $stm->execute();
-        if ($success) {
-            $listMenu = [];
-            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $Menu = new MenuUsuarioEstabelecimento();
-                $Menu->setIdMenu($result['id_menu']);
-                array_push($listMenu, $Menu);
+        if($Menu == ""){
+            echo "sadsaf";
+        }else{
+            $sql = "select * from tbl_usuario_estabelecimento_menu_usuario_estabelecimento As mu, tbl_menu_usuario_estabelecimento as m where mu.id_menu=m.id_menu and id_usuario_estabelecimento=?;";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $Menu->getIdUsuario());        
+            $success = $stm->execute();
+            if ($success) {
+                $listMenu = [];
+                foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
+                    $Menu = new MenuUsuarioEstabelecimento();
+                    $Menu->setIdMenu($result['id_menu']);
+                    array_push($listMenu, $Menu);
+                }
+                $this->conex -> closeDataBase();
+                return $listMenu;
+            } else {
+                return "Erro";
             }
-            $this->conex -> closeDataBase();
-            return $listMenu;
-        } else {
-            return "Erro";
         }
     }
 }
