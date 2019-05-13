@@ -12,18 +12,7 @@
 
 require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms". "/controller/controllerBrinde.php");
 
-$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/model/Sessao.php";
-
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/db/ConexaoMysql.php");
-
-require_once($_SESSION['PATH']);
-$verificar = array();
-$id = $_SESSION['id'];
-
-$conex = new conexaoMysql();
-$con = $conex->connectDatabase();
-
-$controleller = new controllerBrinde();
+$controller = new controllerBrinde();
 $rs = $controller->buscarBrindes();
 
 ?>
@@ -33,28 +22,49 @@ $rs = $controller->buscarBrindes();
 </div>
 
 <div class="card_wrapper">
-        <!-- CARD -->
-        <?php foreach ($rs as $result) { ?>
+    <!-- CARD -->
+    <?php foreach ($rs as $result) { ?>
+        <div class="card">
             <div>
-                Nome do Brinde:
+                Nome : 
                 <?php echo $result->getNome(); ?>
             </div>
             <div>
-                Texto do Brinde:
-                <?php echo $result->getTexto(); ?>
+                Descrição : 
+                <?php echo $result->getDescricao(); ?>
             </div>
 
             <div class="card_operadores">
-                <?php
-                    $sql = "select * from tbl_brinde where apagado = 0 and ativo = 1";
-                    $stm = $con->prepare($sql);
-                    $sucess = $stm->execute();    
-                    foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
-                        array_push($verificar, $result['id_brinde']);
-                    }
-                    
-                ?>
+                <a  onclick="asyncBuscarDados(this)"
+                    href="#"
+                    data-pagina="brinde"
+                    data-url="view/brinde/brinde_form.php?id=<?php echo $result->getId(); ?>"
+                    data-id="<?php echo $result->getId(); ?>">
+
+                    <i class="fas fa-pen"></i>
+                </a>
+
+                <a  onclick="asyncAtivar(this)" 
+                    href="#"
+                    data-pagina="brinde"
+                    data-url="router.php?controller=brinde&modo=ativar" 
+                    data-id="<?php echo $result->getId(); ?>"
+                    data-ativo="<?php echo $result->getAtivo(); ?>">
+
+                    <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
+                    <i class="far fa<?php echo $ativo ?>-square"></i>
+                </a>
+
+                <a  onclick="asyncApagar(this)" 
+                    href="#"
+                    data-pagina="brinde"
+                    data-url="router.php?controller=brinde&modo=excluir" 
+                    data-id="<?php echo $result->getId(); ?>">
+
+                    <i class="fas fa-trash"></i>
+                </a>
             </div>
+
         </div>
     <?php } ?>
 </div>

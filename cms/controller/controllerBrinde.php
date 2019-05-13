@@ -4,20 +4,21 @@ class ControllerBrinde{
 
     private $BrindeDAO;
     public function __construct(){
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Brinde.php");
         require_once($_SERVER['DOCUMENT_ROOT']."/_tcc/cms" . "/dao/BrindeDAO.php");
         $this->BrindeDAO = new BrindeDAO();
     }
     public function inserirBrinde(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $titulo = $_POST['txt_titulo'];
-            $texto = $_POST['txt_conteudo'];
+            $nome = $_POST['txt_nome'];
+            $descricao = $_POST['txt_descricao'];
             $ativo = 1;
             $apagado = 0;
 
             $Brinde = new Brinde();
-            $Brinde->setTitulo($titulo);
-            $Brinde->setConteudo($texto);
+            $Brinde->setNome($nome);
+            $Brinde->setDescricao($descricao);
             $Brinde->setApagado($apagado);
             $Brinde->setAtivo($ativo);
             $this->BrindeDAO->insert($Brinde);
@@ -27,13 +28,14 @@ class ControllerBrinde{
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
             $id = $_POST['id'];
-            $titulo = $_POST['txt_titulo'];
-            $conteudo = $_POST['txt_conteudo'];
+            $nome = $_POST['txt_nome'];
+            $descricao = $_POST['txt_descricao'];
+            
             $Brinde = new Brinde();
-
+            
             $Brinde->setId($id);
-            $Brinde->setTitulo($titulo);
-            $Brinde->setConteudo($conteudo);
+            $Brinde->setNome($nome);
+            $Brinde->setDescricao($descricao);
 
             $this->BrindeDAO->update($Brinde);
         }
@@ -59,12 +61,12 @@ class ControllerBrinde{
             $this->BrindeDAO->updateAtivo($Brinde);
         }
     }
-
+    
     public function buscarBrindePorId(){
         $id = $_GET['id'];
         return $this->BrindeDAO->selectById($id);
     }
-    public function buscarBrinde(){
+    public function buscarBrindes(){
         return $this->BrindeDAO->selectAll();
     }
 }
