@@ -8,28 +8,18 @@ class ControllerCompras{
         $this->ComprasDAO = new ComprasDAO();
         
     }
-    public function inserirUsuarioEstabelecimento(){
+    public function inserirCarrinho(){
     
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $nome =$_POST['txtNome'];
-            $login = $_POST['txtLogin'];
-            $password = $_POST['txtPassword'];
-            $tipo = 'EMPRESA';
-            $ativo = 1;
-            $idMenu = $_POST['checkbox'];
+            $id = $_POST['id'];
+            $idUsuario = $_POST['ativo'];
             
-            $Sessao = new Sessao(); 
-            $Sessao->setLogin($login);
-            $Sessao->setSenha($password);
-            $Sessao->setTipo($tipo);
+            $Compras = new Compras();
+            $Compras->setId($id);
+            $Compras->setUsuario($idUsuario);
 
-            $UsuarioEstabelecimento = new UsuarioEstabelecimento();
-            $UsuarioEstabelecimento->setNome($nome);
-            $UsuarioEstabelecimento->setAtivo($ativo);
-            $MenuUsuarioEstabelecimento = new MenuUsuarioEstabelecimento();
-            $MenuUsuarioEstabelecimento->setIdMenu($idMenu);
-            return $this->UsuarioEstabelecimentoDAO->insert($UsuarioEstabelecimento, $Sessao, $MenuUsuarioEstabelecimento, $id);
+            $this->ComprasDAO->inserir($Compras);
         }
     }
     

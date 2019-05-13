@@ -65,7 +65,7 @@ if(isset($_GET['controller'])){
             switch($modo){
                 case 'INSERIR':
 
-                    $Controller->inserirUsuarioEstabelecimento();
+                    $Controller->inserirCarrinho();
                     break;
                 case 'ATUALIZAR':
 

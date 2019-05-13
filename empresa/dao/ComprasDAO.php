@@ -7,8 +7,18 @@ class ComprasDAO {
         $this->conex = new conexaoMysql();
     }
     
-    
-    //Update no UsuarioEstabelecimento ativo
+    public function inserir(Compras $Compras) {
+        $conn = $this->conex->connectDatabase();
+        $sql = "INSERT INTO tbl_pedido_produtos (id_autenticacao,id_produto,quantidade)VALUE(?,?,?)";
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(1, $Compras->getUsuario());
+        $stm->bindValue(2, $Compras->getId());
+        $stm->bindValue(3, 0);
+        $stm->execute();
+     
+
+    }
+
     public function updateAtivo(UsuarioEstabelecimento $UsuarioEstabelecimento) {
         $conn = $this->conex->connectDatabase();
         if($UsuarioEstabelecimento->getAtivo()=="0"){
