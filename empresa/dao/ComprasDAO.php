@@ -13,7 +13,7 @@ class ComprasDAO {
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Compras->getUsuario());
         $stm->bindValue(2, $Compras->getId());
-        $stm->bindValue(3, 0);
+        $stm->bindValue(3, 1);
         $stm->execute();
      
 

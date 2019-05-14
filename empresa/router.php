@@ -84,6 +84,31 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+        case 'CARRINHO':
+
+            require_once('controller/controllerCarrinho.php');
+            
+            $Controller = new ControllerCarrinho();
+
+            switch($modo){
+                case 'INSERIR':
+
+                    $Controller->inserirCarrinho();
+                    break;
+                case 'ATUALIZAR':
+
+                    $Controller ->atualizarUsuarioEstabelecimento();
+                    break;
+                case 'EXCLUIR':
+
+                    $Controller->excluirCarrinho();
+                    break;
+
+                case 'ATIVAR':
+                    $Controller->ativarUsuarioEstabelecimento();
+                    break;
+            }
+            break;
     }
 }
 
