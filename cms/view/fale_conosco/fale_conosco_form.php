@@ -40,30 +40,30 @@ if(isset($_GET['id'])){
 
     <div class="inputDados">
         <label from="txtNome">Nome</label>
-        <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome?>" required>
+        <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome?>" disabled>
     </div>
     <div class="inputDados">
         <label from="txtEmail">Email</label>
-        <input type="text" name="txtEmail" id="txtEmail" value="<?php echo $email?>" required>
+        <input type="text" name="txtEmail" id="txtEmail" value="<?php echo $email?>" disabled>
     </div>
     <div class="inputDados">
         <label from="txtTelefone">Telefone</label>
-        <input type="text" name="txtTelefone" id="txtTelefone" value="<?php echo $telefone?>" required>
+        <input type="text" name="txtTelefone" id="txtTelefone" value="<?php echo $telefone?>" disabled>
     </div>
     <div class="inputDados">
         <label from="txtCelular">Celular</label>  
-        <input type="text" name="txtCelular" id="txtCelular" value="<?php echo $celular?>" required>
+        <input type="text" name="txtCelular" id="txtCelular" value="<?php echo $celular?>" disabled>
     </div>
     <div class="inputDados">
         <label from="txtEstado">Estado</label>
-        <input type="text" name="txtEstado" id="txtEstado" value="<?php echo $estado?>" required>
+        <input type="text" name="txtEstado" id="txtEstado" value="<?php echo $estado?>" disabled>
     </div>
     <div class="inputDados">
         <label from="txtCidade">Cidade</label>
-        <input type="text" name="txtCidade" id="txtCidade" value="<?php echo $cidade?>" required>
+        <input type="text" name="txtCidade" id="txtCidade" value="<?php echo $cidade?>" disabled>
     </div>
     <div class="inputDados">
         <label from="txtTexto">Texto</label>
-        <textarea name="txtTexto" id="txtTexto" required><?php echo $texto?></textarea>
+        <textarea name="txtTexto" id="txtTexto" disabled><?php echo $texto?></textarea>
     </div>
 </form>

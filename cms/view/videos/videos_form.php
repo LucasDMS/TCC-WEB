@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
     $descricao = $Videos->getDescricao();
 }
 
-$modo == "atualizar" ? $paginaTitulo = "Atualizar notícia" : $paginaTitulo = "Nova notícia";
+$modo == "atualizar" ? $paginaTitulo = "Atualizar vídeo" : $paginaTitulo = "Novo vídeo";
 
 ?>
 
