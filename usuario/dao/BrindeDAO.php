@@ -10,22 +10,25 @@ class BrindeDAO{
         $this->conex = new conexaoMysql();
     }
     public function insert(Brinde $brinde) {
+        
         $conn = $this->conex->connectDatabase();
-        $sql = "insert into tbl_brinde(nome_brinde,descricao_brinde,ativo,apagado) values(?,?,?,?);";
+        $sql = "select * from tbl_pedido_brinde where id_autenticacao=? AND id_brinde=?";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $brinde->getNome());
-        $stm->bindValue(2, $brinde->getDescricao());
-        $stm->bindValue(3, $brinde->getAtivo());
-        $stm->bindValue(4, $brinde->getApagado());
-        $sucess = $stm->execute();
-        $this->conex->closeDataBase();
-        if ($sucess) {
-            echo "Cadastrado com Sucesso";
-            return "Sucesso";
+        $stm->bindValue(1, $brinde->getUsuario());
+        $stm->bindValue(2, $brinde->getId());
+        $stm->execute();
+        if($stm->rowCount() > 0){
+            
         } else {
-            echo $sucess;
-            return "Erro";
-        } 
+            $sql = "INSERT INTO tbl_pedido_brinde(id_autenticacao,id_brinde,quantidade)VALUE(?,?,?)";
+            $stm = $conn->prepare($sql);
+            $stm->bindValue(1, $brinde->getUsuario());
+            $stm->bindValue(2, $brinde->getId());
+            $stm->bindValue(3, 1);
+            $stm->execute();
+        }
+
+        $this->conex->closeDataBase();
     }
         public function update(Brinde $brinde) {
         $conn = $this->conex->connectDatabase();
@@ -116,8 +119,7 @@ class BrindeDAO{
                 $brinde->setId($result['id_brinde']);
                 $brinde->setNome($result['nome_brinde']);
                 $brinde->setDescricao($result['descricao_brinde']);
-                $brinde->setApagado($result['apagado']);
-                $brinde->setAtivo($result['ativo']);
+                $brinde->setImagem($result['img_brinde']);
                 array_push($listBrinde, $brinde);
             };
 

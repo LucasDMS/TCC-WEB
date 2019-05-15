@@ -1,3 +1,4 @@
+    
 body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, 
 header, main, footer, input, p, table, th, tr, td, button, textarea {
 	box-sizing: border-box;
@@ -173,11 +174,45 @@ footer {
 	font-size: 14px;
 }
 
+/*NICOLAS*/
+.input_carrinho{
+	width: 40px;
+	height: 50px;
+}
+
 .tabela_padrao {
 	width: 1000px;
 	margin: 15px auto;
 	text-align: center;
-	border: 2px solid #ddd;
+	border-collapse: collapse;
+	box-shadow: 0 0 5px 2px #dadada;
+}
+
+.tabela_padrao thead{
+}
+
+.tabela_padrao tbody {
+}
+.tabela_titlo {
+	background-color:#f8ae83;
+	color: #fff;
+}
+
+.tabela_header {
+	background: #ebf9ff;
+}
+
+.tabela_padrao tr {
+	height: 50px;
+	border-bottom: 1px solid #999;
+}
+
+.tabela_padrao tr:hover {
+	background-color: #eef1ff;
+}
+
+.tabela_padrao td, .tabela_padrao th {
+	padding: 5px;
 }
 
 /* ==== FORM MODAL ==== */
@@ -186,20 +221,7 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 }
-.setor {
-	padding: 5px;
-	min-height: 55px;
-	height: auto;
-	min-width: 130px;
-	float: left;
-	flex-wrap: wrap;
-	border:1px solid #09a552;
-	margin-right: 10px;	
-}
-.setor input[type=number]{
-	height: 20px;
-	width: 30px;
-}
+
 .form_padrao {
 	margin: auto;
 	width: 100%;
@@ -259,7 +281,7 @@ footer {
 	resize: none;
 }
 
-.inputDados textarea, .inputDados input{
+.inputDados textarea, .inputDados input {
 	outline: none;
 	border: 1px solid #09a552;
 	padding: 10px;
@@ -314,12 +336,7 @@ footer {
 	overflow: hidden;
 	overflow-y: auto;
 }
-.titulosform{
-	font-size: 25px;
-	color: #f8ae83;
-	margin-top: 30px;
-	margin-bottom: 10px;
-}
+
 .pagina_titulo {
 	max-width: 1440px;
 	padding: 15px 25px;
@@ -364,10 +381,6 @@ footer {
 	justify-content: space-between;
 	overflow: auto;
 }
-.cores {
-	height: 50px;
-	width: 278px;
-}
 
 .card_imagem {
 	display: block;
@@ -393,6 +406,12 @@ footer {
 
 .card_operadores a:hover {
 	color: #f8ae83;
+}
+
+
+.carrinho_compra:hover{
+	cursor: pointer;
+	color: #09a552 !important;
 }
 
 /*ALERTA*/

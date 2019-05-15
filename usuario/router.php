@@ -22,28 +22,47 @@ if(isset($_GET['controller'])){
             }
             break;
 
-        case 'HISTORIA':
+        case 'BRINDE':
 
-            require_once('controller/controllerHistoria.php');
+            require_once('controller/controllerBrinde.php');
             
-            $ControllerHistoria = new ControllerHistoria();
+            $ControllerBrinde = new ControllerBrinde();
 
             switch($modo){
                 case 'INSERIR':
 
-                    $ControllerHistoria->inserirHistoria();
+                    $ControllerBrinde->inserirBrinde();
                     break;
                 case 'ATUALIZAR':
 
-                    $ControllerHistoria ->atualizarHistoria();
+                    $ControllerBrinde ->atualizarBrinde();
                     break;
                 case 'EXCLUIR':
 
-                    $ControllerHistoria->excluirHistoria();
+                    $ControllerBrinde->excluirBrinde();
                     break;
 
                 case 'ATIVAR':
-                    $ControllerHistoria->ativarHistoria();
+                    $ControllerBrinde->ativarBrinde();
+                    break;
+            }
+            break;
+        case 'CARRINHO':
+            require_once('controller/controllerCarrinho.php');
+            
+            $Controller = new ControllerCarrinho();
+            switch($modo){
+                case 'INSERIR':
+                    $Controller->inserirCarrinho();
+                    break;
+                case 'ATUALIZAR':
+                    $Controller ->atualizarUsuarioEstabelecimento();
+                    break;
+                case 'EXCLUIR':
+                    $Controller->excluirCarrinho();
+                    break;
+                case 'ATIVAR':
+                    $Controller->ativarUsuarioEstabelecimento();
                     break;
             }
             break;

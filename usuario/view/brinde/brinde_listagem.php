@@ -10,7 +10,7 @@
     Objetivo da Classe: listagem dos brindes.
 */
 
-require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms". "/controller/controllerBrinde.php");
+require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/usuario". "/controller/controllerBrinde.php");
 
 $controller = new controllerBrinde();
 $rs = $controller->buscarBrindes();
@@ -19,6 +19,9 @@ $rs = $controller->buscarBrindes();
 
 <div class="pagina_titulo">
         Brindes
+        <button class="menu_novo" type="menu" onclick="chamarViewParaApp('carrinho')"><!-- colocar onclick da nav -->
+            <i class="fas fa-shopping-cart"></i>
+        </button>
 </div>
 
 <div class="card_wrapper">
@@ -38,30 +41,18 @@ $rs = $controller->buscarBrindes();
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
                     data-pagina="brinde"
-                    data-url="view/brinde/brinde_form.php?id=<?php echo $result->getId(); ?>"
-                    data-id="<?php echo $result->getId(); ?>">
-
+                    data-url="view/brinde/brinde_form.php?id=<?php echo $result->getId()?>"
+                    data-id="<?php echo $result->getId();?>">
                     <i class="fas fa-pen"></i>
                 </a>
-
-                <a  onclick="asyncAtivar(this)" 
+                <a class="carrinho_compra"
+                    onclick="asyncAtivar(this)"
                     href="#"
                     data-pagina="brinde"
-                    data-url="router.php?controller=brinde&modo=ativar" 
-                    data-id="<?php echo $result->getId(); ?>"
-                    data-ativo="<?php echo $result->getAtivo(); ?>">
-
-                    <?php $ativo = ($result->getAtivo()==1) ? "-check" : "" ; ?>
-                    <i class="far fa<?php echo $ativo ?>-square"></i>
-                </a>
-
-                <a  onclick="asyncApagar(this)" 
-                    href="#"
-                    data-pagina="brinde"
-                    data-url="router.php?controller=brinde&modo=excluir" 
-                    data-id="<?php echo $result->getId(); ?>">
-
-                    <i class="fas fa-trash"></i>
+                    data-url="router.php?controller=brinde&modo=inserir"
+                    data-id="<?php echo $result->getId();?>"
+                    data-ativo= <?php echo $_SESSION['id']?>>
+                    <i class="fas fa-cart-plus"></i>
                 </a>
             </div>
 

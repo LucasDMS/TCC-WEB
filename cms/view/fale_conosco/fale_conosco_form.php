@@ -24,7 +24,7 @@ if(isset($_GET['id'])){
     $cidade = $Faleconosco->getCidade();
     $texto = $Faleconosco->getTexto();
 }
-
+$paginaTitulo = "Visualizar mensagem";
 ?>
 <form   onsubmit="asyncSubmit(event, this)" 
         action="<?php echo $action; ?>" 
@@ -37,7 +37,7 @@ if(isset($_GET['id'])){
         data-pagina="faleconosco"
         data-modo="<?php echo $modo?>"
         class="form_padrao">
-
+    <h2><?php echo $paginaTitulo?></h2>
     <div class="inputDados">
         <label from="txtNome">Nome</label>
         <input type="text" name="txtNome" id="txtNome" value="<?php echo $nome?>" disabled>
