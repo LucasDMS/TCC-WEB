@@ -3,9 +3,8 @@
 $controller = new ControllerCarrinho();
 $rs = $controller->buscarCarrinho();
 $valorTotal = 0;
+
 ?>
-
-
 
 <table class="tabela_padrao">
     <thead>
@@ -26,21 +25,22 @@ $valorTotal = 0;
     </thead>
 
     <tbody>
-    <?php foreach ($rs as $result) { ?>
+    <?php 
+    $i = 0;
+    foreach ($rs as $result) { ?>
             <tr>
                 <td><?php echo $result->getNome(); ?></td>
                 <td><img src="../cms/<?php echo $result->getImagem(); ?>" height="40%"/></td>
                 <td><?php echo $result->getDescricao(); ?></td>
                 <td>
-                    <input type="number" name="txt_qtd" id="txt_qtd" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho"/>
+                    <input type="number" name="txt_qtd" id="txt_qtd" v-model="valor<?php echo $i?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho"/>
                 </td>
                 <td>
-                    <?php 
-                        echo "R$".$result->getPreco().",00"; 
-                        $valorTotal += $result->getPreco();
-                    ?>
+                   {{valorTotal = valor0 * <?php echo $result->getPreco()?>}} 
+                        
+                    
                 </td>
-            
+               
                 <td>
                     <a  onclick="asyncApagar(this)" 
                         href="#"
@@ -51,7 +51,9 @@ $valorTotal = 0;
                     </a>
                 </td>
         </tr>
-    <?php } ?>
+    <?php 
+    $i++;    
+    } ?>
     </tbody>
     <tbody>
         <tr>    
@@ -59,8 +61,20 @@ $valorTotal = 0;
             <td></td>
             <td></td>
             <td><strong><p>Total:</p></strong></td>
+            <script>
+                    vue = new Vue({
+                        el: '#app',
+                        data: {
+                            valor0: 1,
+                            valor1:1,
+                            valorTotal: 0
+                        }
+                    }) 
+
+
+                </script>
             <td>
-                <strong><p><?php echo "R$".$valorTotal.",00" ?></p></strong>
+                <strong><p> R$:{{valorTotal}}</p></strong>
             </td>
             <td colspan="4">
                 <button type="menu" onclick="chamarViewParaModal('carrinho')">                                                                                                                                                                                                                                  

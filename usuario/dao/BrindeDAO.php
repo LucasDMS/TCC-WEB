@@ -88,22 +88,24 @@ class BrindeDAO{
     }
     public function selectById($id) {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from tbl_brinde where id_brinde= ?;";
+        $sql = "select * from tbl_brinde where apagado = ? and id_brinde=?";
         $stm = $conn->prepare($sql);
-        $stm->bindValue(1, $id);
+        $stm->bindValue(1, 0);    
+        $stm->bindValue(2, $id);     
         $success = $stm->execute();
+        $this->conex->closeDataBase();
         if ($success) {
-           
-            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result) {
-                $brinde = new Brinde();
-                $brinde->setId($result['id_brinde']);
-                $brinde->setNome($result['nome_brinde']);
-                $brinde->setDescricao($result['descricao_brinde']);
-                $brinde->setApagado($result['apagado']);
-                $brinde->setAtivo($result['ativo']);
-                return $brinde;
-            };
-            $this->conex -> closeDataBase();
+            
+            $result = $stm->fetch(PDO::FETCH_ASSOC);
+            
+            $brinde = new Brinde();
+            $brinde->setId($result['id_brinde']);
+            $brinde->setNome($result['nome_brinde']);
+            $brinde->setDescricao($result['descricao_brinde']);
+            $brinde->setImagem($result['img_brinde']);
+            $brinde->setPreco($result['preco_brinde']);
+          
+            return $brinde;
         }
     }
     public function selectAll() {
