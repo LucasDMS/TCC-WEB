@@ -41,7 +41,7 @@
         }
 
         public function setPreco($preco){
-            $this->preco = $preco;
+            $this->preco = $preco*12;
             return $this;
         }
 

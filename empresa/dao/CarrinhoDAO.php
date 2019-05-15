@@ -10,7 +10,7 @@ class CarrinhoDAO {
     //Select para todos os PRODUTOS
     public function selectAll($id) {
         $conn = $this->conex->connectDatabase();
-        $sql = "select * from vw_carrinho_compra where pp.id_autenticacao=?";
+        $sql = "select * FROM vw_carrinho_compra WHERE autenticacao = ?";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1,$id);
         $success = $stm->execute();

@@ -25,7 +25,8 @@
             </div>
             <div>
                 <strong>R$ </strong> 
-                <?php echo $result->getPreco().',00'; ?>
+                <?php echo $result->getPreco().',00'; ?><br>
+                <p>fardo c/12 unidade</p>
             </div>
 
           

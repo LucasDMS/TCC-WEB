@@ -9,7 +9,7 @@ class ComprasDAO {
     
     public function inserir(Compras $Compras) {
         $conn = $this->conex->connectDatabase();
-        $sql = "INSERT INTO tbl_pedido_produtos (id_autenticacao,id_produto,quantidade)VALUE(?,?,?)";
+        $sql = "call sp_comprar_produtos(?,?,?)";
         $stm = $conn->prepare($sql);
         $stm->bindValue(1, $Compras->getUsuario());
         $stm->bindValue(2, $Compras->getId());

@@ -11,7 +11,7 @@ class ControllerCarrinho{
     }
     
     public function buscarCarrinho(){
-        $id = $_POST['id'];
+        $id = $_SESSION['id'];
         return $this->CarrinhoDAO->selectAll($id);
     }
 
