@@ -47,7 +47,7 @@
             <!-- SUB MENU -->
             <div class="sub_menu" id="sub_menu_2">
             <ul>
-                <li onclick="chamarViewParaApp('usuario_estabelecimento')">
+                <li onclick="chamarViewParaApp('compras')">
                     <div>
                         <i class="fas fa-wrench"></i>
                         Comprar

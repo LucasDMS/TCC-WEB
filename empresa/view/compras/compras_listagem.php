@@ -7,8 +7,8 @@
 
 <div class="pagina_titulo">
     Produtos
-    <button class="menu_novo" type="menu" onclick="chamarViewParaApp('usuario_estabelecimento')"><!-- colocar onclick da nav -->
-        <i class="fas fa-plus"></i>
+    <button class="menu_novo" type="menu" onclick="chamarViewParaApp('carrinho')"><!-- colocar onclick da nav -->
+        <i class="fas fa-shopping-cart"></i>
     </button>
 </div>
 
@@ -25,8 +25,8 @@
             </div>
             <div>
                 <strong>R$ </strong> 
-                <?php echo $result->getPreco().',00'; ?>
-                <?php echo $_SESSION['id'];?>
+                <?php echo $result->getPreco().',00'; ?><br>
+                <p>fardo c/12 unidade</p>
             </div>
 
           
@@ -47,6 +47,7 @@
                     data-id="<?php echo $result->getId();?>"
                     data-ativo= <?php echo $_SESSION['id']?>>
                     <i class="fas fa-cart-plus"></i>
+                    
                 </a>
             </div>
         </div>

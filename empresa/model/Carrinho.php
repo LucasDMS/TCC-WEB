@@ -1,29 +1,20 @@
 <?php
 
-    class Compras{
-        
+    class Carrinho{
         private $id;
         private $nome;
-        private $descricao;
         private $imagem;
+        private $quantidade;
         private $preco;
-        private $usuario;
+        private $descricao;
 
         public function getNome(){
             return $this->nome;
         }
- 
+
+
         public function setNome($nome){
             $this->nome = $nome;
-            return $this;
-        }
-
-        public function getDescricao(){
-            return $this->descricao;
-        }
- 
-        public function setDescricao($descricao){
-            $this->descricao = $descricao;
             return $this;
         }
 
@@ -33,6 +24,15 @@
 
         public function setImagem($imagem){
             $this->imagem = $imagem;
+            return $this;
+        }
+
+        public function getQuantidade(){
+            return $this->quantidade;
+        }
+
+        public function setQuantidade($quantidade){
+            $this->quantidade = $quantidade;
             return $this;
         }
 
@@ -48,18 +48,18 @@
         public function getId(){
             return $this->id;
         }
- 
+
         public function setId($id){
             $this->id = $id;
             return $this;
         }
 
-        public function getUsuario(){
-            return $this->usuario;
+        public function getDescricao(){
+            return $this->descricao;
         }
 
-        public function setUsuario($usuario){
-            $this->usuario = $usuario;
+        public function setDescricao($descricao) {
+            $this->descricao = $descricao;
             return $this;
         }
     }

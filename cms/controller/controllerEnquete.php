@@ -85,9 +85,7 @@ class controllerEnquete{
     public function excluirEnquete(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_POST['id'];
-            echo $id.'isso msm';
             $this->EnqueteDAO->delete($id);
-
         }
 
     }

@@ -49,6 +49,5 @@ class ControllerCompras{
         return $this->ComprasDAO->selectById($id);
     }
 
-
 }
 ?>
