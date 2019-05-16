@@ -131,7 +131,7 @@
 
         public function selectAll(){
             $conn = $this->conex->connectDatabase();
-            $sql = "select * from tbl_materia_prima where apagado = 0 AND tipo_materia_prima = 'Materia'";
+            $sql = "select * from tbl_materia_prima where apagado = 0";
             $stm = $conn->prepare($sql);
             $success =$stm->execute();
             if($success){
