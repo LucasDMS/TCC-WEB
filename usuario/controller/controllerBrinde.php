@@ -4,23 +4,18 @@ class ControllerBrinde{
 
     private $BrindeDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Brinde.php");
-        require_once($_SERVER['DOCUMENT_ROOT']."/_tcc/cms" . "/dao/BrindeDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/usuario" . "/model/Brinde.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/_tcc/usuario" . "/dao/BrindeDAO.php");
         $this->BrindeDAO = new BrindeDAO();
     }
     public function inserirBrinde(){
         //verica qual metodo está sendo requisitado no formulario (POST ou GET) :)
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            $nome = $_POST['txt_nome'];
-            $descricao = $_POST['txt_descricao'];
-            $ativo = 1;
-            $apagado = 0;
-
+            $id = $_POST['id'];
+            $idUsuario = $_POST['ativo'];
             $Brinde = new Brinde();
-            $Brinde->setNome($nome);
-            $Brinde->setDescricao($descricao);
-            $Brinde->setApagado($apagado);
-            $Brinde->setAtivo($ativo);
+            $Brinde->setId($id);
+            $Brinde->setUsuario($idUsuario);
             $this->BrindeDAO->insert($Brinde);
         }
     }

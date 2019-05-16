@@ -43,7 +43,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar texto principal" : $paginaTitu
     </div>
 
     <div class="inputDados">
-        <label from="txtTexto">Conteúdo da notícia</label>
+        <label from="txtTexto">Conteúdo</label>
         <textarea name="txtTexto" id="txtTexto" required><?php echo $texto?></textarea>
     </div>
 

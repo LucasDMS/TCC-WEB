@@ -42,7 +42,8 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar patrocício" : $paginaTitulo =
         <textarea name="txt_descricao" id="txt_descricao" required><?php echo $descricao?></textarea>
     </div>
 
-    <input type="file" name="img" id="img"/>
+    <input type="file" name="img" id="img"/><br>
+    <br>
 
     <div class="flex flex-center">
         <button type="reset" class="btn btn-clear">

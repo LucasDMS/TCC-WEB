@@ -110,13 +110,13 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar materia prima" : $paginaTitulo
             }
          ?>
     </div>
-    <div class="inputDados">
-        <label from="txt_cidade">Tipo Materia</label>
+    <div class="titulosform">
+        <label>Tipo de Matéria prima</label>
+    </div>
         <select name="txt_tipo_materia" required>
             <option value="Materia" <?php echo $tipo_materia?>>Materia Prima</option>
             <option value="Embalagem" <?php echo $tipo_embalagem?>>Embalagem</option>   
         <select>
-    </div>
 
     <div class="inputDados">
         <label from="txt_date">Validade</label>

@@ -52,7 +52,7 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar evento" : $paginaTitulo = "Nov
     </div>
 
     <div class="inputDados">
-        <label from="txt_descricao">Conteúdo da notícia</label>
+        <label from="txt_descricao">Descrição</label>
         <textarea name="txt_descricao" id="txt_descricao" requerid ><?php echo $descricao ?></textarea>
     </div>
 
