@@ -47,6 +47,7 @@
                     data-id="<?php echo $result->getId();?>"
                     data-ativo= <?php echo $_SESSION['id']?>>
                     <i class="fas fa-cart-plus"></i>
+                    
                 </a>
             </div>
         </div>

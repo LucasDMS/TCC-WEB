@@ -32,13 +32,10 @@ $valorTotal = 0;
                 <td><img src="../cms/<?php echo $result->getImagem(); ?>" height="40%"/></td>
                 <td><?php echo $result->getDescricao(); ?></td>
                 <td>
-                    <input type="number" name="txt_qtd" id="txt_qtd" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho"/>
+                    <input type="number" name="txt_qtd" id="txt_qtd<?php echo $result->getId()?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho" onchange="totalCompra(<?php echo $result->getPreco(); ?>,<?php echo $result->getId()?>)" />
                 </td>
                 <td>
-                    <?php 
-                        echo "R$".$result->getPreco().",00"; 
-                        $valorTotal += $result->getPreco();
-                    ?>
+                    <input type="text" id="txt_resultado<?php echo $result->getId()?>" value="<?php echo $result->getPreco(); ?>">
                 </td>
             
                 <td>
@@ -60,7 +57,7 @@ $valorTotal = 0;
             <td></td>
             <td><strong><p>Total:</p></strong></td>
             <td>
-                <strong><p><?php echo "R$".$valorTotal.",00" ?></p></strong>
+                <strong><p><input type="text" id="resultadoFinal"></p></strong>
             </td>
             <td colspan="4">
                 <button type="menu" onclick="chamarViewParaModal('carrinho')">                                                                                                                                                                                                                                  
@@ -70,3 +67,14 @@ $valorTotal = 0;
         </tr>
     </tbody>
 </table>
+<script>
+
+    
+    function totalCompra(preso,id){
+
+        valor = document.getElementById("txt_qtd"+id).value
+        document.getElementById("txt_resultado"+id).value = valor*preso
+       
+    }
+
+</script>
