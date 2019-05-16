@@ -33,10 +33,9 @@ $valorTotal = 0;
                 <td><img src="../cms/<?php echo $result->getImagem(); ?>" height="40%"/></td>
                 <td><?php echo $result->getDescricao(); ?></td>
                 <td>
-                    <input type="number" name="txt_qtd" id="txt_qtd" v-model="valor<?php echo $i?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho"/>
+                    <input type="number" name="txt_qtd[]" id="txt_qtd[]" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho"/>
                 </td>
                 <td>
-                   {{valorTotal = valor0 * <?php echo $result->getPreco()?>}} 
                         
                     
                 </td>
@@ -61,20 +60,9 @@ $valorTotal = 0;
             <td></td>
             <td></td>
             <td><strong><p>Total:</p></strong></td>
-            <script>
-                    vue = new Vue({
-                        el: '#app',
-                        data: {
-                            valor0: 1,
-                            valor1:1,
-                            valorTotal: 0
-                        }
-                    }) 
-
-
-                </script>
-            <td>
-                <strong><p> R$:{{valorTotal}}</p></strong>
+            
+            <td id="resultado">
+                <strong><p> R$:</p></strong>
             </td>
             <td colspan="4">
                 <button type="menu" onclick="chamarViewParaModal('carrinho')">                                                                                                                                                                                                                                  
