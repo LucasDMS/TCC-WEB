@@ -18,7 +18,7 @@ $rs = $controller->buscarSobreNos();
 ?>
 
 <div class="pagina_titulo">
-    Sobre nós
+    Sobre Nós
     <button class="menu_novo" type="menu" onclick="chamarViewParaModal('sobre_nos')">
         <i class="fas fa-plus"></i>
     </button>

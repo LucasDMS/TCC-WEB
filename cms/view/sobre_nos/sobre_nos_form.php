@@ -28,7 +28,7 @@ if(isset($_GET['id'])){
     $id = $Sobre_Nos->getId();
 }
 
-$modo == "atualizar" ? $paginaTitulo = "Atualizar notícia" : $paginaTitulo = "Nova notícia";
+$modo == "atualizar" ? $paginaTitulo = "Atualizar notícia" : $paginaTitulo = "Sobre Nós";
 
 ?>
 
@@ -47,12 +47,12 @@ $modo == "atualizar" ? $paginaTitulo = "Atualizar notícia" : $paginaTitulo = "N
     <h2><?php echo $paginaTitulo?></h2>
 
     <div class="inputDados">
-        <label from="txt_titulo">Título</label>
+        <label from="txt_titulo">Título Sobre Nós</label>
         <input value="<?php echo $titulo ?>" name="txt_titulo" id="txt_titulo" type="text" required>
     </div>
     
     <div class="inputDados">
-        <label from="txt_texto">Conteúdo da notícia</label>
+        <label from="txt_texto">Conteúdo Sobre Nós</label>
         <textarea name="txt_texto" id="txt_texto" required><?php echo $texto?></textarea>
     </div>
 
