@@ -32,7 +32,7 @@
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
-		require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerFaleConosco.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerFaleConosco.php");
 		
 		$conex = new conexaoMysql();
 		$con = $conex->connectDatabase();

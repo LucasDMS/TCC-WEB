@@ -3,8 +3,8 @@ class ControllerMenuUsuarioEstabelecimento{
     
     private $MenuDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/model/MenuUsuarioEstabelecimento.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" .'/dao/MenuUsuarioEstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/model/MenuUsuarioEstabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" .'/dao/MenuUsuarioEstabelecimentoDAO.php');
         $this->MenuUsuarioEstabelecimentoDAO = new MenuUsuarioEstabelecimentoDAO();
     }
     

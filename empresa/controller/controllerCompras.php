@@ -3,8 +3,8 @@ class ControllerCompras{
     
     private $ComprasDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" .'/dao/ComprasDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" .'/model/Compras.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" .'/dao/ComprasDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" .'/model/Compras.php');
         $this->ComprasDAO = new ComprasDAO();
         
     }

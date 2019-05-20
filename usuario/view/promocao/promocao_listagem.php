@@ -10,11 +10,11 @@
     Objetivo da Classe: listagem da promocao.
 */
 
-require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . "/controller/controllerPromocao.php");
+require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/controller/controllerPromocao.php");
 
-$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/model/Sessao.php";
+$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/tcc/cms/model/Sessao.php";
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/db/ConexaoMysql.php");		
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms/db/ConexaoMysql.php");		
 
 require_once($_SESSION['PATH']);
 $verificar = array();

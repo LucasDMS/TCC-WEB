@@ -10,7 +10,7 @@
 
  if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerEnquete.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerEnquete.php");
 
     $Controller = new ControllerEnquete();
     $Enquete = $Controller->buscarEnquetePorId($id);

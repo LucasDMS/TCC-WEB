@@ -7,7 +7,7 @@ $descricao = null;
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPopsEscola.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerPopsEscola.php");
     $Controller = new ControllerPopsEscola();
     $PopsEscola = $Controller->buscarPopsEscolaPorId($id);
     $action = "router.php?controller=Pops_Escola&modo=atualizar";

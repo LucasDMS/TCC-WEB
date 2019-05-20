@@ -13,8 +13,8 @@ class ControllerSetores{
     private $SetoresDAO;
 
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Setores.php"); 
-        require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms". "/dao/SetoresDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Setores.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms". "/dao/SetoresDAO.php");
         $this->SetoresDAO = new SetoresDAO();
 
     }

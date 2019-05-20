@@ -4,7 +4,7 @@ class MenuUsuarioEstabelecimentoDAO {
     private $Menu;
     private $Sessao;
     public function __construct() {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
 

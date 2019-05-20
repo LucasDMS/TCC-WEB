@@ -3,9 +3,9 @@ class ControllerSustentabilidade{
     
     private $SustentabilidadeDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Sustentabilidade.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/SustentabilidadeDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Sustentabilidade.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/SustentabilidadeDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/view/components/imagem.php');
         $this->SustentabilidadeDAO = new SustentabilidadeDAO();
     }
     public function inserirSustentabilidade(){

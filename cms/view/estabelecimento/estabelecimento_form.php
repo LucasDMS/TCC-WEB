@@ -18,7 +18,7 @@ $id = "";
 if(isset($_GET['id'])){
 
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . "/controller/controllerEstabelecimento.php");
+    require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/controller/controllerEstabelecimento.php");
     $Controller = new ControllerEstabelecimento();
     $Estabelecimento = $Controller->buscarEstabelecimentoPorId($id);
     $action = "router.php?controller=estabelecimento&modo=atualizar";

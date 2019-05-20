@@ -14,8 +14,8 @@ class controllerCadastroUsuario{
 
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/dao/CadastroUsuarioDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/cms/model/CadastroUsuario.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/cms/dao/CadastroUsuarioDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/cms/model/CadastroUsuario.php');
 
         $this->cadastroUsuarioDAO = new CadastroUsuarioDAO();
     }

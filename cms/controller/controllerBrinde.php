@@ -4,8 +4,8 @@ class ControllerBrinde{
 
     private $BrindeDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Brinde.php");
-        require_once($_SERVER['DOCUMENT_ROOT']."/_tcc/cms" . "/dao/BrindeDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Brinde.php");
+        require_once($_SERVER['DOCUMENT_ROOT']."/tcc/cms" . "/dao/BrindeDAO.php");
         $this->BrindeDAO = new BrindeDAO();
     }
     public function inserirBrinde(){

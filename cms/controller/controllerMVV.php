@@ -6,8 +6,8 @@ class ControllerMVV{
     
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MVV.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/MVVDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MVV.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/MVVDAO.php');
 
         $this->MVVDAO = new MVVDAO();
     }

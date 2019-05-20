@@ -8,7 +8,7 @@ $modo = "inserir";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerTextoPrincipal.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerTextoPrincipal.php");
 
     $Controller = new ControllerTextoPrincipal();
     $TextoPrincipal = $Controller->buscarTextoPrincipalPorId($id);

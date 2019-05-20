@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMVV.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerMVV.php");
 
 $controller = new ControllerMVV();
 $rs = $controller->buscarMVV();

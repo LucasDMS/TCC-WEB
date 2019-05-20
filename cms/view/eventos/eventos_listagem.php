@@ -9,7 +9,7 @@
         Objetivo da classe: Classe de listagem
     */
     
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEventos.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerEventos.php");
     $controller = new ControllerEventos();
     $rs = $controller->listarEventos();
 

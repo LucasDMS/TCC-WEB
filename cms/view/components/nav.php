@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMenu.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerMenu.php");
     $controller = new ControllerMenu();
     $IdMenu = array();
     $texto = null;

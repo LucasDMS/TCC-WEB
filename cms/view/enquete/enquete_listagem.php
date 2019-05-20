@@ -9,7 +9,7 @@
         Objetivo da classe: Classe de listagem
     */
     
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerEnquete.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerEnquete.php");
     $controller = new controllerEnquete();
     $rs = $controller->listarPerguntas();
     $rs2 = $controller->listarEnquete();

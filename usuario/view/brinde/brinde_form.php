@@ -1,5 +1,5 @@
 <?php 
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/usuario" . "/controller/controllerBrinde.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/usuario" . "/controller/controllerBrinde.php");
     $id = $_GET['id'];
     $Controller = new ControllerBrinde();
     $brinde = $Controller->buscarBrindePorId($id);

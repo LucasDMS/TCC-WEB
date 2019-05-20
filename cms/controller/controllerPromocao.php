@@ -3,9 +3,9 @@ class ControllerPromocao{
     
     private $PromocaoDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Promocao.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/PromocaoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Promocao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/PromocaoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/view/components/imagem.php');
         $this->PromocaoDAO = new PromocaoDAO();
     }
     public function inserirPromocao(){

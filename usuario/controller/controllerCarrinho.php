@@ -4,8 +4,8 @@ class ControllerCarrinho{
     private $CarrinhoDAO;
     public function __construct(){
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/usuario" .'/dao/CarrinhoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/usuario" .'/model/Carrinho.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/usuario" .'/dao/CarrinhoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/usuario" .'/model/Carrinho.php');
         $this->CarrinhoDAO = new CarrinhoDAO();
         
     }

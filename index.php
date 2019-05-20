@@ -38,7 +38,7 @@
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
-		require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerNewsLetter.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerNewsLetter.php");
 
 		$conex = new conexaoMysql();
 

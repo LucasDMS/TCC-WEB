@@ -6,8 +6,8 @@ class ControllerFaleConosco{
     
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/FaleConosco.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/FaleConoscoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/FaleConosco.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/FaleConoscoDAO.php');
 
         $this->FaleConoscoDAO = new FaleConoscoDAO();
     }

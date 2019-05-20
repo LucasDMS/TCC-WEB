@@ -12,7 +12,7 @@ $hora = null;
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerEventos.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerEventos.php");
 
     $Controller = new ControllerEventos();
     $Eventos = $Controller->buscarEventosPorId($id);

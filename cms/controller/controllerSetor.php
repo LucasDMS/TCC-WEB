@@ -4,10 +4,10 @@ class ControllerSetor{
     private $SetorDAO;
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Setor.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Prateleira.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/ProdutoSetor.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MateriaPrimaSetor.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Setor.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Prateleira.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/ProdutoSetor.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MateriaPrimaSetor.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/SetorDAO.php');
         $this->SetorDAO = new SetorDAO();
     }
