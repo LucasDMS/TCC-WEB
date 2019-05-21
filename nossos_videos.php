@@ -126,7 +126,7 @@
 							<iframe 
 					            width="380" 
 					            height="380" 
-							    src="<?php echo utf8_encode ($result['link'])?>" alt="" frameborder="0" 
+							    src="<?php echo utf8_encode ($result['link'])?>" alt="Vídeo" frameborder="0" 
 					            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 					            allowfullscreen>
                             </iframe>

@@ -108,7 +108,7 @@
 
                         <h3><?php echo utf8_encode ($result['nome']) ?></h3>
                         <div class="produto_info">
-                            <img src="cms/<?php echo utf8_encode ($result['imagem']) ?>" alt="">
+                            <img src="cms/<?php echo utf8_encode ($result['imagem']) ?>" alt="Imagem do Produto">
                             <div>
                                 <p>
                                     <?php echo utf8_encode ($result['descricao']) ?>
