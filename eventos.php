@@ -65,10 +65,10 @@
             ?>
             
 
-			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
             
             <?php
@@ -88,16 +88,16 @@
 						<i class="fas fa-calendar-alt"></i>
 						<div class="evento_bg">
 							<h3>
-								<?php echo ($result['nome']) ?>
+								<?php echo utf8_encode ($result['nome']) ?>
 							</h3>
 							<p>
-								<?php echo ($result['descricao']) ?>
+								<?php echo utf8_encode ($result['descricao']) ?>
 							</p>
 							<div class="container_extra">
-								<span class="info_extra"><?php echo ($result['data']) ?></span>
-								<span class="info_extra"><?php echo ($result['hora']) ?></span>
+								<span class="info_extra"><?php echo utf8_encode ($result['data']) ?></span>
+								<span class="info_extra"><?php echo utf8_encode ($result['hora']) ?></span>
 							</div>
-							<span class="info_extra"><?php echo ($result['cidade']) ?> - <?php echo ($result['estado']) ?></span>
+							<span class="info_extra"><?php echo utf8_encode ($result['cidade']) ?>  <?php echo utf8_encode ($result['estado']) ?></span>
 						</div>
 						
 					</li>
