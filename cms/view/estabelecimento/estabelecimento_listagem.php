@@ -27,11 +27,11 @@ $rs = $controller->buscarEstabelecimento();
         <div class="card">
             <div>
                 Nome : 
-                <?php echo $result->getNome(); ?>
+                <?php echo utf8_encode ($result->getNome()); ?>
             </div>
             <div>
                 Texto : 
-                <?php echo $result->getTexto(); ?>
+                <?php echo utf8_encode ($result->getTexto()); ?>
             </div>
 
             <div class="card_operadores">

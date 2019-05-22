@@ -21,11 +21,11 @@ $rs = $controller->buscarNoticias();
         <div class="card">
             <div>
                 Titulo : 
-                <?php echo $result->getTitulo(); ?>
+                <?php echo utf8_encode ($result->getTitulo()); ?>
             </div>
             <div>
                 Conteudo : 
-                <?php echo $result->getConteudo(); ?>
+                <?php echo utf8_encode ($result->getConteudo()); ?>
             </div>
 
             <div class="card_operadores">

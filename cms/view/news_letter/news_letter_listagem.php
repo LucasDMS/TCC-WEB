@@ -26,7 +26,7 @@
         <div class="card">
             <div>
                 Email : 
-                <?php echo $result->getNewLetter()?>
+                <?php echo utf8_encode ($result->getNewLetter())?>
             </div>
 
         </div>

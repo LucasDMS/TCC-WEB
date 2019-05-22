@@ -30,11 +30,11 @@ $rs = $controller->buscarSobreNos();
         <div class="card">
             <div>
                 Título : 
-                <?php echo $result->getTitulo(); ?>
+                <?php echo utf8_encode ($result->getTitulo()); ?>
             </div>
             <div>
                 Texto : 
-                <?php echo $result->getTexto(); ?>
+                <?php echo utf8_encode ($result->getTexto()); ?>
             </div>
             <div>
                 Ordem : 

@@ -34,7 +34,7 @@
                 <?php 
                 
                     //echo de pergunta
-                    echo $result->getPergunta(); 
+                    echo utf8_encode ($result->getPergunta()); 
                     
                     //recebe o id 
                     $idE = $result->getId();             

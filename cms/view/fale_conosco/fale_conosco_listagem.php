@@ -17,11 +17,11 @@ $rs = $controller->buscarFaleConosco();
         <div class="card">
             <div>
                 Nome : 
-                <?php echo $result->getNome(); ?>
+                <?php echo utf8_encode ($result->getNome()); ?>
             </div>
             <div>
                 Email : 
-                <?php echo $result->getEmail(); ?>
+                <?php echo utf8_encode ($result->getEmail()); ?>
             </div>
 
             <div class="card_operadores">

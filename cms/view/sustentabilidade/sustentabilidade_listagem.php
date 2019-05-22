@@ -20,7 +20,7 @@ $rs = $controller->buscarSustentabilidades();
         <div class="card">
             <div>
                 Texto : 
-                <?php echo $result->getTexto(); ?>
+                <?php echo utf8_encode ($result->getTexto()); ?>
             </div>
             <div>
                 <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>

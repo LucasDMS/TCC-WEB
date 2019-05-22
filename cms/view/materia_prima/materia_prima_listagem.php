@@ -29,15 +29,15 @@
         <div class="card">
             <div>
                 <strong>Nome :</strong>
-                <?php echo $result->getNome(); ?>
+                <?php echo utf8_encode ($result->getNome()); ?>
             </div>
             <div>
                 <strong>Descrição : </strong>
-                <?php echo $result->getDescricao(); ?>
+                <?php echo utf8_encode ($result->getDescricao()); ?>
             </div>
             <div>
                 <strong>Tipo Materia : </strong>
-                <?php echo $result->getTipoMateria(); ?>
+                <?php echo utf8_encode ($result->getTipoMateria()); ?>
             </div>
             <div>
                 <strong>Validade :</strong> 

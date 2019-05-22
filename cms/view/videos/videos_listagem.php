@@ -29,15 +29,15 @@
         <div class="card">
             <div>
                 Título : 
-                <?php echo $result->getTitulo(); ?>
+                <?php echo utf8_encode ($result->getTitulo()); ?>
             </div>
             <div>
                 Link : 
-                <?php echo $result->getLink(); ?>
+                <?php echo utf8_encode ($result->getLink()); ?>
             </div>
             <div>
                 Descrição : 
-                <?php echo $result->getDescricao(); ?>
+                <?php echo utf8_encode ($result->getDescricao()); ?>
             </div>
 
             <div class="card_operadores">

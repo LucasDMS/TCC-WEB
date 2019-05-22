@@ -21,7 +21,7 @@ $rs = $controller->buscarHistoras();
         <div class="card">
             <div>
                 Texto : 
-                <?php echo $result->getTexto(); ?>
+                <?php echo utf8_encode ($result->getTexto()); ?>
             </div>
             <div>
                 Ordem : 

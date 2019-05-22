@@ -19,11 +19,11 @@
         <div class="card">
             <div>
                 Nome : 
-                <?php echo $result->getNome(); ?>
+                <?php echo utf8_encode ($result->getNome()); ?>
             </div>
             <div>
                 Cargo : 
-                <?php echo $result->getCargo(); ?>
+                <?php echo utf8_encode ($result->getCargo()); ?>
             </div>
 
             <div class="card_operadores">

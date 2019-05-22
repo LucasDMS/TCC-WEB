@@ -29,11 +29,11 @@
         <div class="card">
             <div>
                 Nome : 
-                <?php echo $result->getNome(); ?>
+                <?php echo utf8_encode ($result->getNome()); ?>
             </div>
             <div>
                 Descrição : 
-                <?php echo $result->getDescricao(); ?>
+                <?php echo utf8_encode ($result->getDescricao()); ?>
             </div>
 
             <div class="card_operadores">

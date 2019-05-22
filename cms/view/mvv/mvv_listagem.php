@@ -21,11 +21,11 @@ $rs = $controller->buscarMVV();
         <div class="card">
             <div>
                 Texto : 
-                <?php echo $result->getTexto(); ?>
+                <?php echo utf8_encode ($result->getTexto()); ?>
             </div>
             <div>
                 Tipo texto : 
-                <?php echo $result->getTipoTexto(); ?>
+                <?php echo utf8_encode ($result->getTipoTexto()); ?>
             </div>
 
             <div class="card_operadores">

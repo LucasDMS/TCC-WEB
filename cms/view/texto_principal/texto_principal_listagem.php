@@ -17,15 +17,15 @@ $rs = $controller->buscarTextoPrincipal();
         <div class="card">
             <div>
                 Titulo : 
-                <?php echo $result->getTitulo(); ?>
+                <?php echo utf8_encode ($result->getTitulo()); ?>
             </div>
             <div>
                 Texto : 
-                <?php echo $result->getTexto(); ?>
+                <?php echo utf8_encode ($result->getTexto()); ?>
             </div>
             <div>
                 Página de 
-                <?php echo $result->getTipoTexto(); ?>
+                <?php echo utf8_encode ($result->getTipoTexto()); ?>
             </div>
 
             <div class="card_operadores">
