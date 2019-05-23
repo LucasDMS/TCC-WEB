@@ -1,0 +1,9 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "git.ignoreLimitWarning": true,
+  "editor.tabSize": 2,
+}
