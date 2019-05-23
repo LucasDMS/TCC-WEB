@@ -8,7 +8,7 @@ class ControllerSetor{
         require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Prateleira.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/ProdutoSetor.php");
         require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MateriaPrimaSetor.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/SetorDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/SetorDAO.php');
         $this->SetorDAO = new SetorDAO();
     }
     
