@@ -2,9 +2,9 @@ var pagina = ''
 
 $(document).ready(function(){
     //recebe a pagina que estava salva na sessao
-    pagina = sessionStorage.getItem('pagina')
+    // pagina = sessionStorage.getItem('pagina')
 
-    chamarViewParaApp(pagina);
+    // chamarViewParaApp(pagina);
 });
 
 var estado = false

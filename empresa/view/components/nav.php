@@ -1,5 +1,5 @@
 <?php 
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controllerMenuUsuarioEstabelecimento.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerMenuUsuarioEstabelecimento.php");
     $controller = new ControllerMenuUsuarioEstabelecimento();
     $IdMenu = array();
     $texto = null;

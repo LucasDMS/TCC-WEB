@@ -1,8 +1,8 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controllerMenuUsuarioEstabelecimento.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controllerUsuarioEstabelecimento.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSessao.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerMenuUsuarioEstabelecimento.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerUsuarioEstabelecimento.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerSessao.php");
 
     $nome = null;
     $login = null;

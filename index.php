@@ -13,9 +13,8 @@
 	<title>POP'S Soda Drink</title>
 
 	<link media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="fontawesome-free-5.8.2-web/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/home.css">
 
 	<?php require_once("components/palheta_cores.php"); ?>
@@ -38,7 +37,7 @@
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
-		require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerNewsLetter.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] ."/tcc/cms" ."/controller/controllerNewsLetter.php");
 
 		$conex = new conexaoMysql();
 
@@ -61,7 +60,11 @@
 	<div class="espacador"></div>
 
 	<main>
-
+			<?php
+			ini_set('display_errors',1);
+			ini_set('display_startup_errors',1);
+			error_reporting(E_ALL);
+		?>
 		<div>
 			<section class="section_principal">
 				<h2>ALGUMA COISA IMPORTANTE</h2>

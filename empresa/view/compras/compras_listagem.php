@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" ."/controller/controllerCompras.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" ."/controller/controllerCompras.php");
     $controller = new ControllerCompras();
     $rs = $controller->buscarCompras();
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/empresa" . "/controller/controllerEstabelecimento.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerEstabelecimento.php");
 
 
     $descricao = null;
