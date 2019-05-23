@@ -3,13 +3,13 @@ class ControllerProduto{
     
     private $ProdutoDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Produto.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Prateleira.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Setor.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/MateriaPrima.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/TabelaNutricional.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/ProdutoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Produto.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Prateleira.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Setor.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MateriaPrima.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/TabelaNutricional.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/ProdutoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/view/components/imagem.php');
         $this->ProdutoDAO = new ProdutoDAO();
     }
     public function inserirProduto(){

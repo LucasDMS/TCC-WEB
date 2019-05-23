@@ -4,7 +4,7 @@ class PatrocinioDAO{
     private $Patrocinio;
     public function __construct() {
         session_start();
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms".'/db/ConexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
 

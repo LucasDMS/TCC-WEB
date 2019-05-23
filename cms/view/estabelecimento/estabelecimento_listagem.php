@@ -10,7 +10,7 @@
     Objetivo da Classe: listagem do Estabelecimento.
 */
 
-require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . "/controller/controllerEstabelecimento.php");
+require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/controller/controllerEstabelecimento.php");
 
 $controller = new controllerEstabelecimento();
 $rs = $controller->buscarEstabelecimento();

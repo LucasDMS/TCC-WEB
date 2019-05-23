@@ -10,7 +10,7 @@
     Objetivo da Classe: listagem dos brindes.
 */
 
-require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/usuario". "/controller/controllerBrinde.php");
+require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/usuario". "/controller/controllerBrinde.php");
 
 $controller = new controllerBrinde();
 $rs = $controller->buscarBrindes();

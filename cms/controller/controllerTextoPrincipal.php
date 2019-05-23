@@ -6,8 +6,8 @@ class ControllerTextoPrincipal{
     
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/TextoPrincipal.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/TextoPrincipalDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/TextoPrincipal.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/TextoPrincipalDAO.php');
 
         $this->TextoPrincipalDAO = new TextoPrincipalDAO();
     }

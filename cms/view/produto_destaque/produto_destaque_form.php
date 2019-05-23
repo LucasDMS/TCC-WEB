@@ -16,7 +16,7 @@ $id = "";
 if(isset($_GET['id'])){
     
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerProdutoDestaque.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerProdutoDestaque.php");
     $Controller = new ControllerProdutoDestaque();
     $Produto_Destaque = $Controller->buscarProdutoDestaquePorId($id);
     $action = "router.php?controller=produto_destaque&modo=atualizar";

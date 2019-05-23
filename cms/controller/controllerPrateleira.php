@@ -3,8 +3,8 @@ class ControllerPrateleira{
     
     private $PrateleiraDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Prateleira.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" .'/dao/PrateleiraDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Prateleira.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/PrateleiraDAO.php');
         $this->PrateleiraDAO = new PrateleiraDAO();
     }
     

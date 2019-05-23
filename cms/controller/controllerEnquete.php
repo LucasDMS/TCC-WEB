@@ -13,8 +13,8 @@ class controllerEnquete{
     private $EnqueteDAO;
 
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/model/Enquete.php"); 
-        require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms". "/dao/EnqueteDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Enquete.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms". "/dao/EnqueteDAO.php");
         $this->EnqueteDAO = new EnqueteDAO();
 
     }

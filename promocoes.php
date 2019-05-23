@@ -29,9 +29,9 @@
 		if(!isset($_SESSION['logado'])){
 			session_destroy();
 		}
-		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms";
+		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/tcc/cms";
 	
-		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms/model/Sessao.php";
+		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/tcc/cms/model/Sessao.php";
 
 		require_once($_SESSION['PATH']);
 		

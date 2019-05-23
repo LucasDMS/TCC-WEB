@@ -15,9 +15,9 @@ class ControllerEstabelecimento{
     public function __construct(){
 
         
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/dao/EstabelecimentoDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/model/Estabelecimento.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/_tcc/empresa/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/empresa/dao/EstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/empresa/model/Estabelecimento.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/empresa/view/components/imagem.php');
 
         //estancia da class dao de cadastro de estabelecimento
         $this->EstabelecimentoDAO = new EstabelecimentoDAO();

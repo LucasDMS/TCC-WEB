@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerNoticia.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerNoticia.php");
 
 $controller = new ControllerNoticia();
 $rs = $controller->buscarNoticias();

@@ -17,7 +17,7 @@ $descricao = null;
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerVideos.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerVideos.php");
 
     $Controller = new ControllerVideos();
     $Videos = $Controller->buscarVideosPorId($id);

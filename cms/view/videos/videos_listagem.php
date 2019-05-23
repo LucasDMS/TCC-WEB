@@ -9,7 +9,7 @@
         Objetivo da classe: listagem de Videos
     */
     
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" ."/controller/controllerVideos.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerVideos.php");
     $controller = new ControllerVideos();
     $rs = $controller->listarVideos();
 

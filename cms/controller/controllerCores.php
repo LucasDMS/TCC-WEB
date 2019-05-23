@@ -3,8 +3,8 @@ class ControllerCores{
 
     private $CoresDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . "/model/Cores.php");
-        require_once($_SERVER['DOCUMENT_ROOT']. "/_tcc/cms" . '/dao/CoresDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/model/Cores.php");
+        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . '/dao/CoresDAO.php');
         $this->CoresDAO = new CoresDAO();
     }
     

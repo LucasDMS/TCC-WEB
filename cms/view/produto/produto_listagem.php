@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerProduto.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerProduto.php");
 
 $controller = new ControllerProduto();
 $rs = $controller->buscarProduto();

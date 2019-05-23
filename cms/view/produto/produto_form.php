@@ -1,9 +1,9 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerProduto.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerSetor.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerMateriaPrima.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/_tcc/cms" . "/controller/controllerPrateleira.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerProduto.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerSetor.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerMateriaPrima.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerPrateleira.php");
 //Variaveis do produto
 $nome = null;
 $descricao = null;
