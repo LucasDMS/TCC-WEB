@@ -1,5 +1,5 @@
 <?php 
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerPopsEscola.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerPopsEscola.php");
     $controller = new ControllerPopsEscola();
     $rs = $controller->buscarPopsEscola();
 ?>

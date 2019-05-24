@@ -20,10 +20,10 @@ class ControllerProdutoDestaque{
     {
         
         //Import do Produto Destaque
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/ProdutoDestaque.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/ProdutoDestaque.php");
         
         //Import do Produto DestaqueDAO, para inserir no BD
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/ProdutoDestaqueDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/ProdutoDestaqueDAO.php');
         
         //Instancia  Produto DestaqueDAO
         $this->ProdutoDestaqueDAO = new ProdutoDestaqueDAO();

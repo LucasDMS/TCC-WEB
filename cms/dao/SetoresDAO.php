@@ -15,7 +15,7 @@
         public function __construct(){
             session_start();
             //Recebe a informação da view e envia para o objeto
-            require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms".'/db/ConexaoMysql.php');
+            require_once($_SERVER['DOCUMENT_ROOT'] . "/cms".'/db/ConexaoMysql.php');
             
             //Instancia da classe de conexao com o BD
             $this->conex = new conexaoMysql();

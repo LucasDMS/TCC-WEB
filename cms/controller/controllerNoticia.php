@@ -3,8 +3,8 @@ class ControllerNoticia{
     
     private $NoticiaDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Noticia.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/NoticiaDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Noticia.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/NoticiaDAO.php');
         $this->NoticiaDAO = new NoticiaDAO();
     }
     public function inserirNoticia(){

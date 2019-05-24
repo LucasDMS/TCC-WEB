@@ -1,6 +1,6 @@
 <?php 
  
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" ."/controller/controllerUsuarioEstabelecimento.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/empresa" ."/controller/controllerUsuarioEstabelecimento.php");
     $controller = new ControllerUsuarioEstabelecimento();
     $rs = $controller->buscarUsuarioEstabelecimento();
 ?>

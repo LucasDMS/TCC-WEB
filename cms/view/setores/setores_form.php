@@ -9,7 +9,7 @@
 
  if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerSetores.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerSetores.php");
 
     $Controller = new ControllerSetores();
     $Setores = $Controller->buscarSetoresPorId($id);

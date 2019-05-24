@@ -7,7 +7,7 @@ $id = null;
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms". "/controller/controllerCores.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms". "/controller/controllerCores.php");
 
     $Controller = new ControllerCores();
     $Cores = $Controller->buscarCoresPorId($id);

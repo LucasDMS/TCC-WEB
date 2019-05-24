@@ -9,7 +9,7 @@
         Objetivo da classe: listagem de news_letter
     */
     
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerNewsLetter.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" ."/controller/controllerNewsLetter.php");
     $controller = new ControllerNewsLetter();
     $rs = $controller->listarNewsLetter();
    

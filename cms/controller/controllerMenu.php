@@ -4,8 +4,8 @@ class ControllerMenu{
     private $MenuDAO;
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MenuFuncionario.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/MenuDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/MenuFuncionario.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/MenuDAO.php');
         $this->MenuDAO = new MenuDAO();
     }
     

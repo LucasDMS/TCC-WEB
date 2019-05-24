@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerHistoria.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerHistoria.php");
 
 $controller = new controllerHistoria();
 $rs = $controller->buscarHistoras();

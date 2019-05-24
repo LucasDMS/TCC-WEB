@@ -18,10 +18,10 @@ class ControllerSobreNos{
     {
     
         //Import do Sobre Nos
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/SobreNos.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/SobreNos.php");
     
         //Import do Sobre NosDAO, para inserir no BD
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/SobreNosDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/SobreNosDAO.php');
         
         //Instancia Sobre NosDAO
         $this->SobreNosDAO = new SobreNosDAO();

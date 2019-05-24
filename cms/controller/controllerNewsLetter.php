@@ -6,8 +6,8 @@ class ControllerNewsLetter{
     
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/NewsLetter.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/NewsLetterDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/NewsLetter.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/NewsLetterDAO.php');
 
         $this->NewLetterDAO = new NewsLetterDAO();
     }

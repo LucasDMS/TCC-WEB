@@ -7,7 +7,7 @@ $modo = "inserir";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerSustentabilidade.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerSustentabilidade.php");
 
     $Controller = new ControllerSustentabilidade();
     $Sustentabilidade = $Controller->buscarSustentabilidadePorId($id);

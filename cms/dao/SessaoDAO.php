@@ -3,7 +3,7 @@ class sessaoDAO {
     private $conex;
     public function __construct(){
         
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . '/db/conexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . '/db/conexaoMysql.php');
         $this->conex = new ConexaoMysql();
     }
     

@@ -3,9 +3,9 @@ class ControllerPatrocinio{
     
     private $PatrocinioDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Patrocinio.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/PatrocinioDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Patrocinio.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/PatrocinioDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/view/components/imagem.php');
         $this->PatrocinioDAO = new PatrocinioDAO();
     }
     public function inserirPatrocinio(){

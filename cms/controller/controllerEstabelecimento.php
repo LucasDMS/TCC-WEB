@@ -21,10 +21,10 @@ class ControllerEstabelecimento{
     {
         
         //Import do Estabelecimento
-        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/model/Estabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT']. "/cms" . "/model/Estabelecimento.php");
         
         //Import do EstabelecimentoDAO, para inserir no BD
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/EstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/EstabelecimentoDAO.php');
         
         //Instancia EstabelecimentoDAO
         $this->EstabelecimentoDAO = new EstabelecimentoDAO();

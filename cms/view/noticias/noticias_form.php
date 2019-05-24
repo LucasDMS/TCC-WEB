@@ -8,7 +8,7 @@ $modo = "inserir";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerNoticia.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerNoticia.php");
 
     $Controller = new ControllerNoticia();
     $Noticia = $Controller->buscarNoticiaPorId($id);

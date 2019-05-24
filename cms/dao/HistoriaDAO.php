@@ -3,7 +3,7 @@ class HistoriaDAO {
     private $conex;
     private $historia;
     public function __construct() {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms".'/db/ConexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
     public function insert(Historia $historia) {

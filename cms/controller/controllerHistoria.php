@@ -6,8 +6,8 @@ class ControllerHistoria{
     
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Historia.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/HistoriaDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Historia.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/HistoriaDAO.php');
 
         $this->HistoriaDAO = new HistoriaDAO();
     }

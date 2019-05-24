@@ -1,7 +1,7 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerMateriaPrima.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerSetor.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerPrateleira.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerMateriaPrima.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerSetor.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerPrateleira.php");
 $action = "router.php?controller=materia_prima&modo=inserir";
 $modo = "inserir";   
 $id = null;

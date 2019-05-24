@@ -4,7 +4,7 @@ class PrateleiraDAO {
     private $Prateleira;
     private $Sessao;
     public function __construct() {
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms".'/db/ConexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
     //Select para todas as Prateleira

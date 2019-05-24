@@ -3,12 +3,12 @@ class ControllerUsuarioEstabelecimento{
     
     private $UsuarioEstabelecimentoDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/model/UsuarioEstabelecimento.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Sessao.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/dao/SessaoDAO.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerSessao.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/model/MenuUsuarioEstabelecimento.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" .'/dao/UsuarioEstabelecimentoDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/empresa" . "/model/UsuarioEstabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Sessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/dao/SessaoDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerSessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/empresa" . "/model/MenuUsuarioEstabelecimento.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/empresa" .'/dao/UsuarioEstabelecimentoDAO.php');
         $this->UsuarioEstabelecimentoDAO = new UsuarioEstabelecimentoDAO();
         
     }

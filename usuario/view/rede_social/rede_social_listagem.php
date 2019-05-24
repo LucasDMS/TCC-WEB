@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/usuario" . "/controller/controllerPost.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/usuario" . "/controller/controllerPost.php");
 
 $controller = new ControllerPost();
 $rs = $controller->buscarPosts();

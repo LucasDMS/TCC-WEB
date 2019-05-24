@@ -1,6 +1,6 @@
 <?php 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerTextoPrincipal.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerTextoPrincipal.php");
 
 $controller = new ControllerTextoPrincipal();
 $rs = $controller->buscarTextoPrincipal();

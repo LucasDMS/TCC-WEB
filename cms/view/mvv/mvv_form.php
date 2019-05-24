@@ -9,7 +9,7 @@ $modo = "inserir";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerMVV.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerMVV.php");
 
     $Controller = new ControllerMVV();
     $MVV = $Controller->buscarMVVPorId($id);

@@ -20,10 +20,10 @@ class ControllerMateriaPrima{
 
 
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MateriaPrima.php"); 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Prateleira.php"); 
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/ProdutoMateriaPrima.php"); 
-        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms". "/dao/MateriaPrimaDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/MateriaPrima.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Prateleira.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/ProdutoMateriaPrima.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT']. "/cms". "/dao/MateriaPrimaDAO.php");
         $this->MateriaPrimaDAO = new MateriaPrimaDAO();
         
     }

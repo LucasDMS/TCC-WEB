@@ -21,8 +21,8 @@ class ControllerEventos{
 
 
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Eventos.php"); 
-        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms". "/dao/EventosDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Eventos.php"); 
+        require_once($_SERVER['DOCUMENT_ROOT']. "/cms". "/dao/EventosDAO.php");
         $this->EventosDAO = new EventosDAO();
         
     }

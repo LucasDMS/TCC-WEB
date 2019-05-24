@@ -9,7 +9,7 @@
     Objetivo da Classe: Classe de listagem.
     */
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerSetores.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" ."/controller/controllerSetores.php");
     $controller = new controllerSetores();
     $rs = $controller->listarAll();
     $rs2 = $controller->listarSetores();

@@ -5,7 +5,7 @@ $descricao = null;
 $modo = "inserir";
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerPatrocinio.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerPatrocinio.php");
     $Controller = new ControllerPatrocinio();
     $Patrocinio = $Controller->buscarPatrocinioPorId($id);
     $action = "router.php?controller=patrocinio&modo=atualizar";

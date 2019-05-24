@@ -9,7 +9,7 @@
         Objetivo da classe: Classe de listagem
     */
     
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerMateriaPrima.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" ."/controller/controllerMateriaPrima.php");
     $controller = new ControllerMateriaPrima();
     $rs = $controller->listarMateriaPrima();
 

@@ -3,10 +3,10 @@ class ControllerFuncionario{
     
     private $FuncionarioDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Funcionario.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Sessao.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/MenuFuncionario.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" .'/dao/FuncionarioDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Funcionario.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Sessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/MenuFuncionario.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" .'/dao/FuncionarioDAO.php');
         $this->FuncionarioDAO = new FuncionarioDAO();
     }
     public function inserirFuncionario(){

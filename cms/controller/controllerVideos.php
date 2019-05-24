@@ -14,8 +14,8 @@ class ControllerVideos{
     private $VideosDAO;
 
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/model/Videos.php");
-        require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms". "/dao/VideosDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT']. "/cms" . "/model/Videos.php");
+        require_once($_SERVER['DOCUMENT_ROOT']. "/cms". "/dao/VideosDAO.php");
         $this->VideosDAO = new VideosDAO();
     }
 

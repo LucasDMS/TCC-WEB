@@ -14,9 +14,9 @@ class ControllerPost{
 
     public function __construct(){
 
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/usuario/' . 'dao/PostDAO.php');
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/usuario/' . 'model/Post.php');
-        // require_once($_SERVER['DOCUMENT_ROOT'] . '/tcc/cms/' . 'view/components/imagem.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/usuario/' . 'dao/PostDAO.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/usuario/' . 'model/Post.php');
+        // require_once($_SERVER['DOCUMENT_ROOT'] . '/cms/' . 'view/components/imagem.php');
 
         $this->PostDAO = new PostDAO();
     }

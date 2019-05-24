@@ -1,5 +1,5 @@
 <?php 
- require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/usuario" ."/controller/controllerCarrinho.php");
+ require_once($_SERVER['DOCUMENT_ROOT'] . "/usuario" ."/controller/controllerCarrinho.php");
 $controller = new ControllerCarrinho();
 $rs = $controller->buscarCarrinho();
 $valorTotal = 0;

@@ -1,6 +1,6 @@
 <?php 
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCompras.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/empresa" . "/controller/controllerCompras.php");
 
     $id = $_GET['id'];
     $Controller = new ControllerCompras();

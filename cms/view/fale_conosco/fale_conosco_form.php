@@ -8,7 +8,7 @@ $cidade = null;
 $texto = null;
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/controller/controllerFaleConosco.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/controller/controllerFaleConosco.php");
 
     $Controller = new ControllerFaleConosco();
     $Faleconosco = $Controller-> buscarFaleConoscoPorId($id);

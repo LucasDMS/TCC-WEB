@@ -10,7 +10,7 @@
     Objetivo da Classe: listagem do Produto em Destaque.
 */
 
-require_once($_SERVER['DOCUMENT_ROOT']. "/tcc/cms" . "/controller/controllerProdutoDestaque.php");
+require_once($_SERVER['DOCUMENT_ROOT']. "/cms" . "/controller/controllerProdutoDestaque.php");
 
 $controller = new controllerProdutoDestaque();
 $rs = $controller->buscarProdutoDestaque();

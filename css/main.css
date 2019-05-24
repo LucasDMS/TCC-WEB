@@ -1,5 +1,4 @@
-body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, 
-footer, input, textarea, select, option, p label {
+body, div, h1, h2, h3, h4, h5, h6, span, ul, ol, li, a, i, header, main, footer, input, textarea, select, option, p label {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -37,7 +36,7 @@ body {
 .modal_bg {
 	height: 100%;
 	width: 100%;
-	background: linear-gradient(rgba(71, 184, 235,.95), rgba(45, 73, 209,.95));
+	background: rgba(0, 0, 0, .7);
 	z-index: 999;
 	position: fixed;
 	display: none;
@@ -54,7 +53,7 @@ body {
 	width: 100%;
 }
 
-.modal_saida:hover{
+.modal_saida:hover {
 	cursor: pointer;
 }
 
@@ -152,7 +151,7 @@ body {
 	width: 0;
 	position: fixed;
 	margin-top: 80px;
-    background-color: #212529;
+	background-color: #212529;
 }
 
 .menu_esquerda {
@@ -322,7 +321,7 @@ main {
 footer {
 	min-height: 50px;
 	width: 100%;
-    background-color: #2d2f31;
+	background-color: #2d2f31;
 }
 
 /* == FOOTER - PRINCIPAL == */
@@ -452,34 +451,34 @@ select {
 
 /* ==== LOGIN ==== */
 
-.modal-form{
+.modal-form {
 	width: 500px;
-	background-color: rgba(0, 0, 0,.2);
+	background-color: #fff;
 	border-radius: 15px;
 	padding: 25px;
 	text-align: center;
 }
 
-.modal-form a, .modal-form span{
+.modal-form a, .modal-form span {
 	text-align: center;
-	color: #fff;
+	color: rgb(0, 0, 0);
 	margin: 30px auto 0px auto;
 }
 
-.modal-form p{
-	color: #fff;
+.modal-form p {
+	color: rgb(0, 0, 0);
 }
 
-.modal-form i{
+.modal-form i {
 	margin-right: 7px;
 }
 
-.modal-form a:hover, .modal-form span:hover{
+.modal-form a:hover, .modal-form span:hover {
 	cursor: pointer;
 	text-decoration: underline;
 }
 
-.modal-form button{
+.modal-form button {
 	height: 45px;
 	width: 350px;
 	display: block;
@@ -490,30 +489,32 @@ select {
 	border: none;
 }
 
-.modal-form button:hover{
+.modal-form button:hover {
 	cursor: pointer;
 	background-color: #3a3a3a;
 }
 
-.modal-item{
+.modal-item {
 	height: 45px;
 	width: 350px;
 	position: relative;
-	background-color: #d0e5ef;
+	background-color: #76d27d;
 	display: flex;
 	border-radius: 100px;
 	overflow: hidden;
 	margin: 0 auto 10px auto;
 }
 
-.modal-item label{
+.modal-item label {
 	width: 30%;
 	text-align: center;
 	line-height: 45px;
 	font-size: 16px;
 }
 
-.modal-item input{
+.modal-item input {
+	color: #fff;
+	background-color: #15a650;
 	margin-bottom: 15px;
 	margin-right: 0px;
 	height: 45px;
@@ -522,6 +523,6 @@ select {
 	border-radius: 0;
 }
 
-#cadastro_itens{
+#cadastro_itens {
 	display: flex;
 }

@@ -3,8 +3,8 @@ class ControllerSessao{
     
     private $SessaoDAO;
     public function __construct(){
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/model/Sessao.php");
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . "/dao/SessaoDAO.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/model/Sessao.php");
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/cms" . "/dao/SessaoDAO.php");
         $this->SessaoDAO = new SessaoDAO();
     }
     public function logar(){
