@@ -65,9 +65,9 @@
             ?>
             
             <div class="section_header">
-                <h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+                <h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
                 <p class="section_desc">
-                   <?php echo ($result['texto']) ?>
+                   <?php echo utf8_encode ($result['texto']) ?>
                 </p>
             </div>
             
@@ -106,12 +106,12 @@
                     <div class="produto_conteudo">
 
 
-                        <h3><?php echo ($result['nome']) ?></h3>
+                        <h3><?php echo utf8_encode ($result['nome']) ?></h3>
                         <div class="produto_info">
-                            <img src="cms/<?php echo ($result['imagem']) ?>" alt="">
+                            <img src="cms/<?php echo utf8_encode ($result['imagem']) ?>" alt="Imagem do Produto">
                             <div>
                                 <p>
-                                    <?php echo ($result['descricao']) ?>
+                                    <?php echo utf8_encode ($result['descricao']) ?>
                                 </p>
                                 <table class="tabela_nutricional">
 
@@ -130,42 +130,42 @@
                                     <!-- Loop info -->
                                     <tr>
                                         <td>Valor Calórico</td>
-                                        <td><?php echo ($result['valor_calorico']) ?></td>
+                                        <td><?php echo utf8_encode ($result['valor_calorico']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Carboidratos</td>
-                                        <td><?php echo ($result['carboidratos']) ?></td>
+                                        <td><?php echo utf8_encode ($result['carboidratos']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Fibra Alimentar</td>
-                                        <td><?php echo ($result['fibra_alimentar']) ?></td>
+                                        <td><?php echo utf8_encode ($result['fibra_alimentar']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Gorduras Saturadas</td>
-                                        <td><?php echo ($result['gorduras_saturadas']) ?></td>
+                                        <td><?php echo utf8_encode ($result['gorduras_saturadas']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Gorduras Totais</td>
-                                        <td><?php echo ($result['gorduras_totais']) ?></td>
+                                        <td><?php echo utf8_encode ($result['gorduras_totais']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Gorduras Trans</td>
-                                        <td><?php echo ($result['gorduras_trans']) ?></td>
+                                        <td><?php echo utf8_encode ($result['gorduras_trans']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Proteína</td>
-                                        <td><?php echo ($result['proteina']) ?></td>
+                                        <td><?php echo utf8_encode ($result['proteina']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>
                                         <td>Sódio</td>
-                                        <td><?php echo ($result['sodio']) ?></td>
+                                        <td><?php echo utf8_encode ($result['sodio']) ?></td>
                                         <td>3</td>
                                     </tr>
                                     <tr>

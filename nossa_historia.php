@@ -68,7 +68,7 @@
                 
 				<div class="historia_texto">
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 					
 				</div>

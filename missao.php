@@ -64,10 +64,10 @@
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
 
-			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
 			<?php
@@ -85,9 +85,9 @@
             
 				<div>
 					<i class="fas fa-check"></i>
-					<h2><?php echo ($result['tipo_texto']) ?></h2>
+					<h2><?php echo utf8_encode ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 				</div>
 				 <?php
@@ -103,9 +103,9 @@
 				
 				<div>
 					<i class="fas fa-glasses"></i>
-					<h2><?php echo ($result['tipo_texto']) ?></h2>
+					<h2><?php echo utf8_encode ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 				</div>
 				<?php
@@ -120,9 +120,9 @@
                 ?>
 				<div>
 					<i class="fas fa-hands-helping"></i>
-					<h2><?php echo ($result['tipo_texto']) ?></h2>
+					<h2><?php echo utf8_encode ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 				</div>
 

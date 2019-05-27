@@ -61,10 +61,10 @@
 				$success = $stm->execute();
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
-			<h2 class="section_titulo"> <?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"> <?php echo utf8_encode ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 			<?php
 				}

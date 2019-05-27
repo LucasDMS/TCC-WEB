@@ -65,10 +65,10 @@
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
 
-			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
 			
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
 			<?php
@@ -87,7 +87,7 @@
 				<iframe 
 					width="1490" 
 					height="614" 
-					src="<?php echo ($result['link'])?>" 
+					src="<?php echo utf8_encode ($result['link'])?>" 
 					frameborder="0" 
 					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 					allowfullscreen>
@@ -95,9 +95,9 @@
 
 				<div class="video_info">
                     
-                    <h3><?php echo ($result['titulo']) ?></h3>
+                    <h3><?php echo utf8_encode ($result['titulo']) ?></h3>
 					<p>
-						<?php echo ($result['descricao']) ?>
+						<?php echo utf8_encode ($result['descricao']) ?>
 					</p>
 
 				</div>
@@ -126,12 +126,12 @@
 							<iframe 
 					            width="380" 
 					            height="380" 
-							    src="<?php echo ($result['link'])?>" alt="" frameborder="0" 
+							    src="<?php echo utf8_encode ($result['link'])?>" alt="Vídeo" frameborder="0" 
 					            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 					            allowfullscreen>
                             </iframe>
                             
-                                <h4><?php echo ($result['titulo']) ?></h4>
+                                <h4><?php echo utf8_encode ($result['titulo']) ?></h4>
                         </li>
                         <?php
                             }

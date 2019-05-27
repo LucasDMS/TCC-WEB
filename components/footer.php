@@ -6,28 +6,28 @@
             <div>
                 <h4>Sobre nós</h4>
                 <ul>
-                    <li><a href="">Produtos</a></li>
-                    <li><a href="">Promoções</a></li>
-                    <li><a href="">Fique por dentro</a></li>
-                    <li><a href="">História da empresa</a></li>
-                    <li><a href="">Missão, visão e valores</a></li>
+                    <li><a href="produtos.php">Produtos</a></li>
+                    <li><a href="promocoes.php">Promoções</a></li>
+                    <li><a href="fique_por_dentro.php">Fique por dentro</a></li>
+                    <li><a href="nossa_historia.php">História da empresa</a></li>
+                    <li><a href="missao.php">Missão, visão e valores</a></li>
 
                 </ul>
             </div>
             <div>
                 <h4>POP's +</h4>
                 <ul>
-                    <li><a href="">POP's na escola</a></li>
-                    <li><a href="">Nossos vídeos</a></li>
-                    <li><a href="">Próximos eventos</a></li>
-                    <li><a href="">POP's patrocina</a></li>
+                    <li><a href="pops_escola.php">POP's na escola</a></li>
+                    <li><a href="nossos_videos.php">Nossos vídeos</a></li>
+                    <li><a href="eventos.php">Próximos eventos</a></li>
+                    <li><a href="patrocinio.php">POP's patrocina</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Para empresas</h4>
                 <ul>
-                    <li><a href="">Informações comerciais</a></li>
-                    <li><a href="">Fale conosco</a></li>
+                    <li><a href="estabelecimentos_parceiros.php">Informações comerciais</a></li>
+                    <li><a href="fale_conosco.php">Fale conosco</a></li>
                 </ul>
             </div>
 
