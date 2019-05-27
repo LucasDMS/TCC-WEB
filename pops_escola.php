@@ -66,12 +66,12 @@
 
 			<h2 class="section_titulo">
 			
-				<?php echo ($result['titulo']) ?>
+				<?php echo utf8_encode ($result['titulo']) ?>
 			
 			</h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
 			<?php
@@ -103,10 +103,10 @@
 				
 				
 					<li>
-						<img src="cms/<?php echo ($result['imagem'])?>" alt="imagem da escola">
-						<h3><?php echo ($result['titulo']) ?></h3>
+						<img src="cms/<?php echo utf8_encode ($result['imagem'])?>" alt="imagem da escola">
+						<h3><?php echo utf8_encode ($result['titulo']) ?></h3>
 						<p>
-							<?php echo ($result['descricao']) ?>
+							<?php echo utf8_encode ($result['descricao']) ?>
 						</p>
 					</li>
 

@@ -88,12 +88,12 @@
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
-					<img class="img_destaque" src="cms/<?php echo ($result['imagem'])?>" alt="imagem do produto">
+					<img class="img_destaque" src="cms/<?php echo utf8_encode ($result['imagem'])?>" alt="imagem do produto">
 
 					<div class="destaques_texto">
-						<h3 class="section_titulo"><?php echo ($result['nome']) ?></h3>
+						<h3 class="section_titulo"><?php echo utf8_encode ($result['nome']) ?></h3>
 						<p>
-							<?php echo ($result['descricao']) ?>
+							<?php echo utf8_encode ($result['descricao']) ?>
 						</p>
 					</div>
 
@@ -145,7 +145,7 @@
 						}
 					?>
 					
-					<p><?php echo ($enqueteP[$cont]);?></p> <!--Pergunta da enquete-->
+					<p><?php echo utf8_encode ($enqueteP[$cont]);?></p> <!--Pergunta da enquete-->
 					
 					<form action="index.php" method="post">
                         
@@ -158,8 +158,8 @@
 
 						<ul>
 							<li>
-								<input type="radio" name="ckbEnquete" id="ckbEnquete" value="<?php echo ($result['id_resposta']) ?>" required/>
-								<label for="ckbEnquete"><?php echo ($result['respostas']) ?></label><br>
+								<input type="radio" name="ckbEnquete" id="ckbEnquete" value="<?php echo utf8_encode ($result['id_resposta']) ?>" required/>
+								<label for="ckbEnquete"><?php echo utf8_encode ($result['respostas']) ?></label><br>
 								
 							</li>
 							
@@ -213,10 +213,10 @@
 
 				<div class="resumos_container">
 					<div class="resumo">
-						<h3><?php echo ($result['titulo']) ?></h3>
+						<h3><?php echo utf8_encode ($result['titulo']) ?></h3>
 						<div>
 							<p>
-								<?php echo ($result['texto']) ?>
+								<?php echo utf8_encode ($result['texto']) ?>
 							</p>
 						</div>
 					</div>
@@ -238,11 +238,11 @@
 
 				<div style="text-align: justify display: flex">
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 					<div style="display: flex">
 						<p>
-							<?php echo ($result['texto']) ?>
+							<?php echo utf8_encode ($result['texto']) ?>
 						</p>
 							<img style="height: 300px; padding: 20px" src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
 					</div>
@@ -266,12 +266,12 @@
         			?>
 
 				<li>
-					<img src="cms/<?php echo ($result['autor_foto']) ?>" alt="foto">
-					<h3><?php echo ($result['autor']) ?></h3>
+					<img src="cms/<?php echo utf8_encode ($result['autor_foto']) ?>" alt="foto">
+					<h3><?php echo utf8_encode ($result['autor']) ?></h3>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
-					<span><?php echo ($result['data_publicacao']) ?></span>
+					<span><?php echo utf8_encode ($result['data_publicacao']) ?></span>
 				</li>
 
 				<?php } ?>

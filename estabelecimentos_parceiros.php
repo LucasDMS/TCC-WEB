@@ -68,12 +68,12 @@
 				$success = $stm->execute();
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
         	?>
-            <h2 class="section_titulo">	<?php echo ($result['titulo']) ?></h2>
+            <h2 class="section_titulo">	<?php echo utf8_encode ($result['titulo']) ?></h2>
 
             <div class="section_conteudo_center">
 
                 <p class="section_desc">
-                    <?php echo ($result['texto']) ?>
+                    <?php echo utf8_encode ($result['texto']) ?>
                 </p>
 
                 <?php
@@ -93,7 +93,7 @@
                             $success = $stm->execute();
 				            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
                         ?>
-                        <option value="<?php echo($result['nome_fantasia'])?>">
+                        <option value="<?php echo utf8_encode($result['nome_fantasia'])?>">
                         <?php } 
                         ?>
                         </datalist>
@@ -126,11 +126,11 @@
 			            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
                             if($nome == $result['nome_fantasia'] || $nome == $result['nome_fantasia']){
                     ?> 
-                    <li style="background-color:#09a552;" onclick="trocarEstabelecimento('<?php echo($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
+                    <li style="background-color:#09a552;" onclick="trocarEstabelecimento('<?php echo utf8_encode($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
                     <?php	
                         }else{
                     ?>
-                    <li style="background-color:#ffffff;" onclick="trocarEstabelecimento('<?php echo($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
+                    <li style="background-color:#ffffff;" onclick="trocarEstabelecimento('<?php echo utf8_encode($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
                     <?php 
                         }
                     }
@@ -157,13 +157,13 @@
                         $verificacao = $result['nome_fantasia'];
                 ?> 
 
-                <h3 class="cor_letra_5"><?php echo ($result['nome_fantasia'])?></h3>
+                <h3 class="cor_letra_5"><?php echo utf8_encode ($result['nome_fantasia'])?></h3>
 
-                <img src="cms/<?php echo ($result['imagem']) ?>" alt="<?php echo($result['nome_fantasia']) ?>">
+                <img src="cms/<?php echo ($result['imagem']) ?>" alt="<?php echo utf8_encode($result['nome_fantasia']) ?>">
 
                 <div class="infestab_texto">
                     <p>
-                        <?php echo ($result['descricao']) ?>
+                        <?php echo utf8_encode ($result['descricao']) ?>
                     </p>
                 </div>
                 <?php
