@@ -1,0 +1,44 @@
+{
+    "name": "pagarme/pagarme-php",
+    "description": "Pagar.Me PHP Library",
+    "type": "lib",
+    "keywords": [
+        "pagar.me",
+        "pagarme",
+        "pagamentos",
+        "payments brazil",
+        "pagamento brasil",
+        "api"
+    ],
+    "homepage": "http://pagar.me",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": ">=5.3"
+    },
+    "require-dev": {
+        "ext-mbstring": "*",
+        "phpunit/phpunit": "^4.8",
+        "behat/mink-extension": "^2.2",
+        "squizlabs/php_codesniffer": "^3.3"
+    },
+    "scripts": {
+        "test": [
+            "@composer install",
+            "vendor/bin/phpunit"
+        ],
+        "coverage": [
+            "@composer install",
+            "vendor/bin/phpunit --coverage-html tests/_reports"
+        ]
+    },
+     "autoload": {
+        "psr-4": {"PagarMe\\Sdk\\": "lib/"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PagarMe\\SdkTest\\": "tests/unit",
+            "PagarMe\\Acceptance\\": "tests/acceptance"
+        }
+    }
+}

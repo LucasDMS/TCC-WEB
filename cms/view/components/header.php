@@ -4,7 +4,11 @@
    
         <div>
             <img src="" alt="">
-            <span>Admin</span>
+            <span>
+                <?php 
+                    echo $_SESSION['usuario'];
+                ?>
+            </span>
             <a href="../index.php?modo=logout" onclick="sessionStorage.clear();">
                 <i class="fas fa-sign-out-alt"></i>
             </a>
