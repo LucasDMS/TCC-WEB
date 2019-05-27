@@ -3,7 +3,11 @@
 
     <div>
         <img src="" alt="">
-        <span>Admin</span>
+        <span>
+            <?php 
+                echo $_SESSION['usuario'];
+            ?>
+        </span>
         <i class="fas fa-sign-out-alt"></i>
     </div>
 </header>

@@ -30,6 +30,7 @@ class sessaoDAO {
 
             $returnSessao->setId($result['id_autenticacao']);
             $returnSessao->setTipo($result['tipo']);
+            $returnSessao->setLogin($result['login']);
 
             $linhas ++;
         }
@@ -42,6 +43,7 @@ class sessaoDAO {
             $_SESSION['logado'] = true;
             $_SESSION['id'] = $returnSessao->getId();
             $_SESSION['tipo'] = $returnSessao->getTipo();
+            $_SESSION['usuario'] = $returnSessao->getLogin();
         }
         else{
             echo '0';
