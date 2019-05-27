@@ -18,15 +18,11 @@ $rs = $controller->buscarProduto();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Nome : 
-                <?php echo $result->getNome(); ?>
+            <div class="card-desc">
+                <div class="card-titulo"><?php echo $result->getNome(); ?></div>
+                <div class="card-content"><?php echo $result->getDescricao(); ?></div>
             </div>
-            <div>
-                Descrição : 
-                <?php echo $result->getDescricao(); ?>
-            </div>
-
+        
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
                         href="#"

@@ -74,7 +74,7 @@ body {
 }
 
 .nav li {
-	margin: 15px 0;
+	margin: 5px 0;
 	padding: 5px 15px;
 	transition: .2s;
 }
@@ -173,7 +173,6 @@ footer {
 	font-size: 14px;
 }
 
-
 .tabela_padrao {
 	width: 1000px;
 	margin: 15px auto;
@@ -182,14 +181,6 @@ footer {
 	box-shadow: 0 0 5px 2px #dadada;
 }
 
-.tabela_padrao thead{
-}
-
-.tabela_padrao tbody {
-}
-
-
-/* nicolas**/
 .tabela_titlo {
 	background: linear-gradient(45deg, #56ccf2, #2f80ed);
 	color: #fff;
@@ -211,10 +202,6 @@ footer {
 .tabela_padrao td, .tabela_padrao th {
 	padding: 5px;
 }
-
-
-/* nicolas**/
-
 
 /* ==== FORM MODAL ==== */
 
@@ -357,7 +344,7 @@ footer {
 	margin-bottom: 10px;
 }
 .pagina_titulo {
-	max-width: 1440px;
+	max-width: 1160px;
 	padding: 15px 25px;
 	color: #15a650;
 	margin: 25px auto;
@@ -385,7 +372,7 @@ footer {
 .card_wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 1450px;
+	max-width: 1160px;
 	margin: auto;
 }
 
@@ -398,8 +385,25 @@ footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	overflow: auto;
 }
+
+.card-desc{
+	overflow-y: auto;
+}
+
+.card-titulo{
+	background-color: #09a552;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.card-content{
+	font-size: 15px;
+	padding: 10px 15px 0 10px;
+}
+
 .cores {
 	height: 50px;
 	width: 278px;
@@ -418,12 +422,12 @@ footer {
 }
 
 .card_operadores a {
-	height: 50px;
+	height: 40px;
 	width: 100%;
 	text-align: center;
 	color: #fff;
 	font-size: 20px;
-	line-height: 50px;
+	line-height: 40px;
 	background-color: #393d44;
 }
 
@@ -442,4 +446,16 @@ footer {
 	width: 500px;
 	overflow: hidden;
 	background-color: red;
+}
+
+
+.tabela-nl{
+	width: 100%;
+	background-color: #fff;
+}
+
+.tabela-nl tr td{
+	border: 1px solid gray;
+	padding: 5px;
+	text-align: center;
 }

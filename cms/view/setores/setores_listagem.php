@@ -18,7 +18,7 @@
 ?>
 
 <div class="pagina_titulo">
-    SETORES
+    Setores
     <button class="menu_novo" type="menu" onclick="chamarViewParaModal('setores')">
         <i class="fas fa-plus"></i>
     </button>
