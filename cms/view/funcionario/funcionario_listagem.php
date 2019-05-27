@@ -17,14 +17,8 @@
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Nome : 
-                <?php echo $result->getNome(); ?>
-            </div>
-            <div>
-                Cargo : 
-                <?php echo $result->getCargo(); ?>
-            </div>
+            <div class="card-titulo"><?php echo $result->getNome(); ?></div>
+            <div class="card-content"><?php echo $result->getCargo(); ?></div>
 
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"

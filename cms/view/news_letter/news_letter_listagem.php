@@ -21,14 +21,14 @@
 </div>
 
 <div class="card_wrapper">
-    <!-- CARD -->
-    <?php foreach ($rs as $result) { ?>
-        <div class="card">
-            <div>
-                Email : 
-                <?php echo $result->getNewLetter()?>
-            </div>
-
-        </div>
-    <?php } ?>
+    <table class="tabela-nl">
+        <tr>
+            <th>E-mail</th>
+        </tr>
+        <?php foreach ($rs as $result) { ?>
+            <tr>
+                <td><?php echo $result->getNewLetter()?></td>
+            </tr>
+        <?php } ?> 
+    </table>
 </div>

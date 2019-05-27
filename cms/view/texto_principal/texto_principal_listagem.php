@@ -15,18 +15,9 @@ $rs = $controller->buscarTextoPrincipal();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Titulo : 
-                <?php echo $result->getTitulo(); ?>
-            </div>
-            <div>
-                Texto : 
-                <?php echo $result->getTexto(); ?>
-            </div>
-            <div>
-                Página de 
-                <?php echo $result->getTipoTexto(); ?>
-            </div>
+            <div class="card-titulo"><?php echo $result->getTitulo();?></div>
+            <div class="card-content"><?php echo $result->getTexto();?></div>
+            <div class="card-content">Página de: <?php echo $result->getTipoTexto();?></div>
 
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"

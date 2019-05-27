@@ -28,40 +28,24 @@
     <?php foreach ($rs as $result) { 
         ?>
         <div class="card">
-            <div>
-                Pergunta : 
-
-                <?php 
-                
-                    //echo de pergunta
-                    echo $result->getPergunta(); 
-                    
-                    //recebe o id 
-                    $idE = $result->getId();             
-                    
-                ?>
+            <div class="card-titulo">Pergunta</div>
+            <div class="card-content">
+                <?php echo $result->getPergunta(); 
+                    $idE = $result->getId(); ?>
             </div>
-            <div>
+            <div class="card-content">
                 Respostas : <br>   
                 <?php  
-                    
                     foreach($rs2 as $result2){
                         //se não for igual não pega a resposta
                         //só vai pegar a resposta se for igual o id
                         if($idE == $result2->getId()){
                             echo utf8_encode("<strong>".$result2->getResposta()."</strong> ".$result2->getVotos()." votos <br>"); 
                         }
-                        
-                    
-                    }   
-                    
-                     
+                    }    
                 ?>
             </div>
-            <div>
-                Data : 
-                <?php echo $result->getData(); ?>
-            </div>
+            <div class="card-content">Data :<?php echo $result->getData(); ?></div>
 
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"

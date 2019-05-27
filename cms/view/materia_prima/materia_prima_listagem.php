@@ -27,22 +27,11 @@
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                <strong>Nome :</strong>
-                <?php echo $result->getNome(); ?>
-            </div>
-            <div>
-                <strong>Descrição : </strong>
-                <?php echo $result->getDescricao(); ?>
-            </div>
-            <div>
-                <strong>Tipo Materia : </strong>
-                <?php echo $result->getTipoMateria(); ?>
-            </div>
-            <div>
-                <strong>Validade :</strong> 
-                <?php echo $result->getDataValidade(); ?>
-            </div>
+            <div class="card-titulo"><?php echo $result->getNome(); ?> </div>
+            <div class="card-content"><?php echo $result->getDescricao(); ?></div>
+            <div class="card-content"><?php echo $result->getTipoMateria(); ?></div>
+            <div class="card-content"><?php echo $result->getDataValidade(); ?></div>
+            
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"
                     href="#"
