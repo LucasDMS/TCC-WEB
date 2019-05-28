@@ -1,4 +1,33 @@
-<?php 
+<?php
+    require('vendor/autoload.php');
+    
+    $pagarme = new PagarMe\Client('ak_test_pDBOLNZUTnFpoyA1ozEXFPGqfEV7J0');
+    
+    $transaction = $pagarme->transactions()->create([
+      'amount' => 1000,
+      'payment_method' => 'boleto',
+      'async' => false,
+      'customer' => [
+        'external_id' => '1',
+        'name' => 'Nome do cliente',
+        'type' => 'individual',
+        'country' => 'br',
+        'documents' => [
+          [
+            'type' => 'cpf',
+            'number' => '00000000000'
+          ]
+        ],
+        'phone_numbers' => [ '+551199999999' ],
+        'email' => 'cliente@email.com'
+      ]
+    ]);
+    
+
+      $transaction->charge();
+
+      var_dump($transaction);
+    ////
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCarrinho.php");
 
