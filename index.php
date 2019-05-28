@@ -18,14 +18,10 @@
 	<link rel="stylesheet" href="css/home.css">
 
 	<?php require_once("components/palheta_cores.php"); ?>
-
 </head>
 
 <body>
-
 	<?php
-
-
 		if(isset($_GET["modo"])){
 			if($_GET["modo"]=="logout"){
 				session_destroy();
@@ -40,20 +36,15 @@
 		require_once($_SERVER['DOCUMENT_ROOT'] ."/tcc/cms" ."/controller/controllerNewsLetter.php");
 
 		$conex = new conexaoMysql();
-
 		$con = $conex->connectDatabase();
-
-
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
-
 			<div class="icon">
 				<i class="fas fa-circle-notch fa-spin"></i>
 			</div>
-
 		</div>
 	</div>
 
@@ -61,10 +52,10 @@
 
 	<main>
 			<?php
-			ini_set('display_errors',1);
-			ini_set('display_startup_errors',1);
-			error_reporting(E_ALL);
-		?>
+				ini_set('display_errors',1);
+				ini_set('display_startup_errors',1);
+				error_reporting(E_ALL);
+			?>
 		<div>
 			<section class="section_principal">
 				<h2>ALGUMA COISA IMPORTANTE</h2>
@@ -72,7 +63,7 @@
 
 			<section class="section_destaque">
 				<h2 class="section_titulo">DESTAQUES</h2>
-				<form class="form_pesquisa" action="">
+				<form class="form_pesquisa" action="index.php">
 					<input class="form_pesquisa_input" type="text" placeholder="Busque alguma empresa parceira">
 					<button class="btn" type="submit">
 						<i class="fas fa-search"></i>
@@ -97,10 +88,7 @@
 						</p>
 					</div>
 
-
-				<?php
-				    }
-         ?>
+				<?php } ?>
 
 				</div>
 			</section>
@@ -126,9 +114,7 @@
 						$stm2->bindValue(2, $id);
 						$stm2->execute();
 
-					}
-
-					
+					}					
 				?>
 
 				<div class="enquete_container">
@@ -158,16 +144,12 @@
 
 						<ul>
 							<li>
-								<input type="radio" name="ckbEnquete" id="ckbEnquete" value="<?php echo utf8_encode ($result['id_resposta']) ?>" required/>
-								<label for="ckbEnquete"><?php echo utf8_encode ($result['respostas']) ?></label><br>
-								
+								<input type="radio" name="ckbEnquete" value="<?php echo utf8_encode ($result['id_resposta']) ?>" required/>
+								<span><?php echo utf8_encode ($result['respostas']) ?></span><br>
 							</li>
-							
 						</ul>
                         
-                        <?php
-							}
-					    ?>
+                        <?php } ?>
 						<button class="btn" type="submit" name="btnEnquete">
 							VOTAR
 						</button>
@@ -182,15 +164,16 @@
 						Recebe a nossa news-letter com todas as novidades da POP's
 					</p>
 					<form
-					onsubmit="asyncSubmit(event, this)"
-					name="frm_news_letter"
-					action="cms/router.php?controller=news_letter&modo=inserir" 
-					method="post"
-					autocomplete="off"
-					id="news_letter"
-					enctype='multipart/form-data' 
-					class="form_padrao"
-					data-pagina="news_letter">
+						onsubmit="asyncSubmit(event, this)"
+						name="frm_news_letter"
+						action="cms/router.php?controller=news_letter&modo=inserir" 
+						method="post"
+						autocomplete="off"
+						id="news_letter"
+						enctype='multipart/form-data' 
+						class="form_padrao"
+						data-pagina="news_letter">
+
 						<input type="text" placeholder="Digite seu email aqui" name="txtNewsLetter" id="txtNewsLetter">
 						<button class="btn" type="submit">
 							<i class="fas fa-paper-plane"></i>
@@ -236,15 +219,12 @@
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
-				<div style="text-align: justify display: flex">
+				<div style="text-align: justify; display: flex">
 					<p>
 						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 					<div style="display: flex">
-						<p>
-							<?php echo utf8_encode ($result['texto']) ?>
-						</p>
-							<img style="height: 300px; padding: 20px" src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
+						<img style="height: 300px; padding: 20px" src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
 					</div>
 				</div>
 
@@ -280,10 +260,8 @@
 	</main>
 
 	<?php
-
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php");
-
 	?>
 
 	<script src="js/jquery_min.js"></script>

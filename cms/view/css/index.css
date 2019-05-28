@@ -67,9 +67,10 @@ body {
 	display: none;
 	height: 100%;
 	width: 250px;
-	background: rgb(57, 61, 68);
+	background: #393d44;
 	color: #fff;
-	border-right: 1px solid #ccc;
+	box-shadow: 0 0 5px #bbbbbb;
+    z-index: 5;
 	overflow: auto;
 }
 
@@ -135,7 +136,8 @@ body {
 	justify-content: space-between;
 	background-color: #ffffff;
 	color: #666;
-	border-bottom: 1px solid #ddd;
+	box-shadow: 0 0 5px #bbbbbb;
+    z-index: 5;
 }
 
 .header i {
@@ -157,7 +159,7 @@ body {
 #app_content {
 	height: 100%;
 	width: 100%;
-	background-color: #dee4e9;
+	background-color: #fff;
 	overflow: auto;
 }
 
@@ -352,6 +354,7 @@ footer {
 	font-weight: bold;
 	background-color: #fff;
 	border-left: 3px solid #15a650;
+	box-shadow: 0 0 5px #bbbbbb;
 	display: flex;
 	justify-content: space-between;
 }
@@ -380,7 +383,7 @@ footer {
 	height: 350px;
 	width: 280px;
 	background-color: #fff;
-	border: 1px solid #ddd;
+	box-shadow: 0 0 5px #bbbbbb;
 	margin: 5px;
 	display: flex;
 	flex-direction: column;

@@ -74,11 +74,9 @@
 				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
-			<?php
-				}
-			?>
+			<?php } ?>
 
-			<form class="form_pesquisa" action="">
+			<form class="form_pesquisa" action="pops_escola.php">
 				<input type="text" placeholder="Veja se sua escola está na lista da POP's">
 				<button class="btn" type="submit">
 					<i class="fas fa-search">
@@ -110,9 +108,7 @@
 						</p>
 					</li>
 
-				<?php
-                	}
-            	?>
+				<?php } ?>
 				</ul>
 			</div>
 			
@@ -121,10 +117,10 @@
 
 	</main>
 
-	<?php require_once("components/chat_bot.php"); ?>
-
-	<!-- FOOTER -->
-	<?php require_once("components/footer.php"); ?>
+	<?php 
+		require_once("components/chat_bot.php"); 
+		require_once("components/footer.php");
+	?>
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>

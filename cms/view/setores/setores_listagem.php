@@ -28,17 +28,15 @@
     <?php foreach ($rs2 as $result2) { 
         ?>
         <div class="card">
-            <div>
+            <div class="card-titulo">
                 RUA : 
 
                 <?php 
-                    //echo de pergunta
                     echo utf8_encode($result2->getRua());
-                    
                     $idP = $result2->getId();
                 ?>
             </div>
-            <div> 
+            <div class="card-content"> 
                 <?php  
                     foreach($rs as $result){
                         if($idP == $result->getId()){
