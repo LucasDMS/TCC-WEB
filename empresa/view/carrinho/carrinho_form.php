@@ -1,5 +1,6 @@
 <?php
 
+
 require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCarrinho.php");
 $action = "router.php?controller=cadastro_carrinho&modo=inserir";
 ?>
@@ -70,14 +71,12 @@ $action = "router.php?controller=cadastro_carrinho&modo=inserir";
             <label from="txtEstado">Estado</label>
             <input type="text" name="txtEstado" maxlength="2" id="txtEstado" value=""  required><br>
         </div>
-        
-       
         <div class="flex flex-center">
             <button type="reset" class="btn btn-clear">
                 <i class="fas fa-eraser"></i>
             </button>
-
             <button class="btn btn-submit" onclick="compra()">
+
                 <i class="fas fa-save"></i>
             </button>
         </div>
