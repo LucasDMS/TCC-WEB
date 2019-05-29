@@ -12,7 +12,7 @@ class conexaoMysql {
 		// $this->user = "teste";
 		$this->server = "localhost";
 		 $this->user = "root";
-		$this->password = "123";
+		$this->password = "bcd127";
 		$this->database = "db_pop_soda_drink";
 	}
 

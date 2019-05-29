@@ -1,56 +1,8 @@
 <?php
-    require('vendor/autoload.php');
-    
-    $pagarme = new PagarMe\Client('ak_test_z4z0XMkFGZQVMQiw6IVCtIf2lhAkKx');
-    
-    $transaction = $pagarme->transactions()->create([
-      'amount' => 700000,
-      'payment_method' => 'boleto',
-      'async' => false,
-      'customer' => [
-        'external_id' => '1',
-        'name' => 'Nome do cliente',
-        'type' => 'individual',
-        'country' => 'br',
-        'documents' => [
-          [
-            'type' => 'cpf',
-            'number' => '00000000000'
-          ]
-        ],
-        'phone_numbers' => [ '+551199999999' ],
-        'email' => 'cliente@email.com'
-      ]
-    ]);
-    
-
-    //$transaction->charge();
-
-    //var_dump($transactions = $pagarme->transactions()->getList());
-
-    $transactions = $pagarme->transactions()->get([
-       'id' => '6410017' 
-     ]);
-
-     echo var_dump($transactions);
-
-      
-    ////
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCarrinho.php");
+$action = "router.php?controller=cadastro_carrinho&modo=inserir";
 
-
-    $descricao = null;
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        
-        $Controller = new ControllerCarrinho();
-        $carrinho = $Controller->buscarCarrinho($id);
-        $action = "router.php?controller=cadastro_carrinho&modo=atualizar";
-        $modo = "atualizar";
-        $descricao = $carrinho->getDescricao();
-        
-    }
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)"
@@ -63,16 +15,25 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controlle
         class="form_padrao"
         data-id="<?php echo $id; ?>"
         data-modo="<?php echo $modo; ?>"
-        data-pagina="marketing">
+        data-pagina="carrinho">
 
         <div class="inputDados">
-            <label from="txtDescricao">Descrição</label>
-            <textarea name="txtDescricao" id="txtDescricao" required><?php echo $descricao ?></textarea>
-       
+            <label from="txtNome">Nome</label>
+            <input type="text" name="txtNome" id="txtNome"  value=""><br>
         </div>
         <div class="inputDados">
-            <input type="file" name="img" id="img"><br>
+            <label from="txtNumeroCartao">Número do Cartão</label>
+            <input type="text" name="txtNumeroCartao" id="txtNumeroCartao" value=""><br>
         </div>
+        <div class="inputDados">
+            <label from="txtCvv">Código de verificação</label>
+            <input type="text" name="txtCvv" id="txtCvv"  value=""><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtValidade">Data de validade do Cartão</label>
+            <input type="date" name="txtValidade" id="txtValidade" value=""><br>
+        </div>
+
         <div class="flex flex-center">
             <button type="reset" class="btn btn-clear">
                 <i class="fas fa-eraser"></i>

@@ -3,6 +3,7 @@ class CarrinhoDAO {
     private $conex;
     private $compras;
     public function __construct() {
+        //session_start();
         require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms".'/db/ConexaoMysql.php');
         $this->conex = new conexaoMysql();
     }
@@ -36,10 +37,20 @@ class CarrinhoDAO {
 
     public function delete($id, $idAutenticacao){
         $conn = $this->conex->connectDatabase();
-        $sql = "DELETE FROM tbl_pedido_produtos WHERE id_produto = ? and id_autenticacao=?";
+        $sql = "UPDATE tbl_pedido_produtos set status = ? WHERE id_produto = ? and id_autenticacao=?";
+        $stm =  $conn->prepare($sql);
+        $stm->bindValue(1,0);
+        $stm->bindValue(2,$id);
+        $stm->bindValue(3,$idAutenticacao);
+        $stm->execute();
+    }
+
+    public function insert(){
+        $id = $_SESSION['id'];
+        $conn = $this->conex->connectDatabase();
+        $sql = "call sp_insert_pedido(?)";
         $stm =  $conn->prepare($sql);
         $stm->bindValue(1,$id);
-        $stm->bindValue(2,$idAutenticacao);
         $stm->execute();
     }
 }
