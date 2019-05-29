@@ -4,7 +4,10 @@ $controller = new ControllerCarrinho();
 $rs = $controller->buscarCarrinho();
 $total = 0;
 ?>
-
+<script>
+    preco = document.querySelector("#resultadoFinal").value;
+    sessionStorage.setItem('preco', preco)
+</script>
 
 
 <table class="tabela_padrao">
