@@ -18,7 +18,7 @@ $rs = $controller->buscarSobreNos();
 ?>
 
 <div class="pagina_titulo">
-    Sobre nós
+    Sobre Nós
     <button class="menu_novo" type="menu" onclick="chamarViewParaModal('sobre_nos')">
         <i class="fas fa-plus"></i>
     </button>
@@ -28,17 +28,13 @@ $rs = $controller->buscarSobreNos();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Título : 
-                <?php echo $result->getTitulo(); ?>
-            </div>
-            <div>
-                Texto : 
-                <?php echo $result->getTexto(); ?>
-            </div>
-            <div>
-                Ordem : 
-                <?php echo $result->getOrdem(); ?>
+            <div class="card-desc">
+                <div class="card-titulo"><?php echo $result->getTitulo();?></div>
+                <div class="card-content"><?php echo $result->getTexto();?></div>
+                <div class="card-content">
+                    Ordem : 
+                    <?php echo $result->getOrdem();?>
+                </div>
             </div>
 
             <div class="card_operadores">

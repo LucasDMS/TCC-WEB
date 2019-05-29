@@ -337,16 +337,21 @@ footer {
 	overflow: hidden;
 	overflow-y: auto;
 }
-
+.titulosform{
+	font-size: 25px;
+	color: #15a650;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
 .pagina_titulo {
 	max-width: 1440px;
 	padding: 15px 25px;
-	color: #f8ae83;
+	color: #15a650;
 	margin: 25px auto;
 	font-size: 30px;
 	font-weight: bold;
 	background-color: #fff;
-	border-left: 3px solid #f8ae83;
+	border-left: 3px solid #15a650;
 	display: flex;
 	justify-content: space-between;
 }
@@ -354,7 +359,7 @@ footer {
 .menu_novo {
 	height: 34px;
 	width: 34px;
-	background-color: #f8ae83;
+	background-color: #15a650;
 	border: none;
 	color: #fff;
 }
@@ -406,14 +411,14 @@ footer {
 }
 
 .card_operadores a:hover {
-	color: #f8ae83;
+	color: #15a650;
 }
 
 
-.carrinho_compra:hover{
+/* .carrinho_compra:hover{
 	cursor: pointer;
 	color: #09a552 !important;
-}
+} */
 
 /*ALERTA*/
 

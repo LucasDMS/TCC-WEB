@@ -25,15 +25,11 @@ $rs = $controller->buscarProdutoDestaque();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Nome : 
-                <?php echo $result->getNome(); ?>
+            <div class="card-desc">
+                <div class="card-titulo"><?php echo $result->getNome();?></div>
+                <div class="card-content"><?php echo $result->getTexto();?></div>
             </div>
-            <div>
-                Texto : 
-                <?php echo $result->getTexto(); ?>
-            </div>
-
+            
             <div class="card_operadores">
                 <a  onclick="asyncAtivar(this)" 
                     href="#"

@@ -18,21 +18,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/info_comerciais.css">
 
-    <?php 
-        require_once("components/palheta_cores.php");
-		if(!isset($_SESSION['logado'])){
-            session_destroy();
-        }
-        
-		require_once('cms/db/ConexaoMysql.php');
-		require_once("components/header.php");
-		require_once("components/sub_menu.php");
-        require_once("components/modal.php");
-        $conex = new conexaoMysql();
-
-        $con = $conex->connectDatabase(); 
-        $nome= "";
-    ?>
+    <?php require_once("components/palheta_cores.php"); ?>
     <script>
         function trocarEstabelecimento(nome){
             $.ajax({
@@ -48,6 +34,21 @@
 </head>
 
 <body>
+
+    <?php
+        if(!isset($_SESSION['logado'])){
+            session_destroy();
+        }
+        
+        require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php");
+        require_once("components/sub_menu.php");
+        require_once("components/modal.php");
+        $conex = new conexaoMysql();
+
+        $con = $conex->connectDatabase(); 
+        $nome= "";
+    ?>
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
@@ -68,17 +69,15 @@
 				$success = $stm->execute();
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
         	?>
-            <h2 class="section_titulo">	<?php echo ($result['titulo']) ?></h2>
+            <h2 class="section_titulo">	<?php echo utf8_encode ($result['titulo']) ?></h2>
 
             <div class="section_conteudo_center">
 
                 <p class="section_desc">
-                    <?php echo ($result['texto']) ?>
+                    <?php echo utf8_encode ($result['texto']) ?>
                 </p>
 
-                <?php
-                    }
-				?>
+                <?php } ?>
 
                 <form class="form_infos_comerciais" name="frmEstabelecimento" id="frmEstabelecimento" method="post" action="estabelecimentos_parceiros.php">
 
@@ -93,7 +92,7 @@
                             $success = $stm->execute();
 				            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
                         ?>
-                        <option value="<?php echo($result['nome_fantasia'])?>">
+                        <option value="<?php echo utf8_encode($result['nome_fantasia'])?>">
                         <?php } 
                         ?>
                         </datalist>
@@ -101,11 +100,8 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-
                 </form>
-
             </div>
-
         </section>
 
         <div class="bg_color_parceiros" >
@@ -126,14 +122,12 @@
 			            foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
                             if($nome == $result['nome_fantasia'] || $nome == $result['nome_fantasia']){
                     ?> 
-                    <li style="background-color:#09a552;" onclick="trocarEstabelecimento('<?php echo($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
+                    <li style="background-color:#09a552;" onclick="trocarEstabelecimento('<?php echo utf8_encode($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
                     <?php	
-                        }else{
+                        } else {
                     ?>
-                    <li style="background-color:#ffffff;" onclick="trocarEstabelecimento('<?php echo($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
-                    <?php 
-                        }
-                    }
+                    <li style="background-color:#ffffff;" onclick="trocarEstabelecimento('<?php echo utf8_encode($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
+                    <?php } }
                     ?>
                 </ul>
             </div>
@@ -144,10 +138,10 @@
                         $nome = $_POST['txt_pesquisa_estabelecimento'];
                         $nomeEsta = "%".$nome."%";
                         $sql = "select * from tbl_estabelecimento where ativo = 1 and apagado = 0 and nome_fantasia like '".utf8_encode($nomeEsta)."'";            
-                    }else if(isset($_POST['nome'])){
+                    } else if (isset($_POST['nome'])){
                         $nome = $_POST['nome'];
                         $sql = "select * from tbl_estabelecimento where apagado = 0 and ativo = 1 and nome_fantasia = '$nome'";
-                    }else{
+                    } else {
                         $sql = "select * from tbl_estabelecimento where apagado = 0 and ativo = 1 order by rand() limit 1";
                     }
                     $stm = $con->prepare($sql);
@@ -157,39 +151,33 @@
                         $verificacao = $result['nome_fantasia'];
                 ?> 
 
-                <h3 class="cor_letra_5"><?php echo ($result['nome_fantasia'])?></h3>
+                <h3 class="cor_letra_5"><?php echo utf8_encode ($result['nome_fantasia'])?></h3>
 
-                <img src="cms/<?php echo ($result['imagem']) ?>" alt="<?php echo($result['nome_fantasia']) ?>">
+                <img src="cms/<?php echo ($result['imagem']) ?>" alt="<?php echo utf8_encode($result['nome_fantasia']) ?>">
 
                 <div class="infestab_texto">
                     <p>
-                        <?php echo ($result['descricao']) ?>
+                        <?php echo utf8_encode ($result['descricao']) ?>
                     </p>
                 </div>
-                <?php
-                    }
+                <?php }
                     if($verificacao == ""){
                 ?>
                     <div id="separador_esta">
                     </div>
                     <h1><a href="estabelecimentos_parceiros.php">Nenhum Estabelecimento Encontrado</a></h1>
-                <?php 
-                    }
-                ?>
+                <?php } ?>
             </div>
         </div>
     </div>
     </main>
 
 	<?php
-
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php"); 
-
 	?>
 
 	<script src="js/jquery_min.js"></script>
     <script src="js/index.js"></script>
 </body>
-
 </html>

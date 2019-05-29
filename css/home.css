@@ -169,6 +169,24 @@
 	margin: auto;
 }
 
+.sustentabilidade-container{
+	text-align: justify; 
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1000px;
+	justify-content: center;
+}
+
+.sustentabilidade-container p{
+	max-width: 500px;
+	min-width: 200px;
+}
+
+.sustentabilidade-container img{
+	max-height: 300px; 
+	padding: 20px;
+}
+
 .comentarios{
 	height: auto;
 	background-color: #0ba552;
@@ -219,5 +237,11 @@
 	width: 100%;
 	text-align: right;
 	color: #666;
+}
+
+@media (max-width: 815px) {
+	.lista_comentarios{
+		justify-content: center;
+	}
 }
 

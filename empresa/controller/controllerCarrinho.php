@@ -29,6 +29,10 @@ class ControllerCarrinho{
         return $this->CarrinhoDAO->selectById($id);
     }
 
+    public function inserirCarrinho(){
+        $this->CarrinhoDAO->insert();
+    }
+
 
 }
 ?>

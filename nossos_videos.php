@@ -65,15 +65,13 @@
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
 
-			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
 			
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
-			<?php
-				}
-			?>
+			<?php } ?>
 
 			<div class="video_novo">
 			    
@@ -87,55 +85,45 @@
 				<iframe 
 					width="1490" 
 					height="614" 
-					src="<?php echo ($result['link'])?>" 
-					frameborder="0" 
+					src="<?php echo utf8_encode ($result['link'])?>" 
 					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 					allowfullscreen>
 				</iframe>
 
 				<div class="video_info">
-                    
-                    <h3><?php echo ($result['titulo']) ?></h3>
-					<p>
-						<?php echo ($result['descricao']) ?>
-					</p>
-
+                    <h3><?php echo utf8_encode ($result['titulo']) ?></h3>
+					<p><?php echo utf8_encode ($result['descricao']) ?></p>
 				</div>
                 
-                 <?php
-                    }
-                 ?>
+            <?php } ?>
                 
 			</div>
-
-			
 
 			<div class="mais_videos">
 
 				<h3 class="section_titulo">veja mais videos</h3>
 
 				<div class="mais_videos_container">
-                <?php		
-				    $sql = "select * from tbl_videos where apagado = 0 and ativo = 1";
-					$stm = $con->prepare($sql);
-					$success = $stm->execute();
-					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
-        		?>
 					<ul class="videos_lista">
-						<li>
-							<iframe 
-					            width="380" 
-					            height="380" 
-							    src="<?php echo ($result['link'])?>" alt="" frameborder="0" 
-					            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-					            allowfullscreen>
-                            </iframe>
-                            
-                                <h4><?php echo ($result['titulo']) ?></h4>
-                        </li>
-                        <?php
-                            }
-                        ?>	
+						<?php		
+							$sql = "select * from tbl_videos where apagado = 0 and ativo = 1";
+							$stm = $con->prepare($sql);
+							$success = $stm->execute();
+							foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
+						?>
+							
+								<li>
+									<iframe 
+										width="380" 
+										height="380" 
+										src="<?php echo utf8_encode ($result['link'])?>"
+										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+										allowfullscreen></iframe>
+									
+										<h4><?php echo utf8_encode ($result['titulo']) ?></h4>
+								</li>
+							
+						<?php } ?>	
 					</ul>
 				</div>
 			</div>

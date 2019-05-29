@@ -27,15 +27,13 @@
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Título : 
-                <?php echo $result->getTitulo(); ?>
-            </div>
-            <div>
+            <div class="card-titulo">Vídeo</div>
+            <div class="card-content"><strong><?php echo $result->getTitulo();?></strong></div>
+            <div class="card-content">
                 Link : 
                 <?php echo $result->getLink(); ?>
             </div>
-            <div>
+            <div class="card-content">
                 Descrição : 
                 <?php echo $result->getDescricao(); ?>
             </div>

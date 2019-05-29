@@ -2,9 +2,12 @@
  require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" ."/controller/controllerCarrinho.php");
 $controller = new ControllerCarrinho();
 $rs = $controller->buscarCarrinho();
-$valorTotal = 0;
+$total = 0;
 ?>
-
+<script>
+    preco = document.querySelector("#resultadoFinal").value;
+    sessionStorage.setItem('preco', preco)
+</script>
 
 
 <table class="tabela_padrao">
@@ -36,6 +39,9 @@ $valorTotal = 0;
                 </td>
                 <td>
                     <input type="text" id="txt_resultado<?php echo $result->getId()?>" value="<?php echo $result->getPreco(); ?>">
+                    <?php
+                        $total = $total + $result->getPreco();
+                    ?>
                 </td>
             
                 <td>
@@ -57,7 +63,7 @@ $valorTotal = 0;
             <td></td>
             <td><strong><p>Total:</p></strong></td>
             <td>
-                <strong><p><input type="text" id="resultadoFinal"></p></strong>
+                <strong><p><input type="text" id="resultadoFinal" value="<?php echo $total?>"></p></strong>
             </td>
             <td colspan="4">
                 <button type="menu" onclick="chamarViewParaModal('carrinho')">                                                                                                                                                                                                                                  
@@ -72,9 +78,15 @@ $valorTotal = 0;
     
     function totalCompra(preso,id){
 
+        document.getElementById("resultadoFinal").value = Number(document.getElementById("resultadoFinal").value) - Number(document.getElementById("txt_resultado"+id).value)
+
         valor = document.getElementById("txt_qtd"+id).value
         document.getElementById("txt_resultado"+id).value = valor*preso
        
+        document.getElementById("resultadoFinal").value = Number(document.getElementById("resultadoFinal").value) + Number(document.getElementById("txt_resultado"+id).value)
+      
+        //totalCompra = totalCompra + document.getElementById("txt_resultado"+id).value;
+
     }
 
 </script>

@@ -37,7 +37,7 @@
                     data-pagina="compras"
                     data-url="view/compras/compras_form.php?id=<?php echo $result->getId()?>"
                     data-id="<?php echo $result->getId();?>">
-                    <i class="fas fa-pen"></i>
+                    <i class="fas fa-search"></i>
                 </a>
                 <a class="carrinho_compra"
                     onclick="asyncAtivar(this)"

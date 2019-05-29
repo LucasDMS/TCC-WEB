@@ -19,13 +19,9 @@ $rs = $controller->buscarNoticias();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Titulo : 
-                <?php echo $result->getTitulo(); ?>
-            </div>
-            <div>
-                Conteudo : 
-                <?php echo $result->getConteudo(); ?>
+            <div class="card-desc">
+                <div class="card-titulo"><?php echo $result->getTitulo(); ?></div>
+                <div class="card-content"><?php echo $result->getConteudo(); ?></div>
             </div>
 
             <div class="card_operadores">

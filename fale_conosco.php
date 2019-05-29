@@ -61,10 +61,10 @@
 				$success = $stm->execute();
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
-			<h2 class="section_titulo"> <?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"> <?php echo utf8_encode ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 			<?php
 				}
@@ -105,13 +105,12 @@
             
 			<form 
 				onsubmit="asyncSubmit(event, this)"
-				class="form_fale_conosco" name="frm_fale_conosco"
+				class="form_fale_conosco form_padrao" name="frm_fale_conosco"
 				action="cms/router.php?controller=fale_conosco&modo=inserir" 
 				method="post"
 				autocomplete="off"
 				id="fale_conosco"
 				enctype='multipart/form-data' 
-				class="form_padrao"
 				data-pagina="fale_conosco">
 
 				<label for="txtNome">Nome:</label>
@@ -136,7 +135,7 @@
 				<label for="txtCidade">Cidade:</label>
 				<input type="text" name="txtCidade" id="txtCidade" placeholder="Cidade" maxlength="14" onkeypress="return Validar(event,'number', this.id);">
 
-				<label for="txtTexto">Comentário:</label>
+				<label for="txt_comentario">Comentário:</label>
 				<textarea name="txtTexto" id="txt_comentario" placeholder="Comentário" class=""></textarea>
 
 				<div class="flex_center">
@@ -158,22 +157,19 @@
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
-</body>
-<script>
 
+	<script>
+		$('#txtCEP').on("blur", function(){
 
-$('#txtCEP').on("blur", function(){
+			const value = $('#txtCEP').val()
+			const url = "https://viacep.com.br/ws/" + value + "/json/"
 
-    const value = $('#txtCEP').val()
-    const url = "https://viacep.com.br/ws/" + value + "/json/"
-
-    $.ajax({ url }).done(function(resposta){
-        $('#txtCidade').val(resposta.localidade)
-        $('#txtEstado').val(resposta.uf)
-    })
-})
-
-    
-
+			$.ajax({ url }).done(function(resposta){
+				$('#txtCidade').val(resposta.localidade)
+				$('#txtEstado').val(resposta.uf)
+			})
+		})
 </script>
+</body>
+
 </html>

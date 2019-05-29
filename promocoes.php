@@ -80,16 +80,16 @@
     <main>
 	<form 
 		onsubmit="asyncParticipar(event,this)"
-		action="<?php echo($action) ?>" 
+		action="<?php echo utf8_encode ($action) ?>" 
 		method="post"
 		autocomplete="off"
 		id="frm_participar_promocao"
 		class="form_padrao"
 		name="frm_participar_promocao"
-		enctype="multipart/form"
-		data-id="<?php echo($id)?>"
-		data-id-promocao="<?php echo($idPromocao)?>"
-		data-modo="<?php echo($modo)?>"
+		enctype="multipart/form-data"
+		data-id="<?php echo ($id)?>"
+		data-id-promocao="<?php echo ($idPromocao)?>"
+		data-modo="<?php echo ($modo)?>"
 		data-pagina="promocoes"
 	>
 
@@ -98,14 +98,14 @@
 
 				<div class="titulo_promo">
 					<i class="fas fa-award"></i>
-					<h3><?php echo ($nome) ?></h3>
+					<h3><?php echo utf8_encode ($nome) ?></h3>
 					<i class="fas fa-award"></i>
 				</div>
 				
-				<img src="cms/<?php echo ($result['imagem']) ?>" alt="imagem da promoção">
+				<img src="cms/<?php echo utf8_encode ($result['imagem']) ?>" alt="imagem da promoção">
                
 				<p>
-					<?php echo ($result['texto']) ?>
+					<?php echo utf8_encode ($result['texto']) ?>
 				</p>
 
 				<?php

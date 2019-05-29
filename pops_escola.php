@@ -66,19 +66,17 @@
 
 			<h2 class="section_titulo">
 			
-				<?php echo ($result['titulo']) ?>
+				<?php echo utf8_encode ($result['titulo']) ?>
 			
 			</h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
-			<?php
-				}
-			?>
+			<?php } ?>
 
-			<form class="form_pesquisa" action="">
+			<form class="form_pesquisa" action="pops_escola.php">
 				<input type="text" placeholder="Veja se sua escola está na lista da POP's">
 				<button class="btn" type="submit">
 					<i class="fas fa-search">
@@ -103,16 +101,14 @@
 				
 				
 					<li>
-						<img src="cms/<?php echo ($result['imagem'])?>" alt="imagem da escola">
-						<h3><?php echo ($result['titulo']) ?></h3>
+						<img src="cms/<?php echo utf8_encode ($result['imagem'])?>" alt="imagem da escola">
+						<h3><?php echo utf8_encode ($result['titulo']) ?></h3>
 						<p>
-							<?php echo ($result['descricao']) ?>
+							<?php echo utf8_encode ($result['descricao']) ?>
 						</p>
 					</li>
 
-				<?php
-                	}
-            	?>
+				<?php } ?>
 				</ul>
 			</div>
 			
@@ -121,10 +117,10 @@
 
 	</main>
 
-	<?php require_once("components/chat_bot.php"); ?>
-
-	<!-- FOOTER -->
-	<?php require_once("components/footer.php"); ?>
+	<?php 
+		require_once("components/chat_bot.php"); 
+		require_once("components/footer.php");
+	?>
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>

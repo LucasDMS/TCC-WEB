@@ -13,10 +13,7 @@
 
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 1, true)">
-                <div>
-                    <i class="fas fa-cog"></i>
-                    CMS
-                </div>
+                <div>CMS</div>
                 <i class="fas fa-angle-right seta" id="seta_1"></i>
             </div>
             <!-- SUB MENU -->
@@ -29,7 +26,6 @@
                         if($IdMenu[$i]==8){?>
                             <li onclick="chamarViewParaApp('noticias')"> 
                                 <div>
-                                    <i class="fas fa-wrench"></i>
                                     Notícias
                                 </div>
                             </li>
@@ -39,7 +35,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('historia')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Nossa História
                             </div>
                         </li>
@@ -49,7 +44,6 @@
 
                         <li onclick="chamarViewParaApp('fale_conosco')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Fale Conosco
                             </div>
                         </li>
@@ -58,7 +52,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('sustentabilidade')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Sustentabilidade
                             </div>
                         </li>
@@ -67,7 +60,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('promocao')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Promoção
                             </div>
                         </li>
@@ -76,7 +68,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('produto')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Produto (Página de produtos)
                             </div>
                         </li>
@@ -86,7 +77,6 @@
 
                         <li onclick="chamarViewParaApp('mvv')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Missão, Visão e Valor
                             </div>
                         </li>
@@ -97,7 +87,6 @@
 
                         <li onclick="chamarViewParaApp('texto_principal')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Texto Principal
                             </div>
                         </li>
@@ -108,7 +97,6 @@
 
                         <li onclick="chamarViewParaApp('eventos')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Eventos
                             </div>
                         </li>
@@ -119,7 +107,6 @@
 
                         <li onclick="chamarViewParaApp('estabelecimento')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 E. Comercial
                             </div>
                         </li>
@@ -129,7 +116,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('produto_destaque')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Produto em Destaque (Home)
                             </div>
                         </li>
@@ -138,7 +124,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('sobre_nos')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Sobre Nós
                             </div>
                         </li>
@@ -149,7 +134,6 @@
 
                         <li onclick="chamarViewParaApp('videos')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Vídeos
                             </div>
                         </li>
@@ -160,7 +144,6 @@
 
                         <li onclick="chamarViewParaApp('patrocinio')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Patrocínio
                             </div>
                         </li>
@@ -171,7 +154,6 @@
 
                         <li onclick="chamarViewParaApp('news_letter')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 News Letter
                             </div>
                         </li>
@@ -180,7 +162,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('pops_escola')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Pops Escola
                             </div>
                         </li>
@@ -189,7 +170,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('enquete')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Enquete
                             </div>
                         </li>
@@ -198,7 +178,6 @@
                         ?>
                         <li onclick="chamarViewParaApp('cores')">
                             <div>
-                                <i class="fas fa-wrench"></i>
                                 Cores
                             </div>
                         </li>
@@ -214,10 +193,7 @@
        
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
-                <div>
-                    <i class="fas fa-cog"></i>
-                    Outras Administrações
-                </div>
+                <div>Outros</div>
                 <i class="fas fa-angle-right seta" id="seta_2"></i>
             </div>
             <!-- SUB MENU -->
@@ -225,19 +201,16 @@
                 <ul>
                     <li onclick="chamarViewParaApp('funcionario')">
                         <div>
-                            <i class="fas fa-wrench"></i>
                             Cadastro de Funcionario
                         </div>
                     </li>
                     <li onclick="chamarViewParaApp('setores')">
                         <div>
-                            <i class="fas fa-wrench"></i>
                             Setores
                         </div>
                     </li>
                     <li onclick="chamarViewParaApp('materia_prima')">
                         <div>
-                            <i class="fas fa-wrench"></i>
                             Matéria Prima
                         </div>
                     </li>

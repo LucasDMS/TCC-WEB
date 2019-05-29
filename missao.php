@@ -64,15 +64,13 @@
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
 
-			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
 
 			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
 			</p>
 
-			<?php
-				}
-			?>
+			<?php } ?>
 
 			<div class="missao_container">
 
@@ -85,14 +83,12 @@
             
 				<div>
 					<i class="fas fa-check"></i>
-					<h2><?php echo ($result['tipo_texto']) ?></h2>
+					<h2><?php echo utf8_encode ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 				</div>
-				 <?php
-                    }
-                 ?>
+				 <?php } ?>
                  
                  <?php		
                     $sql = "select * from tbl_missao_visao_valor where tipo_texto =  'Visão' and ativo = 1 and apagado = 0 limit 1";
@@ -103,14 +99,12 @@
 				
 				<div>
 					<i class="fas fa-glasses"></i>
-					<h2><?php echo ($result['tipo_texto']) ?></h2>
+					<h2><?php echo utf8_encode ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 				</div>
-				<?php
-                    }
-                 ?>
+				<?php } ?>
 				
 				 <?php		
                     $sql = "select * from tbl_missao_visao_valor  where tipo_texto =  'Valor' and ativo = 1 and apagado = 0 limit 1";
@@ -120,15 +114,13 @@
                 ?>
 				<div>
 					<i class="fas fa-hands-helping"></i>
-					<h2><?php echo ($result['tipo_texto']) ?></h2>
+					<h2><?php echo utf8_encode ($result['tipo_texto']) ?></h2>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
 				</div>
 
-                <?php
-                    }
-                ?>
+                <?php } ?>
         
 			</div>
 			
@@ -136,29 +128,9 @@
 
 	</main>
 
-
-
-	<!-- CHATBOT -->
-	<div class="btn_chat_bot">
-		<i class="fas fa-comment" id="btn_chat"></i>
-
-		<div class="chat_container">
-			<div class="chat_messages"></div>
-
-			<div class="chat_input">
-				<form id="form_chat_bot" name="form_chat_bot" action="" autocomplete="off">
-					<input id="txt_chat" type="text" name="txt_chat">
-					<input type="submit" value="">
-				</form>
-			</div>
-		</div>
-	</div>
-
 	<?php
-
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php"); 
-
 	?>
 
 	<script src="js/jquery_min.js"></script>

@@ -1,9 +1,14 @@
 <?php 
+
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
+
 class sessaoDAO {
     private $conex;
     public function __construct(){
         
-        require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" . '/db/conexaoMysql.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] ."/tcc/cms" . '/db/ConexaoMysql.php');
         $this->conex = new ConexaoMysql();
     }
     
@@ -25,6 +30,7 @@ class sessaoDAO {
 
             $returnSessao->setId($result['id_autenticacao']);
             $returnSessao->setTipo($result['tipo']);
+            $returnSessao->setLogin($result['login']);
 
             $linhas ++;
         }
@@ -37,6 +43,7 @@ class sessaoDAO {
             $_SESSION['logado'] = true;
             $_SESSION['id'] = $returnSessao->getId();
             $_SESSION['tipo'] = $returnSessao->getTipo();
+            $_SESSION['usuario'] = $returnSessao->getLogin();
         }
         else{
             echo '0';

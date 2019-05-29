@@ -13,20 +13,15 @@
 	<title>POP'S Soda Drink</title>
 
 	<link media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="fontawesome-free-5.8.2-web/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/home.css">
 
 	<?php require_once("components/palheta_cores.php"); ?>
-
 </head>
 
 <body>
-
 	<?php
-
-
 		if(isset($_GET["modo"])){
 			if($_GET["modo"]=="logout"){
 				session_destroy();
@@ -38,30 +33,29 @@
 		require_once("components/header.php");
 		require_once("components/sub_menu.php");
 		require_once("components/modal.php");
-		require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/cms" ."/controller/controllerNewsLetter.php");
+		require_once($_SERVER['DOCUMENT_ROOT'] ."/tcc/cms" ."/controller/controllerNewsLetter.php");
 
 		$conex = new conexaoMysql();
-
 		$con = $conex->connectDatabase();
-
-
 	?>
 
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
-
 			<div class="icon">
 				<i class="fas fa-circle-notch fa-spin"></i>
 			</div>
-
 		</div>
 	</div>
 
 	<div class="espacador"></div>
 
 	<main>
-
+			<?php
+				ini_set('display_errors',1);
+				ini_set('display_startup_errors',1);
+				error_reporting(E_ALL);
+			?>
 		<div>
 			<section class="section_principal">
 				<h2>ALGUMA COISA IMPORTANTE</h2>
@@ -69,7 +63,7 @@
 
 			<section class="section_destaque">
 				<h2 class="section_titulo">DESTAQUES</h2>
-				<form class="form_pesquisa" action="">
+				<form class="form_pesquisa" action="index.php">
 					<input class="form_pesquisa_input" type="text" placeholder="Busque alguma empresa parceira">
 					<button class="btn" type="submit">
 						<i class="fas fa-search"></i>
@@ -85,19 +79,16 @@
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
-					<img class="img_destaque" src="cms/<?php echo ($result['imagem'])?>" alt="imagem do produto">
+					<img class="img_destaque" src="cms/<?php echo utf8_encode ($result['imagem'])?>" alt="imagem do produto">
 
 					<div class="destaques_texto">
-						<h3 class="section_titulo"><?php echo ($result['nome']) ?></h3>
+						<h3 class="section_titulo"><?php echo utf8_encode ($result['nome']) ?></h3>
 						<p>
-							<?php echo ($result['descricao']) ?>
+							<?php echo utf8_encode ($result['descricao']) ?>
 						</p>
 					</div>
 
-
-				<?php
-				    }
-         ?>
+				<?php } ?>
 
 				</div>
 			</section>
@@ -123,9 +114,7 @@
 						$stm2->bindValue(2, $id);
 						$stm2->execute();
 
-					}
-
-					
+					}					
 				?>
 
 				<div class="enquete_container">
@@ -142,7 +131,7 @@
 						}
 					?>
 					
-					<p><?php echo ($enqueteP[$cont]);?></p> <!--Pergunta da enquete-->
+					<p><?php echo utf8_encode ($enqueteP[$cont]);?></p> <!--Pergunta da enquete-->
 					
 					<form action="index.php" method="post">
                         
@@ -155,16 +144,12 @@
 
 						<ul>
 							<li>
-								<input type="radio" name="ckbEnquete" id="ckbEnquete" value="<?php echo ($result['id_resposta']) ?>" required/>
-								<label for="ckbEnquete"><?php echo ($result['respostas']) ?></label><br>
-								
+								<input type="radio" name="ckbEnquete" value="<?php echo utf8_encode ($result['id_resposta']) ?>" required/>
+								<span><?php echo utf8_encode ($result['respostas']) ?></span><br>
 							</li>
-							
 						</ul>
                         
-                        <?php
-							}
-					    ?>
+                        <?php } ?>
 						<button class="btn" type="submit" name="btnEnquete">
 							VOTAR
 						</button>
@@ -179,15 +164,16 @@
 						Recebe a nossa news-letter com todas as novidades da POP's
 					</p>
 					<form
-					onsubmit="asyncSubmit(event, this)"
-					name="frm_news_letter"
-					action="cms/router.php?controller=news_letter&modo=inserir" 
-					method="post"
-					autocomplete="off"
-					id="news_letter"
-					enctype='multipart/form-data' 
-					class="form_padrao"
-					data-pagina="news_letter">
+						onsubmit="asyncSubmit(event, this)"
+						name="frm_news_letter"
+						action="cms/router.php?controller=news_letter&modo=inserir" 
+						method="post"
+						autocomplete="off"
+						id="news_letter"
+						enctype='multipart/form-data' 
+						class="form_padrao"
+						data-pagina="news_letter">
+
 						<input type="text" placeholder="Digite seu email aqui" name="txtNewsLetter" id="txtNewsLetter">
 						<button class="btn" type="submit">
 							<i class="fas fa-paper-plane"></i>
@@ -210,10 +196,10 @@
 
 				<div class="resumos_container">
 					<div class="resumo">
-						<h3><?php echo ($result['titulo']) ?></h3>
+						<h3><?php echo utf8_encode ($result['titulo']) ?></h3>
 						<div>
 							<p>
-								<?php echo ($result['texto']) ?>
+								<?php echo utf8_encode ($result['texto']) ?>
 							</p>
 						</div>
 					</div>
@@ -233,16 +219,11 @@
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
-				<div style="text-align: justify display: flex">
+				<div class="sustentabilidade-container">
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
-					<div style="display: flex">
-						<p>
-							<?php echo ($result['texto']) ?>
-						</p>
-							<img style="height: 300px; padding: 20px" src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
-					</div>
+					<img src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
 				</div>
 
 				<?php }	?>
@@ -263,12 +244,12 @@
         			?>
 
 				<li>
-					<img src="cms/<?php echo ($result['autor_foto']) ?>" alt="foto">
-					<h3><?php echo ($result['autor']) ?></h3>
+					<img src="cms/<?php echo utf8_encode ($result['autor_foto']) ?>" alt="foto">
+					<h3><?php echo utf8_encode ($result['autor']) ?></h3>
 					<p>
-						<?php echo ($result['texto']) ?>
+						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
-					<span><?php echo ($result['data_publicacao']) ?></span>
+					<span><?php echo utf8_encode ($result['data_publicacao']) ?></span>
 				</li>
 
 				<?php } ?>
@@ -277,10 +258,8 @@
 	</main>
 
 	<?php
-
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php");
-
 	?>
 
 	<script src="js/jquery_min.js"></script>

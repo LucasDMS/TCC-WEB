@@ -15,23 +15,12 @@ $rs = $controller->buscarPatrocinio();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Nome : 
-                <?php echo $result->getNome(); ?>
-            </div>
-            <div>
-                <p style= "
-  max-width: 15ch;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-">
-                Descrição : 
-                <?php echo $result->getDescricao(); ?>
-                </p>
-            </div>
-            <div>
-                <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
+            <div class="card-desc">
+                <div class="card-titulo"><?php echo $result->getNome(); ?></div>
+                <div class="card-content"><?php echo $result->getDescricao(); ?> </div>
+                <div>
+                    <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
+                </div>
             </div>
 
             <div class="card_operadores">

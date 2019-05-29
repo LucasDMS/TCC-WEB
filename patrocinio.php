@@ -16,7 +16,7 @@
 
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="css/patrocinio.css">
     <?php require_once("components/palheta_cores.php"); ?>
     
 </head>
@@ -61,15 +61,10 @@
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
 			?>
 
-			<h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
+			<p class="section_desc"><?php echo utf8_encode ($result['texto']) ?></p>
 
-			<p class="section_desc">
-				<?php echo ($result['texto']) ?>
-			</p>
-
-			<?php
-				}
-			?>
+			<?php } ?>
 
 			<div class="patrocinio_bg">
 				<div class="patrocinio_container">
@@ -82,17 +77,15 @@
 					       foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
         		        ?>
 						<li>
-							<img src="cms/<?php echo ($result['imagem']) ?>" alt="imagem do Patrocinio">
+							<img src="cms/<?php echo utf8_encode ($result['imagem']) ?>" alt="imagem do Patrocinio">
 							<div>
-								<h3><?php echo ($result['nome']) ?></h3>
+								<h3><?php echo utf8_encode ($result['nome']) ?></h3>
 								<p>
-									<?php echo ($result['descricao']) ?>
+									<?php echo utf8_encode ($result['descricao']) ?>
 								</p>
 							</div>
 						</li>
-						<?php
-                            }
-                        ?>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>
@@ -100,15 +93,12 @@
 
 	</main>
 
-	<?php require_once("components/chat_bot.php") ?>
-
-	<!-- FOOTER -->
-	<?php require_once("components/footer.php"); ?>
+	<?php 
+		require_once("components/chat_bot.php");
+		require_once("components/footer.php");
+	?>
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
 </body>
-
 </html>
-
-<link rel="stylesheet" href="css/patrocinio.css">

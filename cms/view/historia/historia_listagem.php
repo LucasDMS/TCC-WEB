@@ -19,14 +19,9 @@ $rs = $controller->buscarHistoras();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Texto : 
-                <?php echo $result->getTexto(); ?>
-            </div>
-            <div>
-                Ordem : 
-                <?php echo $result->getOrdem(); ?>
-            </div>
+            <div class="card-titulo">História</div>
+            <div class="card-content"><?php echo $result->getTexto(); ?></div>
+            <div class="card-content"><?php echo $result->getOrdem(); ?></div>
 
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"

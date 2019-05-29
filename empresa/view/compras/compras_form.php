@@ -1,7 +1,5 @@
 <?php 
-
     require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCompras.php");
-
     $id = $_GET['id'];
     $Controller = new ControllerCompras();
     $produto = $Controller->buscarComprasId($id);
@@ -9,7 +7,6 @@
     $descricao = $produto->getDescricao();
     $imagem = $produto->getImagem();
     $preco = $produto->getPreco();
-
 ?>
 
 
@@ -25,6 +22,5 @@
         <div class="inputDados">
             <input type="text" name="txtPreco" id="txtPreco" value="<?php echo 'R$ '.$preco.',00';?>" disabled><br>
         </div>
-        
         
 

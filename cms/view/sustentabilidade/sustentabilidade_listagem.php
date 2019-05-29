@@ -18,12 +18,12 @@ $rs = $controller->buscarSustentabilidades();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div>
-                Texto : 
-                <?php echo $result->getTexto(); ?>
-            </div>
-            <div>
-                <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
+            <div class="card-desc">
+                <div class="card-titulo">Texto</div>
+                <div class="card-content"><?php echo $result->getTexto();?></div>
+                <div>
+                    <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
+                </div>
             </div>
 
             <div class="card_operadores">

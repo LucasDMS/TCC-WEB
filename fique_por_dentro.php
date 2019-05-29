@@ -62,10 +62,10 @@
 				foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
             ?>
             
-            <h2 class="section_titulo"><?php echo ($result['titulo']) ?></h2>
+            <h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
 
             <p class="section_desc">
-				<?php echo ($result['texto']) ?>
+				<?php echo utf8_encode ($result['texto']) ?>
             </p>
 			<?php
                 }
@@ -81,9 +81,9 @@
             <i class="fas fa-newspaper principal_img"></i>
 
             <div class="noticia_main">
-                <h2><?php echo ($result['titulo']) ?></h2>
+                <h2><?php echo utf8_encode ($result['titulo']) ?></h2>
                 <p>
-                    <?php echo ($result['texto']) ?>
+                    <?php echo utf8_encode ($result['texto']) ?>
                 </p>
             </div>
             
@@ -102,9 +102,9 @@
             <div class="noticias_3_3">
                 <div class="noticias_3_3_container">
                     <div class="noticia">
-                        <h3><?php echo ($result['titulo']) ?></h3>
+                        <h3><?php echo utf8_encode ($result['titulo']) ?></h3>
                         <p>
-                            <?php echo ($result['texto']) ?>
+                            <?php echo utf8_encode ($result['texto']) ?>
                         </p>
 
                     </div>
