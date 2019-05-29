@@ -24,12 +24,12 @@ body {
 
 @font-face {
 	font-family: Divinne;
-	src: url(../fonts/Postface.otf);
+	src: url(../fonts/Postface.ttf);
 }
 
 @font-face {
 	font-family: Divinne;
-	src: url(../fonts/Postface.ttf);
+	src: url(../fonts/Postface.otf);
 }
 
 /* == MODAL == */
@@ -95,7 +95,7 @@ body {
 	transform: scale(1.1);
 }
 
-.header div {
+.header-esquerda, .header-direita {
 	width: 340px;
 }
 
@@ -107,6 +107,15 @@ body {
 	font-size: 45px;
 	line-height: 85px;
 	font-family: Divinne;
+	
+}
+
+.logo img{
+	margin-top: 5px;
+	background-color: #fff;
+	height: 100px;
+	border-radius: 100px;
+    box-shadow: 1px 3px 4px 0px #363a3e;
 }
 
 .redes_socias {
@@ -524,4 +533,23 @@ select {
 
 #cadastro_itens{
 	display: flex;
+}
+
+
+@media (max-width: 815px) {
+	#header {
+		background-color: red;
+	}
+
+	.header-esquerda, .header-direita{
+		width: 0;
+	}
+
+	#menu_navegacao li{
+		font-size: 10px;
+	}
+
+	.lista_comentarios{
+		justify-content: center;
+	}
 }

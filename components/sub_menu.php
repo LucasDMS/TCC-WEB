@@ -38,6 +38,30 @@
                 <li>
                     <a href="fale_conosco.php"><i class="fas fa-phone"></i>Fale conosco</a>
                 </li>
+                <hr />
+                <li>
+                    <a href="http://www.facebook.com.br" rel="nofollow noopener external" target="_blank" aria-label="facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.youtube.com" rel="nofollow noopener external" target="_blank" aria-label="youtube">
+                        <i class="fas fa-tag"></i>
+                        Youtube
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="http://www.twitter.com.br" rel="nofollow noopener external" target="_blank" aria-label="twitter">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </a>
+                </li>
+                <li onclick="chamarViewParaModal('login', true)">
+                    <i class="fas fa-user-circle" ></i>
+                    Login
+                </li>
             </ul>
         </nav>
     </div>

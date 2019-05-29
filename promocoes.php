@@ -86,7 +86,7 @@
 		id="frm_participar_promocao"
 		class="form_padrao"
 		name="frm_participar_promocao"
-		enctype="multipart/form"
+		enctype="multipart/form-data"
 		data-id="<?php echo ($id)?>"
 		data-id-promocao="<?php echo ($idPromocao)?>"
 		data-modo="<?php echo ($modo)?>"

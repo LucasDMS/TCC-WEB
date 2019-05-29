@@ -18,21 +18,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="css/info_comerciais.css">
 
-    <?php 
-        require_once("components/palheta_cores.php");
-		if(!isset($_SESSION['logado'])){
-            session_destroy();
-        }
-        
-		require_once('cms/db/ConexaoMysql.php');
-		require_once("components/header.php");
-		require_once("components/sub_menu.php");
-        require_once("components/modal.php");
-        $conex = new conexaoMysql();
-
-        $con = $conex->connectDatabase(); 
-        $nome= "";
-    ?>
+    <?php require_once("components/palheta_cores.php"); ?>
     <script>
         function trocarEstabelecimento(nome){
             $.ajax({
@@ -48,6 +34,21 @@
 </head>
 
 <body>
+
+    <?php
+        if(!isset($_SESSION['logado'])){
+            session_destroy();
+        }
+        
+        require_once('cms/db/ConexaoMysql.php');
+        require_once("components/header.php");
+        require_once("components/sub_menu.php");
+        require_once("components/modal.php");
+        $conex = new conexaoMysql();
+
+        $con = $conex->connectDatabase(); 
+        $nome= "";
+    ?>
 	<!-- LOGIN E CADASTRE-SE -->
 	<div class="menu_lateral menu_direita">
 		<div class="menu_direita_container">
@@ -76,9 +77,7 @@
                     <?php echo utf8_encode ($result['texto']) ?>
                 </p>
 
-                <?php
-                    }
-				?>
+                <?php } ?>
 
                 <form class="form_infos_comerciais" name="frmEstabelecimento" id="frmEstabelecimento" method="post" action="estabelecimentos_parceiros.php">
 
@@ -101,11 +100,8 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-
                 </form>
-
             </div>
-
         </section>
 
         <div class="bg_color_parceiros" >
@@ -128,12 +124,10 @@
                     ?> 
                     <li style="background-color:#09a552;" onclick="trocarEstabelecimento('<?php echo utf8_encode($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
                     <?php	
-                        }else{
+                        } else {
                     ?>
                     <li style="background-color:#ffffff;" onclick="trocarEstabelecimento('<?php echo utf8_encode($result['nome_fantasia'])?>')"><?php echo ($result['nome_fantasia']) ?></li>
-                    <?php 
-                        }
-                    }
+                    <?php } }
                     ?>
                 </ul>
             </div>
@@ -144,10 +138,10 @@
                         $nome = $_POST['txt_pesquisa_estabelecimento'];
                         $nomeEsta = "%".$nome."%";
                         $sql = "select * from tbl_estabelecimento where ativo = 1 and apagado = 0 and nome_fantasia like '".utf8_encode($nomeEsta)."'";            
-                    }else if(isset($_POST['nome'])){
+                    } else if (isset($_POST['nome'])){
                         $nome = $_POST['nome'];
                         $sql = "select * from tbl_estabelecimento where apagado = 0 and ativo = 1 and nome_fantasia = '$nome'";
-                    }else{
+                    } else {
                         $sql = "select * from tbl_estabelecimento where apagado = 0 and ativo = 1 order by rand() limit 1";
                     }
                     $stm = $con->prepare($sql);
@@ -166,30 +160,24 @@
                         <?php echo utf8_encode ($result['descricao']) ?>
                     </p>
                 </div>
-                <?php
-                    }
+                <?php }
                     if($verificacao == ""){
                 ?>
                     <div id="separador_esta">
                     </div>
                     <h1><a href="estabelecimentos_parceiros.php">Nenhum Estabelecimento Encontrado</a></h1>
-                <?php 
-                    }
-                ?>
+                <?php } ?>
             </div>
         </div>
     </div>
     </main>
 
 	<?php
-
 		require_once("components/chat_bot.php");
 		require_once("components/footer.php"); 
-
 	?>
 
 	<script src="js/jquery_min.js"></script>
     <script src="js/index.js"></script>
 </body>
-
 </html>

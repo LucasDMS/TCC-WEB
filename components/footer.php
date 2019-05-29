@@ -11,7 +11,6 @@
                     <li><a href="fique_por_dentro.php">Fique por dentro</a></li>
                     <li><a href="nossa_historia.php">História da empresa</a></li>
                     <li><a href="missao.php">Missão, visão e valores</a></li>
-
                 </ul>
             </div>
             <div>
@@ -30,9 +29,7 @@
                     <li><a href="fale_conosco.php">Fale conosco</a></li>
                 </ul>
             </div>
-
         </div>
-
     </div>
     <div class="footer_secundario cor_fundo_7">
         <p>
