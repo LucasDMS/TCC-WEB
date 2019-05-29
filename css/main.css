@@ -24,12 +24,12 @@ body {
 
 @font-face {
 	font-family: Divinne;
-	src: url(../fonts/Postface.otf);
+	src: url(../fonts/Postface.ttf);
 }
 
 @font-face {
 	font-family: Divinne;
-	src: url(../fonts/Postface.ttf);
+	src: url(../fonts/Postface.otf);
 }
 
 /* == MODAL == */
@@ -547,5 +547,9 @@ select {
 
 	#menu_navegacao li{
 		font-size: 10px;
+	}
+
+	.lista_comentarios{
+		justify-content: center;
 	}
 }

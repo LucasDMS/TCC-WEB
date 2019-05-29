@@ -219,13 +219,11 @@
 					foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){
         		?>
 
-				<div style="text-align: justify; display: flex">
+				<div class="sustentabilidade-container">
 					<p>
 						<?php echo utf8_encode ($result['texto']) ?>
 					</p>
-					<div style="display: flex">
-						<img style="height: 300px; padding: 20px" src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
-					</div>
+					<img src="cms/<?php echo ($result['imagem'])?>" alt="imagem de sustentabilidade">
 				</div>
 
 				<?php }	?>
