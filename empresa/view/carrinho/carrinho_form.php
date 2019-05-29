@@ -1,10 +1,10 @@
 <?php
     require('vendor/autoload.php');
     
-    $pagarme = new PagarMe\Client('ak_test_pDBOLNZUTnFpoyA1ozEXFPGqfEV7J0');
+    $pagarme = new PagarMe\Client('ak_test_z4z0XMkFGZQVMQiw6IVCtIf2lhAkKx');
     
     $transaction = $pagarme->transactions()->create([
-      'amount' => 1000,
+      'amount' => 700000,
       'payment_method' => 'boleto',
       'async' => false,
       'customer' => [
@@ -24,9 +24,17 @@
     ]);
     
 
-      $transaction->charge();
+    //$transaction->charge();
 
-      var_dump($transaction);
+    //var_dump($transactions = $pagarme->transactions()->getList());
+
+    $transactions = $pagarme->transactions()->get([
+       'id' => '6410017' 
+     ]);
+
+     echo var_dump($transactions);
+
+      
     ////
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCarrinho.php");

@@ -75,12 +75,14 @@ $total = 0;
     
     function totalCompra(preso,id){
 
+        document.getElementById("resultadoFinal").value = Number(document.getElementById("resultadoFinal").value) - Number(document.getElementById("txt_resultado"+id).value)
+
         valor = document.getElementById("txt_qtd"+id).value
         document.getElementById("txt_resultado"+id).value = valor*preso
        
         document.getElementById("resultadoFinal").value = Number(document.getElementById("resultadoFinal").value) + Number(document.getElementById("txt_resultado"+id).value)
       
-        totalCompra = totalCompra + document.getElementById("txt_resultado"+id).value;
+        //totalCompra = totalCompra + document.getElementById("txt_resultado"+id).value;
 
     }
 
