@@ -16,7 +16,7 @@
 
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="css/patrocinio.css">
     <?php require_once("components/palheta_cores.php"); ?>
     
 </head>
@@ -62,14 +62,9 @@
 			?>
 
 			<h2 class="section_titulo"><?php echo utf8_encode ($result['titulo']) ?></h2>
+			<p class="section_desc"><?php echo utf8_encode ($result['texto']) ?></p>
 
-			<p class="section_desc">
-				<?php echo utf8_encode ($result['texto']) ?>
-			</p>
-
-			<?php
-				}
-			?>
+			<?php } ?>
 
 			<div class="patrocinio_bg">
 				<div class="patrocinio_container">
@@ -90,9 +85,7 @@
 								</p>
 							</div>
 						</li>
-						<?php
-                            }
-                        ?>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>
@@ -100,15 +93,12 @@
 
 	</main>
 
-	<?php require_once("components/chat_bot.php") ?>
-
-	<!-- FOOTER -->
-	<?php require_once("components/footer.php"); ?>
+	<?php 
+		require_once("components/chat_bot.php");
+		require_once("components/footer.php");
+	?>
 
 	<script src="js/jquery_min.js"></script>
 	<script src="js/index.js"></script>
 </body>
-
 </html>
-
-<link rel="stylesheet" href="css/patrocinio.css">
