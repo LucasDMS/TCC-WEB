@@ -41,3 +41,9 @@
     border-radius: 5px;
     height: 100px;
 }
+
+@media (max-width: 759px) {
+    .missao_container{
+        justify-content: center;
+    }
+}

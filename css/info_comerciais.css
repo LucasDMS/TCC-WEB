@@ -44,13 +44,12 @@
 	max-width: 900px;
 	background-color: #fff;
 	border-radius: 5px;
-	min-width: 900px;
 }
 
 .estabelecimento_mais_detalhes img{
 	display: block;
 	margin: 15px auto;
-	width: 65%;
+	width: 100%;
 	height: auto;
 }
 
@@ -97,4 +96,10 @@
 #separador_esta{
 	height: 200px;
 	width: 100%;
+}
+
+@media (max-width: 1220px) {
+	.estabelecimentos_container{
+		justify-content: center;
+	}
 }

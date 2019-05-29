@@ -34,13 +34,16 @@
 
 .evento_bg{
     background-color: #ffffff;
-    padding: 25px;
     border-radius: 5px;
 }
 
 .eventos_container h3{
     text-align: center;
     font-size: 25px;
+}
+
+.eventos_container div{
+    padding: 25px;
 }
 
 .eventos_container p, .info_extra{
@@ -52,4 +55,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+@media (max-width: 1120px) {
+    .eventos_container{
+        justify-content: center;
+    }
 }

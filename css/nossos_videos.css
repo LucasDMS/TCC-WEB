@@ -33,24 +33,24 @@
 }
 
 .mais_videos_container{
-    max-width: 1200px;
-    margin: auto;
-    overflow: scroll hidden;
+    
 }
 
 .videos_lista{
-    width: 2200px;
+    max-width: 1335px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .videos_lista li{
-    display: inline-block;
     min-height: 350px;
-    width: 400px;
+    min-width: 400px;
     background-color: #78d649;
     margin: 15px;
     padding: 15px;
     border-radius: 5px;
-    float:left;
 }
 
 .videos_lista li:hover{
@@ -65,7 +65,10 @@
     border-radius: 5px;
 }
 
-.videos_lista h4{
-    text-align: center;
-    font-size: 30px;
+@media (max-width: 800px) {
+    .video_novo iframe{
+        padding: 5px;
+        max-width: 100%;
+        min-height: auto;
+    }
 }

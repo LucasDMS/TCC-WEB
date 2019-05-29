@@ -28,6 +28,7 @@
 	<?php
 		if(!isset($_SESSION['logado'])){
 			session_destroy();
+			
 		}
 		$_SESSION['PATH'] = $_SERVER['DOCUMENT_ROOT'] . "/tcc/cms";
 	
@@ -40,7 +41,9 @@
 		require_once("components/sub_menu.php");
         require_once("components/modal.php");
 	
-		$id = $_SESSION['id'];
+		if (isset($_SESSION['id'])){
+			$id = $_SESSION['id'];
+		}
 		$idPromocao = "";
 		$nome = "";
 		$texto = "";
@@ -93,19 +96,19 @@
 		data-pagina="promocoes"
 	>
 
-		<section class="base_paginas">
+	<section class="base_paginas">
 			<div class="section_conteudo_center">
 
 				<div class="titulo_promo">
 					<i class="fas fa-award"></i>
-					<h3><?php echo utf8_encode ($nome) ?></h3>
+					<h3><?php echo ($nome) ?></h3>
 					<i class="fas fa-award"></i>
 				</div>
 				
-				<img src="cms/<?php echo utf8_encode ($result['imagem']) ?>" alt="imagem da promoção">
+				<img src="cms/<?php echo ($imagem) ?>" alt="imagem da promoção">
                
 				<p>
-					<?php echo utf8_encode ($result['texto']) ?>
+					<?php echo ($texto) ?>
 				</p>
 
 				<?php
@@ -113,7 +116,7 @@
 				if(isset($_SESSION['logado'])){
 					$Sessao = new Sessao();
 					if($_SESSION['tipo'] == "USUARIO"){
-						$sql = "select * from tbl_promocao_usuario where apagado = 0 and ativo = 1";
+						$sql = "select * from tbl_promocao_usuario";
 						$stm = $con->prepare($sql);
 						$success = $stm->execute();
 						foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $result){	
@@ -135,14 +138,13 @@
 					}
 				}else{
                 ?> 
-                <button class=btn type="reset"
-                onclick="chamarViewParaModal('login', true)"></button> 
-                <?php }
-				?>
-				<button class="btn" type="submit" onclick="chamarViewParaModal('login', true)">
+
+				<button class="btn" type="reset" onclick="chamarViewParaModal('login', true)">
 				Quero participar!
 				<i class="fas fa-award"></i>
 				</button>
+				<?php }
+				?>
 			</div> 
 
 		</section>
