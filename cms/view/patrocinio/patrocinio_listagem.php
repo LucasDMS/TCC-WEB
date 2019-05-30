@@ -16,8 +16,8 @@ $rs = $controller->buscarPatrocinio();
     <?php foreach ($rs as $result) { ?>
         <div class="card">
             <div class="card-desc">
-                <div class="card-titulo"><?php echo $result->getNome(); ?></div>
-                <div class="card-content"><?php echo $result->getDescricao(); ?> </div>
+                <div class="card-titulo"><?php echo utf8_encode($result->getNome()); ?></div>
+                <div class="card-content"><?php echo utf8_encode($result->getDescricao()); ?> </div>
                 <div>
                     <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
                 </div>

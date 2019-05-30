@@ -31,7 +31,7 @@ $total = 0;
     <tbody>
     <?php foreach ($rs as $result) { ?>
             <tr>
-                <td><?php echo $result->getNome(); ?></td>
+                <td><?php echo utf8_encode($result->getNome()); ?></td>
                 <td><img src="../cms/<?php echo $result->getImagem(); ?>" height="40%"/></td>
                 <td><?php 
 

@@ -27,10 +27,10 @@
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div class="card-titulo"><?php echo $result->getNome(); ?> </div>
-            <div class="card-content"><?php echo $result->getDescricao(); ?></div>
-            <div class="card-content"><?php echo $result->getTipoMateria(); ?></div>
-            <div class="card-content"><?php echo $result->getDataValidade(); ?></div>
+            <div class="card-titulo"><?php echo utf8_encode($result->getNome()); ?> </div>
+            <div class="card-content"><?php echo utf8_encode($result->getDescricao()); ?></div>
+            <div class="card-content"><?php echo utf8_encode($result->getTipoMateria()); ?></div>
+            <div class="card-content"><?php echo utf8_encode($result->getDataValidade()); ?></div>
             
             <div class="card_operadores">
                 <a  onclick="asyncBuscarDados(this)"

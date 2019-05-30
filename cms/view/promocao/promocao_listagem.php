@@ -19,7 +19,7 @@ $rs = $controller->buscarPromocoes();
     <!-- CARD -->
     <?php foreach ($rs as $result) { ?>
         <div class="card">
-            <div class="card-titulo"><?php echo $result->getNome();?></div>
+            <div class="card-titulo"><?php echo utf8_encode($result->getNome());?></div>
             <div>
                 <img class="card_imagem" src="<?php echo $result->getImagem(); ?>"/>
             </div>
