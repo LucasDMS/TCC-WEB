@@ -16,7 +16,7 @@ $rs = $controller->buscarEstabelecimento();
     <div class="card">
         <div>
             Descrição : 
-            <?php echo $rs->getDescricao(); ?>
+            <?php echo utf8_encode($rs->getDescricao()); ?>
         </div>
         <div>
             <img class="card_imagem" src="<?php echo $rs->getImagem(); ?>">

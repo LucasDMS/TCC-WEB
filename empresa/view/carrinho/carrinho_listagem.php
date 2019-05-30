@@ -31,9 +31,9 @@ $total = 0;
     <tbody>
     <?php foreach ($rs as $result) { ?>
             <tr>
-                <td><?php echo $result->getNome(); ?></td>
+                <td><?php echo utf8_encode($result->getNome()); ?></td>
                 <td><img src="../cms/<?php echo $result->getImagem(); ?>" height="40%"/></td>
-                <td><?php echo $result->getDescricao(); ?></td>
+                <td><?php echo utf8_encode($result->getDescricao()); ?></td>
                 <td>
                     <input type="number" name="txt_qtd" id="txt_qtd<?php echo $result->getId()?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho" onchange="totalCompra(<?php echo $result->getPreco(); ?>,<?php echo $result->getId()?>)" />
                 </td>
