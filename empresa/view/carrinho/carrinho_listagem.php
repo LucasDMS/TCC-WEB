@@ -46,7 +46,7 @@ $total = 0;
                     echo $descricao; 
                     ?></td>
                 <td>
-                    <input type="number" id="number-input" name="txt_qtd" id="txt_qtd<?php echo $result->getId()?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho" onchange="totalCompra(<?php echo $result->getPreco(); ?>,<?php echo $result->getId()?>)" />
+                    <input type="number"  name="txt_qtd" id="txt_qtd<?php echo $result->getId()?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho" onchange="totalCompra(<?php echo $result->getPreco(); ?>,<?php echo $result->getId()?>)" />
                 </td>
                 <td>
                     <input type="text" disabled id="txt_resultado<?php echo $result->getId()?>" value="<?php echo $result->getPreco(); ?>">
@@ -90,14 +90,12 @@ $total = 0;
     function totalCompra(preso,id){
 
         document.getElementById("resultadoFinal").value = Number(document.getElementById("resultadoFinal").value) - Number(document.getElementById("txt_resultado"+id).value)
-
         valor = document.getElementById("txt_qtd"+id).value
         document.getElementById("txt_resultado"+id).value = valor*preso
        
         document.getElementById("resultadoFinal").value = Number(document.getElementById("resultadoFinal").value) + Number(document.getElementById("txt_resultado"+id).value)
       
         //totalCompra = totalCompra + document.getElementById("txt_resultado"+id).value;
-
     }
 
 </script>
