@@ -20,7 +20,7 @@ $rs = $controller->buscarCores();
             </div>
             <div> 
                 Cor do 
-                <?php echo $result->getTipoCores(); ?>
+                <?php echo utf8_encode($result->getTipoCores()); ?>
             </div>
             
         <div class="card_operadores">

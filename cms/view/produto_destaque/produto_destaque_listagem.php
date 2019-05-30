@@ -26,8 +26,8 @@ $rs = $controller->buscarProdutoDestaque();
     <?php foreach ($rs as $result) { ?>
         <div class="card">
             <div class="card-desc">
-                <div class="card-titulo"><?php echo $result->getNome();?></div>
-                <div class="card-content"><?php echo $result->getTexto();?></div>
+                <div class="card-titulo"><?php echo utf8_encode($result->getNome());?></div>
+                <div class="card-content"><?php echo utf8_encode($result->getTexto());?></div>
             </div>
             
             <div class="card_operadores">

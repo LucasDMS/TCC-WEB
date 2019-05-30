@@ -18,7 +18,7 @@
         <div class="card">
             <div>
                 <strong>Nome:</strong> 
-                <?php echo $result->getNome(); ?>
+                <?php echo utf8_encode($result->getNome()); ?>
             </div>
             <div>
                 <img class="card_imagem" src='../cms/<?php echo $result->getImagem();?>'>

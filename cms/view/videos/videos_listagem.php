@@ -28,14 +28,14 @@
     <?php foreach ($rs as $result) { ?>
         <div class="card">
             <div class="card-titulo">Vídeo</div>
-            <div class="card-content"><strong><?php echo $result->getTitulo();?></strong></div>
+            <div class="card-content"><strong><?php echo utf8_encode($result->getTitulo());?></strong></div>
             <div class="card-content">
                 Link : 
-                <?php echo $result->getLink(); ?>
+                <?php echo utf8_encode($result->getLink()); ?>
             </div>
             <div class="card-content">
                 Descrição : 
-                <?php echo $result->getDescricao(); ?>
+                <?php echo utf8_encode($result->getDescricao()); ?>
             </div>
 
             <div class="card_operadores">

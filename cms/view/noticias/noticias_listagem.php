@@ -20,8 +20,8 @@ $rs = $controller->buscarNoticias();
     <?php foreach ($rs as $result) { ?>
         <div class="card">
             <div class="card-desc">
-                <div class="card-titulo"><?php echo $result->getTitulo(); ?></div>
-                <div class="card-content"><?php echo $result->getConteudo(); ?></div>
+                <div class="card-titulo"><?php echo utf8_encode($result->getTitulo()); ?></div>
+                <div class="card-content"><?php echo utf8_encode($result->getConteudo()); ?></div>
             </div>
 
             <div class="card_operadores">

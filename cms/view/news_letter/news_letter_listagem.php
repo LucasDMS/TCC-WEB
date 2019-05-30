@@ -27,7 +27,7 @@
         </tr>
         <?php foreach ($rs as $result) { ?>
             <tr>
-                <td><?php echo $result->getNewLetter()?></td>
+                <td><?php echo utf8_encode($result->getNewLetter())?></td>
             </tr>
         <?php } ?> 
     </table>
