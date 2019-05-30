@@ -72,6 +72,8 @@ body {
 	box-shadow: 0 0 5px #bbbbbb;
     z-index: 5;
 	overflow: auto;
+	position: fixed;
+	padding-top: 80px;
 }
 
 .nav li {

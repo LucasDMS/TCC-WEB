@@ -71,6 +71,7 @@ body {
 	color: #fff;
 	border-right: 1px solid #ccc;
 	overflow: auto;
+	position: fixed;
 }
 
 .nav li {
@@ -180,7 +181,7 @@ footer {
 }
 
 .tabela_padrao {
-	width: 1000px;
+	max-width: 1000px;
 	margin: 15px auto;
 	text-align: center;
 	border-collapse: collapse;
@@ -193,27 +194,40 @@ footer {
 .tabela_padrao tbody {
 }
 
-
-.tabela_titlo {
-	background-color:#f8ae83;
-	color: #fff;
-}
-
 .tabela_header {
 	background: #ebf9ff;
+}
+
+.tabela_padrao input{
+	background: #fff;
+	border: none;
+	text-align: center;
+	font-size: 18px;
 }
 
 .tabela_padrao tr {
 	height: 50px;
 	border-bottom: 1px solid #999;
-}
-
-.tabela_padrao tr:hover {
-	background-color: #eef1ff;
+	background-color: #fff;
 }
 
 .tabela_padrao td, .tabela_padrao th {
 	padding: 5px;
+}
+
+.btn-compra{
+	background-color: #28a745;
+}
+
+.tabela_titlo th {
+	background-color:#28a745;
+	color: #fff;
+}
+
+#number-input{
+	background-color: #ddd;
+	border-radius: 5px;
+	border: 1px solid #555;
 }
 
 /* ==== FORM MODAL ==== */

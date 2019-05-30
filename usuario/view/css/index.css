@@ -72,6 +72,8 @@ body {
 	color: #fff;
 	border-right: 1px solid #ccc;
 	overflow: auto;
+	padding-top: 80px;
+	position: fixed;
 }
 
 .nav li {
@@ -137,6 +139,8 @@ body {
 	background-color: #ffffff;
 	color: #666;
 	border-bottom: 1px solid #ddd;
+	position: fixed;
+	z-index: 5px;
 }
 
 .header i {
@@ -160,6 +164,7 @@ body {
 	width: 100%;
 	background-color: #dee4e9;
 	overflow: auto;
+	margin-top: 80px;
 }
 
 /* FOOTER */

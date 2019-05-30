@@ -33,12 +33,23 @@ $total = 0;
             <tr>
                 <td><?php echo utf8_encode($result->getNome()); ?></td>
                 <td><img src="../cms/<?php echo $result->getImagem(); ?>" height="40%"/></td>
-                <td><?php echo utf8_encode($result->getDescricao()); ?></td>
+                <td><?php 
+
+                    $descricao = $result->getDescricao();
+
+                    if (strlen($descricao) >= 100) {
+
+                        $descricao = substr($descricao, 0 , 100);
+                        $descricao = $descricao . "...";
+                    }
+
+                    echo $descricao; 
+                    ?></td>
                 <td>
-                    <input type="number" name="txt_qtd" id="txt_qtd<?php echo $result->getId()?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho" onchange="totalCompra(<?php echo $result->getPreco(); ?>,<?php echo $result->getId()?>)" />
+                    <input type="number" id="number-input" name="txt_qtd" id="txt_qtd<?php echo $result->getId()?>" value="<?php echo $result->getQuantidade(); ?>" class="input_carrinho" onchange="totalCompra(<?php echo $result->getPreco(); ?>,<?php echo $result->getId()?>)" />
                 </td>
                 <td>
-                    <input type="text" id="txt_resultado<?php echo $result->getId()?>" value="<?php echo $result->getPreco(); ?>">
+                    <input type="text" disabled id="txt_resultado<?php echo $result->getId()?>" value="<?php echo $result->getPreco(); ?>">
                     <?php
                         $total = $total + $result->getPreco();
                     ?>
@@ -63,10 +74,10 @@ $total = 0;
             <td></td>
             <td><strong><p>Total:</p></strong></td>
             <td>
-                <strong><p><input type="text" id="resultadoFinal" value="<?php echo $total?>"></p></strong>
+                <strong><p><input type="text" id="resultadoFinal" disabled value="<?php echo $total?>"></p></strong>
             </td>
             <td colspan="4">
-                <button type="menu" onclick="chamarViewParaModal('carrinho')">                                                                                                                                                                                                                                  
+                <button type="menu" class="btn btn-compra" onclick="chamarViewParaModal('carrinho')">                                                                                                                                                                                                                                  
                     Comprar
                 </button>
             </td>
