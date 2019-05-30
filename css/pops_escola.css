@@ -21,8 +21,6 @@
 	transform: scale(1.15);
 }
 
-
-
 .lista_escolas_bg{
     background-color: #0ba552;
     padding: 25px;
@@ -58,4 +56,14 @@
 
 .lista_escolas h3{
     text-align: center;
+}
+
+@media (max-width: 500px) {
+    .form_pesquisa {
+        display: block;
+    }
+
+    .form_pesquisa button{
+        margin-top: 10px;
+    }
 }

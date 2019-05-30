@@ -21,13 +21,7 @@
 }
 
 .destaques_container {
-	padding: 35px;
-	height: auto;
-	max-width: 1200px;
-	margin: auto;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+
 }
 
 .img_destaque{
@@ -120,7 +114,7 @@
 }
 
 .news_letter_container input{
-	max-width: 85%;
+	max-width: 75%;
 }
 
 .news_letter_container button{
@@ -190,7 +184,8 @@
 .comentarios{
 	height: auto;
 	background-color: #0ba552;
-	padding: 35px;
+	padding: 5px;
+	padding-top: 25px;
 }
 
 .comentarios h2{
@@ -210,7 +205,7 @@
 	margin: 15px;
 	padding: 15px;
 	background-color: #fff;
-	min-width: 400px;
+	width: 400px;
 	border-radius: 5px;
 }
 
@@ -239,9 +234,65 @@
 	color: #666;
 }
 
-@media (max-width: 815px) {
-	.lista_comentarios{
-		justify-content: center;
+@media (max-width: 1075px) {
+	.sustentabilidade-container p{
+		max-width: 100%;
+	}
+
+	.destaques_texto{
+		width: 100%;
+		max-width: 500px;
 	}
 }
 
+@media (max-width: 990px) {
+	.lista_comentarios{
+		justify-content: center;
+	}
+
+	.lista_comentarios li{
+		width: 100%;
+	}
+}
+
+@media (max-width: 575px) {
+	.form_pesquisa{
+		max-width: 100%;
+		padding: 10px;
+	}
+
+	.sustentabilidade-container img{
+		width: 100%;
+	}
+
+	.footer_container{
+		justify-content: center;
+	}
+
+	.footer_container div{
+		margin-bottom: 15px;
+	}
+
+	.section_titulo{
+		font-size: 28px;
+	}
+
+	.img_destaque{
+		width: 70%;
+	}
+
+}
+
+@media (max-width: 410px){
+	.news_letter_container form{
+		justify-content: center;
+	}
+
+	.news_letter_container input{
+		max-width: 100%;
+	}
+
+	.news_letter_container button{
+		margin-top: 10px;
+	}
+}

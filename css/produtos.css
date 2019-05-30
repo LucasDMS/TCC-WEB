@@ -16,9 +16,9 @@ CSS PÁGINA PRODUTOS
 
 .produto_conteudo{
     min-height: 10px;
-    width: 1300px;
+    max-width: 1200px;
     margin: auto;
-    padding: 15px 0;
+    padding: 15px;
 }
 
 .produto_esquerda{
@@ -85,5 +85,27 @@ td{
 }
 
 .produto_info img{
+    display: block;
+    margin: auto;
+    height: auto;
+    max-width: 400px;
+    width: 90%;
+}
 
+
+
+@media (max-width: 1080px){
+    .produto_info div{
+        margin: auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .produto_info p{
+        width: 100%;
+    }
+
+    .tabela_nutricional{
+        width: 100%;
+    }
 }

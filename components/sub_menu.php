@@ -38,7 +38,6 @@
                 <li>
                     <a href="fale_conosco.php"><i class="fas fa-phone"></i>Fale conosco</a>
                 </li>
-                <hr />
                 <li>
                     <a href="http://www.facebook.com.br" rel="nofollow noopener external" target="_blank" aria-label="facebook">
                         <i class="fab fa-facebook-f"></i>
@@ -47,7 +46,7 @@
                 </li>
                 <li>
                     <a href="http://www.youtube.com" rel="nofollow noopener external" target="_blank" aria-label="youtube">
-                        <i class="fas fa-tag"></i>
+                    <i class="fab fa-youtube"></i>
                         Youtube
                     </a>
                     

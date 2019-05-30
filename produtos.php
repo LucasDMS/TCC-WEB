@@ -78,7 +78,6 @@
 
             
             <?php
-            
                 $produto_esquerda = true;
 
                 $sql = "select * from vw_produtos_site where apagado = 0 and ativo = 1";
@@ -89,8 +88,6 @@
 
             <?php
             // pra arrumar a posicao -> flex-direction: row-reverse;
-
-
                 if ($produto_esquerda){
                     $posicao = "esquerda";
                     $produto_esquerda = false;
@@ -169,7 +166,7 @@
                                         <td>3</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3">(*)% Valpres Diários de referência com base em uma dieta...</td>
+                                        <td colspan="3">(*)% Valores Diários de referência com base em uma dieta...</td>
                                     </tr>
                                 </table>
                             </div>

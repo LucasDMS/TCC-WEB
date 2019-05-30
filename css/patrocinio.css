@@ -32,10 +32,25 @@
 
 .lista_patrocinio img{
     height: 250px;
-    width: 45%;
 }
 
 .lista_patrocinio div{
     padding: 15px;
     
+}
+
+@media (max-width: 750px) {
+    .lista_patrocinio li{
+        display: block;
+        text-align: center
+    }
+}
+
+@media (max-width: 500px) {
+    
+
+    .lista_patrocinio img{
+        max-width: 100%;
+        height: auto;
+    }
 }
