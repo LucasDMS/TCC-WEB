@@ -337,7 +337,12 @@ footer {
 	overflow: hidden;
 	overflow-y: auto;
 }
-
+.titulosform{
+	font-size: 25px;
+	color: #15a650;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
 .pagina_titulo {
 	max-width: 1440px;
 	padding: 15px 25px;

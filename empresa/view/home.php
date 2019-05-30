@@ -26,9 +26,11 @@
             <?php require_once("view/components/footer.php"); ?>
         </main>
     </div>
-
+    <script src="https://assets.pagar.me/pagarme-js/3.1/pagarme.min.js"></script>
     <script src="view/js/jquery_min.js"></script>
     <script src="view/js/index.js"></script>
     <script src="view/js/async.js"></script>
+    <script src="view/js/mask.js"></script>
+    <script src="view/js/pagarme.js"></script>
 </body>
 </html>

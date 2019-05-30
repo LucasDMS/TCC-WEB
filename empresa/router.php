@@ -109,6 +109,20 @@ if(isset($_GET['controller'])){
                     break;
             }
             break;
+        
+        case 'CADASTRO_CARRINHO':
+
+            require_once('controller/controllerCarrinho.php');
+            
+            $Controller = new ControllerCarrinho();
+
+            switch($modo){
+                case 'INSERIR':
+
+                $Controller->inserirCarrinho();
+                break;
+            }
+            break;
     }
 }
 

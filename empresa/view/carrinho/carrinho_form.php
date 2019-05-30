@@ -1,56 +1,8 @@
 <?php
-    require('vendor/autoload.php');
-    
-    $pagarme = new PagarMe\Client('ak_test_z4z0XMkFGZQVMQiw6IVCtIf2lhAkKx');
-    
-    $transaction = $pagarme->transactions()->create([
-      'amount' => 700000,
-      'payment_method' => 'boleto',
-      'async' => false,
-      'customer' => [
-        'external_id' => '1',
-        'name' => 'Nome do cliente',
-        'type' => 'individual',
-        'country' => 'br',
-        'documents' => [
-          [
-            'type' => 'cpf',
-            'number' => '00000000000'
-          ]
-        ],
-        'phone_numbers' => [ '+551199999999' ],
-        'email' => 'cliente@email.com'
-      ]
-    ]);
-    
 
-    //$transaction->charge();
-
-    //var_dump($transactions = $pagarme->transactions()->getList());
-
-    $transactions = $pagarme->transactions()->get([
-       'id' => '6410017' 
-     ]);
-
-     echo var_dump($transactions);
-
-      
-    ////
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controllerCarrinho.php");
-
-
-    $descricao = null;
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        
-        $Controller = new ControllerCarrinho();
-        $carrinho = $Controller->buscarCarrinho($id);
-        $action = "router.php?controller=cadastro_carrinho&modo=atualizar";
-        $modo = "atualizar";
-        $descricao = $carrinho->getDescricao();
-        
-    }
+$action = "router.php?controller=cadastro_carrinho&modo=inserir";
 ?>
 
 <form   onsubmit="asyncSubmit(event, this)"
@@ -63,24 +15,85 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/tcc/empresa" . "/controller/controlle
         class="form_padrao"
         data-id="<?php echo $id; ?>"
         data-modo="<?php echo $modo; ?>"
-        data-pagina="marketing">
+        data-pagina="carrinho">
 
-        <div class="inputDados">
-            <label from="txtDescricao">Descrição</label>
-            <textarea name="txtDescricao" id="txtDescricao" required><?php echo $descricao ?></textarea>
-       
+        <div class="titulosform">
+            <label>Dados do cartão</label>
         </div>
         <div class="inputDados">
-            <input type="file" name="img" id="img"><br>
+            <label from="txtNumeroCartao">Número do Cartão</label>
+            <input type="number" name="txtNumeroCartao" id="txtNumeroCartao" value="" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtCvv">Código de verificação</label>
+            <input type="number" maxlength="3" name="txtCvv" id="txtCvv"  value="" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtValidade">Data de validade do Cartão</label>
+            <input type="date" name="txtValidade" id="txtValidade" value="" required><br>
+        </div>
+        <div class="titulosform">
+            <label>Dados pessoais</label>
+        </div>
+        <div class="inputDados">
+            <label from="txtNome">Nome</label>
+            <input type="text" name="txtNome" id="txtNome"  value="" autocomplete="off" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtEmail">E-Mail</label>
+            <input type="email" name="txtEmail" id="txtEmail" value="" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtCPF">CPF</label>
+            <input type="text" name="txtCPF" id="txtCPF" value="" maxlength="14" onkeydown="javascript: fMasc( this, mCPF );" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtCelular">Celular</label>
+            <input type="text" name="txtCelular" id="txtCelular" value="" maxlength="14" onkeydown="javascript: fMasc( this, mTel );" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtCep">CEP</label>
+            <input type="text" name="txtCep" id="txtCep" value="" maxlength="14" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtRua">Rua</label>
+            <input type="text" name="txtRua" id="txtRua" value="" required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtBairro">Bairro</label>
+            <input type="text" name="txtBairro" id="txtBairro" value=""  required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtCidade">Cidade</label>
+            <input type="text" name="txtCidade" id="txtCidade" value=""  required><br>
+        </div>
+        <div class="inputDados">
+            <label from="txtEstado">Estado</label>
+            <input type="text" name="txtEstado" maxlength="2" id="txtEstado" value=""  required><br>
         </div>
         <div class="flex flex-center">
             <button type="reset" class="btn btn-clear">
                 <i class="fas fa-eraser"></i>
             </button>
+            <button class="btn btn-submit" onclick="compra()">
 
-            <button class="btn btn-submit">
                 <i class="fas fa-save"></i>
             </button>
         </div>
 
 </form>
+<script>
+    $('#txtCep').on("blur", function(){
+
+        const value = $('#txtCep').val()
+        const url = "https://viacep.com.br/ws/" + value + "/json/"
+
+        $.ajax({ url }).done(function(resposta){
+                
+            $('#txtRua').val(resposta.logradouro)
+            $('#txtBairro').val(resposta.bairro)
+            $('#txtCidade').val(resposta.localidade)
+            $('#txtEstado').val(resposta.uf)
+        })
+    })
+</script>
