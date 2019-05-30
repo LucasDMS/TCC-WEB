@@ -16,7 +16,6 @@
 
             <div class="lista_btn" onclick="toggleSubMenu(this, 1, true)">
                 <div>
-                    <i class="fas fa-cog"></i>
                     Usuários
                 </div>
                 <i class="fas fa-angle-right seta" id="seta_1"></i>
@@ -27,7 +26,6 @@
                     
                     <li onclick="chamarViewParaApp('usuario_estabelecimento')">
                         <div>
-                            <i class="fas fa-wrench"></i>
                             Usuários cadastrados
                         </div>
                     </li>
@@ -39,7 +37,6 @@
             <!-- BOTÃO -->
             <div class="lista_btn" onclick="toggleSubMenu(this, 2, true)">
                     <div>
-                        <i class="fas fa-cog"></i>
                         Menu
                     </div>
                     <i class="fas fa-angle-right seta" id="seta_2"></i>
@@ -49,35 +46,18 @@
             <ul>
                 <li onclick="chamarViewParaApp('compras')">
                     <div>
-                        <i class="fas fa-wrench"></i>
                         Comprar
-                    </div>
-                </li>
-            </ul>
-            <ul>
-                <li onclick="chamarViewParaApp('usuario_estabelecimento')">
-                    <div>
-                        <i class="fas fa-wrench"></i>
-                        Ver histórico
                     </div>
                 </li>
             </ul>
             <ul>
                 <li onclick="chamarViewParaApp('marketing')">
                     <div>
-                        <i class="fas fa-wrench"></i>
                         Crie seu marketing
                     </div>
                 </li>
             </ul>
-            <ul>
-                <li onclick="chamarViewParaApp('usuario_estabelecimento')">
-                    <div>
-                        <i class="fas fa-wrench"></i>
-                        Solicitar divulgação
-                    </div>
-                </li>
-            </ul>
+    
         </li>
         <?php } 
            if($_SESSION['tipo'] == 'EMPRESA'){

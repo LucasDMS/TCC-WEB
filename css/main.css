@@ -162,7 +162,7 @@ body {
 	position: fixed;
 	padding-top: 80px;
 	background-color: #212529;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .menu_esquerda {
